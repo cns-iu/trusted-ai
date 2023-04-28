@@ -4,6 +4,11 @@
   "plugins": ["@nx"],
   "overrides": [
     {
+      "files": ["*.js"],
+      "extends": ["plugin:@nx/javascript"],
+      "rules": {}
+    },
+    {
       "files": ["*.ts"],
       "extends": [
         "plugin:@nx/typescript",
