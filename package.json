@@ -50,6 +50,7 @@
     "@schematics/angular": "~15.2.0",
     "@storybook/addon-essentials": "7.0.7",
     "@storybook/angular": "7.0.7",
+    "@storybook/core-common": "^6.5.15",
     "@storybook/core-server": "7.0.7",
     "@twittwer/compodoc": "^1.9.0",
     "@types/jest": "^29.4.0",

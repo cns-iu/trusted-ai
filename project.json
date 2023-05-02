@@ -91,8 +91,75 @@
         "buildTarget": "trust-ai:build"
       }
     },
+    "compodoc": {
+      "executor": "@twittwer/compodoc:compodoc",
+      "options": {
+        "tsConfig": "tsconfig.app.json",
+        "outputPath": "dist/compodoc/app"
+      },
+      "configurations": {
+        "ci": {
+          "silent": true
+        },
+        "serve": {
+          "watch": true,
+          "disableCoverage": false,
+          "disablePrivate": false,
+          "disableInternal": false
+        }
+      }
+    },
+    "compodoc-json": {
+      "executor": "@twittwer/compodoc:compodoc",
+      "options": {
+        "tsConfig": "tsconfig.app.json",
+        "outputPath": "dist/compodoc/app",
+        "exportFormat": "json"
+      }
+    },
     "test-doc-coverage": {
       "command": "compodoc -p tsconfig.app.json -d tmp/doc-coverage -e json --coverageTest --coverageMinimumPerFile 100 --coverageTestShowOnlyFailed -t"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "./.storybook",
+        "browserTarget": "trust-ai:build",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/trust-ai",
+        "configDir": "./.storybook",
+        "browserTarget": "trust-ai:build",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "trust-ai:build-storybook",
+        "staticFilePath": "dist/storybook/trust-ai"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "trust-ai:build-storybook:ci"
+        }
+      }
     }
   }
 }
