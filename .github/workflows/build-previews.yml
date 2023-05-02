@@ -1,0 +1,41 @@
+name: Netlify Preview Deploy
+
+on:
+  pull_request:
+    types: ['opened', 'edited', 'synchronize']
+
+concurrency:
+  group: preview-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: 'Deploy'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Prepare Deploy
+        uses: ./.github/actions/prepare-deploy
+        with:
+          main-branch-name: develop
+          app-configuration: preview
+
+      - name: Deploy Preview
+        id: deploy
+        uses: jsmrcaga/action-netlify-deploy@v1.8.0
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          use_nvm: false
+          build_command: echo
+          install_command: echo
+          build_directory: deploy/
+
+      - name: Create Deploy Comment
+        uses: ./.github/actions/deploy-comment
+        with:
+          deploy-url: ${{steps.deploy.outputs.NETLIFY_PREVIEW_URL}}
