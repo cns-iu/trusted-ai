@@ -10,11 +10,6 @@ import { MatInputModule } from '@angular/material/input';
 import { map, startWith } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 
-export interface JobEntry {
-  name: string;
-  // TODO: add more stuff
-}
-
 @Component({
   selector: 'trust-ai-search-box',
   standalone: true,
@@ -36,8 +31,8 @@ export interface JobEntry {
 export class SearchBoxComponent {
   @HostBinding('class') readonly clsName = 'trust-ai-search-box';
 
-  /** Searchable nodes */
-  @Input() jobs: JobEntry[] = [{ name: 'One' }, { name: 'Two' }, { name: 'Three' }];
+  /** Searchable jobs */
+  @Input() jobs: string[] = ['One', 'Two', 'Three'];
 
   /** Disable autocomplete */
   @Input() autoCompleteDisabled = false;
@@ -45,13 +40,13 @@ export class SearchBoxComponent {
   /** Emits an event any time the search changes */
   @Output() readonly search = new EventEmitter<string>();
 
-  /** Emits the selected node */
-  @Output() readonly jobSelected = new EventEmitter<JobEntry>();
+  /** Emits the selected job */
+  @Output() readonly jobSelected = new EventEmitter<string>();
 
-  /** Input value control (State type: `string | JobEntry`) */
+  /** Input value control (State type: `string | string`) */
   readonly control = new FormControl('');
 
-  /** Filtered nodes by current search */
+  /** Filtered jobs by current search */
   readonly filteredJobs = (() => {
     return this.control.valueChanges.pipe(
       startWith(''),
@@ -63,23 +58,22 @@ export class SearchBoxComponent {
   highlightText = '';
 
   /**
-   * Displays node name
+   * Displays job name
    *
-   * @param node The node
-   * @returns The node name
+   * @param job The job
+   * @returns The job name
    */
-  displayJobName(job: JobEntry): string {
-    return job.name;
+  displayJobName(job: string): string {
+    return job;
   }
 
   /**
-   * Filters nodes by a search
+   * Filters jobs by a search
    *
    * @param search Search text
-   * @returns Filtered nodes
+   * @returns Filtered jobs
    */
-  private filterJobs(search: string): JobEntry[] {
-    const lsearch = search.toLowerCase();
-    return this.jobs.filter((job) => job.name.toLowerCase().includes(lsearch));
+  private filterJobs(search: string): string[] {
+    return this.jobs.filter((job) => job.toLowerCase().includes(search.toLowerCase()));
   }
 }
