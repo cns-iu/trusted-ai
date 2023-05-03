@@ -1,0 +1,27 @@
+<span class="search-title">Explore government careers</span>
+<mat-form-field class="form" appearance="fill">
+  <mat-label>Job title, keywords</mat-label>
+  <input
+    class="search-input"
+    matInput
+    placeholder=""
+    [matAutocomplete]="auto"
+    [formControl]="control"
+    [matAutocompleteDisabled]="autoCompleteDisabled"
+  />
+
+  <mat-autocomplete
+    #auto="matAutocomplete"
+    class="job-search-options"
+    [displayWith]="displayJobName"
+    (optionSelected)="jobSelected.emit($event.option.value)"
+  >
+    <mat-option *ngFor="let job of filteredJobs | async" [value]="job">
+      {{ job.name }}
+    </mat-option>
+  </mat-autocomplete>
+
+  <mat-icon class="material-icons">search</mat-icon>
+</mat-form-field>
+
+<button class="search-occupation-button" mat-stroked-button color="primary">See all occupations</button>
