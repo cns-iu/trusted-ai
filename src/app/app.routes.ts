@@ -6,4 +6,8 @@ export const appRoutes: Route[] = [
     path: '',
     loadComponent: () => LandingPageComponent,
   },
+  {
+    path: 'faq',
+    loadComponent: () => LandingPageComponent,
+  },
 ];
