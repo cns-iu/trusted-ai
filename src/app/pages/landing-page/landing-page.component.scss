@@ -1,0 +1,94 @@
+:host {
+  .explore-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 16px 48px;
+    gap: 32px;
+    height: 531px;
+    background: url(../../../assets/landing-background.png);
+    background-size: cover;
+
+    .explore-title {
+      width: 572px;
+      height: 80px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      color: #22005d;
+    }
+  }
+
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 112px;
+    gap: 56px;
+    position: relative;
+    height: 504px;
+    background: #e9ddff;
+
+    .info-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+
+      .info-title {
+        width: 432px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 50px;
+        text-align: center;
+        color: #22005d;
+      }
+
+      .divider {
+        width: 32px;
+        height: 8px;
+        background: #1c1b1e;
+      }
+    }
+
+    .info-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 56px;
+
+      width: 1288px;
+
+      .info-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+        gap: 16px;
+        width: 342px;
+
+        .info-item-name {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 30px;
+          text-align: center;
+        }
+
+        .info-item-description {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
