@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PageHeaderComponent } from './page-header/page-header.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { PageFooterComponent } from './page-footer/page-footer.component';
 
 @Component({
   standalone: true,
-  imports: [PageHeaderComponent, PageFooterComponent, RouterModule],
+  imports: [NavbarComponent, PageFooterComponent, RouterModule],
   selector: 'trust-ai-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],

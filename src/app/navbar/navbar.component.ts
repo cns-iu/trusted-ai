@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'trust-ai-page-header',
+  selector: 'trust-ai-navbar',
   standalone: true,
   imports: [CommonModule, MatIconModule],
-  templateUrl: './page-header.component.html',
-  styleUrls: ['./page-header.component.scss'],
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
 })
-export class PageHeaderComponent {}
+export class NavbarComponent {}
