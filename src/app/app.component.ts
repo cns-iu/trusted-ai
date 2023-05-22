@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PageFooterComponent } from './page-footer/page-footer.component';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [NavbarComponent, PageFooterComponent, RouterModule],
   selector: 'trust-ai-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],

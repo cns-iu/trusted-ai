@@ -1,0 +1,37 @@
+:host {
+  .partner-links,
+  .cns-link,
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .partner-links,
+  .cns-link {
+    padding: 80px 32px;
+    gap: 40px;
+    border-top: 1px solid #cac4cf;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .divider {
+    margin-top: 1.5rem;
+    width: 2rem;
+    height: 0.5rem;
+    background: #cfbcff;
+  }
+
+  .link-list {
+    display: flex;
+    align-items: center;
+    gap: 104px;
+
+    img {
+      filter: grayscale(1);
+    }
+  }
+}

@@ -8,6 +8,10 @@ export const appRoutes: Route[] = [
     loadComponent: () => LandingPageComponent,
   },
   {
+    path: 'faq',
+    loadComponent: () => LandingPageComponent,
+  },
+  {
     path: '',
     loadComponent: () => OccupationsPageComponent,
   },

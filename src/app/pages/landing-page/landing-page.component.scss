@@ -1,0 +1,81 @@
+:host {
+  .explore-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 112px 16px 48px;
+    background: url(../../../assets/landing-background.png);
+    background-size: cover;
+
+    .explore-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 33%;
+    }
+
+    .explore-title {
+      font-size: 32px;
+      text-align: center;
+      margin: 0 auto;
+      color: #22005d;
+      width: 90%;
+    }
+  }
+
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+    padding: 80px 112px;
+    position: relative;
+    background: #e9ddff;
+
+    .info-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+
+      .info-title {
+        font-size: 40px;
+        text-align: center;
+        color: #22005d;
+      }
+
+      .divider {
+        width: 2rem;
+        height: 0.5rem;
+        background: #1c1b1e;
+      }
+    }
+
+    .info-list {
+      display: flex;
+      justify-content: space-between;
+      gap: 56px;
+      width: 85%;
+
+      .info-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        width: 342px;
+
+        .info-item-name {
+          font-size: 24px;
+          line-height: 30px;
+          text-align: center;
+        }
+
+        .info-item-description {
+          line-height: 24px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
