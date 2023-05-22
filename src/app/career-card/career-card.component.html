@@ -4,4 +4,4 @@
   <div class="preparation-text">{{ preparednessLevels[jobInfo.preparation] }}</div>
 </div>
 <div class="code">{{ jobInfo.code }}</div>
-<button class="view-button" mat-stroked-button>View Occupation</button>
+<button class="view-button" (click)="jobClicked.emit(jobInfo)" mat-stroked-button>View Occupation</button>
