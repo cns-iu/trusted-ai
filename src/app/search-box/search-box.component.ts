@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { map, startWith } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'trust-ai-search-box',
@@ -23,6 +24,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatOptionModule,
     MatButtonModule,
+    RouterModule,
   ],
   templateUrl: './search-box.component.html',
   styleUrls: ['./search-box.component.scss'],

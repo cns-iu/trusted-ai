@@ -12,7 +12,7 @@ export const appRoutes: Route[] = [
     loadComponent: () => LandingPageComponent,
   },
   {
-    path: '',
+    path: 'occupations',
     loadComponent: () => OccupationsPageComponent,
   },
 ];

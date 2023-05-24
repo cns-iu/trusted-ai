@@ -1,0 +1,23 @@
+:host {
+  .content {
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+
+    .banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      font-size: 28px;
+      background: #e9ddff;
+      width: 100%;
+
+      div {
+        width: 1108px;
+      }
+    }
+  }
+}
