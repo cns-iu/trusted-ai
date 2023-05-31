@@ -1,23 +1,50 @@
 :host {
-  .content {
-    padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .banner {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
+    font-size: 1.75rem;
+    background: #e9ddff;
+    width: 100%;
 
-    .banner {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      font-size: 28px;
-      background: #e9ddff;
+    div {
+      padding: 2rem 0rem;
+      width: 69.25rem;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    padding-bottom: 2rem;
+
+    trust-ai-occupations-search-area,
+    trust-ai-search-listings {
       width: 100%;
+    }
+  }
 
-      div {
-        width: 1108px;
-      }
+  .listing-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #e9ddff;
+    width: 100%;
+    gap: 1rem;
+    padding: 2rem 0;
+
+    .scroll-top-button {
+      border-radius: 1rem;
+      border-color: rgba(122, 117, 127, 1);
+      color: #6750a4;
+      background: #f7f2fa;
     }
   }
 }
