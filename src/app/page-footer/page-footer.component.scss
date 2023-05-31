@@ -9,13 +9,13 @@
 
   .partner-links,
   .cns-link {
-    padding: 80px 32px;
-    gap: 40px;
+    padding: 5rem 2rem;
+    gap: 2.5rem;
     border-top: 1px solid #cac4cf;
   }
 
   .section-title {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   .divider {
@@ -28,7 +28,7 @@
   .link-list {
     display: flex;
     align-items: center;
-    gap: 104px;
+    gap: 6.5rem;
 
     img {
       filter: grayscale(1);
