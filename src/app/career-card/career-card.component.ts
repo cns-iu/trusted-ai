@@ -1,15 +1,10 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 
-export interface JobInfo {
-  title: string;
-  preparation: number;
-  code: string;
-  [key: string]: unknown;
-}
+import { JobInfo } from '../pages/occupations-page/occupations-page.component';
 
-const PreparednessLevels: Record<number, string> = {
+const PreparednessLevels: Record<string, string> = {
   1: 'Little or No Preparation Needed',
   2: 'Some Preparation',
   3: 'Medium Preparation Needed',
@@ -26,9 +21,10 @@ const PreparednessLevels: Record<number, string> = {
 })
 export class CareerCardComponent {
   @Input() jobInfo: JobInfo = {
-    title: '',
-    preparation: 1,
-    code: '',
+    Occupation: '',
+    'Job Zone': '1',
+    'Data-level': '',
+    Code: '',
   };
 
   @Output() jobClicked = new EventEmitter<JobInfo>();
