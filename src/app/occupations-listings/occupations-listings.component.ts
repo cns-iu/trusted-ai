@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { CareerCardComponent, JobInfo } from '../career-card/career-card.component';
+import { CareerCardComponent } from '../career-card/career-card.component';
+import { JobInfo } from '../pages/occupations-page/occupations-page.component';
 
 @Component({
   selector: 'trust-ai-occupations-listings',
@@ -11,7 +12,7 @@ import { CareerCardComponent, JobInfo } from '../career-card/career-card.compone
   styleUrls: ['./occupations-listings.component.scss'],
 })
 export class OccupationsListingsComponent {
-  @Input() allJobs: JobInfo[] = [];
+  @Input() allJobs: JobInfo[] | null | undefined = [];
 
   @Output() jobClicked = new EventEmitter<JobInfo>();
 }

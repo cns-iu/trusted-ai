@@ -4,14 +4,22 @@
   align-items: center;
   gap: 1rem;
 
+  .counter {
+    width: 100%;
+    font-weight: 500;
+    font-size: 14px;
+    color: #22005d;
+    padding: 0.5rem;
+  }
+
   .job-list-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px;
+    padding: 1.5rem;
     background: #e6e1e6;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-    border-radius: 12px;
+    border-radius: 0.75rem;
     width: fit-content;
     gap: 1rem;
 
