@@ -14,9 +14,13 @@ export interface SearchFilters {
 
 /** Job info from csv */
 export interface JobInfo {
+  /** Job code */
   Code: string;
+  /** Data level */
   'Data-level': string;
+  /** Preparedness level */
   'Job Zone': string;
+  /** Job title */
   Occupation: string;
 }
 

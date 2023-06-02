@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { SearchFilters } from '../pages/occupations-page/occupations-page.component';
 
+/** Occupations page search component */
 @Component({
   selector: 'trust-ai-occupations-search-area',
   standalone: true,
