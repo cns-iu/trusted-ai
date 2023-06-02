@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { OccupationsPageComponent } from './occupations-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('OccupationsPageComponent', () => {
   let component: OccupationsPageComponent;
@@ -7,7 +8,7 @@ describe('OccupationsPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OccupationsPageComponent],
+      imports: [OccupationsPageComponent, BrowserAnimationsModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(OccupationsPageComponent);
