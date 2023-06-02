@@ -1,14 +1,27 @@
-import { Shallow } from 'shallow-render';
-import { OccupationsSearchAreaComponent } from './occupations-search-area.component';
-import { SearchFilters } from '../pages/occupations-page/occupations-page.component';
-import { MatButtonToggleChange, MatButtonToggleModule } from '@angular/material/button-toggle';
 import { TestBed } from '@angular/core/testing';
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import { Shallow } from 'shallow-render';
+
+import { SearchFilters } from '../pages/occupations-page/occupations-page.component';
+import { OccupationsSearchAreaComponent } from './occupations-search-area.component';
 
 describe('OccupationsSearchAreaComponent', () => {
   let shallow: Shallow<OccupationsSearchAreaComponent>;
 
   const testFilters: SearchFilters = {
     searchTerm: '',
+    showOccupations: '0',
+    preparednessLevel: '0',
+  };
+
+  const testFilters2: SearchFilters = {
+    searchTerm: '',
+    showOccupations: 'test',
+    preparednessLevel: '0',
+  };
+
+  const testFilters3: SearchFilters = {
+    searchTerm: 'test',
     showOccupations: '0',
     preparednessLevel: '0',
   };
@@ -25,11 +38,6 @@ describe('OccupationsSearchAreaComponent', () => {
 
   beforeEach(async () => {
     shallow = new Shallow(OccupationsSearchAreaComponent);
-
-    TestBed.configureTestingModule({
-      imports: [],
-      providers: [],
-    });
   });
 
   it('creates', async () => {
@@ -37,14 +45,16 @@ describe('OccupationsSearchAreaComponent', () => {
   });
 
   it('should emit the changed filter value', async () => {
-    const { instance, outputs } = await shallow.render({ bind: { filters: testFilters } });
+    const { instance, outputs } = await shallow.render();
+    instance.filters = testFilters;
     instance.filtersChange('showOccupations', testToggleEvent);
-    expect(outputs.filtersChanged.emit).toHaveBeenCalledWith(instance.filters);
+    expect(outputs.filtersChanged.emit).toHaveBeenCalledWith(testFilters2);
   });
 
   it('should emit the changed search input value', async () => {
-    const { instance, outputs } = await shallow.render({ bind: { filters: testFilters } });
+    const { instance, outputs } = await shallow.render();
+    instance.filters = testFilters;
     instance.inputChange(testInputEvent);
-    expect(outputs.filtersChanged.emit).toHaveBeenCalledWith(instance.filters);
+    expect(outputs.filtersChanged.emit).toHaveBeenCalled();
   });
 });

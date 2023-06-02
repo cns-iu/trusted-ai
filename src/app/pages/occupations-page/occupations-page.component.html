@@ -9,6 +9,6 @@
   <trust-ai-occupations-listings [allJobs]="filteredJobs"></trust-ai-occupations-listings>
 </div>
 <div class="listing-bottom">
-  <div>End of {{ filteredJobs.length }} occupations</div>
+  <div>End of {{ filteredJobs.length.toLocaleString() }} occupations</div>
   <button class="scroll-top-button" (click)="scrollToTop()" mat-stroked-button color="primary">Back to Top</button>
 </div>
