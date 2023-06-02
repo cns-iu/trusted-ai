@@ -21,8 +21,14 @@
       aria-label="Show Occupations"
       (change)="filtersChange('showOccupations', $event)"
     >
-      <mat-button-toggle value="0" checked="true">All</mat-button-toggle>
-      <mat-button-toggle value="1">Data-level</mat-button-toggle>
+      <mat-button-toggle value="0" checked="true">
+        <mat-icon class="checkmark" *ngIf="filters['showOccupations'] === '0'">check</mat-icon>
+        All
+      </mat-button-toggle>
+      <mat-button-toggle value="1">
+        <mat-icon class="checkmark" *ngIf="filters['showOccupations'] === '1'">check</mat-icon>
+        Data-level
+      </mat-button-toggle>
     </mat-button-toggle-group>
   </div>
   <div class="preparedness-toggle">
@@ -32,12 +38,20 @@
       aria-label="Preparedness Level"
       (change)="filtersChange('preparednessLevel', $event)"
     >
-      <mat-button-toggle value="0" checked="true">All</mat-button-toggle>
+      <mat-button-toggle
+        *ngFor="let item of ['0', '1', '2', '3', '4', '5']"
+        value="{{ item }}"
+        checked="{{ item === '0' }}"
+      >
+        <mat-icon class="checkmark" *ngIf="filters['preparednessLevel'] === item">check</mat-icon>
+        {{ item === '0' ? 'All' : item }}
+      </mat-button-toggle>
+      <!-- <mat-button-toggle value="0" checked="true">All</mat-button-toggle>
       <mat-button-toggle value="1">1</mat-button-toggle>
       <mat-button-toggle value="2">2</mat-button-toggle>
       <mat-button-toggle value="3">3</mat-button-toggle>
       <mat-button-toggle value="4">4</mat-button-toggle>
-      <mat-button-toggle value="5">5</mat-button-toggle>
+      <mat-button-toggle value="5">5</mat-button-toggle> -->
     </mat-button-toggle-group>
   </div>
 </div>

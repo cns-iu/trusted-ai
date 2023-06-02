@@ -30,6 +30,7 @@ export class OccupationsSearchAreaComponent {
   /** Handles when a button toggle is changed */
   filtersChange(field: string, event: MatButtonToggleChange) {
     this.filters[field] = event.value;
+    console.log(this.filters);
     this.filtersChanged.emit(this.filters);
   }
 

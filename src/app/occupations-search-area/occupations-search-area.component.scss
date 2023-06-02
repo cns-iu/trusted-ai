@@ -59,6 +59,17 @@
       border-right: 1px solid #7a757f;
       border-top: 1px solid #7a757f;
       border-bottom: 1px solid #7a757f;
+
+      ::ng-deep .mat-button-toggle-label-content {
+        padding: 0;
+      }
+
+      .checkmark {
+        height: 1.125rem;
+        width: 1.125rem;
+        line-height: 1.125rem;
+        padding-right: 0.5rem;
+      }
     }
 
     .mat-button-toggle-checked {
@@ -95,7 +106,7 @@
 
   .preparedness-toggle {
     mat-button-toggle {
-      width: 60.17px;
+      width: 4rem;
     }
   }
 
