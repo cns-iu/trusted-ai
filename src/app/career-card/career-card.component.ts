@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { JobInfo } from '../pages/occupations-page/occupations-page.component';
 
+/** Preparedness level text corresponding to numerical value */
 const PreparednessLevels: Record<string, string> = {
   1: 'Little or No Preparation Needed',
   2: 'Some Preparation',
@@ -12,6 +13,7 @@ const PreparednessLevels: Record<string, string> = {
   5: 'Extensive Preparation Needed',
 };
 
+/** Card to display individual career information */
 @Component({
   selector: 'trust-ai-career-card',
   standalone: true,
@@ -20,6 +22,7 @@ const PreparednessLevels: Record<string, string> = {
   styleUrls: ['./career-card.component.scss'],
 })
 export class CareerCardComponent {
+  /** Job info to be displayed in the card */
   @Input() jobInfo: JobInfo = {
     Occupation: '',
     'Job Zone': '1',
@@ -27,7 +30,9 @@ export class CareerCardComponent {
     Code: '',
   };
 
+  /** Emits job info when job is clicked */
   @Output() jobClicked = new EventEmitter<JobInfo>();
 
+  /** Preparedness level text to be used */
   preparednessLevels = PreparednessLevels;
 }

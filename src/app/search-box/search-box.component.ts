@@ -11,6 +11,9 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { map, startWith } from 'rxjs';
 
+/**
+ * Search box which appears on the landing page
+ */
 @Component({
   selector: 'trust-ai-search-box',
   standalone: true,
@@ -31,6 +34,7 @@ import { map, startWith } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchBoxComponent {
+  /** Host binding */
   @HostBinding('class') readonly clsName = 'trust-ai-search-box';
 
   /** Searchable jobs */

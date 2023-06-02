@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+/**
+ * Page footer containing links to sponsors and CNS
+ */
 @Component({
   selector: 'trust-ai-page-footer',
   standalone: true,

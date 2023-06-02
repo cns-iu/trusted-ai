@@ -11,5 +11,8 @@ import { PageFooterComponent } from './page-footer/page-footer.component';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  /**
+   * Title of app component
+   */
   title = 'trust-ai';
 }
