@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 import { parse } from 'papaparse';
 import { Observable, tap } from 'rxjs';
 import { OccupationsListingsComponent } from 'src/app/occupations-listings/occupations-listings.component';
@@ -43,6 +44,8 @@ export interface JobInfo {
 export class OccupationsPageComponent implements OnInit {
   /** Http client */
   private readonly http = inject(HttpClient);
+
+  private readonly router = inject(Router);
 
   /** List of all jobs */
   allJobs: JobInfo[] = [];
@@ -90,5 +93,9 @@ export class OccupationsPageComponent implements OnInit {
   /** Scrolls to top of page */
   scrollToTop(): void {
     window.scrollTo(0, 0);
+  }
+
+  loadProfile(job: JobInfo): void {
+    this.router.navigate(['/profile', { code: job.Code }]);
   }
 }
