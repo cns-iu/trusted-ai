@@ -80,7 +80,7 @@ export class OccupationsPageComponent implements OnInit {
       .filter((job) =>
         job['Occupation']
           ? job['Occupation'].toLowerCase().includes(filters['searchTerm'].toLowerCase()) ||
-            job['Code'].includes(filters['title'])
+            job['Code'].includes(filters['searchTerm'])
           : false
       )
       .filter((job) => filters['preparednessLevel'] === '0' || job['Job Zone'] === filters['preparednessLevel'])

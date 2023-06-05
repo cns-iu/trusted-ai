@@ -20,12 +20,6 @@ describe('OccupationsSearchAreaComponent', () => {
     preparednessLevel: '0',
   };
 
-  const testFilters3: SearchFilters = {
-    searchTerm: 'test',
-    showOccupations: '0',
-    preparednessLevel: '0',
-  };
-
   const testToggleEvent = {
     value: 'test',
   } as MatButtonToggleChange;
