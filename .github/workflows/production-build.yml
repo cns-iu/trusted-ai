@@ -24,8 +24,9 @@ jobs:
           main-branch-name: main
           app-configuration: production
           nx-command: run-many
+          generate-index: 'false'
 
-      - name: Copy App to top
+      - name: Copy app to top directory
         run: cp -r deploy/apps/trust-ai/* deploy
 
       - name: Publish

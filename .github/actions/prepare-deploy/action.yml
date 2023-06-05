@@ -28,6 +28,10 @@ inputs:
     description: Whether to build storybook
     required: false
     default: 'true'
+  generate-index:
+    description: Whether to generate index
+    required: false
+    default: 'true'
 
 runs:
   using: composite
@@ -64,6 +68,7 @@ runs:
       run: ${{ github.action_path }}/collect_artifacts.sh ${{ inputs.deploy-directory }} dist/{apps,compodoc,storybook}
 
     - name: Generate index file
+      if: ${{ inputs.generate-index == 'true' }}
       uses: cuchi/jinja2-action@v1.2.0
       with:
         template: ${{ github.action_path }}/index.html.j2
