@@ -10,7 +10,7 @@
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/trust-ai",
+        "outputPath": "dist/apps/trust-ai",
         "index": "./src/index.html",
         "main": "./src/main.ts",
         "polyfills": ["zone.js"],
@@ -21,6 +21,8 @@
       },
       "configurations": {
         "production": {
+          "baseHref": "/trust-ai/apps/trust-ai",
+          "outputHashing": "none",
           "budgets": [
             {
               "type": "initial",
@@ -32,8 +34,7 @@
               "maximumWarning": "2kb",
               "maximumError": "4kb"
             }
-          ],
-          "outputHashing": "all"
+          ]
         },
         "development": {
           "buildOptimizer": false,
@@ -42,6 +43,10 @@
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
+        },
+        "staging": {
+          "baseHref": "/apps/trust-ai",
+          "outputHashing": "none"
         }
       },
       "defaultConfiguration": "production"
