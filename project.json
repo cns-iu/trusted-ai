@@ -21,7 +21,7 @@
       },
       "configurations": {
         "production": {
-          "baseHref": "/trusted-ai/apps/trust-ai",
+          "baseHref": "/trusted-ai/apps/trust-ai/",
           "outputHashing": "none",
           "budgets": [
             {
@@ -45,7 +45,7 @@
           "namedChunks": true
         },
         "staging": {
-          "baseHref": "/apps/trust-ai",
+          "baseHref": "/apps/trust-ai/",
           "outputHashing": "none"
         }
       },
