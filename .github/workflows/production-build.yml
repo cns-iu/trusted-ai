@@ -1,4 +1,4 @@
-name: Staging Build
+name: Production Build
 
 on:
   workflow_run:
@@ -22,13 +22,12 @@ jobs:
         uses: ./.github/actions/prepare-deploy
         with:
           main-branch-name: main
-          app-configuration: staging
+          app-configuration: production
           nx-command: run-many
-          build-storybook: false
 
       - name: Publish
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: deploy
-          commit_message: 'Staging deploy -- ${{ github.event.head_commit.message }}'
+          commit_message: 'Production deploy -- ${{ github.event.head_commit.message }}'
