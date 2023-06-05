@@ -1,0 +1,133 @@
+:host {
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+  }
+
+  .search-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-box,
+  .occupations-toggle {
+    width: 22.25rem;
+  }
+
+  .preparedness-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .preparedness-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 2.5rem;
+    border: 1px solid #7a757f;
+    border-radius: 6.25rem;
+
+    .label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #6750a4;
+      padding: 0.625rem 1.5rem 0.625rem 1rem;
+
+      .info-icon {
+        height: 1.125rem;
+      }
+    }
+  }
+
+  .search-box,
+  .occupations-toggle,
+  .preparedness-toggle {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #22005d;
+  }
+
+  .occupations-toggle,
+  .preparedness-toggle {
+    mat-button-toggle {
+      border-right: 1px solid #7a757f;
+      border-top: 1px solid #7a757f;
+      border-bottom: 1px solid #7a757f;
+
+      ::ng-deep .mat-button-toggle-label-content {
+        padding: 0;
+      }
+
+      .checkmark {
+        height: 1.125rem;
+        width: 1.125rem;
+        line-height: 1.125rem;
+        padding-right: 0.5rem;
+      }
+    }
+
+    .mat-button-toggle-checked {
+      background: #e8def8;
+    }
+
+    .mat-button-toggle:first-of-type {
+      border-left: 1px solid #7a757f;
+      border-radius: 6.25rem 0 0 6.25rem;
+
+      ::ng-deep .mat-ripple {
+        border-radius: 6.25rem 0 0 6.25rem;
+      }
+    }
+    .mat-button-toggle:last-of-type {
+      border-radius: 0 6.25rem 6.25rem 0;
+
+      ::ng-deep .mat-ripple {
+        border-radius: 0 6.25rem 6.25rem 0;
+      }
+    }
+  }
+
+  .occupations-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+
+    mat-button-toggle {
+      width: 112.5px;
+    }
+  }
+
+  .preparedness-toggle {
+    mat-button-toggle {
+      width: 4rem;
+    }
+  }
+
+  mat-form-field {
+    padding-top: 0.5rem;
+  }
+
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    background: #ece6f0;
+    border-radius: 1.75rem;
+  }
+
+  ::ng-deep .mat-mdc-form-field-infix {
+    display: inline-flex;
+  }
+
+  ::ng-deep .mdc-line-ripple {
+    display: none;
+  }
+
+  ::ng-deep .mat-button-toggle-group {
+    border: none;
+  }
+}
