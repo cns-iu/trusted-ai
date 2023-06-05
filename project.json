@@ -21,7 +21,7 @@
       },
       "configurations": {
         "production": {
-          "baseHref": "/trust-ai/apps/trust-ai",
+          "baseHref": "/trusted-ai/apps/trust-ai",
           "outputHashing": "none",
           "budgets": [
             {
@@ -100,7 +100,7 @@
       "executor": "@twittwer/compodoc:compodoc",
       "options": {
         "tsConfig": "tsconfig.app.json",
-        "outputPath": "dist/compodoc/app"
+        "outputPath": "dist/compodoc/trust-ai"
       },
       "configurations": {
         "ci": {
@@ -118,7 +118,7 @@
       "executor": "@twittwer/compodoc:compodoc",
       "options": {
         "tsConfig": "tsconfig.app.json",
-        "outputPath": "dist/compodoc/app",
+        "outputPath": "dist/compodoc/trust-ai",
         "exportFormat": "json"
       }
     },
