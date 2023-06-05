@@ -3,7 +3,7 @@
   <img
     class="preparation-level"
     *ngIf="jobInfo['Job Zone'] !== 'n/a'"
-    src="{{ '../../../assets/icons/counter_' + jobInfo['Job Zone'] + '.png' }}"
+    src="{{ '/assets/icons/counter_' + jobInfo['Job Zone'] + '.png' }}"
   />
   <div class="preparation-text">{{ preparednessLevels[jobInfo['Job Zone']] }}</div>
 </div>
