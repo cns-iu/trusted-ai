@@ -25,6 +25,9 @@ jobs:
           app-configuration: production
           nx-command: run-many
 
+      - name: Copy App to top
+        run: cp -r deploy/apps/trust-ai/* deploy
+
       - name: Publish
         uses: peaceiris/actions-gh-pages@v3
         with:

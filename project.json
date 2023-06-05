@@ -21,7 +21,7 @@
       },
       "configurations": {
         "production": {
-          "baseHref": "/trusted-ai/apps/trust-ai/",
+          "baseHref": "/trusted-ai/",
           "outputHashing": "none",
           "budgets": [
             {
