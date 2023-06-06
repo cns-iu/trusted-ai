@@ -67,9 +67,9 @@ export class OccupationsPageComponent implements OnInit {
 
   /** Converts csv to job entries and updates the shown list when filter is changed */
   setJobs(): Observable<unknown> {
-    return this.http.get('assets/All_Occupations.csv', { responseType: 'text' }).pipe(
+    return this.http.get('assets/data/index.json', { responseType: 'text' }).pipe(
       tap((result) => {
-        const parsedResult = parse<JobInfo>(result, { header: true }).data;
+        const parsedResult = JSON.parse(result);
         this.allJobs = parsedResult;
         this.filterJobs(this.currentFilters);
       })
@@ -86,8 +86,10 @@ export class OccupationsPageComponent implements OnInit {
             job['Code'].includes(filters['searchTerm'])
           : false
       )
-      .filter((job) => filters['preparednessLevel'] === '0' || job['Job Zone'] === filters['preparednessLevel'])
-      .filter((job) => filters['showOccupations'] === '0' || job['Data-level'] === 'Y');
+      .filter(
+        (job) => filters['preparednessLevel'] === '0' || job['Job Zone'].toString() === filters['preparednessLevel']
+      );
+    // .filter((job) => filters['showOccupations'] === '0' || job['Data-level'] === 'Y');
   }
 
   /** Scrolls to top of page */
