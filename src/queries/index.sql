@@ -4,6 +4,6 @@ FROM public.job_zones;
 
 \t
 \a
-\o index.json
+\o src/assets/data/index.json
 SELECT array_to_json(array_agg(ROW_TO_JSON(r)), TRUE)
 FROM (SELECT * FROM foo) AS r;

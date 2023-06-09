@@ -43,6 +43,8 @@ export class SearchBoxComponent {
   /** Disable autocomplete */
   @Input() autoCompleteDisabled = false;
 
+  @Input() placeholder = 'Job title, keywords';
+
   /** Emits an event any time the search changes */
   @Output() readonly search = new EventEmitter<string>();
 

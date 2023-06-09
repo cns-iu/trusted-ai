@@ -1,9 +1,8 @@
-<span class="search-title">Explore government careers</span>
 <mat-form-field class="form" appearance="fill" subscriptSizing="dynamic">
   <input
     class="search-input"
     matInput
-    placeholder="Job title, keywords"
+    placeholder="{{ placeholder }}"
     [matAutocomplete]="auto"
     [formControl]="control"
     [matAutocompleteDisabled]="autoCompleteDisabled"

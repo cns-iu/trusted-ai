@@ -1,0 +1,107 @@
+:host {
+  .search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0.5rem;
+
+    .search-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2rem 0;
+      width: 33%;
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: #22005d;
+    }
+  }
+
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1.75rem;
+      background: #e9ddff;
+      padding: 1.5rem 0;
+      width: 100%;
+      gap: 0.5rem;
+
+      div {
+        width: 69.25rem;
+      }
+
+      .section-title {
+        font-size: 24px;
+        line-height: 32px;
+      }
+
+      .code {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 0;
+      width: 69.25rem;
+      gap: 1.5rem;
+
+      .sub-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .sub-section-title {
+          font-size: 22px;
+        }
+
+        .sub-section-content {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    padding-bottom: 2rem;
+
+    trust-ai-occupations-search-area,
+    trust-ai-search-listings {
+      width: 100%;
+    }
+  }
+
+  .profile-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #e9ddff;
+    width: 100%;
+    gap: 1rem;
+    padding: 2rem 0;
+
+    .scroll-top-button {
+      border-radius: 1rem;
+      border-color: rgba(122, 117, 127, 1);
+      color: #6750a4;
+      background: #f7f2fa;
+    }
+  }
+}
