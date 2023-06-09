@@ -3,7 +3,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
-import { parse } from 'papaparse';
 import { Observable, tap } from 'rxjs';
 import { OccupationsListingsComponent } from 'src/app/occupations-listings/occupations-listings.component';
 import { OccupationsSearchAreaComponent } from 'src/app/occupations-search-area/occupations-search-area.component';
