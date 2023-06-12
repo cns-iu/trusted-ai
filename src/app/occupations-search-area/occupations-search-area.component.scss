@@ -130,4 +130,9 @@
   ::ng-deep .mat-button-toggle-group {
     border: none;
   }
+
+  .disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
