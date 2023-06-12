@@ -1,12 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { parse } from 'papaparse';
-import { Observable, tap } from 'rxjs';
-
-import { JobInfo } from '../occupations-page/occupations-page.component';
 import { MatButtonModule } from '@angular/material/button';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, tap } from 'rxjs';
 import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
 
 export interface JobDescription {
@@ -33,16 +30,16 @@ export class ProfilePageComponent implements OnInit {
   altTitles: string[] = [];
 
   ngOnInit() {
-    this.getData().subscribe();
+    this.route.params.subscribe((params) => {
+      this.getData(params['code']).subscribe();
+    });
   }
 
-  getData(): Observable<unknown> {
+  getData(code: string): Observable<unknown> {
     return this.http.get('assets/data/job_descriptions.json', { responseType: 'text' }).pipe(
       tap((result) => {
-        const code = this.route.snapshot.paramMap.get('code') || '';
         const parsedResult: JobDescription[] = JSON.parse(result);
         const match = parsedResult.find((job) => job['soc_id'] === code);
-        console.log(match);
         this.code = code;
         this.title = match?.title || '';
         this.description = match?.descr || '';
