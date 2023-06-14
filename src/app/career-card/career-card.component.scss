@@ -21,6 +21,11 @@
 
   .preparation {
     min-width: 17.25rem;
+    gap: 10px;
+
+    .preparation-text {
+      line-height: 1.5rem;
+    }
   }
 
   .code {
