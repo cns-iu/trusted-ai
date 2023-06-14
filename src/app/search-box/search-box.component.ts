@@ -107,7 +107,7 @@ export class SearchBoxComponent implements OnInit {
     return this.jobs.filter((job) => job.toLowerCase().includes(search.toLowerCase()));
   }
 
-  setJobs(): Observable<unknown> {
+  private setJobs(): Observable<unknown> {
     return this.http.get('assets/data/index.json', { responseType: 'text' }).pipe(
       tap((result) => {
         const parsedResult: JobInfo[] = JSON.parse(result);
