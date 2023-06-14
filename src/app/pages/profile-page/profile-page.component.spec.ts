@@ -1,21 +1,54 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+
 import { ProfilePageComponent } from './profile-page.component';
 
 describe('ProfilePageComponent', () => {
   let component: ProfilePageComponent;
-  let fixture: ComponentFixture<ProfilePageComponent>;
+  let controller: HttpTestingController;
+  const paramsSubject = new BehaviorSubject({ code: '11111' });
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ProfilePageComponent],
-    }).compileComponents();
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [
+        ProfilePageComponent,
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: paramsSubject,
+          },
+        },
+      ],
+    });
 
-    fixture = TestBed.createComponent(ProfilePageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    jest.clearAllMocks();
+    window.scrollTo = jest.fn();
+    component = TestBed.inject(ProfilePageComponent);
+    controller = TestBed.inject(HttpTestingController);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should scroll to top on load', () => {
+    const spy = jest.spyOn(component, 'scrollToTop');
+    component.ngOnInit();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('gets data', () => {
+    component.ngOnInit();
+    const req = controller.expectOne('assets/data/job_descriptions.json');
+    req.flush('[{"soc_id":"11111"}]');
+  });
+
+  it('gets data2', () => {
+    component.ngOnInit();
+    const req = controller.expectOne('assets/data/job_descriptions.json');
+    req.flush('[{"soc_id":"00000"}]');
   });
 });
