@@ -42,13 +42,17 @@ describe('ProfilePageComponent', () => {
 
   it('gets data', () => {
     component.ngOnInit();
-    const req = controller.expectOne('assets/data/job_descriptions.json');
+    const req = controller.expectOne('assets/data/profile_data.json');
     req.flush('[{"soc_id":"11111"}]');
   });
 
   it('gets data2', () => {
     component.ngOnInit();
-    const req = controller.expectOne('assets/data/job_descriptions.json');
+    const req = controller.expectOne('assets/data/profile_data.json');
     req.flush('[{"soc_id":"00000"}]');
+  });
+
+  it('gets preparedness level', () => {
+    expect(component.preparednessLevel(1)).toEqual('Little or No Preparation Needed');
   });
 });
