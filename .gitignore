@@ -40,3 +40,5 @@ Thumbs.db
 
 .angular
 env/
+
+.profile_data.json

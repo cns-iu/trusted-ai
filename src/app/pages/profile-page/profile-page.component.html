@@ -1,23 +1,23 @@
 <div class="search" style="background: url(assets/landing-background.png); background-size: cover">
   <div class="search-content">
     Search Occupations
-    <trust-ai-search-box class="search-box" placeholder="{{ match['title'] }}"></trust-ai-search-box>
+    <trust-ai-search-box class="search-box" placeholder="{{ currentJobInfo['title'] }}"></trust-ai-search-box>
   </div>
 </div>
 
 <div class="profile-section description">
   <div class="section-header">
-    <div class="section-title">{{ match['title'] }}</div>
-    <div class="code">{{ match['soc_id'] }}</div>
+    <div class="section-title">{{ currentJobInfo['title'] }}</div>
+    <div class="code">{{ currentJobInfo['soc_id'] }}</div>
   </div>
   <div class="content">
     <div class="sub-section">
       <div class="sub-section-title">Occupation Description</div>
-      <div class="sub-section-content">{{ match['descr'] }}</div>
+      <div class="sub-section-content">{{ currentJobInfo['descr'] }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Reported job title examples</div>
-      <div class="sub-section-content">{{ match.alt_titles?.toString() }}</div>
+      <div class="sub-section-content">{{ currentJobInfo.alt_titles?.toString() }}</div>
     </div>
   </div>
 </div>
@@ -28,8 +28,8 @@
   </div>
   <div class="content">
     <div class="job-header">
-      <div class="code">{{ match['soc_id'] }}</div>
-      <div class="section-title">{{ match['title'] }}</div>
+      <div class="code">{{ currentJobInfo['soc_id'] }}</div>
+      <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
   </div>
 </div>
@@ -42,11 +42,11 @@
     <div class="sub-section">
       <div class="sub-section-title">
         <img
-          *ngIf="match['job_zone']"
+          *ngIf="currentJobInfo['job_zone']"
           class="preparation-level"
-          src="{{ 'assets/icons/counter_' + match['job_zone'] + '.svg' }}"
+          src="{{ 'assets/icons/counter_' + currentJobInfo['job_zone'] + '.svg' }}"
         />
-        {{ match['job_zone'] ? preparednessLevel(match['job_zone']) : '' }}
+        {{ currentJobInfo['job_zone'] ? preparednessLevel(currentJobInfo['job_zone']) : '' }}
       </div>
       <div class="sub-section-content">
         Preparedness Levels group occupations into one of five categories based on levels of education, experience, and
@@ -55,23 +55,23 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Education</div>
-      <div class="sub-section-content">{{ match['education'] }}</div>
+      <div class="sub-section-content">{{ currentJobInfo['education'] }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Related Experience</div>
-      <div class="sub-section-content">{{ match['experience'] }}</div>
+      <div class="sub-section-content">{{ currentJobInfo['experience'] }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Job Training</div>
-      <div class="sub-section-content">{{ match['job_training'] }}</div>
+      <div class="sub-section-content">{{ currentJobInfo['job_training'] }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Preparedness Examples</div>
-      <div class="sub-section-content">{{ match['example'] }}</div>
+      <div class="sub-section-content">{{ currentJobInfo['example'] }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Specific Vocational Preparation (SVP) Range</div>
-      <div class="sub-section-content">{{ match['svp_range'] }}</div>
+      <div class="sub-section-content">{{ currentJobInfo['svp_range'] }}</div>
     </div>
   </div>
 </div>
@@ -82,8 +82,8 @@
   </div>
   <div class="content">
     <div class="job-header">
-      <div class="code">{{ match['soc_id'] }}</div>
-      <div class="section-title">{{ match['title'] }}</div>
+      <div class="code">{{ currentJobInfo['soc_id'] }}</div>
+      <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
   </div>
 </div>
@@ -94,8 +94,8 @@
   </div>
   <div class="content">
     <div class="job-header">
-      <div class="code">{{ match['soc_id'] }}</div>
-      <div class="section-title">{{ match['title'] }}</div>
+      <div class="code">{{ currentJobInfo['soc_id'] }}</div>
+      <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Technology Skills by Importance</div>
@@ -110,8 +110,8 @@
   </div>
   <div class="content">
     <div class="job-header">
-      <div class="code">{{ match['soc_id'] }}</div>
-      <div class="section-title">{{ match['title'] }}</div>
+      <div class="code">{{ currentJobInfo['soc_id'] }}</div>
+      <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Average Salary</div>
@@ -134,7 +134,7 @@
   </div>
   <div class="content">
     <div class="job-header">
-      <div class="code">{{ match['soc_id'] }}</div>
+      <div class="code">{{ currentJobInfo['soc_id'] }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Number of Occupations by State</div>
@@ -149,7 +149,7 @@
   </div>
   <div class="content">
     <div class="job-header">
-      <div class="section-title">{{ match['title'] }}</div>
+      <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Occupation Projection</div>
@@ -171,7 +171,7 @@
 </div>
 
 <div class="profile-bottom">
-  <div>{{ match['soc_id'] }}</div>
-  <div>{{ match['title'] }}</div>
+  <div>{{ currentJobInfo['soc_id'] }}</div>
+  <div>{{ currentJobInfo['title'] }}</div>
   <button class="scroll-top-button" (click)="scrollToTop()" mat-stroked-button color="primary">Back to Top</button>
 </div>

@@ -34,8 +34,8 @@ export class ProfilePageComponent implements OnInit {
   /** Http client */
   private readonly http = inject(HttpClient);
 
-  /** Scrolls to top of page */
-  match: AllJobInfo = {};
+  /** Current job info */
+  currentJobInfo: AllJobInfo = {};
 
   /**
    * Scrolls to top of page and fetches profile data on init
@@ -53,13 +53,10 @@ export class ProfilePageComponent implements OnInit {
    * @returns Observable
    */
   private getData(code: string): Observable<unknown> {
-    return this.http.get('assets/data/profile_data.json', { responseType: 'text' }).pipe(
+    return this.http.get(`assets/profiles/${code}/metadata.json`, { responseType: 'text' }).pipe(
       tap((result) => {
-        const parsedResult: AllJobInfo[] = JSON.parse(result);
-        const match = parsedResult.find((job) => job['soc_id'] === code);
-        if (match) {
-          this.match = match;
-        }
+        this.currentJobInfo = JSON.parse(result);
+        console.log(this.currentJobInfo);
       })
     );
   }
