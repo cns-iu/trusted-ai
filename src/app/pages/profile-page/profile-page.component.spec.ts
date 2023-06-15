@@ -42,13 +42,13 @@ describe('ProfilePageComponent', () => {
 
   it('gets data', () => {
     component.ngOnInit();
-    const req = controller.expectOne('assets/data/profile_data.json');
+    const req = controller.expectOne('assets/profiles/11111/metadata.json');
     req.flush('[{"soc_id":"11111"}]');
   });
 
   it('gets data2', () => {
     component.ngOnInit();
-    const req = controller.expectOne('assets/data/profile_data.json');
+    const req = controller.expectOne('assets/profiles/11111/metadata.json');
     req.flush('[{"soc_id":"00000"}]');
   });
 
