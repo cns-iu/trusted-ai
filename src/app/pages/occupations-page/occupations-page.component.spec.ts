@@ -1,10 +1,10 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
-
-import { OccupationsPageComponent, SearchFilters } from './occupations-page.component';
 import { RouterTestingModule } from '@angular/router/testing';
+
 import { ProfilePageComponent } from '../profile-page/profile-page.component';
+import { OccupationsPageComponent, SearchFilters } from './occupations-page.component';
 
 describe('OccupationsPageComponent', () => {
   let component: OccupationsPageComponent;

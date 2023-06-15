@@ -9,6 +9,7 @@ import { OccupationsSearchAreaComponent } from 'src/app/occupations-search-area/
 
 /** Search filter data layout */
 export interface SearchFilters {
+  /** Filter value */
   [key: string]: string;
 }
 
@@ -25,7 +26,7 @@ export interface JobInfo {
 }
 
 /**
- * Occupations page
+ * Occupations page component
  */
 @Component({
   selector: 'trust-ai-occupations-page',
@@ -44,6 +45,7 @@ export class OccupationsPageComponent implements OnInit {
   /** Http client */
   private readonly http = inject(HttpClient);
 
+  /** Angular router */
   private readonly router = inject(Router);
 
   /** List of all jobs */
@@ -96,6 +98,7 @@ export class OccupationsPageComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
+  /** Loads job profile */
   loadProfile(job: JobInfo): void {
     this.router.navigate(['/profile', { code: job.Code }]);
   }

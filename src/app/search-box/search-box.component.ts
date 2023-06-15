@@ -47,7 +47,10 @@ import { JobInfo } from '../pages/occupations-page/occupations-page.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchBoxComponent implements OnInit {
+  /** Http client */
   private readonly http = inject(HttpClient);
+
+  /** Angular router */
   private readonly router = inject(Router);
 
   /** Host binding */
@@ -59,6 +62,7 @@ export class SearchBoxComponent implements OnInit {
   /** Disable autocomplete */
   @Input() autoCompleteDisabled = false;
 
+  /** Search placeholder */
   @Input() placeholder = 'Job title, keywords';
 
   /** Emits an event any time the search changes */
@@ -67,7 +71,11 @@ export class SearchBoxComponent implements OnInit {
   /** Emits the selected job */
   @Output() readonly jobSelected = new EventEmitter<string>();
 
+  /** Job results */
   jobsResults: JobInfo[] = [];
+
+  /** Text to highlight in search results */
+  highlightText = '';
 
   /** Input value control (State type: `string | string`) */
   readonly control = new FormControl('');
@@ -80,9 +88,9 @@ export class SearchBoxComponent implements OnInit {
     );
   })();
 
-  /** Text to highlight in search results */
-  highlightText = '';
-
+  /**
+   * Sets jobs on init
+   */
   ngOnInit(): void {
     this.setJobs().subscribe();
   }
@@ -103,11 +111,15 @@ export class SearchBoxComponent implements OnInit {
    * @param search Search text
    * @returns Filtered jobs
    */
-  private filterJobs(search: string): string[] {
+  filterJobs(search: string): string[] {
     return this.jobs.filter((job) => job.toLowerCase().includes(search.toLowerCase()));
   }
 
-  private setJobs(): Observable<unknown> {
+  /**
+   * Gets list of all jobs
+   * @returns jobs
+   */
+  setJobs(): Observable<unknown> {
     return this.http.get('assets/data/index.json', { responseType: 'text' }).pipe(
       tap((result) => {
         const parsedResult: JobInfo[] = JSON.parse(result);
@@ -117,6 +129,10 @@ export class SearchBoxComponent implements OnInit {
     );
   }
 
+  /**
+   * Loads profile when search result is selected
+   * @param job
+   */
   loadProfile(job: string): void {
     const code = this.jobsResults.find((result) => result.Occupation === job)?.Code;
     this.router.navigate(['/profile', { code: code }]);

@@ -4,40 +4,22 @@ import { Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
 import { PreparednessLevels } from 'src/app/career-card/career-card.component';
+import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
 
+/** Queried job data format */
 export interface AllJobInfo {
-  soc_id?: string;
-  title?: string;
-  descr?: string;
+  /** Job data value */
+  [key: string]: unknown;
+  /** List of alternative job titles */
   alt_titles?: string[];
+  /** Job zone (preparedness level) */
   job_zone?: number;
-  name?: string;
-  experience?: string;
-  education?: string;
-  job_training?: string;
-  example?: string;
-  svp_range?: string;
 }
 
-export interface JobDescription {
-  soc_id?: string;
-  title?: string;
-  descr?: string;
-  alt_titles?: string[];
-}
-
-export interface Preparedness {
-  job_zone: number;
-  name?: string;
-  experience?: string;
-  education?: string;
-  job_training?: string;
-  example?: string;
-  svp_range?: string;
-}
-
+/**
+ * Profile page component
+ */
 @Component({
   selector: 'trust-ai-profile-page',
   standalone: true,
@@ -46,28 +28,18 @@ export interface Preparedness {
   styleUrls: ['./profile-page.component.scss'],
 })
 export class ProfilePageComponent implements OnInit {
+  /** Scrolls to top of page */
   private readonly route = inject(ActivatedRoute);
+
+  /** Http client */
   private readonly http = inject(HttpClient);
 
-  preparednessLevels = PreparednessLevels;
+  /** Scrolls to top of page */
+  match: AllJobInfo = {};
 
-  jobDescription: JobDescription = {
-    soc_id: '',
-    title: '',
-    descr: '',
-    alt_titles: [],
-  };
-
-  preparedness: Preparedness = {
-    job_zone: 0,
-    name: '',
-    experience: '',
-    education: '',
-    job_training: '',
-    example: '',
-    svp_range: '',
-  };
-
+  /**
+   * Scrolls to top of page and fetches profile data on init
+   */
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.scrollToTop();
@@ -75,27 +47,19 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
+  /**
+   * Observable for fetching profile data for job code
+   * @param code Job code
+   * @returns Observable
+   */
   private getData(code: string): Observable<unknown> {
-    return this.http.get('assets/data/job_descriptions.json', { responseType: 'text' }).pipe(
+    return this.http.get('assets/data/profile_data.json', { responseType: 'text' }).pipe(
       tap((result) => {
         const parsedResult: AllJobInfo[] = JSON.parse(result);
         const match = parsedResult.find((job) => job['soc_id'] === code);
-        this.jobDescription = {
-          soc_id: match?.soc_id,
-          title: match?.title,
-          descr: match?.descr,
-          alt_titles: match?.alt_titles,
-        };
-
-        this.preparedness = {
-          job_zone: match?.job_zone || 0,
-          name: match?.name,
-          experience: match?.experience,
-          education: match?.education,
-          job_training: match?.job_training,
-          example: match?.example,
-          svp_range: match?.svp_range,
-        };
+        if (match) {
+          this.match = match;
+        }
       })
     );
   }
@@ -103,5 +67,14 @@ export class ProfilePageComponent implements OnInit {
   /** Scrolls to top of page */
   scrollToTop(): void {
     window.scrollTo(0, 0);
+  }
+
+  /**
+   * Returns preparednesslevel description
+   * @param level preparedness level
+   * @returns preparedness level description
+   */
+  preparednessLevel(level: number): string {
+    return PreparednessLevels[level];
   }
 }
