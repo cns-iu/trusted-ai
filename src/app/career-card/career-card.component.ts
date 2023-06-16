@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { JobInfo } from '../pages/occupations-page/occupations-page.component';
 
 /** Preparedness level text corresponding to numerical value */
-const PreparednessLevels: Record<string, string> = {
+export const PreparednessLevels: Record<string, string> = {
   1: 'Little or No Preparation Needed',
   2: 'Some Preparation',
   3: 'Medium Preparation Needed',
