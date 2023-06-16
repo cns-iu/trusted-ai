@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { parse } from 'papaparse';
+import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { OccupationsListingsComponent } from 'src/app/occupations-listings/occupations-listings.component';
 import { OccupationsSearchAreaComponent } from 'src/app/occupations-search-area/occupations-search-area.component';
 
 /** Search filter data layout */
 export interface SearchFilters {
+  /** Filter value */
   [key: string]: string;
 }
 
@@ -25,7 +26,7 @@ export interface JobInfo {
 }
 
 /**
- * Occupations page
+ * Occupations page component
  */
 @Component({
   selector: 'trust-ai-occupations-page',
@@ -43,6 +44,9 @@ export interface JobInfo {
 export class OccupationsPageComponent implements OnInit {
   /** Http client */
   private readonly http = inject(HttpClient);
+
+  /** Angular router */
+  private readonly router = inject(Router);
 
   /** List of all jobs */
   allJobs: JobInfo[] = [];
@@ -64,9 +68,9 @@ export class OccupationsPageComponent implements OnInit {
 
   /** Converts csv to job entries and updates the shown list when filter is changed */
   setJobs(): Observable<unknown> {
-    return this.http.get('assets/All_Occupations.csv', { responseType: 'text' }).pipe(
+    return this.http.get('assets/data/index.json', { responseType: 'text' }).pipe(
       tap((result) => {
-        const parsedResult = parse<JobInfo>(result, { header: true }).data;
+        const parsedResult = JSON.parse(result);
         this.allJobs = parsedResult;
         this.filterJobs(this.currentFilters);
       })
@@ -83,12 +87,19 @@ export class OccupationsPageComponent implements OnInit {
             job['Code'].includes(filters['searchTerm'])
           : false
       )
-      .filter((job) => filters['preparednessLevel'] === '0' || job['Job Zone'] === filters['preparednessLevel'])
-      .filter((job) => filters['showOccupations'] === '0' || job['Data-level'] === 'Y');
+      .filter(
+        (job) => filters['preparednessLevel'] === '0' || job['Job Zone'].toString() === filters['preparednessLevel']
+      );
+    // .filter((job) => filters['showOccupations'] === '0' || job['Data-level'] === 'Y');
   }
 
   /** Scrolls to top of page */
   scrollToTop(): void {
     window.scrollTo(0, 0);
+  }
+
+  /** Loads job profile */
+  loadProfile(job: JobInfo): void {
+    this.router.navigate(['/profile', { code: job.Code }]);
   }
 }
