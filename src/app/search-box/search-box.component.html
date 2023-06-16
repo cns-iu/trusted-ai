@@ -1,9 +1,8 @@
-<span class="search-title">Explore government careers</span>
 <mat-form-field class="form" appearance="fill" subscriptSizing="dynamic">
   <input
     class="search-input"
     matInput
-    placeholder="Job title, keywords"
+    placeholder="{{ placeholder }}"
     [matAutocomplete]="auto"
     [formControl]="control"
     [matAutocompleteDisabled]="autoCompleteDisabled"
@@ -13,7 +12,7 @@
     #auto="matAutocomplete"
     class="job-search-options"
     [displayWith]="displayJobName"
-    (optionSelected)="jobSelected.emit($event.option.value)"
+    (optionSelected)="loadProfile($event.option.value)"
   >
     <mat-option *ngFor="let job of filteredJobs | async" [value]="job">
       <mat-icon class="material-icons">search</mat-icon>

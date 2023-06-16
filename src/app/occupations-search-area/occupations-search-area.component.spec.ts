@@ -1,4 +1,3 @@
-import { TestBed } from '@angular/core/testing';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { Shallow } from 'shallow-render';
 
