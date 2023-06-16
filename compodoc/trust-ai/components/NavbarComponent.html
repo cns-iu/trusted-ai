@@ -134,8 +134,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Component } from &#x27;@angular/core&#x27;;
 import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
 import { RouterModule } from &#x27;@angular/router&#x27;;
 
@@ -155,7 +155,7 @@ export class NavbarComponent {}
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;navbar-content&quot;&gt;
-  &lt;div class&#x3D;&quot;logo&quot;&gt;Career Explorer&lt;/div&gt;
+  &lt;div routerLink&#x3D;&quot;/&quot; class&#x3D;&quot;logo&quot;&gt;Career Explorer&lt;/div&gt;
   &lt;a routerLink&#x3D;&quot;/faq&quot;&gt;
     &lt;img class&#x3D;&quot;faq-link&quot; src&#x3D;&quot;assets/icons/info.png&quot; /&gt;
   &lt;/a&gt;
@@ -187,6 +187,7 @@ export class NavbarComponent {}
     .logo {
       font-size: 1.5rem;
       color: #22005d;
+      cursor: pointer;
     }
   }
 }
@@ -218,8 +219,8 @@ export class NavbarComponent {}
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="navbar-content">  <div class="logo">Career Explorer</div>  <a routerLink="/faq">    <img class="faq-link" src="assets/icons/info.png" />  </a></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'}];
+        var COMPONENT_TEMPLATE = '<div><div class="navbar-content">  <div routerLink="/" class="logo">Career Explorer</div>  <a routerLink="/faq">    <img class="faq-link" src="assets/icons/info.png" />  </a></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NavbarComponent'};
 </script>

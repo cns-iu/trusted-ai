@@ -301,7 +301,7 @@ import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
 import { JobInfo } from &#x27;../pages/occupations-page/occupations-page.component&#x27;;
 
 /** Preparedness level text corresponding to numerical value */
-const PreparednessLevels: Record&lt;string, string&gt; &#x3D; {
+export const PreparednessLevels: Record&lt;string, string&gt; &#x3D; {
   1: &#x27;Little or No Preparation Needed&#x27;,
   2: &#x27;Some Preparation&#x27;,
   3: &#x27;Medium Preparation Needed&#x27;,
@@ -341,7 +341,7 @@ export class CareerCardComponent {
   &lt;img
     class&#x3D;&quot;preparation-level&quot;
     *ngIf&#x3D;&quot;jobInfo[&#x27;Job Zone&#x27;] !&#x3D;&#x3D; &#x27;n/a&#x27;&quot;
-    src&#x3D;&quot;{{ &#x27;assets/icons/counter_&#x27; + jobInfo[&#x27;Job Zone&#x27;] + &#x27;.png&#x27; }}&quot;
+    src&#x3D;&quot;{{ &#x27;assets/icons/counter_&#x27; + jobInfo[&#x27;Job Zone&#x27;] + &#x27;.svg&#x27; }}&quot;
   /&gt;
   &lt;div class&#x3D;&quot;preparation-text&quot;&gt;{{ preparednessLevels[jobInfo[&#x27;Job Zone&#x27;]] }}&lt;/div&gt;
 &lt;/div&gt;
@@ -377,6 +377,11 @@ export class CareerCardComponent {
 
   .preparation {
     min-width: 17.25rem;
+    gap: 10px;
+
+    .preparation-text {
+      line-height: 1.5rem;
+    }
   }
 
   .code {
@@ -422,8 +427,8 @@ export class CareerCardComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="job-title">{{ jobInfo[\'Occupation\'] }}</div><div class="preparation">  <img    class="preparation-level"    *ngIf="jobInfo[\'Job Zone\'] !== \'n/a\'"    src="{{ \'assets/icons/counter_\' + jobInfo[\'Job Zone\'] + \'.png\' }}"  />  <div class="preparation-text">{{ preparednessLevels[jobInfo[\'Job Zone\']] }}</div></div><div class="code">{{ jobInfo[\'Code\'] }}</div><button class="view-button" (click)="jobClicked.emit(jobInfo)" mat-stroked-button>View Occupation</button></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'}];
+        var COMPONENT_TEMPLATE = '<div><div class="job-title">{{ jobInfo[\'Occupation\'] }}</div><div class="preparation">  <img    class="preparation-level"    *ngIf="jobInfo[\'Job Zone\'] !== \'n/a\'"    src="{{ \'assets/icons/counter_\' + jobInfo[\'Job Zone\'] + \'.svg\' }}"  />  <div class="preparation-text">{{ preparednessLevels[jobInfo[\'Job Zone\']] }}</div></div><div class="code">{{ jobInfo[\'Code\'] }}</div><button class="view-button" (click)="jobClicked.emit(jobInfo)" mat-stroked-button>View Occupation</button></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CareerCardComponent'};
 </script>

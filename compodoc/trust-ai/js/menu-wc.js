@@ -83,6 +83,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/PageFooterComponent.html" data-type="entity-link" >PageFooterComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/ProfilePageComponent.html" data-type="entity-link" >ProfilePageComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/SearchBoxComponent.html" data-type="entity-link" >SearchBoxComponent</a>
                             </li>
                         </ul>
@@ -95,6 +98,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
+                            <li class="link">
+                                <a href="interfaces/AllJobInfo.html" data-type="entity-link" >AllJobInfo</a>
+                            </li>
                             <li class="link">
                                 <a href="interfaces/JobInfo.html" data-type="entity-link" >JobInfo</a>
                             </li>

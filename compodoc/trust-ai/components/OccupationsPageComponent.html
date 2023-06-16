@@ -72,7 +72,7 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Occupations page</p>
+        <p>Occupations page component</p>
 
     </p>
 
@@ -165,6 +165,9 @@
                                 <a href="#filterJobs" >filterJobs</a>
                             </li>
                             <li>
+                                <a href="#loadProfile" >loadProfile</a>
+                            </li>
+                            <li>
                                 <a href="#scrollToTop" >scrollToTop</a>
                             </li>
                             <li>
@@ -212,8 +215,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">src/app/pages/occupations-page/occupations-page.component.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/pages/occupations-page/occupations-page.component.ts:81</a></div>
                 </td>
             </tr>
 
@@ -267,6 +270,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="loadProfile"></a>
+                    <span class="name">
+                        <span ><b>loadProfile</b></span>
+                        <a href="#loadProfile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadProfile(job: <a href="../interfaces/JobInfo.html" target="_self">JobInfo</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">src/app/pages/occupations-page/occupations-page.component.ts:102</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Loads job profile</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>job</td>
+                                    <td>
+                                                <code><a href="../interfaces/JobInfo.html" target="_self" >JobInfo</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="scrollToTop"></a>
                     <span class="name">
                         <span ><b>scrollToTop</b></span>
@@ -283,8 +357,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="91"
-                            class="link-to-prism">src/app/pages/occupations-page/occupations-page.component.ts:91</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/pages/occupations-page/occupations-page.component.ts:97</a></div>
                 </td>
             </tr>
 
@@ -322,8 +396,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">src/app/pages/occupations-page/occupations-page.component.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/pages/occupations-page/occupations-page.component.ts:70</a></div>
                 </td>
             </tr>
 
@@ -371,7 +445,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/occupations-page/occupations-page.component.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/pages/occupations-page/occupations-page.component.ts:52</a></div>
                         </td>
                     </tr>
 
@@ -412,7 +486,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/pages/occupations-page/occupations-page.component.ts:54</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/pages/occupations-page/occupations-page.component.ts:58</a></div>
                         </td>
                     </tr>
 
@@ -449,7 +523,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/occupations-page/occupations-page.component.ts:51</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/occupations-page/occupations-page.component.ts:55</a></div>
                         </td>
                     </tr>
 
@@ -472,13 +546,14 @@
 import { HttpClient, HttpClientModule } from &#x27;@angular/common/http&#x27;;
 import { Component, inject, OnInit } from &#x27;@angular/core&#x27;;
 import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
-import { parse } from &#x27;papaparse&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 import { Observable, tap } from &#x27;rxjs&#x27;;
 import { OccupationsListingsComponent } from &#x27;src/app/occupations-listings/occupations-listings.component&#x27;;
 import { OccupationsSearchAreaComponent } from &#x27;src/app/occupations-search-area/occupations-search-area.component&#x27;;
 
 /** Search filter data layout */
 export interface SearchFilters {
+  /** Filter value */
   [key: string]: string;
 }
 
@@ -495,7 +570,7 @@ export interface JobInfo {
 }
 
 /**
- * Occupations page
+ * Occupations page component
  */
 @Component({
   selector: &#x27;trust-ai-occupations-page&#x27;,
@@ -513,6 +588,9 @@ export interface JobInfo {
 export class OccupationsPageComponent implements OnInit {
   /** Http client */
   private readonly http &#x3D; inject(HttpClient);
+
+  /** Angular router */
+  private readonly router &#x3D; inject(Router);
 
   /** List of all jobs */
   allJobs: JobInfo[] &#x3D; [];
@@ -534,9 +612,9 @@ export class OccupationsPageComponent implements OnInit {
 
   /** Converts csv to job entries and updates the shown list when filter is changed */
   setJobs(): Observable&lt;unknown&gt; {
-    return this.http.get(&#x27;assets/All_Occupations.csv&#x27;, { responseType: &#x27;text&#x27; }).pipe(
+    return this.http.get(&#x27;assets/data/index.json&#x27;, { responseType: &#x27;text&#x27; }).pipe(
       tap((result) &#x3D;&gt; {
-        const parsedResult &#x3D; parse&lt;JobInfo&gt;(result, { header: true }).data;
+        const parsedResult &#x3D; JSON.parse(result);
         this.allJobs &#x3D; parsedResult;
         this.filterJobs(this.currentFilters);
       })
@@ -553,13 +631,20 @@ export class OccupationsPageComponent implements OnInit {
             job[&#x27;Code&#x27;].includes(filters[&#x27;searchTerm&#x27;])
           : false
       )
-      .filter((job) &#x3D;&gt; filters[&#x27;preparednessLevel&#x27;] &#x3D;&#x3D;&#x3D; &#x27;0&#x27; || job[&#x27;Job Zone&#x27;] &#x3D;&#x3D;&#x3D; filters[&#x27;preparednessLevel&#x27;])
-      .filter((job) &#x3D;&gt; filters[&#x27;showOccupations&#x27;] &#x3D;&#x3D;&#x3D; &#x27;0&#x27; || job[&#x27;Data-level&#x27;] &#x3D;&#x3D;&#x3D; &#x27;Y&#x27;);
+      .filter(
+        (job) &#x3D;&gt; filters[&#x27;preparednessLevel&#x27;] &#x3D;&#x3D;&#x3D; &#x27;0&#x27; || job[&#x27;Job Zone&#x27;].toString() &#x3D;&#x3D;&#x3D; filters[&#x27;preparednessLevel&#x27;]
+      );
+    // .filter((job) &#x3D;&gt; filters[&#x27;showOccupations&#x27;] &#x3D;&#x3D;&#x3D; &#x27;0&#x27; || job[&#x27;Data-level&#x27;] &#x3D;&#x3D;&#x3D; &#x27;Y&#x27;);
   }
 
   /** Scrolls to top of page */
   scrollToTop(): void {
     window.scrollTo(0, 0);
+  }
+
+  /** Loads job profile */
+  loadProfile(job: JobInfo): void {
+    this.router.navigate([&#x27;/profile&#x27;, { code: job.Code }]);
   }
 }
 </code></pre>
@@ -574,7 +659,10 @@ export class OccupationsPageComponent implements OnInit {
     [filters]&#x3D;&quot;currentFilters&quot;
     (filtersChanged)&#x3D;&quot;filterJobs($event)&quot;
   &gt;&lt;/trust-ai-occupations-search-area&gt;
-  &lt;trust-ai-occupations-listings [allJobs]&#x3D;&quot;filteredJobs&quot;&gt;&lt;/trust-ai-occupations-listings&gt;
+  &lt;trust-ai-occupations-listings
+    [allJobs]&#x3D;&quot;filteredJobs&quot;
+    (jobClicked)&#x3D;&quot;loadProfile($event)&quot;
+  &gt;&lt;/trust-ai-occupations-listings&gt;
 &lt;/div&gt;
 &lt;div class&#x3D;&quot;listing-bottom&quot;&gt;
   &lt;div&gt;End of {{ filteredJobs.length.toLocaleString() }} occupations&lt;/div&gt;
@@ -665,8 +753,8 @@ export class OccupationsPageComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="banner">  <div>All Occupations</div></div><div class="content">  <trust-ai-occupations-search-area    [filters]="currentFilters"    (filtersChanged)="filterJobs($event)"  ></trust-ai-occupations-search-area>  <trust-ai-occupations-listings [allJobs]="filteredJobs"></trust-ai-occupations-listings></div><div class="listing-bottom">  <div>End of {{ filteredJobs.length.toLocaleString() }} occupations</div>  <button class="scroll-top-button" (click)="scrollToTop()" mat-stroked-button color="primary">Back to Top</button></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'}];
+        var COMPONENT_TEMPLATE = '<div><div class="banner">  <div>All Occupations</div></div><div class="content">  <trust-ai-occupations-search-area    [filters]="currentFilters"    (filtersChanged)="filterJobs($event)"  ></trust-ai-occupations-search-area>  <trust-ai-occupations-listings    [allJobs]="filteredJobs"    (jobClicked)="loadProfile($event)"  ></trust-ai-occupations-listings></div><div class="listing-bottom">  <div>End of {{ filteredJobs.length.toLocaleString() }} occupations</div>  <button class="scroll-top-button" (click)="scrollToTop()" mat-stroked-button color="primary">Back to Top</button></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'OccupationsPageComponent'};
 </script>
