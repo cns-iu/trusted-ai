@@ -1,0 +1,29 @@
+:host {
+  .controls {
+    display: flex;
+    justify-content: space-between;
+
+    .view-toggle {
+      cursor: pointer;
+    }
+  }
+
+  .technology-skill {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
+    border-bottom: 0.0625rem solid #cac4d0;
+    padding: 0.5rem 1.5rem 0.5rem 1rem;
+
+    .title {
+      font-size: 1rem;
+    }
+
+    .examples {
+      font-size: 0.875rem;
+      color: #49454e;
+      line-height: 1.25rem;
+    }
+  }
+}

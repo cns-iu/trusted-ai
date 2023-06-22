@@ -5,7 +5,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { PreparednessLevels } from 'src/app/career-card/career-card.component';
+import { ProfileTechnologySkillsComponent } from 'src/app/profile-technology-skills/profile-technology-skills.component';
 import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
+
+export interface TechSkill {
+  [key: string]: unknown;
+  commodity_title: string;
+  example: string;
+}
 
 /** Queried job data format */
 export interface AllJobInfo {
@@ -15,6 +22,7 @@ export interface AllJobInfo {
   alt_titles?: string[];
   /** Job zone (preparedness level) */
   job_zone?: number;
+  tech_skills?: TechSkill[];
 }
 
 /**
@@ -23,7 +31,7 @@ export interface AllJobInfo {
 @Component({
   selector: 'trust-ai-profile-page',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, MatButtonModule, SearchBoxComponent],
+  imports: [CommonModule, HttpClientModule, MatButtonModule, SearchBoxComponent, ProfileTechnologySkillsComponent],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
 })
@@ -36,6 +44,8 @@ export class ProfilePageComponent implements OnInit {
 
   /** Current job info */
   currentJobInfo: AllJobInfo = {};
+
+  techSkills: [string, string[]][] = [];
 
   /**
    * Scrolls to top of page and fetches profile data on init
@@ -56,9 +66,28 @@ export class ProfilePageComponent implements OnInit {
     return this.http.get(`assets/profiles/${code}/metadata.json`, { responseType: 'text' }).pipe(
       tap((result) => {
         this.currentJobInfo = JSON.parse(result);
-        console.log(this.currentJobInfo);
+        // console.log(this.currentJobInfo);
+        console.log(this.currentJobInfo['tech_skills']);
+        if (this.currentJobInfo['tech_skills']) {
+          this.setSkillsGrouping(this.currentJobInfo['tech_skills']);
+        }
       })
     );
+  }
+
+  private setSkillsGrouping(skills: TechSkill[]) {
+    const skillsGroup: Record<string, Set<string>> = {};
+    for (const skill of skills) {
+      const title = skill.commodity_title;
+      if (skillsGroup[title]) {
+        skillsGroup[title].add(skill.example);
+      } else {
+        const newGroup = new Set<string>();
+        newGroup.add(skill.example);
+        skillsGroup[title] = newGroup;
+      }
+    }
+    this.techSkills = Object.entries(skillsGroup).map((entry) => [entry[0], Array.from(entry[1])]);
   }
 
   /** Scrolls to top of page */
