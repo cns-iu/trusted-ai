@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { PreparednessLevels } from 'src/app/career-card/career-card.component';
+import { ProfileTechnologySkillsComponent } from 'src/app/profile-technology-skills/profile-technology-skills.component';
 import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
 
 /** Queried job data format */
@@ -15,6 +16,16 @@ export interface AllJobInfo {
   alt_titles?: string[];
   /** Job zone (preparedness level) */
   job_zone?: number;
+  /** List of technology skills */
+  tech_skills?: TechSkill[];
+}
+
+/** Info on a technology skill */
+export interface TechSkill {
+  /** Name of skill */
+  commodity_title: string;
+  /** Example of skill */
+  example: string;
 }
 
 /**
@@ -23,7 +34,7 @@ export interface AllJobInfo {
 @Component({
   selector: 'trust-ai-profile-page',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, MatButtonModule, SearchBoxComponent],
+  imports: [CommonModule, HttpClientModule, MatButtonModule, SearchBoxComponent, ProfileTechnologySkillsComponent],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
 })
@@ -37,6 +48,12 @@ export class ProfilePageComponent implements OnInit {
   /** Current job info */
   currentJobInfo: AllJobInfo = {};
 
+  /** Tech skills for the job (each pair = type of tech, list of examples for that tech)  */
+  techSkills: [string, string[]][] = [];
+
+  /** Whether or not all technology skills should be displayed */
+  showAllSkills = false;
+
   /**
    * Scrolls to top of page and fetches profile data on init
    */
@@ -44,6 +61,7 @@ export class ProfilePageComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.scrollToTop();
       this.getData(params['code']).subscribe();
+      this.showAllSkills = false;
     });
   }
 
@@ -56,9 +74,30 @@ export class ProfilePageComponent implements OnInit {
     return this.http.get(`assets/profiles/${code}/metadata.json`, { responseType: 'text' }).pipe(
       tap((result) => {
         this.currentJobInfo = JSON.parse(result);
-        console.log(this.currentJobInfo);
+        if (this.currentJobInfo['tech_skills']) {
+          this.setSkillsGrouping(this.currentJobInfo['tech_skills']);
+        }
       })
     );
+  }
+
+  /**
+   * Processes technology skills data into format usable by the technology skills list component
+   * @param skills Technology skills list
+   */
+  private setSkillsGrouping(skills: TechSkill[]) {
+    const skillsGroup: Record<string, Set<string>> = {};
+    for (const skill of skills) {
+      const title = skill.commodity_title;
+      if (skillsGroup[title]) {
+        skillsGroup[title].add(skill.example);
+      } else {
+        const newGroup = new Set<string>();
+        newGroup.add(skill.example);
+        skillsGroup[title] = newGroup;
+      }
+    }
+    this.techSkills = Object.entries(skillsGroup).map((entry) => [entry[0], Array.from(entry[1])]);
   }
 
   /** Scrolls to top of page */
@@ -73,5 +112,12 @@ export class ProfilePageComponent implements OnInit {
    */
   preparednessLevel(level: number): string {
     return PreparednessLevels[level];
+  }
+
+  /**
+   * Toggles showing all technology skills
+   */
+  showAllTechnologyButtonClicked(): void {
+    this.showAllSkills = !this.showAllSkills;
   }
 }

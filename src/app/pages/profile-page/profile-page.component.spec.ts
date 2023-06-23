@@ -43,16 +43,30 @@ describe('ProfilePageComponent', () => {
   it('gets data', () => {
     component.ngOnInit();
     const req = controller.expectOne('assets/profiles/11111/metadata.json');
-    req.flush('[{"soc_id":"11111"}]');
+    req.flush('{"soc_id":"11111"}');
   });
 
   it('gets data2', () => {
     component.ngOnInit();
     const req = controller.expectOne('assets/profiles/11111/metadata.json');
-    req.flush('[{"soc_id":"00000"}]');
+    req.flush('{"soc_id":"00000"}');
   });
 
   it('gets preparedness level', () => {
     expect(component.preparednessLevel(1)).toEqual('Little or No Preparation Needed');
+  });
+
+  it('gets tech skills', () => {
+    component.ngOnInit();
+    const req = controller.expectOne('assets/profiles/11111/metadata.json');
+    req.flush(
+      '{"soc_id":"11111", "tech_skills": [{"commodity_title": "title", "example": "example"}, {"commodity_title": "title", "example": "example2"}]}'
+    );
+    expect(component.techSkills).toEqual([['title', ['example', 'example2']]]);
+  });
+
+  it('shows all technology skills', () => {
+    component.showAllTechnologyButtonClicked();
+    expect(component.showAllSkills).toBeTruthy();
   });
 });

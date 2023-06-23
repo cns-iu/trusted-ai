@@ -1,0 +1,43 @@
+:host {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+
+    .view-toggle {
+      cursor: pointer;
+      color: #6750a4;
+    }
+  }
+
+  .technology-list {
+    :first-child {
+      border-top: none;
+    }
+  }
+
+  .technology-skill {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
+    border-top: 0.0625rem solid #cac4d0;
+    padding: 1rem 1.5rem 1rem 1rem;
+
+    .title {
+      font-size: 1rem;
+    }
+
+    .examples {
+      font-size: 0.875rem;
+      color: #49454e;
+      line-height: 1.25rem;
+    }
+  }
+}
