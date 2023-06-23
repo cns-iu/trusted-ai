@@ -8,12 +8,6 @@ import { PreparednessLevels } from 'src/app/career-card/career-card.component';
 import { ProfileTechnologySkillsComponent } from 'src/app/profile-technology-skills/profile-technology-skills.component';
 import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
 
-export interface TechSkill {
-  [key: string]: unknown;
-  commodity_title: string;
-  example: string;
-}
-
 /** Queried job data format */
 export interface AllJobInfo {
   /** Job data value */
@@ -22,7 +16,16 @@ export interface AllJobInfo {
   alt_titles?: string[];
   /** Job zone (preparedness level) */
   job_zone?: number;
+  /** List of technology skills */
   tech_skills?: TechSkill[];
+}
+
+/** Info on a technology skill */
+export interface TechSkill {
+  /** Name of skill */
+  commodity_title: string;
+  /** Example of skill */
+  example: string;
 }
 
 /**
@@ -45,8 +48,10 @@ export class ProfilePageComponent implements OnInit {
   /** Current job info */
   currentJobInfo: AllJobInfo = {};
 
+  /** Tech skills for the job (each pair = type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] = [];
 
+  /** Whether or not all technology skills should be displayed */
   showAllSkills = false;
 
   /**
@@ -76,6 +81,10 @@ export class ProfilePageComponent implements OnInit {
     );
   }
 
+  /**
+   * Processes technology skills data into format usable by the technology skills list component
+   * @param skills Technology skills list
+   */
   private setSkillsGrouping(skills: TechSkill[]) {
     const skillsGroup: Record<string, Set<string>> = {};
     for (const skill of skills) {
@@ -105,6 +114,9 @@ export class ProfilePageComponent implements OnInit {
     return PreparednessLevels[level];
   }
 
+  /**
+   * Toggles showing all technology skills
+   */
   showAllTechnologyButtonClicked(): void {
     this.showAllSkills = !this.showAllSkills;
   }
