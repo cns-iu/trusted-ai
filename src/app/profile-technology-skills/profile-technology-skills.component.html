@@ -1,10 +1,10 @@
+<div class="controls">
+  <div class="list-count">Viewing {{ s.length }} of {{ allSkills.length }}</div>
+  <div class="view-toggle" (click)="toggleShowAll()">{{ showAll ? 'View less' : 'View all' }}</div>
+</div>
 <div class="technology-list">
-  <div class="controls">
-    <div>Viewing {{ s.length }} of {{ allSkills.length }}</div>
-    <div class="view-toggle" (click)="toggleShowAll()">{{ showAll ? 'View less' : 'View all' }}</div>
-  </div>
   <div class="technology-skill" *ngFor="let skill of s">
     <div class="title">{{ skill[0] }}</div>
-    <div class="examples">{{ skill[1] }}</div>
+    <div class="examples">{{ skill[1].toString().split(',').join('; ') }}</div>
   </div>
 </div>
