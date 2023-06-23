@@ -47,6 +47,8 @@ export class ProfilePageComponent implements OnInit {
 
   techSkills: [string, string[]][] = [];
 
+  showAllSkills = false;
+
   /**
    * Scrolls to top of page and fetches profile data on init
    */
@@ -54,6 +56,7 @@ export class ProfilePageComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.scrollToTop();
       this.getData(params['code']).subscribe();
+      this.showAllSkills = false;
     });
   }
 
@@ -100,5 +103,9 @@ export class ProfilePageComponent implements OnInit {
    */
   preparednessLevel(level: number): string {
     return PreparednessLevels[level];
+  }
+
+  showAllTechnologyButtonClicked(): void {
+    this.showAllSkills = !this.showAllSkills;
   }
 }

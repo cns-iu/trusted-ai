@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, DoCheck, Input } from '@angular/core';
+import { Component, DoCheck, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'trust-ai-profile-technology-skills',
@@ -11,16 +11,13 @@ import { Component, DoCheck, Input } from '@angular/core';
 export class ProfileTechnologySkillsComponent implements DoCheck {
   @Input() allSkills: [string, string[]][] = [];
 
-  s: [string, string[]][] = [];
+  @Input() showAll = false;
 
-  showAll = false;
+  @Output() showAllButtonClick = new EventEmitter();
+
+  skillsShown: [string, string[]][] = [];
 
   ngDoCheck() {
-    this.s = this.showAll ? this.allSkills : this.allSkills.slice(0, 3);
-    this.showAll = false;
-  }
-
-  toggleShowAll() {
-    this.showAll = !this.showAll;
+    this.skillsShown = this.showAll ? this.allSkills : this.allSkills.slice(0, 3);
   }
 }
