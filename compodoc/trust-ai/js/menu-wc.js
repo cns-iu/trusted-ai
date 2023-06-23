@@ -86,6 +86,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/ProfilePageComponent.html" data-type="entity-link" >ProfilePageComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/ProfileTechnologySkillsComponent.html" data-type="entity-link" >ProfileTechnologySkillsComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/SearchBoxComponent.html" data-type="entity-link" >SearchBoxComponent</a>
                             </li>
                         </ul>
@@ -106,6 +109,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/SearchFilters.html" data-type="entity-link" >SearchFilters</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/TechSkill.html" data-type="entity-link" >TechSkill</a>
                             </li>
                         </ul>
                     </li>

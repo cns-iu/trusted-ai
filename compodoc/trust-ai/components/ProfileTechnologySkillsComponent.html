@@ -38,7 +38,7 @@
   <li>Components</li>
   <li
   >
-  CareerCardComponent</li>
+  ProfileTechnologySkillsComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -64,7 +64,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/career-card/career-card.component.ts</code>
+    <code>src/app/profile-technology-skills/profile-technology-skills.component.ts</code>
 </p>
 
 
@@ -72,11 +72,17 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Card to display individual career information</p>
+        <p>Technology skills list of job profile</p>
 
     </p>
 
 
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/DoCheck" target="_blank" >DoCheck</a></code>
+    </p>
 
 
 <section>
@@ -96,19 +102,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>trust-ai-career-card</code></td>
+                <td class="col-md-9"><code>trust-ai-profile-technology-skills</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./career-card.component.scss</code></td>
+                <td class="col-md-9"><code>./profile-technology-skills.component.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./career-card.component.html</code></td>
+                <td class="col-md-9"><code>./profile-technology-skills.component.html</code></td>
             </tr>
 
 
@@ -135,7 +141,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#preparednessLevels" >preparednessLevels</a>
+                                <a href="#skillsShown" >skillsShown</a>
                             </li>
                         </ul>
                     </td>
@@ -151,7 +157,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#jobInfo" >jobInfo</a>
+                                <a href="#allSkills" >allSkills</a>
+                            </li>
+                            <li>
+                                <a href="#showAll" >showAll</a>
                             </li>
                         </ul>
                     </td>
@@ -166,7 +175,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#jobClicked" >jobClicked</a>
+                                <a href="#showAllButtonClick" >showAllButtonClick</a>
                             </li>
                         </ul>
                     </td>
@@ -185,34 +194,61 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="jobInfo"></a>
-                        <b>jobInfo</b>
+                        <a name="allSkills"></a>
+                        <b>allSkills</b>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/JobInfo.html" target="_self" >JobInfo</a></code>
+                        <i>Type : </i>    <code>[]</code>
 
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>{
-    Occupation: &#x27;&#x27;,
-    &#x27;Job Zone&#x27;: &#x27;1&#x27;,
-    &#x27;Data-level&#x27;: &#x27;&#x27;,
-    Code: &#x27;&#x27;,
-  }</code>
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/career-card/career-card.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/profile-technology-skills/profile-technology-skills.component.ts:16</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Job info to be displayed in the card</p>
+                        <div class="io-description"><p>All job skills</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showAll"></a>
+                        <b>showAll</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/profile-technology-skills/profile-technology-skills.component.ts:19</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>If all skills should be shown</p>
 </div>
                     </td>
                 </tr>
@@ -225,8 +261,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="jobClicked"></a>
-                        <b>jobClicked</b>
+                        <a name="showAllButtonClick"></a>
+                        <b>showAllButtonClick</b>
                     </td>
                 </tr>
                 <tr>
@@ -237,12 +273,12 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/career-card/career-card.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/profile-technology-skills/profile-technology-skills.component.ts:22</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Emits job info when job is clicked</p>
+                        <div class="io-description"><p>Emits when show all is clicked</p>
 </div>
                     </td>
                 </tr>
@@ -261,27 +297,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="preparednessLevels"></a>
+                    <a name="skillsShown"></a>
                     <span class="name">
-                        <span ><b>preparednessLevels</b></span>
-                        <a href="#preparednessLevels"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>skillsShown</b></span>
+                        <a href="#skillsShown"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>PreparednessLevels</code>
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/career-card/career-card.component.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/profile-technology-skills/profile-technology-skills.component.ts:25</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Preparedness level text to be used</p>
+                    <div class="io-description"><p>Job skills that are currently displayed</p>
 </div>
                 </td>
             </tr>
@@ -295,108 +337,98 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { Component, EventEmitter, Input, Output } from &#x27;@angular/core&#x27;;
-import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { Component, DoCheck, EventEmitter, Input, Output } from &#x27;@angular/core&#x27;;
 
-import { JobInfo } from &#x27;../pages/occupations-page/occupations-page.component&#x27;;
-
-/** Preparedness level text corresponding to numerical value */
-export const PreparednessLevels: Record&lt;string, string&gt; &#x3D; {
-  1: &#x27;Little or No Preparation Needed&#x27;,
-  2: &#x27;Some Preparation&#x27;,
-  3: &#x27;Medium Preparation Needed&#x27;,
-  4: &#x27;Considerable Preparation Needed&#x27;,
-  5: &#x27;Extensive Preparation Needed&#x27;,
-};
-
-/** Card to display individual career information */
+/**
+ * Technology skills list of job profile
+ */
 @Component({
-  selector: &#x27;trust-ai-career-card&#x27;,
+  selector: &#x27;trust-ai-profile-technology-skills&#x27;,
   standalone: true,
-  imports: [CommonModule, MatButtonModule],
-  templateUrl: &#x27;./career-card.component.html&#x27;,
-  styleUrls: [&#x27;./career-card.component.scss&#x27;],
+  imports: [CommonModule],
+  templateUrl: &#x27;./profile-technology-skills.component.html&#x27;,
+  styleUrls: [&#x27;./profile-technology-skills.component.scss&#x27;],
 })
-export class CareerCardComponent {
-  /** Job info to be displayed in the card */
-  @Input() jobInfo: JobInfo &#x3D; {
-    Occupation: &#x27;&#x27;,
-    &#x27;Job Zone&#x27;: &#x27;1&#x27;,
-    &#x27;Data-level&#x27;: &#x27;&#x27;,
-    Code: &#x27;&#x27;,
-  };
+export class ProfileTechnologySkillsComponent implements DoCheck {
+  /** All job skills */
+  @Input() allSkills: [string, string[]][] &#x3D; [];
 
-  /** Emits job info when job is clicked */
-  @Output() jobClicked &#x3D; new EventEmitter&lt;JobInfo&gt;();
+  /** If all skills should be shown */
+  @Input() showAll &#x3D; false;
 
-  /** Preparedness level text to be used */
-  preparednessLevels &#x3D; PreparednessLevels;
+  /** Emits when show all is clicked */
+  @Output() showAllButtonClick &#x3D; new EventEmitter();
+
+  /** Job skills that are currently displayed */
+  skillsShown: [string, string[]][] &#x3D; [];
+
+  /** Updates displayed skills whenever the list of skills or the show all setting is changed */
+  ngDoCheck() {
+    this.skillsShown &#x3D; this.showAll ? this.allSkills : this.allSkills.slice(0, 3);
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;job-title&quot;&gt;{{ jobInfo[&#x27;Occupation&#x27;] }}&lt;/div&gt;
-&lt;div class&#x3D;&quot;preparation&quot;&gt;
-  &lt;img
-    class&#x3D;&quot;preparation-level&quot;
-    *ngIf&#x3D;&quot;jobInfo[&#x27;Job Zone&#x27;] !&#x3D;&#x3D; &#x27;n/a&#x27;&quot;
-    src&#x3D;&quot;{{ &#x27;assets/icons/counter_&#x27; + jobInfo[&#x27;Job Zone&#x27;] + &#x27;.svg&#x27; }}&quot;
-  /&gt;
-  &lt;div class&#x3D;&quot;preparation-text&quot;&gt;{{ preparednessLevels[jobInfo[&#x27;Job Zone&#x27;]] }}&lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;controls&quot;&gt;
+  &lt;div class&#x3D;&quot;list-count&quot;&gt;Viewing {{ skillsShown.length }} of {{ allSkills.length }}&lt;/div&gt;
+  &lt;div class&#x3D;&quot;view-toggle&quot; (click)&#x3D;&quot;showAllButtonClick.emit()&quot;&gt;{{ showAll ? &#x27;View less&#x27; : &#x27;View all&#x27; }}&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class&#x3D;&quot;code&quot;&gt;{{ jobInfo[&#x27;Code&#x27;] }}&lt;/div&gt;
-&lt;button class&#x3D;&quot;view-button&quot; (click)&#x3D;&quot;jobClicked.emit(jobInfo)&quot; mat-stroked-button&gt;View Occupation&lt;/button&gt;
+&lt;div class&#x3D;&quot;technology-list&quot;&gt;
+  &lt;div class&#x3D;&quot;technology-skill&quot; *ngFor&#x3D;&quot;let skill of skillsShown&quot;&gt;
+    &lt;div class&#x3D;&quot;title&quot;&gt;{{ skill[0] }}&lt;/div&gt;
+    &lt;div class&#x3D;&quot;examples&quot;&gt;{{ skill[1].toString().split(&#x27;,&#x27;).join(&#x27;; &#x27;) }}&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
-                    <code>./career-card.component.scss</code>
+                    <code>./profile-technology-skills.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem;
   gap: 1rem;
-  background: #f7f2f7;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-  border-radius: 0.75rem;
-  width: fit-content;
+  display: flex;
+  flex-direction: column;
 
-  div {
+  .controls {
     display: flex;
-    gap: 0.5rem;
-    max-width: 30rem;
-  }
+    justify-content: space-between;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
 
-  .job-title {
-    min-width: 30rem;
-  }
-
-  .preparation {
-    min-width: 17.25rem;
-    gap: 10px;
-
-    .preparation-text {
-      line-height: 1.5rem;
+    .view-toggle {
+      cursor: pointer;
+      color: #6750a4;
     }
   }
 
-  .code {
-    min-width: 6rem;
+  .technology-list {
+    :first-child {
+      border-top: none;
+    }
   }
 
-  .view-button {
+  .technology-skill {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background: #6750a4;
-    color: white;
-    border-radius: 6.25rem;
-    font-size: 0.875rem;
-    width: 10rem;
-    height: 2.5rem;
+    align-self: stretch;
+    border-top: 0.0625rem solid #cac4d0;
+    padding: 1rem 1.5rem 1rem 1rem;
+
+    .title {
+      font-size: 1rem;
+    }
+
+    .examples {
+      font-size: 0.875rem;
+      color: #49454e;
+      line-height: 1.25rem;
+    }
   }
 }
 </code></pre>
@@ -427,10 +459,10 @@ export class CareerCardComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="job-title">{{ jobInfo[\'Occupation\'] }}</div><div class="preparation">  <img    class="preparation-level"    *ngIf="jobInfo[\'Job Zone\'] !== \'n/a\'"    src="{{ \'assets/icons/counter_\' + jobInfo[\'Job Zone\'] + \'.svg\' }}"  />  <div class="preparation-text">{{ preparednessLevels[jobInfo[\'Job Zone\']] }}</div></div><div class="code">{{ jobInfo[\'Code\'] }}</div><button class="view-button" (click)="jobClicked.emit(jobInfo)" mat-stroked-button>View Occupation</button></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="controls">  <div class="list-count">Viewing {{ skillsShown.length }} of {{ allSkills.length }}</div>  <div class="view-toggle" (click)="showAllButtonClick.emit()">{{ showAll ? \'View less\' : \'View all\' }}</div></div><div class="technology-list">  <div class="technology-skill" *ngFor="let skill of skillsShown">    <div class="title">{{ skill[0] }}</div>    <div class="examples">{{ skill[1].toString().split(\',\').join(\'; \') }}</div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'CareerCardComponent'};
+    var ACTUAL_COMPONENT = {'name': 'ProfileTechnologySkillsComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -476,7 +508,7 @@ export class CareerCardComponent {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'CareerCardComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProfileTechnologySkillsComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
