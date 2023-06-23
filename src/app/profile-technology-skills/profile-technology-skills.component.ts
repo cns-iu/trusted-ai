@@ -17,6 +17,7 @@ export class ProfileTechnologySkillsComponent implements DoCheck {
 
   ngDoCheck() {
     this.s = this.showAll ? this.allSkills : this.allSkills.slice(0, 3);
+    this.showAll = false;
   }
 
   toggleShowAll() {
