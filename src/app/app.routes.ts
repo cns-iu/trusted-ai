@@ -2,6 +2,7 @@ import { Route } from '@angular/router';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { OccupationsPageComponent } from './pages/occupations-page/occupations-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { FaqPageComponent } from './pages/faq-page/faq-page.component';
 
 /** App routes */
 export const appRoutes: Route[] = [
@@ -11,7 +12,7 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'faq',
-    loadComponent: () => LandingPageComponent,
+    loadComponent: () => FaqPageComponent,
   },
   {
     path: 'occupations',
