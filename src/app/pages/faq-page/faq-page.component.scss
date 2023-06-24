@@ -1,0 +1,59 @@
+:host {
+  .page-header {
+    padding: 10rem 1rem 4.5rem 1rem;
+
+    .page-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #22005d;
+    }
+  }
+
+  .faq-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .section-header {
+      background: #e9ddff;
+      display: flex;
+      padding: 2rem 17.25rem;
+      justify-content: center;
+      align-self: stretch;
+
+      .section-title {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        color: #22005d;
+      }
+    }
+
+    .content {
+      display: flex;
+      padding: 1.5rem 17.25rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      align-self: stretch;
+
+      .sub-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        align-self: stretch;
+
+        .sub-section-title {
+          font-size: 1rem;
+          font-weight: 500;
+          line-height: 1.5rem;
+        }
+
+        .sub-section-content {
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+        }
+      }
+    }
+  }
+}
