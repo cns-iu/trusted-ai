@@ -503,25 +503,6 @@
       "rel_ucib": 77.87,
       "rec_suppress": "N",
       "domain_source": "Incumbent"
-    },
-    {
-      "soc_id": "51-6041.00",
-      "title": "Shoe and Leather Workers and Repairers",
-      "task_id": 14084,
-      "task": "Measure customers for fit, and discuss with them the type of footwear to be made, recommending details such as leather quality.",
-      "descr": "Measure customers for fit, and discuss with them the type of footwear to be made, recommending details such as leather quality.",
-      "task_type": "Supplemental",
-      "n": 7,
-      "importance": 3.57,
-      "relevance": 23.83,
-      "imp_std_error": 0.55,
-      "imp_lcib": 2.23,
-      "imp_ucib": 4.92,
-      "rel_std_error": 9.08,
-      "rel_lcib": 10.27,
-      "rel_ucib": 46.1,
-      "rec_suppress": "Y",
-      "domain_source": "Incumbent"
     }
   ],
   "salary": [

@@ -351,25 +351,6 @@
       "rel_ucib": 51.68,
       "rec_suppress": "N",
       "domain_source": "Incumbent"
-    },
-    {
-      "soc_id": "11-3051.06",
-      "title": "Hydroelectric Production Managers",
-      "task_id": 15511,
-      "task": "Negotiate power generation contracts with other public or private utilities.",
-      "descr": "Negotiate power generation contracts with other public or private utilities.",
-      "task_type": "Supplemental",
-      "n": 9,
-      "importance": 3.44,
-      "relevance": 10.49,
-      "imp_std_error": 0.44,
-      "imp_lcib": 2.43,
-      "imp_ucib": 4.45,
-      "rel_std_error": 3.33,
-      "rel_lcib": 5.46,
-      "rel_ucib": 19.19,
-      "rec_suppress": "Y",
-      "domain_source": "Incumbent"
     }
   ],
   "salary": [
