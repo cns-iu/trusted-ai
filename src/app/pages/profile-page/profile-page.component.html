@@ -85,7 +85,11 @@
       <div class="code">{{ currentJobInfo['soc_id'] }}</div>
       <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
-    <trust-ai-work-tasks-list></trust-ai-work-tasks-list>
+    <trust-ai-work-tasks-list
+      [tasks]="workTasks"
+      [showAll]="showAllTasks"
+      (showAllButtonClick)="showAllWorkTasksButtonClicked()"
+    ></trust-ai-work-tasks-list>
   </div>
 </div>
 

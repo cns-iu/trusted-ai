@@ -19,6 +19,7 @@ export interface AllJobInfo {
   job_zone?: number;
   /** List of technology skills */
   tech_skills?: TechSkill[];
+  work_tasks?: WorkTasks[];
 }
 
 /** Info on a technology skill */
@@ -27,6 +28,12 @@ export interface TechSkill {
   commodity_title: string;
   /** Example of skill */
   example: string;
+}
+
+export interface WorkTasks {
+  task: string;
+  importance: number;
+  relevance: number;
 }
 
 /**
@@ -59,8 +66,12 @@ export class ProfilePageComponent implements OnInit {
   /** Tech skills for the job (each pair = type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] = [];
 
+  workTasks: WorkTasks[] = [];
+
   /** Whether or not all technology skills should be displayed */
   showAllSkills = false;
+
+  showAllTasks = false;
 
   /**
    * Scrolls to top of page and fetches profile data on init
@@ -84,6 +95,9 @@ export class ProfilePageComponent implements OnInit {
         this.currentJobInfo = JSON.parse(result);
         if (this.currentJobInfo['tech_skills']) {
           this.setSkillsGrouping(this.currentJobInfo['tech_skills']);
+        }
+        if (this.currentJobInfo['work_tasks']) {
+          this.workTasks = this.currentJobInfo['work_tasks'];
         }
       })
     );
@@ -127,5 +141,9 @@ export class ProfilePageComponent implements OnInit {
    */
   showAllTechnologyButtonClicked(): void {
     this.showAllSkills = !this.showAllSkills;
+  }
+
+  showAllWorkTasksButtonClicked(): void {
+    this.showAllTasks = !this.showAllTasks;
   }
 }

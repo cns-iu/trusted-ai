@@ -1,1 +1,36 @@
-<p>work-tasks-list works!</p>
+<div class="controls">
+  <div class="toggle">
+    <mat-button-toggle-group name="show-occupations-toggle" (change)="filtersChange($event)">
+      <mat-button-toggle value="0" checked="true">
+        <mat-icon class="checkmark" *ngIf="selection === '0'">check</mat-icon>
+        Importance
+      </mat-button-toggle>
+      <mat-button-toggle value="1">
+        <mat-icon class="checkmark" *ngIf="selection === '1'">check</mat-icon>
+        Frequency of Task
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div class="sub-section">
+    <div class="sub-section-title">Task List by Importance</div>
+    <div class="sub-section-content">This list is ranked by how important the task is to this occupation.</div>
+  </div>
+
+  <div class="list-controls">
+    <div class="list-count">Viewing {{ tasksShown.length }} of {{ tasks.length }}</div>
+    <div class="view-toggle" (click)="showAllButtonClick.emit()">{{ showAll ? 'View less' : 'View all' }}</div>
+  </div>
+</div>
+<div class="task-list" *ngIf="selection === '0'">
+  <div class="task-item" *ngFor="let task of tasksShown">
+    <div class="value">{{ task.importance }}</div>
+    <div class="name">{{ task.task }}</div>
+  </div>
+</div>
+<div class="task-list" *ngIf="selection === '1'">
+  <div class="task-item" *ngFor="let task of tasksShown">
+    <div class="value">{{ task.relevance }}</div>
+    <div class="name">{{ task.task }}</div>
+  </div>
+</div>
