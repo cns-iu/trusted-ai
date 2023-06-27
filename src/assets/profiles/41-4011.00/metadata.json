@@ -674,25 +674,6 @@
       "rel_ucib": 65.08,
       "rec_suppress": "N",
       "domain_source": "Incumbent"
-    },
-    {
-      "soc_id": "41-4011.00",
-      "title": "Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",
-      "task_id": 19827,
-      "task": "Research and convey information to customers about tax benefits or government rebates associated with energy-efficient scientific or technical products, such as solar panels.",
-      "descr": "Research and convey information to customers about tax benefits or government rebates associated with energy-efficient scientific or technical products, such as solar panels.",
-      "task_type": "Supplemental",
-      "n": 8,
-      "importance": 2.45,
-      "relevance": 19.03,
-      "imp_std_error": 0.27,
-      "imp_lcib": 1.82,
-      "imp_ucib": 3.07,
-      "rel_std_error": 7.09,
-      "rel_lcib": 8.6,
-      "rel_ucib": 37,
-      "rec_suppress": "Y",
-      "domain_source": "Incumbent"
     }
   ],
   "salary": [
