@@ -7,6 +7,7 @@ import { Observable, tap } from 'rxjs';
 import { PreparednessLevels } from 'src/app/career-card/career-card.component';
 import { ProfileTechnologySkillsComponent } from 'src/app/profile-technology-skills/profile-technology-skills.component';
 import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
+import { WorkTasksListComponent } from 'src/app/work-tasks-list/work-tasks-list.component';
 
 /** Queried job data format */
 export interface AllJobInfo {
@@ -34,7 +35,14 @@ export interface TechSkill {
 @Component({
   selector: 'trust-ai-profile-page',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, MatButtonModule, SearchBoxComponent, ProfileTechnologySkillsComponent],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    MatButtonModule,
+    SearchBoxComponent,
+    ProfileTechnologySkillsComponent,
+    WorkTasksListComponent,
+  ],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
 })
