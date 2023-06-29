@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { PreparednessLevels } from 'src/app/career-card/career-card.component';
+import { ProfileSalaryComponent } from 'src/app/profile-salary/profile-salary.component';
 import { ProfileTechnologySkillsComponent } from 'src/app/profile-technology-skills/profile-technology-skills.component';
 import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
 
@@ -18,6 +19,7 @@ export interface AllJobInfo {
   job_zone?: number;
   /** List of technology skills */
   tech_skills?: TechSkill[];
+  salary?: SalaryInfo[];
 }
 
 /** Info on a technology skill */
@@ -28,13 +30,24 @@ export interface TechSkill {
   example: string;
 }
 
+export interface SalaryInfo {
+  [key: string]: unknown;
+}
+
 /**
  * Profile page component
  */
 @Component({
   selector: 'trust-ai-profile-page',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, MatButtonModule, SearchBoxComponent, ProfileTechnologySkillsComponent],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    MatButtonModule,
+    SearchBoxComponent,
+    ProfileTechnologySkillsComponent,
+    ProfileSalaryComponent,
+  ],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
 })
@@ -53,6 +66,8 @@ export class ProfilePageComponent implements OnInit {
 
   /** Whether or not all technology skills should be displayed */
   showAllSkills = false;
+
+  salaryInfo: SalaryInfo[] = [];
 
   /**
    * Scrolls to top of page and fetches profile data on init
@@ -77,8 +92,16 @@ export class ProfilePageComponent implements OnInit {
         if (this.currentJobInfo['tech_skills']) {
           this.setSkillsGrouping(this.currentJobInfo['tech_skills']);
         }
+
+        if (this.currentJobInfo['salary']) {
+          this.setSalary(this.currentJobInfo['salary']);
+        }
       })
     );
+  }
+
+  private setSalary(salaryInfo: SalaryInfo[]) {
+    this.salaryInfo = salaryInfo;
   }
 
   /**
