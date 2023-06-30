@@ -12,5 +12,7 @@
   "work_tasks": null,
   "salary": null,
   "tech_skills": null,
-  "work_behaviors": null
+  "work_behaviors": null,
+  "salary_nat": null,
+  "salary_ind": null
 }

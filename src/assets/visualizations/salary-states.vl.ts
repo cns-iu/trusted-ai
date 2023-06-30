@@ -1,5 +1,5 @@
 import { SalaryInfo } from 'src/app/pages/profile-page/profile-page.component';
-import { VisualizationSpec } from 'vega-embed'
+import { VisualizationSpec } from 'vega-embed';
 
 const stateIds: Record<string, string> = {
   Alabama: '01',
@@ -8,7 +8,7 @@ const stateIds: Record<string, string> = {
   Arizona: '04',
   Arkansas: '05',
   California: '06',
-  "Commonwealth of the Northern Mariana Islands": '69',
+  'Commonwealth of the Northern Mariana Islands': '69',
   Colorado: '08',
   Connecticut: '09',
   Delaware: '10',
@@ -70,8 +70,38 @@ function parseData(values: SalaryInfo[]): SalaryInfo[] {
   })
 }
 
+function parseNatData(values: SalaryInfo[]): unknown[] {
+  const mostRecentData = values[values.length - 1] || {}
+  return [
+    {
+      percentile: 10,
+      salary: mostRecentData['a_pct10']
+    },
+    {
+      percentile: 25,
+      salary: mostRecentData['a_pct25']
+    },
+    {
+      percentile: 75,
+      salary: mostRecentData['a_pct75']
+    },
+    {
+      percentile: 90,
+      salary: mostRecentData['a_pct90']
+    }
+  ]
+}
+
+function parseIndData(values: SalaryInfo[]): SalaryInfo[] {
+  return values.filter(value => (value['ann_emp_rank'] as number < 6) && value['year'] === 2022).map(value => {
+    return {
+      industry: value['industry_name'],
+      value: value['tot_emp']
+    }
+  })
+}
+
 export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
-  console.log(parseData(values))
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     data: {
@@ -103,9 +133,61 @@ export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
         type: 'geojson'
       },
       color: {
-        field: "a_mean",
-        type: "quantitative"
-      }
+        field: 'a_mean',
+        type: 'quantitative'
+      },
+      tooltip: [
+        {
+          field: 'state',
+        },
+        {
+          field: 'a_mean',
+        }
+      ]
+    }
+  };
+}
+
+export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
+  return {
+    $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+    width: 550,
+    height: 193,
+    data: {
+      values: parseNatData(values)
+    },
+    mark: 'area',
+    encoding: {
+      x: { field: 'percentile', type: 'quantitative', title: 'Percentile' },
+      y: { field: 'salary', type: 'quantitative', stack: 'zero', title: 'Avg Salary (hourly)' }
+    }
+  };
+}
+
+export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
+  return {
+    $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+    width: 668,
+    height: 550,
+    data: {
+      values: parseIndData(values)
+    },
+    mark: { size: 200, type: 'circle' },
+    encoding: {
+      x: {
+        aggregate: 'mean',
+        field: 'value',
+        title: null
+      },
+      y: { field: 'industry', sort: 'x', title: null },
+      tooltip: [
+        {
+          field: 'industry'
+        },
+        {
+          field: 'value'
+        }
+      ]
     }
   };
 }
