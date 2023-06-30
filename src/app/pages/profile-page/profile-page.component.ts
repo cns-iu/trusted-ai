@@ -20,6 +20,8 @@ export interface AllJobInfo {
   /** List of technology skills */
   tech_skills?: TechSkill[];
   salary?: SalaryInfo[];
+  salary_nat?: SalaryInfo[];
+  salary_ind?: SalaryInfo[];
 }
 
 /** Info on a technology skill */
@@ -68,6 +70,8 @@ export class ProfilePageComponent implements OnInit {
   showAllSkills = false;
 
   salaryInfo: SalaryInfo[] = [];
+  salaryNatInfo: SalaryInfo[] = [];
+  salaryIndInfo: SalaryInfo[] = [];
 
   /**
    * Scrolls to top of page and fetches profile data on init
@@ -94,14 +98,18 @@ export class ProfilePageComponent implements OnInit {
         }
 
         if (this.currentJobInfo['salary']) {
-          this.setSalary(this.currentJobInfo['salary']);
+          this.salaryInfo = this.currentJobInfo['salary'];
+        }
+
+        if (this.currentJobInfo['salary_nat']) {
+          this.salaryNatInfo = this.currentJobInfo['salary_nat'];
+        }
+
+        if (this.currentJobInfo['salary_ind']) {
+          this.salaryIndInfo = this.currentJobInfo['salary_ind'];
         }
       })
     );
-  }
-
-  private setSalary(salaryInfo: SalaryInfo[]) {
-    this.salaryInfo = salaryInfo;
   }
 
   /**
