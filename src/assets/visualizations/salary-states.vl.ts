@@ -60,16 +60,6 @@ const stateIds: Record<string, string> = {
   Wyoming: '56',
 }
 
-function parseData(values: SalaryInfo[]): SalaryInfo[] {
-  return values.filter(value => value['year'] === 2022).map(value => {
-    return {
-      state: value['place_name'],
-      id: stateIds[value['place_name'] as string],
-      a_mean: value['a_mean']
-    }
-  })
-}
-
 function parseNatData(values: SalaryInfo[]): unknown[] {
   const mostRecentData = values[values.length - 1] || {}
   return [
@@ -92,6 +82,29 @@ function parseNatData(values: SalaryInfo[]): unknown[] {
   ]
 }
 
+function parseStateData(values: SalaryInfo[]): SalaryInfo[] {
+  const mostRecentData = values.filter(value => value['year'] === 2022);
+  const allStates = Object.keys(stateIds);
+  const statesWithData = mostRecentData.map(value => value['place_name']);
+  for (const state of allStates) {
+    if (!statesWithData.includes(state)) {
+      mostRecentData.push(
+        {
+          place_name: state,
+          a_mean: null
+        }
+      )
+    }
+  }
+  return mostRecentData.map(value => {
+    return {
+      state: value['place_name'],
+      id: stateIds[value['place_name'] as string],
+      a_mean: value['a_mean']
+    }
+  })
+}
+
 function parseIndData(values: SalaryInfo[]): SalaryInfo[] {
   return values.filter(value => (value['ann_emp_rank'] as number < 6) && value['year'] === 2022).map(value => {
     return {
@@ -101,14 +114,58 @@ function parseIndData(values: SalaryInfo[]): SalaryInfo[] {
   })
 }
 
+export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
+  return {
+    $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+    width: 550,
+    height: 193,
+    data: {
+      values: parseNatData(values)
+    },
+    mark: 'area',
+    encoding: {
+      x: {
+        field: 'percentile',
+        type: 'quantitative',
+        title: 'Percentile',
+        axis: {
+          values: [10, 25, 75, 90],
+          labelFontSize: 15,
+          titleFontSize: 18
+        }
+      },
+      y: {
+        field: 'salary',
+        type: 'quantitative',
+        stack: 'zero',
+        title: 'Salary (annual)',
+        axis: {
+          labelFontSize: 15,
+          titleFontSize: 18
+        }
+      },
+      tooltip: [
+        {
+          field: 'percentile',
+          title: 'Percentile'
+        },
+        {
+          field: 'salary',
+          title: 'Salary'
+        }
+      ]
+    }
+  };
+}
+
 export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     data: {
-      values: parseData(values)
+      values: parseStateData(values)
     },
-    width: 1000,
-    height: 800,
+    width: 960,
+    height: 551,
     transform: [
       {
         lookup: 'id',
@@ -123,7 +180,8 @@ export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
           key: 'id'
         },
         as: 'geo'
-      }
+      },
+
     ],
     projection: { type: 'albersUsa' },
     mark: 'geoshape',
@@ -134,32 +192,34 @@ export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
       },
       color: {
         field: 'a_mean',
-        type: 'quantitative'
+        title: 'Salary (annual)',
+        type: 'quantitative',
+        condition: {
+          test: "datum['a_mean'] === null",
+          value: '#aaa'
+        },
+        legend: {
+          titleFontSize: 20,
+          gradientLength: 380,
+          gradientThickness: 32,
+          labelFontSize: 16
+        }
       },
       tooltip: [
         {
           field: 'state',
+          title: 'State'
         },
         {
           field: 'a_mean',
+          title: 'Salary (annual)'
         }
       ]
-    }
-  };
-}
-
-export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
-  return {
-    $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-    width: 550,
-    height: 193,
-    data: {
-      values: parseNatData(values)
     },
-    mark: 'area',
-    encoding: {
-      x: { field: 'percentile', type: 'quantitative', title: 'Percentile' },
-      y: { field: 'salary', type: 'quantitative', stack: 'zero', title: 'Avg Salary (hourly)' }
+    config: {
+      mark: {
+        invalid: null
+      }
     }
   };
 }
@@ -172,20 +232,34 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
     data: {
       values: parseIndData(values)
     },
-    mark: { size: 200, type: 'circle' },
+    mark: { size: 300, type: 'circle' },
     encoding: {
       x: {
         aggregate: 'mean',
         field: 'value',
-        title: null
+        title: 'tot_emp',
+        axis: {
+          labelFontSize: 15,
+          titleFontSize: 25
+        }
       },
-      y: { field: 'industry', sort: 'x', title: null },
+      y: {
+        field: 'industry',
+        sort: 'x',
+        title: 'Industry',
+        axis: {
+          labelFontSize: 15,
+          titleFontSize: 25
+        }
+      },
       tooltip: [
         {
-          field: 'industry'
+          field: 'industry',
+          title: 'Industry'
         },
         {
-          field: 'value'
+          field: 'value',
+          title: 'Value'
         }
       ]
     }
