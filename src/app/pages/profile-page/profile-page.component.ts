@@ -8,6 +8,7 @@ import { PreparednessLevels } from 'src/app/career-card/career-card.component';
 import { ProfileSalaryComponent } from 'src/app/profile-salary/profile-salary.component';
 import { ProfileTechnologySkillsComponent } from 'src/app/profile-technology-skills/profile-technology-skills.component';
 import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
+import { WorkTasksListComponent } from 'src/app/work-tasks-list/work-tasks-list.component';
 
 /** Queried job data format */
 export interface AllJobInfo {
@@ -19,6 +20,7 @@ export interface AllJobInfo {
   job_zone?: number;
   /** List of technology skills */
   tech_skills?: TechSkill[];
+  work_tasks?: WorkTasks[];
   salary?: SalaryInfo[];
   salary_nat?: SalaryInfo[];
   salary_ind?: SalaryInfo[];
@@ -30,6 +32,12 @@ export interface TechSkill {
   commodity_title: string;
   /** Example of skill */
   example: string;
+}
+
+export interface WorkTasks {
+  task: string;
+  importance: number;
+  relevance: number;
 }
 
 export interface SalaryInfo {
@@ -44,11 +52,17 @@ export interface SalaryInfo {
   standalone: true,
   imports: [
     CommonModule,
+
     HttpClientModule,
+
     MatButtonModule,
+
     SearchBoxComponent,
+
     ProfileTechnologySkillsComponent,
     ProfileSalaryComponent,
+
+    WorkTasksListComponent,
   ],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
@@ -66,12 +80,16 @@ export class ProfilePageComponent implements OnInit {
   /** Tech skills for the job (each pair = type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] = [];
 
+  workTasks: WorkTasks[] = [];
+
   /** Whether or not all technology skills should be displayed */
   showAllSkills = false;
 
   salaryInfo: SalaryInfo[] = [];
   salaryNatInfo: SalaryInfo[] = [];
   salaryIndInfo: SalaryInfo[] = [];
+
+  showAllTasks = false;
 
   /**
    * Scrolls to top of page and fetches profile data on init
@@ -107,6 +125,9 @@ export class ProfilePageComponent implements OnInit {
 
         if (this.currentJobInfo['salary_ind']) {
           this.salaryIndInfo = this.currentJobInfo['salary_ind'];
+        }
+        if (this.currentJobInfo['work_tasks']) {
+          this.workTasks = this.currentJobInfo['work_tasks'];
         }
       })
     );
@@ -150,5 +171,9 @@ export class ProfilePageComponent implements OnInit {
    */
   showAllTechnologyButtonClicked(): void {
     this.showAllSkills = !this.showAllSkills;
+  }
+
+  showAllWorkTasksButtonClicked(): void {
+    this.showAllTasks = !this.showAllTasks;
   }
 }

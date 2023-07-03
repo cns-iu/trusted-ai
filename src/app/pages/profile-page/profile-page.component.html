@@ -85,6 +85,11 @@
       <div class="code">{{ currentJobInfo['soc_id'] }}</div>
       <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
+    <trust-ai-work-tasks-list
+      [tasks]="workTasks"
+      [showAll]="showAllTasks"
+      (showAllButtonClick)="showAllWorkTasksButtonClicked()"
+    ></trust-ai-work-tasks-list>
   </div>
 </div>
 
@@ -147,6 +152,7 @@
   <div class="content">
     <div class="job-header">
       <div class="code">{{ currentJobInfo['soc_id'] }}</div>
+      <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Number of Occupations by State</div>
@@ -161,6 +167,7 @@
   </div>
   <div class="content">
     <div class="job-header">
+      <div class="code">{{ currentJobInfo['soc_id'] }}</div>
       <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
     <div class="sub-section">

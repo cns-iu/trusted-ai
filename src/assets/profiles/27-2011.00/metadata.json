@@ -351,25 +351,6 @@
       "rel_ucib": 66.79,
       "rec_suppress": "N",
       "domain_source": "Incumbent"
-    },
-    {
-      "soc_id": "27-2011.00",
-      "title": "Actors",
-      "task_id": 7658,
-      "task": "Manipulate strings, wires, rods, or fingers to animate puppets or dummies in synchronization with talking, singing, or recorded programs.",
-      "descr": "Manipulate strings, wires, rods, or fingers to animate puppets or dummies in synchronization with talking, singing, or recorded programs.",
-      "task_type": "Supplemental",
-      "n": 9,
-      "importance": 2.22,
-      "relevance": 18.92,
-      "imp_std_error": 0.47,
-      "imp_lcib": 1.13,
-      "imp_ucib": 3.31,
-      "rel_std_error": 8.7,
-      "rel_lcib": 6.95,
-      "rel_ucib": 42.16,
-      "rec_suppress": "Y",
-      "domain_source": "Incumbent"
     }
   ],
   "salary": [
