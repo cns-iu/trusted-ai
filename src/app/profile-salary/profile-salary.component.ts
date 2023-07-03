@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import {
-  createSalaryStatePlot,
-  createSalaryNatPlot,
   createSalaryIndPlot,
+  createSalaryNatPlot,
+  createSalaryStatePlot,
 } from 'src/assets/visualizations/salary-states.vl';
 import embed, { VisualizationSpec } from 'vega-embed';
 
