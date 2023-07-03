@@ -351,25 +351,6 @@
       "rel_ucib": 76.44,
       "rec_suppress": "N",
       "domain_source": "Incumbent"
-    },
-    {
-      "soc_id": "41-9021.00",
-      "title": "Real Estate Brokers",
-      "task_id": 4617,
-      "task": "Maintain working knowledge of various factors that determine a farm's capacity to produce, such as agricultural variables and proximity to market centers and transportation facilities.",
-      "descr": "Maintain working knowledge of various factors that determine a farm's capacity to produce, such as agricultural variables and proximity to market centers and transportation facilities.",
-      "task_type": "Supplemental",
-      "n": 9,
-      "importance": 1.51,
-      "relevance": 17.79,
-      "imp_std_error": 0.2,
-      "imp_lcib": 1.04,
-      "imp_ucib": 1.98,
-      "rel_std_error": 5.82,
-      "rel_lcib": 8.9,
-      "rel_ucib": 32.41,
-      "rec_suppress": "Y",
-      "domain_source": "Incumbent"
     }
   ],
   "salary": [

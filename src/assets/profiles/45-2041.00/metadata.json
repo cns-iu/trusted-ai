@@ -104,25 +104,6 @@
       "rel_ucib": 73,
       "rec_suppress": "N",
       "domain_source": "Incumbent"
-    },
-    {
-      "soc_id": "45-2041.00",
-      "title": "Graders and Sorters, Agricultural Products",
-      "task_id": 13354,
-      "task": "Separate fiber tufts between fingers to assess strength, uniformity, and cohesive quality of fibers.",
-      "descr": "Separate fiber tufts between fingers to assess strength, uniformity, and cohesive quality of fibers.",
-      "task_type": "Supplemental",
-      "n": 9,
-      "importance": 3.28,
-      "relevance": 12.88,
-      "imp_std_error": 0.32,
-      "imp_lcib": 2.55,
-      "imp_ucib": 4.01,
-      "rel_std_error": 5.55,
-      "rel_lcib": 5.2,
-      "rel_ucib": 28.52,
-      "rec_suppress": "Y",
-      "domain_source": "Incumbent"
     }
   ],
   "salary": [
