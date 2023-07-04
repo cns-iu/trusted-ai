@@ -171,7 +171,7 @@ export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
         lookup: 'id',
         from: {
           data: {
-            url: 'assets/data/states-10m.json',
+            url: 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json',
             format: {
               type: 'topojson',
               feature: 'states'
