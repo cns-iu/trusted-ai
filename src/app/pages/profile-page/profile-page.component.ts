@@ -52,16 +52,11 @@ export interface SalaryInfo {
   standalone: true,
   imports: [
     CommonModule,
-
     HttpClientModule,
-
     MatButtonModule,
-
     SearchBoxComponent,
-
     ProfileTechnologySkillsComponent,
     ProfileSalaryComponent,
-
     WorkTasksListComponent,
   ],
   templateUrl: './profile-page.component.html',
@@ -70,7 +65,6 @@ export interface SalaryInfo {
 export class ProfilePageComponent implements OnInit {
   /** Scrolls to top of page */
   private readonly route = inject(ActivatedRoute);
-
   /** Http client */
   private readonly http = inject(HttpClient);
 
