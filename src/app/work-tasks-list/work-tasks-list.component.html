@@ -1,16 +1,14 @@
 <div class="controls">
-  <div class="toggle">
-    <mat-button-toggle-group name="show-occupations-toggle" (change)="filtersChange($event)">
-      <mat-button-toggle value="0" checked="true">
-        <mat-icon class="checkmark" *ngIf="selection === '0'">check</mat-icon>
-        Importance
-      </mat-button-toggle>
-      <mat-button-toggle value="1">
-        <mat-icon class="checkmark" *ngIf="selection === '1'">check</mat-icon>
-        Frequency of Task
-      </mat-button-toggle>
-    </mat-button-toggle-group>
-  </div>
+  <mat-button-toggle-group class="toggle" name="show-occupations-toggle" (change)="filtersChange($event)">
+    <mat-button-toggle value="0" checked="true">
+      <mat-icon class="checkmark" *ngIf="selection === '0'">check</mat-icon>
+      Importance
+    </mat-button-toggle>
+    <mat-button-toggle value="1">
+      <mat-icon class="checkmark" *ngIf="selection === '1'">check</mat-icon>
+      Frequency of Task
+    </mat-button-toggle>
+  </mat-button-toggle-group>
 
   <div class="sub-section" *ngIf="selection === '0'">
     <div class="sub-section-title">Task List by Importance</div>
@@ -25,17 +23,18 @@
   </div>
 
   <div class="legend">
-    Legend
+    <div class="label">Legend</div>
     <div class="legend-group importance" *ngIf="selection === '0'">
-      <div>>4</div>
-      <div>3 - 4</div>
-      <div><3</div>
+      <div class="high">>4.0</div>
+      <div class="med">3.5 - 4.0</div>
+      <div class="low">3.0 - 3.5</div>
+      <div class="lowest"><3.0</div>
     </div>
     <div class="legend-group frequency" *ngIf="selection === '1'">
-      <div>100% - 76%</div>
-      <div>75% - 51%</div>
-      <div>50% - 26%</div>
-      <div>25% - 0%</div>
+      <div class="high">100% - 76%</div>
+      <div class="med">75% - 51%</div>
+      <div class="low">50% - 26%</div>
+      <div class="lowest">25% - 0%</div>
     </div>
   </div>
 
@@ -46,13 +45,13 @@
 </div>
 <div class="task-list" *ngIf="selection === '0'">
   <div class="task-item" *ngFor="let task of tasksShown">
-    <div class="value">{{ task.importance }}</div>
+    <div class="value {{ importanceCategory(task.importance) }}">{{ task.importance.toFixed(1) }}</div>
     <div class="name">{{ task.task }}</div>
   </div>
 </div>
 <div class="task-list" *ngIf="selection === '1'">
   <div class="task-item" *ngFor="let task of tasksShown">
-    <div class="value">{{ task.relevance }}</div>
+    <div class="value {{ frequencyCategory(task.relevance) }}">{{ roundFrequency(task.relevance) }}%</div>
     <div class="name">{{ task.task }}</div>
   </div>
 </div>

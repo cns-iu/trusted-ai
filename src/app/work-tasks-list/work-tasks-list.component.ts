@@ -26,15 +26,47 @@ export class WorkTasksListComponent implements DoCheck {
   tasksShown: WorkTasks[] = [];
 
   ngDoCheck(): void {
+    if (this.selection === '0') {
+      this.tasks.sort((a, b) => b.importance - a.importance);
+    } else {
+      this.tasks.sort((a, b) => b.relevance - a.relevance);
+    }
     this.tasksShown = this.showAll ? this.tasks : this.tasks.slice(0, 3);
   }
 
   filtersChange(event: MatButtonToggleChange) {
     this.selection = event.value;
-    if (event.value === '0') {
-      this.tasks.sort((a, b) => b.importance - a.importance);
-    } else {
-      this.tasks.sort((a, b) => b.relevance - a.relevance);
+  }
+
+  importanceCategory(value: number): string {
+    if (value > 4) {
+      return 'high';
     }
+    if (value > 3.5 && value <= 4) {
+      return 'med';
+    }
+    if (value > 3 && value <= 3.5) {
+      return 'low';
+    } else {
+      return 'lowest';
+    }
+  }
+
+  frequencyCategory(value: number): string {
+    if (value > 75) {
+      return 'high';
+    }
+    if (value > 50 && value <= 75) {
+      return 'med';
+    }
+    if (value > 25 && value <= 50) {
+      return 'low';
+    } else {
+      return 'lowest';
+    }
+  }
+
+  roundFrequency(value: number): number {
+    return Math.round(value);
   }
 }
