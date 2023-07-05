@@ -1,6 +1,7 @@
 import { SalaryInfo } from 'src/app/pages/profile-page/profile-page.component';
 import { VisualizationSpec } from 'vega-embed';
 
+/** Maps state names to ids for map visualization */
 const stateIds: Record<string, string> = {
   Alabama: '01',
   Alaska: '02',
@@ -60,6 +61,11 @@ const stateIds: Record<string, string> = {
   Wyoming: '56',
 }
 
+/**
+ * Parses data for national salary visualization
+ * @param values Salary data
+ * @returns parsed data
+ */
 function parseNatData(values: SalaryInfo[]): unknown[] {
   const mostRecentData = values[values.length - 1] || {}
   return [
@@ -82,6 +88,11 @@ function parseNatData(values: SalaryInfo[]): unknown[] {
   ]
 }
 
+/**
+ * Parses data for state salary visualization
+ * @param values Salary data
+ * @returns parsed data
+ */
 function parseStateData(values: SalaryInfo[]): SalaryInfo[] {
   const mostRecentData = values.filter(value => value['year'] === 2022);
   const allStates = Object.keys(stateIds);
@@ -105,15 +116,25 @@ function parseStateData(values: SalaryInfo[]): SalaryInfo[] {
   })
 }
 
+/**
+ * Parses data for industry salary visualization
+ * @param values Salary data
+ * @returns parsed data
+ */
 function parseIndData(values: SalaryInfo[]): SalaryInfo[] {
   return values.filter(value => (value['ann_emp_rank'] as number < 6) && value['year'] === 2022).map(value => {
     return {
-      industry: value['industry_name'],
-      value: value['tot_emp']
+      industry_name: value['industry_name'],
+      tot_emp: value['tot_emp']
     }
   })
 }
 
+/**
+ * Creates national salary visualization
+ * @param values salary data
+ * @returns visualization spec
+ */
 export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
@@ -158,6 +179,11 @@ export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
   };
 }
 
+/**
+ * Creates state salary visualization
+ * @param values salary data
+ * @returns visualization spec
+ */
 export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
@@ -224,6 +250,11 @@ export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
   };
 }
 
+/**
+ * Creates industry salary visualization
+ * @param values salary data
+ * @returns visualization spec
+ */
 export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
@@ -236,29 +267,29 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
     encoding: {
       x: {
         aggregate: 'mean',
-        field: 'value',
-        title: 'tot_emp',
+        field: 'tot_emp',
+        title: 'Value',
         axis: {
           labelFontSize: 15,
-          titleFontSize: 25
+          titleFontSize: 18
         }
       },
       y: {
-        field: 'industry',
+        field: 'industry_name',
         sort: 'x',
         title: 'Industry',
         axis: {
           labelFontSize: 15,
-          titleFontSize: 25
+          titleFontSize: 18
         }
       },
       tooltip: [
         {
-          field: 'industry',
+          field: 'industry_name',
           title: 'Industry'
         },
         {
-          field: 'value',
+          field: 'tot_emp',
           title: 'Value'
         }
       ]
