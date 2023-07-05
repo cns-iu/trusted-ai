@@ -20,9 +20,13 @@ export interface AllJobInfo {
   job_zone?: number;
   /** List of technology skills */
   tech_skills?: TechSkill[];
+  /** List of work tasks */
   work_tasks?: WorkTasks[];
+  /** List of state salary info */
   salary_states?: SalaryInfo[];
+  /** List of national salary info */
   salary_nat?: SalaryInfo[];
+  /** List of industry salary info */
   salary_ind?: SalaryInfo[];
 }
 
@@ -34,14 +38,38 @@ export interface TechSkill {
   example: string;
 }
 
+/** Info on work tasks */
 export interface WorkTasks {
+  /** Name of task */
   task: string;
+  /** Importance of task */
   importance: number;
+  /** Relevance of task */
   relevance: number;
 }
 
+/** Info on salary */
 export interface SalaryInfo {
-  [key: string]: unknown;
+  /** Avg annual salary at 10th percentile */
+  a_pct10?: number;
+  /** Avg annual salary at 25th percentile */
+  a_pct25?: number;
+  /** Avg annual salary at 75th percentile */
+  a_pct75?: number;
+  /** Avg annual salary at 90th percentile */
+  a_pct90?: number;
+  /** State name */
+  place_name?: string;
+  /** Year of data */
+  year?: number;
+  /** Annual mean salary */
+  a_mean?: number | null;
+  /** Ranking of annual emp */
+  ann_emp_rank?: number;
+  /** Industry name */
+  industry_name?: string;
+  /** Total emp */
+  tot_emp?: number;
 }
 
 /**
@@ -71,19 +99,18 @@ export class ProfilePageComponent implements OnInit {
   currentJobInfo: AllJobInfo = {};
   /** Tech skills for the job (each pair = type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] = [];
-
+  /** Work tasks list */
   workTasks: WorkTasks[] = [];
-
+  /** Salary states info */
+  salaryStatesInfo: SalaryInfo[] = [];
+  /** Salary national info */
+  salaryNatInfo: SalaryInfo[] = [];
+  /** Salary industry info */
+  salaryIndInfo: SalaryInfo[] = [];
+  /** Whether or not all work tasks should be displayed */
+  showAllTasks = false;
   /** Whether or not all technology skills should be displayed */
   showAllSkills = false;
-
-  salaryStatesInfo: SalaryInfo[] = [];
-
-  salaryNatInfo: SalaryInfo[] = [];
-
-  salaryIndInfo: SalaryInfo[] = [];
-
-  showAllTasks = false;
 
   /**
    * Scrolls to top of page and fetches profile data on init
@@ -97,7 +124,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   /**
-   * Observable for fetching profile data for job code
+   * Observable for fetching profile data from job code
    * @param code Job code
    * @returns Observable
    */
@@ -164,6 +191,9 @@ export class ProfilePageComponent implements OnInit {
     this.showAllSkills = !this.showAllSkills;
   }
 
+  /**
+   * Toggles showing all work tasks
+   */
   showAllWorkTasksButtonClicked(): void {
     this.showAllTasks = !this.showAllTasks;
   }

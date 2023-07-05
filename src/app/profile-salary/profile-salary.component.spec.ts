@@ -21,7 +21,7 @@ describe('ProfileSalaryComponent', () => {
       {
         year: 2022,
         place_name: 'Alabama',
-        a_mean: '1',
+        a_mean: 1,
       },
     ];
     component.dataInd = [

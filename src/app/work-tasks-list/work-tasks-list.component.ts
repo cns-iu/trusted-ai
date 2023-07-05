@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, DoCheck, EventEmitter, Input, Output } from '@angular/core';
-
-import { WorkTasks } from '../pages/profile-page/profile-page.component';
-import { MatButtonToggleModule, MatButtonToggleChange } from '@angular/material/button-toggle';
+import { MatButtonToggleChange, MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 
+import { WorkTasks } from '../pages/profile-page/profile-page.component';
+
+/**
+ * Work tasks section of job profile
+ */
 @Component({
   selector: 'trust-ai-work-tasks-list',
   standalone: true,
@@ -13,18 +16,22 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./work-tasks-list.component.scss'],
 })
 export class WorkTasksListComponent implements DoCheck {
+  /** List of all tasks */
   @Input() tasks: WorkTasks[] = [];
-
+  /** Whether to show all tasks or not */
   @Input() showAll = false;
-
-  @Output() showAllButtonClick = new EventEmitter();
-
+  /** List type selected (0 = importance, 1 = frequency) */
   @Input() selection = '0';
-
+  /** Emits when show all is clicked */
+  @Output() showAllButtonClick = new EventEmitter();
+  /** Emits when list selection changed */
   @Output() readonly selectionChanged = new EventEmitter<string>();
-
+  /** Currently visible tasks */
   tasksShown: WorkTasks[] = [];
 
+  /**
+   * Updates and sorts list of shown tasks when selection changes
+   */
   ngDoCheck(): void {
     if (this.selection === '0') {
       this.tasks.sort((a, b) => b.importance - a.importance);
@@ -34,10 +41,19 @@ export class WorkTasksListComponent implements DoCheck {
     this.tasksShown = this.showAll ? this.tasks : this.tasks.slice(0, 3);
   }
 
+  /**
+   * Sets current selection to value
+   * @param event
+   */
   selectionChange(event: MatButtonToggleChange) {
     this.selection = event.value;
   }
 
+  /**
+   * Returns task category from importance value
+   * @param value Importance value
+   * @returns Category name
+   */
   importanceCategory(value: number): string {
     if (value > 4) {
       return 'high';
@@ -52,6 +68,11 @@ export class WorkTasksListComponent implements DoCheck {
     }
   }
 
+  /**
+   * Returns frequency category from frequency value
+   * @param value Frequency value
+   * @returns Category name
+   */
   frequencyCategory(value: number): string {
     if (value > 75) {
       return 'high';
@@ -66,6 +87,11 @@ export class WorkTasksListComponent implements DoCheck {
     }
   }
 
+  /**
+   * Rounds frequency value to nearest integer
+   * @param value Frequency value
+   * @returns Rounded value
+   */
   roundFrequency(value: number): number {
     return Math.round(value);
   }

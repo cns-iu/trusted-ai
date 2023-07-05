@@ -9,6 +9,9 @@ import embed, { VisualizationSpec } from 'vega-embed';
 
 import { SalaryInfo } from '../pages/profile-page/profile-page.component';
 
+/**
+ * Salary statistics section of job profile
+ */
 @Component({
   selector: 'trust-ai-profile-salary',
   standalone: true,
@@ -17,16 +20,22 @@ import { SalaryInfo } from '../pages/profile-page/profile-page.component';
   styleUrls: ['./profile-salary.component.scss'],
 })
 export class ProfileSalaryComponent implements OnChanges {
+  /** Visualization element */
   @ViewChild('vis') vis?: ElementRef;
-
+  /** Vega lite spec for visualization */
   @Input() spec: VisualizationSpec = {};
-
+  /** State salary data */
   @Input() dataStates: SalaryInfo[] = [];
-
+  /** National salary data */
   @Input() dataNat: SalaryInfo[] = [];
-
+  /** Industry salary data */
   @Input() dataInd: SalaryInfo[] = [];
 
+  /**
+   * Updates visualizations on data changes
+   * @param changes Changes
+   * @returns Promise
+   */
   async ngOnChanges(changes: SimpleChanges): Promise<void> {
     if ('dataStates' in changes) {
       this.spec = createSalaryStatePlot(this.dataStates);
