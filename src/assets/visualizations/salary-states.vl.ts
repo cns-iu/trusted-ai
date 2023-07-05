@@ -102,7 +102,7 @@ function parseStateData(values: SalaryInfo[]): SalaryInfo[] {
       mostRecentData.push(
         {
           place_name: state,
-          a_mean: null
+          a_mean: undefined
         }
       )
     }
@@ -122,12 +122,14 @@ function parseStateData(values: SalaryInfo[]): SalaryInfo[] {
  * @returns parsed data
  */
 function parseIndData(values: SalaryInfo[]): SalaryInfo[] {
-  return values.filter(value => (value['ann_emp_rank'] as number < 6) && value['year'] === 2022).map(value => {
-    return {
-      industry_name: value['industry_name'],
-      tot_emp: value['tot_emp']
-    }
-  })
+  return values.filter(value => value['year'] === 2022)
+    .sort((a, b) => (b.a_mean || 0) - (a.a_mean || 0))
+    .map(value => {
+      return {
+        industry_name: value['industry_name'],
+        a_mean: value['a_mean']
+      }
+    }).slice(0, 5)
 }
 
 /**
@@ -256,6 +258,7 @@ export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
  * @returns visualization spec
  */
 export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
+  console.log(parseIndData(values))
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     width: 668,
@@ -267,8 +270,8 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
     encoding: {
       x: {
         aggregate: 'mean',
-        field: 'tot_emp',
-        title: 'Value',
+        field: 'a_mean',
+        title: 'Salary (annual)',
         axis: {
           labelFontSize: 15,
           titleFontSize: 18
@@ -289,8 +292,8 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
           title: 'Industry'
         },
         {
-          field: 'tot_emp',
-          title: 'Value'
+          field: 'a_mean',
+          title: 'Salary (annual)'
         }
       ]
     }
