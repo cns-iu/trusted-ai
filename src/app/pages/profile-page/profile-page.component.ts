@@ -5,8 +5,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { PreparednessLevels } from 'src/app/career-card/career-card.component';
+import { ProfileSalaryComponent } from 'src/app/profile-salary/profile-salary.component';
 import { ProfileTechnologySkillsComponent } from 'src/app/profile-technology-skills/profile-technology-skills.component';
 import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
+import { WorkTasksListComponent } from 'src/app/work-tasks-list/work-tasks-list.component';
 
 /** Queried job data format */
 export interface AllJobInfo {
@@ -18,6 +20,14 @@ export interface AllJobInfo {
   job_zone?: number;
   /** List of technology skills */
   tech_skills?: TechSkill[];
+  /** List of work tasks */
+  work_tasks?: WorkTasks[];
+  /** List of state salary info */
+  salary_states?: SalaryInfo[];
+  /** List of national salary info */
+  salary_nat?: SalaryInfo[];
+  /** List of industry salary info */
+  salary_ind?: SalaryInfo[];
 }
 
 /** Info on a technology skill */
@@ -28,29 +38,77 @@ export interface TechSkill {
   example: string;
 }
 
+/** Info on work tasks */
+export interface WorkTasks {
+  /** Name of task */
+  task: string;
+  /** Importance of task */
+  importance: number;
+  /** Relevance of task */
+  relevance: number;
+}
+
+/** Info on salary */
+export interface SalaryInfo {
+  /** Avg annual salary at 10th percentile */
+  a_pct10?: number;
+  /** Avg annual salary at 25th percentile */
+  a_pct25?: number;
+  /** Avg annual salary at 75th percentile */
+  a_pct75?: number;
+  /** Avg annual salary at 90th percentile */
+  a_pct90?: number;
+  /** State name */
+  place_name?: string;
+  /** Year of data */
+  year?: number;
+  /** Annual mean salary */
+  a_mean?: number | null;
+  /** Ranking of annual emp */
+  ann_emp_rank?: number;
+  /** Industry name */
+  industry_name?: string;
+  /** Total emp */
+  tot_emp?: number;
+}
+
 /**
  * Profile page component
  */
 @Component({
   selector: 'trust-ai-profile-page',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, MatButtonModule, SearchBoxComponent, ProfileTechnologySkillsComponent],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    MatButtonModule,
+    SearchBoxComponent,
+    ProfileTechnologySkillsComponent,
+    ProfileSalaryComponent,
+    WorkTasksListComponent,
+  ],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
 })
 export class ProfilePageComponent implements OnInit {
   /** Scrolls to top of page */
   private readonly route = inject(ActivatedRoute);
-
   /** Http client */
   private readonly http = inject(HttpClient);
-
   /** Current job info */
   currentJobInfo: AllJobInfo = {};
-
   /** Tech skills for the job (each pair = type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] = [];
-
+  /** Work tasks list */
+  workTasks: WorkTasks[] = [];
+  /** Salary states info */
+  salaryStatesInfo: SalaryInfo[] = [];
+  /** Salary national info */
+  salaryNatInfo: SalaryInfo[] = [];
+  /** Salary industry info */
+  salaryIndInfo: SalaryInfo[] = [];
+  /** Whether or not all work tasks should be displayed */
+  showAllTasks = false;
   /** Whether or not all technology skills should be displayed */
   showAllSkills = false;
 
@@ -66,7 +124,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   /**
-   * Observable for fetching profile data for job code
+   * Observable for fetching profile data from job code
    * @param code Job code
    * @returns Observable
    */
@@ -76,6 +134,18 @@ export class ProfilePageComponent implements OnInit {
         this.currentJobInfo = JSON.parse(result);
         if (this.currentJobInfo['tech_skills']) {
           this.setSkillsGrouping(this.currentJobInfo['tech_skills']);
+        }
+        if (this.currentJobInfo['salary_states']) {
+          this.salaryStatesInfo = this.currentJobInfo['salary_states'];
+        }
+        if (this.currentJobInfo['salary_nat']) {
+          this.salaryNatInfo = this.currentJobInfo['salary_nat'];
+        }
+        if (this.currentJobInfo['salary_ind']) {
+          this.salaryIndInfo = this.currentJobInfo['salary_ind'];
+        }
+        if (this.currentJobInfo['work_tasks']) {
+          this.workTasks = this.currentJobInfo['work_tasks'];
         }
       })
     );
@@ -119,5 +189,12 @@ export class ProfilePageComponent implements OnInit {
    */
   showAllTechnologyButtonClicked(): void {
     this.showAllSkills = !this.showAllSkills;
+  }
+
+  /**
+   * Toggles showing all work tasks
+   */
+  showAllWorkTasksButtonClicked(): void {
+    this.showAllTasks = !this.showAllTasks;
   }
 }
