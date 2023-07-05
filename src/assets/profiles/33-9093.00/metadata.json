@@ -505,7 +505,7 @@
       "domain_source": "Occupational Expert"
     }
   ],
-  "salary": [
+  "salary_states": [
     {
       "soc_id": "33-9093.00",
       "soc_id_nems": "33-9093",

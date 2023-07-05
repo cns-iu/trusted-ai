@@ -10,7 +10,7 @@
   "example": "These occupations often involve coordinating, training, supervising, or managing the activities of others to accomplish goals. Very advanced communication and organizational skills are required. Examples include pharmacists, lawyers, astronomers, biologists, clergy, physician assistants, and veterinarians.",
   "svp_range": "(8.0 and above)",
   "work_tasks": null,
-  "salary": [
+  "salary_states": [
     {
       "soc_id": "29-1212.00",
       "soc_id_nems": "29-1212",

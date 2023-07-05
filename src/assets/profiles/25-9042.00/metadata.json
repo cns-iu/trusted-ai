@@ -10,7 +10,7 @@
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
   "svp_range": "(6.0 to < 7.0)",
   "work_tasks": null,
-  "salary": [
+  "salary_states": [
     {
       "soc_id": "25-9042.00",
       "soc_id_nems": "25-9041",

@@ -1,5 +1,5 @@
 <div class="controls">
-  <mat-button-toggle-group class="toggle" name="show-occupations-toggle" (change)="filtersChange($event)">
+  <mat-button-toggle-group class="toggle" name="show-occupations-toggle" (change)="selectionChange($event)">
     <mat-button-toggle value="0" checked="true">
       <mat-icon class="checkmark" *ngIf="selection === '0'">check</mat-icon>
       Importance

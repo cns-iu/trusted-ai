@@ -34,7 +34,7 @@ export class WorkTasksListComponent implements DoCheck {
     this.tasksShown = this.showAll ? this.tasks : this.tasks.slice(0, 3);
   }
 
-  filtersChange(event: MatButtonToggleChange) {
+  selectionChange(event: MatButtonToggleChange) {
     this.selection = event.value;
   }
 

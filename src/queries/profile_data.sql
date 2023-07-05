@@ -32,7 +32,7 @@ WHERE r."rec_suppress" = 'N' OR r."rec_suppress" IS NULL
 GROUP BY r.soc_id;
 
 CREATE TEMP VIEW foo3 AS
-SELECT r.soc_id, array_to_json(array_agg(r)) as salary
+SELECT r.soc_id, array_to_json(array_agg(r)) as salary_states
 FROM profile_sec_five_oews_state as r
 GROUP BY r.soc_id;
 
@@ -61,7 +61,7 @@ GROUP BY r.soc_id;
 \o src/assets/data/profile_data.json
 SELECT array_to_json(array_agg(ROW_TO_JSON(r)), TRUE)
 FROM (
-  SELECT foo1.*, foo2.work_tasks, foo3.salary, foo4.tech_skills, foo5.work_behaviors, foo6.salary_nat, foo7.salary_ind
+  SELECT foo1.*, foo2.work_tasks, foo3.salary_states, foo4.tech_skills, foo5.work_behaviors, foo6.salary_nat, foo7.salary_ind
   FROM foo1
     LEFT JOIN foo2 on foo2.soc_id = foo1.soc_id
     LEFT JOIN foo3 on foo3.soc_id = foo1.soc_id

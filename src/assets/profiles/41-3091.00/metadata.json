@@ -10,7 +10,7 @@
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "(4.0 to < 6.0)",
   "work_tasks": null,
-  "salary": [
+  "salary_states": [
     {
       "soc_id": "41-3091.00",
       "soc_id_nems": "41-3091",

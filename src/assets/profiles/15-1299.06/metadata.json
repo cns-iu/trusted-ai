@@ -10,7 +10,7 @@
   "example": "Many of these occupations involve coordinating, supervising, managing, or training others. Examples include real estate brokers, sales managers, database administrators, graphic designers, conservation scientists, art directors, and cost estimators.",
   "svp_range": "(7.0 to < 8.0)",
   "work_tasks": null,
-  "salary": [
+  "salary_states": [
     {
       "soc_id": "15-1299.06",
       "soc_id_nems": "15-1199",
