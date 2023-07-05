@@ -18,4 +18,11 @@ describe('ProfileTechnologySkillsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('shows all technology skills', () => {
+    component.showAll = true;
+    component.allSkills = [['skill', ['example', 'example']]];
+    component.ngDoCheck();
+    expect(component.skillsShown).toBeTruthy();
+  });
 });
