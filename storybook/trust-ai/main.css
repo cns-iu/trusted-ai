@@ -8,3 +8,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.vg-tooltip tr {
+  font-size: 1.25rem;
+}

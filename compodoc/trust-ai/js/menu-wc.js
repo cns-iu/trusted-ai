@@ -89,10 +89,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/ProfilePageComponent.html" data-type="entity-link" >ProfilePageComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/ProfileSalaryComponent.html" data-type="entity-link" >ProfileSalaryComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/ProfileTechnologySkillsComponent.html" data-type="entity-link" >ProfileTechnologySkillsComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/SearchBoxComponent.html" data-type="entity-link" >SearchBoxComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/WorkTasksListComponent.html" data-type="entity-link" >WorkTasksListComponent</a>
                             </li>
                         </ul>
                     </li>
@@ -111,10 +117,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/JobInfo.html" data-type="entity-link" >JobInfo</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/SalaryInfo.html" data-type="entity-link" >SalaryInfo</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/SearchFilters.html" data-type="entity-link" >SearchFilters</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/TechSkill.html" data-type="entity-link" >TechSkill</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/WorkTasks.html" data-type="entity-link" >WorkTasks</a>
                             </li>
                         </ul>
                     </li>
@@ -126,6 +138,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
+                            <li class="link">
+                                <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                            </li>
                             <li class="link">
                                 <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                             </li>

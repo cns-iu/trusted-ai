@@ -203,8 +203,10 @@ import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { Observable, tap } from &#x27;rxjs&#x27;;
 import { PreparednessLevels } from &#x27;src/app/career-card/career-card.component&#x27;;
+import { ProfileSalaryComponent } from &#x27;src/app/profile-salary/profile-salary.component&#x27;;
 import { ProfileTechnologySkillsComponent } from &#x27;src/app/profile-technology-skills/profile-technology-skills.component&#x27;;
 import { SearchBoxComponent } from &#x27;src/app/search-box/search-box.component&#x27;;
+import { WorkTasksListComponent } from &#x27;src/app/work-tasks-list/work-tasks-list.component&#x27;;
 
 /** Queried job data format */
 export interface AllJobInfo {
@@ -216,6 +218,14 @@ export interface AllJobInfo {
   job_zone?: number;
   /** List of technology skills */
   tech_skills?: TechSkill[];
+  /** List of work tasks */
+  work_tasks?: WorkTasks[];
+  /** List of state salary info */
+  salary_states?: SalaryInfo[];
+  /** List of national salary info */
+  salary_nat?: SalaryInfo[];
+  /** List of industry salary info */
+  salary_ind?: SalaryInfo[];
 }
 
 /** Info on a technology skill */
@@ -226,29 +236,77 @@ export interface TechSkill {
   example: string;
 }
 
+/** Info on work tasks */
+export interface WorkTasks {
+  /** Name of task */
+  task: string;
+  /** Importance of task */
+  importance: number;
+  /** Relevance of task */
+  relevance: number;
+}
+
+/** Info on salary */
+export interface SalaryInfo {
+  /** Avg annual salary at 10th percentile */
+  a_pct10?: number;
+  /** Avg annual salary at 25th percentile */
+  a_pct25?: number;
+  /** Avg annual salary at 75th percentile */
+  a_pct75?: number;
+  /** Avg annual salary at 90th percentile */
+  a_pct90?: number;
+  /** State name */
+  place_name?: string;
+  /** Year of data */
+  year?: number;
+  /** Annual mean salary */
+  a_mean?: number | null;
+  /** Ranking of annual emp */
+  ann_emp_rank?: number;
+  /** Industry name */
+  industry_name?: string;
+  /** Total emp */
+  tot_emp?: number;
+}
+
 /**
  * Profile page component
  */
 @Component({
   selector: &#x27;trust-ai-profile-page&#x27;,
   standalone: true,
-  imports: [CommonModule, HttpClientModule, MatButtonModule, SearchBoxComponent, ProfileTechnologySkillsComponent],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    MatButtonModule,
+    SearchBoxComponent,
+    ProfileTechnologySkillsComponent,
+    ProfileSalaryComponent,
+    WorkTasksListComponent,
+  ],
   templateUrl: &#x27;./profile-page.component.html&#x27;,
   styleUrls: [&#x27;./profile-page.component.scss&#x27;],
 })
 export class ProfilePageComponent implements OnInit {
   /** Scrolls to top of page */
   private readonly route &#x3D; inject(ActivatedRoute);
-
   /** Http client */
   private readonly http &#x3D; inject(HttpClient);
-
   /** Current job info */
   currentJobInfo: AllJobInfo &#x3D; {};
-
   /** Tech skills for the job (each pair &#x3D; type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] &#x3D; [];
-
+  /** Work tasks list */
+  workTasks: WorkTasks[] &#x3D; [];
+  /** Salary states info */
+  salaryStatesInfo: SalaryInfo[] &#x3D; [];
+  /** Salary national info */
+  salaryNatInfo: SalaryInfo[] &#x3D; [];
+  /** Salary industry info */
+  salaryIndInfo: SalaryInfo[] &#x3D; [];
+  /** Whether or not all work tasks should be displayed */
+  showAllTasks &#x3D; false;
   /** Whether or not all technology skills should be displayed */
   showAllSkills &#x3D; false;
 
@@ -264,7 +322,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   /**
-   * Observable for fetching profile data for job code
+   * Observable for fetching profile data from job code
    * @param code Job code
    * @returns Observable
    */
@@ -274,6 +332,18 @@ export class ProfilePageComponent implements OnInit {
         this.currentJobInfo &#x3D; JSON.parse(result);
         if (this.currentJobInfo[&#x27;tech_skills&#x27;]) {
           this.setSkillsGrouping(this.currentJobInfo[&#x27;tech_skills&#x27;]);
+        }
+        if (this.currentJobInfo[&#x27;salary_states&#x27;]) {
+          this.salaryStatesInfo &#x3D; this.currentJobInfo[&#x27;salary_states&#x27;];
+        }
+        if (this.currentJobInfo[&#x27;salary_nat&#x27;]) {
+          this.salaryNatInfo &#x3D; this.currentJobInfo[&#x27;salary_nat&#x27;];
+        }
+        if (this.currentJobInfo[&#x27;salary_ind&#x27;]) {
+          this.salaryIndInfo &#x3D; this.currentJobInfo[&#x27;salary_ind&#x27;];
+        }
+        if (this.currentJobInfo[&#x27;work_tasks&#x27;]) {
+          this.workTasks &#x3D; this.currentJobInfo[&#x27;work_tasks&#x27;];
         }
       })
     );
@@ -317,6 +387,13 @@ export class ProfilePageComponent implements OnInit {
    */
   showAllTechnologyButtonClicked(): void {
     this.showAllSkills &#x3D; !this.showAllSkills;
+  }
+
+  /**
+   * Toggles showing all work tasks
+   */
+  showAllWorkTasksButtonClicked(): void {
+    this.showAllTasks &#x3D; !this.showAllTasks;
   }
 }
 </code></pre>
