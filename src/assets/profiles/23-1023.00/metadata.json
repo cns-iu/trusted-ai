@@ -410,7 +410,7 @@
       "domain_source": "Incumbent"
     }
   ],
-  "salary": [
+  "salary_states": [
     {
       "soc_id": "23-1023.00",
       "soc_id_nems": "23-1023",

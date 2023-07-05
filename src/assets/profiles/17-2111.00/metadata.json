@@ -486,7 +486,7 @@
       "domain_source": "Analyst - Transition"
     }
   ],
-  "salary": [
+  "salary_states": [
     {
       "soc_id": "17-2111.00",
       "soc_id_nems": "17-2111",

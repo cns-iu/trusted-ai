@@ -21,7 +21,7 @@ export interface AllJobInfo {
   /** List of technology skills */
   tech_skills?: TechSkill[];
   work_tasks?: WorkTasks[];
-  salary?: SalaryInfo[];
+  salary_states?: SalaryInfo[];
   salary_nat?: SalaryInfo[];
   salary_ind?: SalaryInfo[];
 }
@@ -67,10 +67,8 @@ export class ProfilePageComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   /** Http client */
   private readonly http = inject(HttpClient);
-
   /** Current job info */
   currentJobInfo: AllJobInfo = {};
-
   /** Tech skills for the job (each pair = type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] = [];
 
@@ -79,8 +77,10 @@ export class ProfilePageComponent implements OnInit {
   /** Whether or not all technology skills should be displayed */
   showAllSkills = false;
 
-  salaryInfo: SalaryInfo[] = [];
+  salaryStatesInfo: SalaryInfo[] = [];
+
   salaryNatInfo: SalaryInfo[] = [];
+
   salaryIndInfo: SalaryInfo[] = [];
 
   showAllTasks = false;
@@ -108,15 +108,12 @@ export class ProfilePageComponent implements OnInit {
         if (this.currentJobInfo['tech_skills']) {
           this.setSkillsGrouping(this.currentJobInfo['tech_skills']);
         }
-
-        if (this.currentJobInfo['salary']) {
-          this.salaryInfo = this.currentJobInfo['salary'];
+        if (this.currentJobInfo['salary_states']) {
+          this.salaryStatesInfo = this.currentJobInfo['salary_states'];
         }
-
         if (this.currentJobInfo['salary_nat']) {
           this.salaryNatInfo = this.currentJobInfo['salary_nat'];
         }
-
         if (this.currentJobInfo['salary_ind']) {
           this.salaryIndInfo = this.currentJobInfo['salary_ind'];
         }

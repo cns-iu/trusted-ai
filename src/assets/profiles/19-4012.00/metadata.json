@@ -505,7 +505,7 @@
       "domain_source": "Incumbent"
     }
   ],
-  "salary": [
+  "salary_states": [
     {
       "soc_id": "19-4012.00",
       "soc_id_nems": "19-4011",

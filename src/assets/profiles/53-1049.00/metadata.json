@@ -10,7 +10,7 @@
   "example": null,
   "svp_range": null,
   "work_tasks": null,
-  "salary": [
+  "salary_states": [
     {
       "soc_id": "53-1049.00",
       "soc_id_nems": "53-1047",
