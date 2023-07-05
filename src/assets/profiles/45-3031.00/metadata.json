@@ -543,7 +543,7 @@
       "domain_source": "Analyst - Transition"
     }
   ],
-  "salary": null,
+  "salary_states": null,
   "tech_skills": [
     {
       "onid": "28233",
@@ -3311,5 +3311,7 @@
       "not_relevant": false,
       "domain_source": "Analyst - Transition"
     }
-  ]
+  ],
+  "salary_nat": null,
+  "salary_ind": null
 }
