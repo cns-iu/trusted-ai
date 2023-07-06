@@ -78,6 +78,10 @@ function parseNatData(values: SalaryInfo[]): unknown[] {
       salary: mostRecentData['a_pct25']
     },
     {
+      percentile: 50,
+      salary: mostRecentData['a_median']
+    },
+    {
       percentile: 75,
       salary: mostRecentData['a_pct75']
     },
@@ -121,13 +125,17 @@ function parseStateData(values: SalaryInfo[]): SalaryInfo[] {
  * @param values Salary data
  * @returns parsed data
  */
-function parseIndData(values: SalaryInfo[]): SalaryInfo[] {
+function parseIndData(values: SalaryInfo[]): unknown[] {
   return values.filter(value => value['year'] === 2022)
     .sort((a, b) => (b.a_mean || 0) - (a.a_mean || 0))
     .map(value => {
       return {
         industry_name: value['industry_name'],
-        a_mean: value['a_mean']
+        lower_box_salary: value['a_pct25'],
+        upper_box_salary: value['a_pct75'],
+        mid_box_salary: value['a_median'],
+        lower_whisker_salary: value['a_pct10'],
+        upper_whisker_salary: value['a_pct90']
       }
     }).slice(0, 5)
 }
@@ -152,7 +160,8 @@ export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
         type: 'quantitative',
         title: 'Percentile',
         axis: {
-          values: [10, 25, 75, 90],
+          values: [10, 25, 50, 75, 90],
+          labelExpr: "datum.value == 50 ? 'Median' : datum.value",
           labelFontSize: 15,
           titleFontSize: 18
         }
@@ -223,7 +232,7 @@ export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
         title: 'Salary (annual)',
         type: 'quantitative',
         condition: {
-          test: "datum['a_mean'] === null",
+          test: "isValid(datum['a_mean']) === false",
           value: '#aaa'
         },
         legend: {
@@ -258,7 +267,6 @@ export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
  * @returns visualization spec
  */
 export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
-  console.log(parseIndData(values))
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     width: 668,
@@ -266,36 +274,131 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
     data: {
       values: parseIndData(values)
     },
-    mark: { size: 300, type: 'circle' },
     encoding: {
       x: {
-        aggregate: 'mean',
-        field: 'a_mean',
-        title: 'Salary (annual)',
-        axis: {
-          labelFontSize: 15,
-          titleFontSize: 18
-        }
-      },
-      y: {
         field: 'industry_name',
-        sort: 'x',
+        type: 'nominal',
         title: 'Industry',
         axis: {
           labelFontSize: 15,
-          titleFontSize: 18
+          titleFontSize: 18,
+          labelAngle: -45,
+          labelLimit: 1000
+        },
+        sort: {
+          field: 'mid_box_salary'
         }
       },
-      tooltip: [
-        {
-          field: 'industry_name',
-          title: 'Industry'
-        },
-        {
-          field: 'a_mean',
-          title: 'Salary (annual)'
+    },
+    layer: [
+      {
+        mark: { type: 'errorbar', ticks: true },
+        encoding: {
+          y: {
+            field: 'lower_whisker_salary',
+            type: 'quantitative',
+            scale: { zero: false },
+            title: 'Salary (annual)',
+            axis: {
+              labelFontSize: 15,
+              titleFontSize: 18
+            }
+          },
+          y2: { field: 'upper_whisker_salary' },
+          tooltip: [
+            {
+              field: 'industry_name',
+              title: 'Industry'
+            },
+            {
+              field: 'lower_whisker_salary',
+              title: '10th percentile'
+            },
+            {
+              field: 'lower_box_salary',
+              title: '25th percentile'
+            },
+            {
+              field: 'mid_box_salary',
+              title: '50th percentile'
+            },
+            {
+              field: 'upper_box_salary',
+              title: '75th percentile'
+            },
+            {
+              field: 'upper_whisker_salary',
+              title: '90th percentile'
+            },
+          ]
         }
-      ]
-    }
+      },
+      {
+        mark: { type: 'bar', size: 28 },
+        encoding: {
+          y: { field: 'lower_box_salary', type: 'quantitative' },
+          y2: { field: 'upper_box_salary' },
+          tooltip: [
+            {
+              field: 'industry_name',
+              title: 'Industry'
+            },
+            {
+              field: 'lower_whisker_salary',
+              title: '10th percentile'
+            },
+            {
+              field: 'lower_box_salary',
+              title: '25th percentile'
+            },
+            {
+              field: 'mid_box_salary',
+              title: '50th percentile'
+            },
+            {
+              field: 'upper_box_salary',
+              title: '75th percentile'
+            },
+            {
+              field: 'upper_whisker_salary',
+              title: '90th percentile'
+            },
+          ],
+          color: { field: 'industry_name', type: 'nominal', legend: null },
+        }
+      },
+      {
+        mark: { type: 'tick', color: 'white', size: 14 },
+        encoding: {
+          y: { field: 'mid_box_salary', type: 'quantitative' },
+          tooltip: [
+            {
+              field: 'industry_name',
+              title: 'Industry'
+            },
+            {
+              field: 'lower_whisker_salary',
+              title: '10th percentile'
+            },
+            {
+              field: 'lower_box_salary',
+              title: '25th percentile'
+            },
+            {
+              field: 'mid_box_salary',
+              title: '50th percentile'
+            },
+            {
+              field: 'upper_box_salary',
+              title: '75th percentile'
+            },
+            {
+              field: 'upper_whisker_salary',
+              title: '90th percentile'
+            },
+          ],
+        }
+      },
+    ]
   };
 }

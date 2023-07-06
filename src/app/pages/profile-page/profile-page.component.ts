@@ -54,6 +54,8 @@ export interface SalaryInfo {
   a_pct10?: number;
   /** Avg annual salary at 25th percentile */
   a_pct25?: number;
+  /** Avg annual salary at 50th percentile */
+  a_median?: number;
   /** Avg annual salary at 75th percentile */
   a_pct75?: number;
   /** Avg annual salary at 90th percentile */
@@ -64,11 +66,9 @@ export interface SalaryInfo {
   year?: number;
   /** Annual mean salary */
   a_mean?: number | null;
-  /** Ranking of annual emp */
-  ann_emp_rank?: number;
   /** Industry name */
   industry_name?: string;
-  /** Total emp */
+  /** Total employment */
   tot_emp?: number;
 }
 
