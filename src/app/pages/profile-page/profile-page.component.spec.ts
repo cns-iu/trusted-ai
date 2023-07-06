@@ -63,7 +63,16 @@ describe('ProfilePageComponent', () => {
         { commodity_title: 'title', example: 'example' },
         { commodity_title: 'title', example: 'example2' },
       ],
-      salary_ind: [{ ann_emp_rank: 2, year: 2023 }],
+      salary_ind: [
+        {
+          a_pct10: 1,
+          a_pct25: 2,
+          a_median: 2.5,
+          a_pct75: 3,
+          a_pct90: 4,
+          year: 2023,
+        },
+      ],
       salary_nat: [
         {
           a_pct10: 1,
@@ -79,7 +88,16 @@ describe('ProfilePageComponent', () => {
     const req = controller.expectOne('assets/profiles/11111/metadata.json');
     req.flush(JSON.stringify(testResult));
     expect(component.techSkills).toEqual([['title', ['example', 'example2']]]);
-    expect(component.salaryIndInfo).toEqual([{ ann_emp_rank: 2, year: 2023 }]);
+    expect(component.salaryIndInfo).toEqual([
+      {
+        a_pct10: 1,
+        a_pct25: 2,
+        a_median: 2.5,
+        a_pct75: 3,
+        a_pct90: 4,
+        year: 2023,
+      },
+    ]);
     expect(component.salaryNatInfo).toEqual([
       {
         a_pct10: 1,

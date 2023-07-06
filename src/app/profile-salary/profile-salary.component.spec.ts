@@ -17,6 +17,12 @@ describe('ProfileSalaryComponent', () => {
   });
 
   it('should create specs with data', async () => {
+    const mockChange = {
+      currentValue: [],
+      previousValue: [],
+      firstChange: false,
+      isFirstChange: () => false,
+    };
     component.dataStates = [
       {
         year: 2022,
@@ -26,38 +32,19 @@ describe('ProfileSalaryComponent', () => {
     ];
     component.dataInd = [
       {
-        ann_emp_rank: 5,
         year: 2022,
         industry_name: 'industry',
-        tot_emp: 3000,
+        a_pct10: 0,
+        a_pct25: 1,
+        a_median: 2,
+        a_pct75: 3,
+        a_pct90: 4,
       },
     ];
     await component.ngOnChanges({
-      dataStates: {
-        currentValue: [],
-        previousValue: [],
-        firstChange: false,
-        isFirstChange: () => false,
-      },
-      dataNat: {
-        currentValue: [],
-        previousValue: [],
-        firstChange: false,
-        isFirstChange: () => false,
-      },
-      dataInd: {
-        currentValue: [
-          {
-            ann_emp_rank: 5,
-            year: 2022,
-            industry_name: 'industry',
-            tot_emp: 3000,
-          },
-        ],
-        previousValue: [],
-        firstChange: false,
-        isFirstChange: () => false,
-      },
+      dataStates: mockChange,
+      dataNat: mockChange,
+      dataInd: mockChange,
     });
   });
 });
