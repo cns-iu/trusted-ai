@@ -1,10 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
-import {
-  createSalaryIndPlot,
-  createSalaryNatPlot,
-  createSalaryStatePlot,
-} from 'src/assets/visualizations/salary-states.vl';
+import { createSalaryIndPlot, createSalaryNatPlot, createStatePlot } from 'src/assets/visualizations.vl';
 import embed, { VisualizationSpec } from 'vega-embed';
 
 import { SalaryInfo } from '../pages/profile-page/profile-page.component';
@@ -38,7 +34,7 @@ export class ProfileSalaryComponent implements OnChanges {
    */
   async ngOnChanges(changes: SimpleChanges): Promise<void> {
     if ('dataStates' in changes) {
-      this.spec = createSalaryStatePlot(this.dataStates);
+      this.spec = createStatePlot(this.dataStates, 'salary');
     }
     if ('dataNat' in changes) {
       this.spec = createSalaryNatPlot(this.dataNat);
