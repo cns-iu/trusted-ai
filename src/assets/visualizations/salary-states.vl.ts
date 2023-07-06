@@ -283,7 +283,8 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
           labelFontSize: 15,
           titleFontSize: 18,
           labelAngle: -45,
-          labelLimit: 1000
+          labelLimit: 1000,
+          titlePadding: 50
         },
         sort: {
           field: 'mid_box_salary'
@@ -301,7 +302,8 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
             title: 'Salary (annual)',
             axis: {
               labelFontSize: 15,
-              titleFontSize: 18
+              titleFontSize: 18,
+              titlePadding: 25
             }
           },
           y2: { field: 'upper_whisker_salary' },
