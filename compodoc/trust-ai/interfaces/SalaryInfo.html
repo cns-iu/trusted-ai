@@ -99,6 +99,13 @@
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
+                                        <a href="#a_median" 
+>
+                                            a_median
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#a_pct10" 
 >
                                             a_pct10
@@ -123,13 +130,6 @@
                                         <a href="#a_pct90" 
 >
                                             a_pct90
-                                        </a>
-                                </li>
-                                <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#ann_emp_rank" 
->
-                                            ann_emp_rank
                                         </a>
                                 </li>
                                 <li>
@@ -210,6 +210,50 @@
                             <tr>
                                 <td class="col-md-4">
                                     <div class="io-description"><p>Annual mean salary</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="a_median"></a>
+                                        <span class="name "><b>a_median</b>
+                                            <a href="#a_median">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>a_median:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Avg annual salary at 50th percentile</p>
 </div>
                                 </td>
                             </tr>
@@ -395,50 +439,6 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="ann_emp_rank"></a>
-                                        <span class="name "><b>ann_emp_rank</b>
-                                            <a href="#ann_emp_rank">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>ann_emp_rank:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Ranking of annual emp</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
                                         <a name="industry_name"></a>
                                         <span class="name "><b>industry_name</b>
                                             <a href="#industry_name">
@@ -561,7 +561,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>Total emp</p>
+                                    <div class="io-description"><p>Total employment</p>
 </div>
                                 </td>
                             </tr>
@@ -672,6 +672,8 @@ export interface SalaryInfo {
   a_pct10?: number;
   /** Avg annual salary at 25th percentile */
   a_pct25?: number;
+  /** Avg annual salary at 50th percentile */
+  a_median?: number;
   /** Avg annual salary at 75th percentile */
   a_pct75?: number;
   /** Avg annual salary at 90th percentile */
@@ -682,11 +684,9 @@ export interface SalaryInfo {
   year?: number;
   /** Annual mean salary */
   a_mean?: number | null;
-  /** Ranking of annual emp */
-  ann_emp_rank?: number;
   /** Industry name */
   industry_name?: string;
-  /** Total emp */
+  /** Total employment */
   tot_emp?: number;
 }
 
