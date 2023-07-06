@@ -115,7 +115,8 @@ function parseStateData(values: SalaryInfo[]): SalaryInfo[] {
     return {
       state: value['place_name'],
       id: stateIds[value['place_name'] as string],
-      a_mean: value['a_mean']
+      a_mean: value['a_mean'],
+      tot_emp: value['tot_emp']
     }
   })
 }
@@ -195,7 +196,8 @@ export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
  * @param values salary data
  * @returns visualization spec
  */
-export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
+export function createStatePlot(values: SalaryInfo[], section: string): VisualizationSpec {
+  const value = section === 'salary' ? 'a_mean' : 'tot_emp';
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     data: {
@@ -228,11 +230,11 @@ export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
         type: 'geojson'
       },
       color: {
-        field: 'a_mean',
-        title: 'Salary (annual)',
+        field: value,
+        title: value === 'a_mean' ? 'Salary (annual)' : 'Occupations',
         type: 'quantitative',
         condition: {
-          test: "isValid(datum['a_mean']) === false",
+          test: `isValid(datum['${value}']) === false`,
           value: '#aaa'
         },
         legend: {
@@ -248,8 +250,8 @@ export function createSalaryStatePlot(values: SalaryInfo[]): VisualizationSpec {
           title: 'State'
         },
         {
-          field: 'a_mean',
-          title: 'Salary (annual)'
+          field: value,
+          title: value === 'a_mean' ? 'Salary (annual)' : 'Occupations'
         }
       ]
     },
@@ -283,7 +285,7 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
           labelFontSize: 15,
           titleFontSize: 18,
           labelAngle: -45,
-          labelLimit: 1000,
+          labelLimit: 300,
           titlePadding: 50
         },
         sort: {
@@ -403,4 +405,6 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
       },
     ]
   };
+
+
 }
