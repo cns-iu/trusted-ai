@@ -10,7 +10,7 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      padding: 2rem 0;
+      padding: 6.5rem 7rem 2.5rem 7rem;
       width: 33%;
       font-weight: 500;
       font-size: 0.875rem;
@@ -52,8 +52,7 @@
     .content {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 2rem 0;
+      padding: 1.5rem 0;
       width: 69.25rem;
       gap: 1.5rem;
 
@@ -75,31 +74,23 @@
           line-height: 1.5rem;
         }
       }
-    }
-  }
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: fit-content;
-    padding-bottom: 2rem;
+      trust-ai-occupations-search-area,
+      trust-ai-search-listings {
+        width: 100%;
+      }
 
-    trust-ai-occupations-search-area,
-    trust-ai-search-listings {
-      width: 100%;
-    }
+      .job-header {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.25rem;
 
-    .job-header {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      gap: 0.25rem;
-
-      div {
-        color: #22005d;
-        font-size: 0.875rem;
-        font-weight: 500;
+        div {
+          color: #22005d;
+          font-size: 0.875rem;
+          font-weight: 500;
+        }
       }
     }
   }
