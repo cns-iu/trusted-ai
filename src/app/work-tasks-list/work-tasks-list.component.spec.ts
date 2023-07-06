@@ -96,6 +96,7 @@ describe('WorkTasksListComponent', () => {
         task: 'task2',
       },
     ];
+    instance.selection = '1';
     instance.showAll = true;
     instance.ngDoCheck();
     expect(instance.tasksShown.length).toEqual(4);
