@@ -9,6 +9,7 @@ import { ProfileSalaryComponent } from 'src/app/profile-salary/profile-salary.co
 import { ProfileTechnologySkillsComponent } from 'src/app/profile-technology-skills/profile-technology-skills.component';
 import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
 import { WorkTasksListComponent } from 'src/app/work-tasks-list/work-tasks-list.component';
+import { ProfileEmploymentComponent } from 'src/app/profile-employment/profile-employment.component';
 
 /** Queried job data format */
 export interface AllJobInfo {
@@ -86,6 +87,7 @@ export interface SalaryInfo {
     ProfileTechnologySkillsComponent,
     ProfileSalaryComponent,
     WorkTasksListComponent,
+    ProfileEmploymentComponent,
   ],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
