@@ -85,6 +85,11 @@
       <div class="code">{{ currentJobInfo['soc_id'] }}</div>
       <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
+    <trust-ai-work-tasks-list
+      [tasks]="workTasks"
+      [showAll]="showAllTasks"
+      (showAllButtonClick)="showAllWorkTasksButtonClicked()"
+    ></trust-ai-work-tasks-list>
   </div>
 </div>
 
@@ -99,7 +104,13 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Technology Skills by Importance</div>
-      <div class="sub-section-content">test</div>
+      <div class="sub-section-content">
+        <trust-ai-profile-technology-skills
+          [allSkills]="techSkills"
+          [showAll]="showAllSkills"
+          (showAllButtonClick)="showAllTechnologyButtonClicked()"
+        ></trust-ai-profile-technology-skills>
+      </div>
     </div>
   </div>
 </div>
@@ -115,15 +126,21 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Average Salary</div>
-      <div class="sub-section-content">test</div>
+      <div class="sub-section-content">
+        <trust-ai-profile-salary [dataNat]="salaryNatInfo"></trust-ai-profile-salary>
+      </div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Average Wage By State</div>
-      <div class="sub-section-content">test</div>
+      <div class="sub-section-content">
+        <trust-ai-profile-salary [dataStates]="salaryStatesInfo"></trust-ai-profile-salary>
+      </div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Top Five Highest Earning Industries</div>
-      <div class="sub-section-content">test</div>
+      <div class="sub-section-content">
+        <trust-ai-profile-salary [dataInd]="salaryIndInfo"></trust-ai-profile-salary>
+      </div>
     </div>
   </div>
 </div>
@@ -135,10 +152,11 @@
   <div class="content">
     <div class="job-header">
       <div class="code">{{ currentJobInfo['soc_id'] }}</div>
+      <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Number of Occupations by State</div>
-      <div class="sub-section-content">test</div>
+      <div class="sub-section-content"></div>
     </div>
   </div>
 </div>
@@ -149,23 +167,24 @@
   </div>
   <div class="content">
     <div class="job-header">
+      <div class="code">{{ currentJobInfo['soc_id'] }}</div>
       <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Occupation Projection</div>
-      <div class="sub-section-content">test</div>
+      <div class="sub-section-content"></div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Near Term Outlook</div>
-      <div class="sub-section-content">test</div>
+      <div class="sub-section-content"></div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Automation Risk</div>
-      <div class="sub-section-content">test</div>
+      <div class="sub-section-content"></div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Future of Work Resources</div>
-      <div class="sub-section-content">test</div>
+      <div class="sub-section-content"></div>
     </div>
   </div>
 </div>
