@@ -4,6 +4,9 @@ import { createStatePlot } from 'src/assets/visualizations.vl';
 import { SalaryInfo } from '../pages/profile-page/profile-page.component';
 import embed, { VisualizationSpec } from 'vega-embed';
 
+/**
+ * Employment section of job profile
+ */
 @Component({
   selector: 'trust-ai-profile-employment',
   standalone: true,
@@ -19,11 +22,15 @@ export class ProfileEmploymentComponent implements OnChanges {
   /** State salary data */
   @Input() dataStates: SalaryInfo[] = [];
 
+  /**
+   * Creates visualization on data changes
+   * @param changes Changes
+   * @returns Promise
+   */
   async ngOnChanges(changes: SimpleChanges): Promise<void> {
     if ('dataStates' in changes) {
       this.spec = createStatePlot(this.dataStates, 'employment');
     }
-
     if (this.vis) {
       await embed(this.vis.nativeElement, this.spec);
     }
