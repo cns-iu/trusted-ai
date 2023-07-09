@@ -1,4 +1,17 @@
 :host {
+  @media (width < 768px) {
+    .partner-links,
+    .cns-link {
+      padding: 3rem 0rem !important;
+      gap: 2.5rem !important;
+
+      .link-list {
+        flex-direction: column;
+        gap: 2.5rem !important;
+      }
+    }
+  }
+
   .partner-links,
   .cns-link,
   .section-header {
@@ -16,6 +29,7 @@
 
   .section-title {
     font-size: 1.5rem;
+    text-align: center;
   }
 
   .divider {
