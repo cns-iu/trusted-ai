@@ -149,12 +149,29 @@ function parseIndData(values: SalaryInfo[]): unknown[] {
 export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-    width: 550,
-    height: 193,
+    width: 'container',
+    height: 'container',
+    autosize: {
+      resize: true
+    },
     data: {
       values: parseNatData(values)
     },
-    mark: 'area',
+    params: [
+      {
+        name: 'axisTitleSize',
+        expr: `if (${window.innerWidth} < 480, 14, 18)`
+      },
+    ],
+    mark: {
+      type: 'line',
+      strokeWidth: 8,
+      point: {
+        filled: false,
+        fill: 'white',
+        size: 100
+      }
+    },
     encoding: {
       x: {
         field: 'percentile',
@@ -164,7 +181,7 @@ export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
           values: [10, 25, 50, 75, 90],
           labelExpr: "datum.value == 50 ? 'Median' : datum.value",
           labelFontSize: 15,
-          titleFontSize: 18
+          titleFontSize: { expr: 'axisTitleSize' }
         }
       },
       y: {
@@ -174,7 +191,7 @@ export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
         title: 'Salary (annual)',
         axis: {
           labelFontSize: 15,
-          titleFontSize: 18
+          titleFontSize: { expr: 'axisTitleSize' }
         }
       },
       tooltip: [
@@ -203,8 +220,30 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
     data: {
       values: parseStateData(values)
     },
-    width: 960,
-    height: 551,
+    params: [
+      {
+        name: 'gradientHeight',
+        expr: 'containerSize()[1] * .5'
+      },
+      {
+        name: 'gradientTitleSize',
+        expr: `if (${window.innerWidth} < 480, 10, 20)`
+      },
+      {
+        name: 'gradientLabelSize',
+        expr: `if (${window.innerWidth} < 480, 10, 16)`
+      },
+      {
+        name: 'axisTitleSize',
+        expr: `if (${window.innerWidth} < 480, 12, 18)`
+      },
+    ],
+    width: 'container',
+    height: 'container',
+    autosize: {
+      resize: true,
+      contains: 'padding'
+    },
     transform: [
       {
         lookup: 'id',
@@ -231,17 +270,17 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
       },
       color: {
         field: value,
-        title: value === 'a_mean' ? 'Salary (annual)' : 'Occupations',
+        title: value === 'a_mean' ? 'Salary' : 'Occupations',
         type: 'quantitative',
         condition: {
           test: `isValid(datum['${value}']) === false`,
           value: '#aaa'
         },
         legend: {
-          titleFontSize: 20,
-          gradientLength: 380,
-          gradientThickness: 32,
-          labelFontSize: 16
+          titleFontSize: { expr: 'gradientTitleSize' },
+          gradientLength: { expr: 'gradientHeight' },
+          gradientThickness: 10,
+          labelFontSize: { expr: 'gradientLabelSize' }
         }
       },
       tooltip: [
@@ -271,11 +310,20 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
 export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-    width: 668,
-    height: 550,
+    width: 'container',
+    height: 'container',
+    autosize: {
+      resize: true
+    },
     data: {
       values: parseIndData(values)
     },
+    params: [
+      {
+        name: 'axisTitleSize',
+        expr: `if (${window.innerWidth} < 480, 14, 18)`
+      },
+    ],
     encoding: {
       x: {
         field: 'industry_name',
@@ -283,10 +331,9 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
         title: 'Industry',
         axis: {
           labelFontSize: 15,
-          titleFontSize: 18,
+          titleFontSize: { expr: 'axisTitleSize' },
           labelAngle: -45,
-          labelLimit: 300,
-          titlePadding: 50
+          labelLimit: 100,
         },
         sort: {
           field: 'mid_box_salary'
@@ -304,8 +351,7 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
             title: 'Salary (annual)',
             axis: {
               labelFontSize: 15,
-              titleFontSize: 18,
-              titlePadding: 25
+              titleFontSize: { expr: 'axisTitleSize' }
             }
           },
           y2: { field: 'upper_whisker_salary' },
