@@ -1,5 +1,9 @@
 :host {
   @media (width <= 1638px) {
+    .page-header {
+      padding: 7.5rem 1rem 4.5rem 1rem !important;
+    }
+
     .section-header {
       padding: 2rem 1rem !important;
     }
