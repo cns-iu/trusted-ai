@@ -4,13 +4,28 @@
       gap: 3rem !important;
       padding: 4rem 1rem !important;
 
+      .info-title {
+        font-size: 1.5rem !important;
+      }
+
       .info-list {
         flex-direction: column;
         gap: 3rem !important;
+        align-items: center;
 
         .info-item {
-          max-width: 21.375rem;
+          width: 100% !important;
         }
+      }
+    }
+  }
+
+  @media (480px < width < 1168px) {
+    .info-section {
+      padding: 4rem 0rem !important;
+
+      .info-list {
+        width: 50% !important;
       }
     }
   }
@@ -105,7 +120,7 @@
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        width: 21.375rem;
+        width: 33%;
 
         .info-item-name {
           font-size: 1.5rem;

@@ -1,14 +1,32 @@
 :host {
-  @media (width < 768px) {
+  @media (width <= 1168px) {
     .partner-links,
     .cns-link {
       padding: 3rem 0rem !important;
       gap: 2.5rem !important;
+    }
 
-      .link-list {
-        flex-direction: column;
-        gap: 2.5rem !important;
-      }
+    .link-list {
+      gap: 2.5rem !important;
+    }
+  }
+
+  @media (480px < width < 1168px) {
+    .section-title {
+      font-size: 1rem !important;
+      line-height: 1.25rem !important;
+      letter-spacing: 0.02rem !important;
+    }
+  }
+
+  @media (width < 480px) {
+    .section-title {
+      font-size: 0.875rem !important;
+      line-height: 1.25rem !important;
+    }
+
+    .link-list {
+      flex-direction: column;
     }
   }
 
@@ -30,6 +48,8 @@
   .section-title {
     font-size: 1.5rem;
     text-align: center;
+    line-height: 1.25rem;
+    letter-spacing: 0.03rem;
   }
 
   .divider {
