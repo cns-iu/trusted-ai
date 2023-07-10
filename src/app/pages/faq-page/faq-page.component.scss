@@ -1,4 +1,14 @@
 :host {
+  @media (width <= 1638px) {
+    .section-header {
+      padding: 2rem 1rem !important;
+    }
+
+    .content {
+      padding: 1.5rem !important;
+    }
+  }
+
   .page-header {
     padding: 10rem 1rem 4.5rem 1rem;
 

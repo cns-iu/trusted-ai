@@ -1,4 +1,10 @@
 :host {
+  @media (width <= 480px) {
+    .logo {
+      visibility: hidden;
+    }
+  }
+
   display: flex;
   justify-content: center;
   position: fixed;

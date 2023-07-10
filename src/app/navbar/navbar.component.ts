@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule, Router, NavigationEnd, RouterEvent } from '@angular/router';
+import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 /**
  * Application navbar
@@ -13,4 +15,22 @@ import { RouterModule } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent {}
+export class NavbarComponent implements OnInit {
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+  showNav$: Observable<boolean>;
+
+  constructor() {
+    this.showNav$ = (this.router.events as Observable<RouterEvent>).pipe(
+      filter((event) => event instanceof NavigationEnd),
+      map((event) => {
+        console.log(event);
+        return !(event.url === '/');
+      })
+    );
+  }
+
+  ngOnInit() {
+    console.log(this.route.url);
+  }
+}
