@@ -1,9 +1,10 @@
 <div class="navbar-content">
-  <div *ngIf="(showNav$ | async) === false" routerLink="/" class="logo">Career Explorer</div>
+  <div routerLink="/" class="logo">Career Explorer</div>
+  <div *ngIf="(showNav$ | async) === false" class="filler"></div>
   <a *ngIf="showNav$ | async" routerLink="/">
     <mat-icon fontSet="material-icons-outlined" class="home-icon">home</mat-icon>
   </a>
-  <a routerLink="/faq">
-    <img class="faq-link" src="assets/icons/info.png" />
+  <a class="faq-link" routerLink="/faq">
+    <img src="assets/icons/info.png" />
   </a>
 </div>
