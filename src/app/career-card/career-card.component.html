@@ -1,11 +1,13 @@
 <div class="job-title">{{ jobInfo['Occupation'] }}</div>
-<div class="preparation">
-  <img
-    class="preparation-level"
-    *ngIf="jobInfo['Job Zone'] !== 'n/a'"
-    src="{{ 'assets/icons/counter_' + jobInfo['Job Zone'] + '.svg' }}"
-  />
-  <div class="preparation-text">{{ preparednessLevels[jobInfo['Job Zone']] }}</div>
+<div class="preparation-code">
+  <div class="preparation">
+    <img
+      class="preparation-level"
+      *ngIf="jobInfo['Job Zone'] !== 'n/a'"
+      src="{{ 'assets/icons/counter_' + jobInfo['Job Zone'] + '.svg' }}"
+    />
+    <div class="preparation-text">{{ preparednessLevels[jobInfo['Job Zone']] }}</div>
+  </div>
+  <div class="code">{{ jobInfo['Code'] }}</div>
 </div>
-<div class="code">{{ jobInfo['Code'] }}</div>
 <button class="view-button" (click)="jobClicked.emit(jobInfo)" mat-stroked-button>View Occupation</button>
