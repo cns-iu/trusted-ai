@@ -15,6 +15,7 @@ export interface SearchFilters {
 
 /** Job info from csv */
 export interface JobInfo {
+  [key: string]: string;
   /** Job code */
   Code: string;
   /** Data level */
@@ -61,6 +62,19 @@ export class OccupationsPageComponent implements OnInit {
     preparednessLevel: '0',
   };
 
+  /** Sort menu items */
+  menuListItems = [
+    'Job Title: A - Z',
+    'Job Title: Z - A',
+    'Code: Low - High',
+    'Code: High - Low',
+    'Preparedness Level: 1 - 5',
+    'Preparedness Level: 5 - 1',
+  ];
+
+  /** Current sort setting */
+  sortBy = this.menuListItems[0];
+
   /** Subscribes to setJobs on init */
   ngOnInit(): void {
     this.setJobs().subscribe();
@@ -91,6 +105,48 @@ export class OccupationsPageComponent implements OnInit {
         (job) => filters['preparednessLevel'] === '0' || job['Job Zone'].toString() === filters['preparednessLevel']
       );
     // .filter((job) => filters['showOccupations'] === '0' || job['Data-level'] === 'Y');
+    this.sortJobs(this.sortBy);
+  }
+
+  /**
+   * Sorts jobs by criteria
+   * @param sortBy Sort selection
+   */
+  sortJobs(sortBy: string): void {
+    this.sortBy = sortBy;
+    switch (sortBy) {
+      case 'Job Title: A - Z':
+        this.sort('Occupation', 0);
+        break;
+      case 'Job Title: Z - A':
+        this.sort('Occupation', 1);
+        break;
+      case 'Code: Low - High':
+        this.sort('Code', 0);
+        break;
+      case 'Code: High - Low':
+        this.sort('Code', 1);
+        break;
+      case 'Preparedness Level: 1 - 5':
+        this.sort('Job Zone', 0);
+        break;
+      case 'Preparedness Level: 5 - 1':
+        this.sort('Job Zone', 1);
+        break;
+    }
+  }
+
+  /** Sorts current displayed jobs by category and direction */
+  private sort(category: string, direction: number) {
+    this.filteredJobs.sort((a, b) => {
+      const x = a[category],
+        y = b[category];
+      if (direction === 0) {
+        return x == y ? 0 : x > y ? 1 : -1;
+      } else {
+        return x == y ? 0 : x < y ? 1 : -1;
+      }
+    });
   }
 
   /** Scrolls to top of page */
