@@ -1,6 +1,7 @@
 :host {
   @media (width <= 1168px) {
     flex-direction: column;
+    padding: 1rem 1.5rem;
 
     .job-title {
       width: 100% !important;
@@ -9,11 +10,8 @@
     .preparation-code {
       width: 100% !important;
       font-size: 0.875rem;
-      /* font-family: Roboto; */
-      /* font-style: normal; */
       font-weight: 500;
       line-height: 1.25rem;
-      /* justify-content: space-between; */
       display: flex;
       padding: 0.25rem 0rem;
       justify-content: space-between;
@@ -30,6 +28,10 @@
     }
   }
 
+  @media (width <= 480px) {
+    padding: 1.5rem 1rem;
+  }
+
   display: flex;
   align-items: center;
   padding: 1.5rem;
@@ -37,22 +39,19 @@
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
   border-radius: 0.75rem;
   justify-content: space-between;
+  gap: 1rem;
 
   div {
     display: flex;
     gap: 0.5rem;
-    // max-width: 30rem;
   }
 
   .job-title {
-    // min-width: 30rem;
     width: 40%;
     line-height: 1.5rem;
   }
 
   .preparation-code {
-    // min-width: 17.25rem;
-    // gap: 10px;
     width: 40%;
     justify-content: space-between;
 
@@ -63,7 +62,6 @@
       }
     }
     .code {
-      // min-width: 6rem;
       width: 33%;
       line-height: 1.5rem;
     }

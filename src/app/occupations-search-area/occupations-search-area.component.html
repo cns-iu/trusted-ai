@@ -1,6 +1,9 @@
-<div class="row">
+<div class="row1">
   <div class="search-box">
-    Find in list
+    <div class="mobile-search-filters">
+      <div>Find in list</div>
+      <div class="filters-button" (click)="openDialog()" mat-stroked-button color="primary">Filters</div>
+    </div>
     <mat-form-field class="form" appearance="fill" subscriptSizing="dynamic">
       <input class="search-input" matInput (input)="inputChange($event)" placeholder="Job title, keywords" />
       <mat-icon class="material-icons">search</mat-icon>
@@ -13,7 +16,7 @@
     </div>
   </button>
 </div>
-<div class="row">
+<div class="row2">
   <!-- disabled until we figure out what to do with this -->
   <div class="occupations-toggle disabled">
     Show Occupations
@@ -22,11 +25,11 @@
       aria-label="Show Occupations"
       (change)="filtersChange('showOccupations', $event)"
     >
-      <mat-button-toggle value="0" checked="true">
+      <mat-button-toggle value="0" checked="{{ filters['showOccupations'] === '0' }}">
         <mat-icon class="checkmark" *ngIf="filters['showOccupations'] === '0'">check</mat-icon>
         All
       </mat-button-toggle>
-      <mat-button-toggle value="1">
+      <mat-button-toggle value="1" checked="{{ filters['showOccupations'] === '1' }}">
         <mat-icon class="checkmark" *ngIf="filters['showOccupations'] === '1'">check</mat-icon>
         Data-level
       </mat-button-toggle>
@@ -43,7 +46,7 @@
       <mat-button-toggle
         *ngFor="let item of ['0', '1', '2', '3', '4', '5']"
         value="{{ item }}"
-        checked="{{ item === '0' }}"
+        checked="{{ filters['preparednessLevel'] === item }}"
       >
         <mat-icon class="checkmark" *ngIf="filters['preparednessLevel'] === item">check</mat-icon>
         {{ item === '0' ? 'All' : item }}
@@ -51,3 +54,29 @@
     </mat-button-toggle-group>
   </div>
 </div>
+
+<div class="row3">
+  <div class="counter">{{ numJobs }} occupations</div>
+  <div class="menu">
+    Sort by
+    <button class="sort-button" mat-button [matMenuTriggerFor]="menu">{{ sortBy }}</button>
+    <mat-menu #menu="matMenu" class="sort-menu">
+      <button
+        class="menu-item"
+        [class.selected]="item === sortBy"
+        mat-menu-item
+        *ngFor="let item of menuListItems"
+        (click)="clickMenuItem(item)"
+      >
+        {{ item }}
+      </button>
+    </mat-menu>
+  </div>
+</div>
+
+<button class="preparedness-button-mobile" mat-stroked-button color="primary">
+  <div class="label">
+    <img class="info-icon" src="assets/icons/info.png" />
+    <div>Preparedness Levels</div>
+  </div>
+</button>

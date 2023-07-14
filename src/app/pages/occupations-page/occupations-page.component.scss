@@ -1,10 +1,4 @@
 :host {
-  @media (width <= 1168px) {
-    trust-ai-occupations-search-area {
-      display: none;
-    }
-  }
-
   @media (width <= 480px) {
     .title,
     .content {
