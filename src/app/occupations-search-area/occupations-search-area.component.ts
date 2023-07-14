@@ -72,7 +72,7 @@ export class OccupationsSearchAreaComponent {
     const dialogRef = this.dialog.open(FiltersMobileDialogComponent, {
       data: { ...this.filters },
       width: 'calc(100% - 2rem)',
-      maxWidth: '100vw',
+      maxWidth: '30rem',
       panelClass: 'dialog',
     });
 
