@@ -1,9 +1,40 @@
 :host {
-  .row {
+  @media (width <= 1168px) {
+    .row1 {
+      .search-box {
+        width: 100%;
+      }
+
+      .preparedness-button {
+        display: none;
+      }
+    }
+
+    .row2 {
+      display: none !important;
+    }
+
+    .preparedness-button-mobile {
+      display: unset !important;
+    }
+
+    .filters-button {
+      display: unset !important;
+    }
+  }
+
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  padding: 1.5rem 0 1rem 0;
+
+  .row1,
+  .row2,
+  .row3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 1rem 0;
   }
 
   .search-box {
@@ -22,7 +53,8 @@
     gap: 0.5rem;
   }
 
-  .preparedness-button {
+  .preparedness-button,
+  .preparedness-button-mobile {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -38,11 +70,24 @@
       gap: 0.5rem;
       color: #6750a4;
       padding: 0.625rem 1.5rem 0.625rem 1rem;
+      letter-spacing: normal;
 
       .info-icon {
         height: 1.125rem;
       }
     }
+  }
+
+  .mobile-search-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+
+  .preparedness-button-mobile {
+    display: none;
+    width: fit-content;
   }
 
   .search-box,
@@ -110,8 +155,9 @@
     }
   }
 
-  mat-form-field {
-    padding-top: 0.5rem;
+  .filters-button {
+    display: none;
+    cursor: pointer;
   }
 
   ::ng-deep .mat-mdc-text-field-wrapper {
@@ -134,5 +180,46 @@
   .disabled {
     opacity: 0.5;
     pointer-events: none;
+  }
+
+  .counter {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #22005d;
+    padding: 0.5rem 0;
+    line-height: 1.25rem;
+  }
+
+  .menu,
+  .sort-button {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    letter-spacing: normal;
+  }
+
+  .menu {
+    color: #22005d;
+  }
+
+  .sort-button {
+    color: #6750a4;
+    padding: 0;
+  }
+}
+
+::ng-deep .sort-menu {
+  background: #f2ecf1;
+  border-radius: 0.25rem !important;
+
+  .menu-item {
+    &.selected {
+      background: #e6e1e6;
+    }
+
+    span {
+      color: #1c1b1e !important;
+      font-size: 0.875rem !important;
+    }
   }
 }
