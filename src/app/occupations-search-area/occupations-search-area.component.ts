@@ -28,6 +28,7 @@ import { SearchFilters } from '../pages/occupations-page/occupations-page.compon
   styleUrls: ['./occupations-search-area.component.scss'],
 })
 export class OccupationsSearchAreaComponent {
+  /** MatDialog service */
   private readonly dialog = inject(MatDialog);
 
   /** Search filters */
@@ -37,14 +38,19 @@ export class OccupationsSearchAreaComponent {
     preparednessLevel: '0',
   };
 
+  /** List of options in the sort menu */
   @Input() menuListItems: string[] = [];
 
+  /** Selected sorting method */
   @Input() sortBy = '';
 
+  /** Number of jobs being displayed in the occupations list */
   @Input() numJobs = '0';
 
   /** Emits updated filters when a filter is changed */
   @Output() readonly filtersChanged = new EventEmitter<SearchFilters>();
+
+  /** Emits selected sort option */
   @Output() readonly sortChanged = new EventEmitter<string>();
 
   /** Handles when a button toggle is changed */
@@ -59,6 +65,9 @@ export class OccupationsSearchAreaComponent {
     this.filtersChanged.emit(this.filters);
   }
 
+  /**
+   * Opens dialog for mobile filters
+   */
   openDialog(): void {
     const dialogRef = this.dialog.open(FiltersMobileDialogComponent, {
       data: { ...this.filters },
@@ -74,12 +83,19 @@ export class OccupationsSearchAreaComponent {
     });
   }
 
+  /**
+   * Handles when sort selection is made
+   * @param item selection
+   */
   clickMenuItem(item: string) {
     this.sortBy = item;
     this.sortChanged.emit(item);
   }
 }
 
+/**
+ * Filters dialog which appears only on mobile
+ */
 @Component({
   selector: 'trust-ai-filters-mobile-dialog',
   templateUrl: 'filters-mobile-dialog.html',
@@ -96,19 +112,30 @@ export class OccupationsSearchAreaComponent {
   ],
 })
 export class FiltersMobileDialogComponent {
+  /** Mat Dialog reference */
   private readonly dialogRef = inject(MatDialogRef<FiltersMobileDialogComponent>);
+
+  /**  Injected filter data */
   private readonly data: SearchFilters = inject(MAT_DIALOG_DATA);
 
+  /** Current filters */
   filters: SearchFilters = this.data;
 
+  /** Changes filter values */
   filtersChange(field: string, event: MatButtonToggleChange) {
     this.filters[field] = event.value;
   }
 
+  /**
+   * Closes dialog when cancel clicked
+   */
   cancelClick() {
     this.dialogRef.close();
   }
 
+  /**
+   * Submits selected filters when submit clicked
+   */
   submitClick() {
     this.dialogRef.close(this.filters);
   }

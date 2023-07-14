@@ -62,6 +62,7 @@ export class OccupationsPageComponent implements OnInit {
     preparednessLevel: '0',
   };
 
+  /** Sort menu items */
   menuListItems = [
     'Job Title: A - Z',
     'Job Title: Z - A',
@@ -71,6 +72,7 @@ export class OccupationsPageComponent implements OnInit {
     'Preparedness Level: 5 - 1',
   ];
 
+  /** Current sort setting */
   sortBy = this.menuListItems[0];
 
   /** Subscribes to setJobs on init */
@@ -106,6 +108,10 @@ export class OccupationsPageComponent implements OnInit {
     this.sortJobs(this.sortBy);
   }
 
+  /**
+   * Sorts jobs by criteria
+   * @param sortBy Sort selection
+   */
   sortJobs(sortBy: string): void {
     this.sortBy = sortBy;
     switch (sortBy) {
@@ -130,6 +136,7 @@ export class OccupationsPageComponent implements OnInit {
     }
   }
 
+  /** Sorts current displayed jobs by category and direction */
   private sort(category: string, direction: number) {
     this.filteredJobs.sort((a, b) => {
       const x = a[category],

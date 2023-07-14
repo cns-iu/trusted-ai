@@ -16,11 +16,17 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
+  /** Handles when search term is changed */
   private readonly router = inject(Router);
-  showNav$: Observable<boolean>;
 
+  /** Changes appearance of nav bar if not on home page */
+  notHome$: Observable<boolean>;
+
+  /**
+   * Sets notHome$
+   */
   constructor() {
-    this.showNav$ = (this.router.events as Observable<RouterEvent>).pipe(
+    this.notHome$ = (this.router.events as Observable<RouterEvent>).pipe(
       filter((event) => event instanceof NavigationEnd),
       map((event) => {
         return !(event.url === '/');
