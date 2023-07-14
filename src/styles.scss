@@ -17,7 +17,12 @@ body {
 
 @media (width <= 480px) {
   .vg-tooltip {
-    left: 0 !important;
+    max-width: 50vw;
+
+    .value {
+      max-height: unset !important;
+      height: fit-content;
+    }
   }
 }
 
