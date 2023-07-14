@@ -154,7 +154,7 @@ export class LandingPageComponent {}
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;explore-section&quot; style&#x3D;&quot;background: url(assets/landing-background.png); background-size: cover&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;explore-section&quot; style&#x3D;&quot;background: url(assets/landing-background.png) 50% / cover no-repeat&quot;&gt;
   &lt;div class&#x3D;&quot;explore-content&quot;&gt;
     &lt;div class&#x3D;&quot;explore-title&quot;&gt;Discover your government career path with data-driven insights&lt;/div&gt;
     &lt;div class&#x3D;&quot;search-box&quot;&gt;
@@ -203,6 +203,49 @@ export class LandingPageComponent {}
                     <code>./landing-page.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
+  @media (width &lt;&#x3D; 1168px) {
+    .info-section {
+      gap: 3rem !important;
+      padding: 4rem 1rem !important;
+
+      .info-title {
+        font-size: 1.5rem !important;
+      }
+
+      .info-list {
+        flex-direction: column;
+        gap: 3rem !important;
+        align-items: center;
+
+        .info-item {
+          width: 100% !important;
+        }
+      }
+    }
+  }
+
+  @media (480px &lt; width &lt; 1168px) {
+    .info-section {
+      padding: 4rem 0rem !important;
+
+      .info-list {
+        width: 50% !important;
+      }
+    }
+  }
+
+  @media (width &gt; 480px) {
+    .explore-content {
+      width: 50%;
+    }
+  }
+
+  @media (width &lt;&#x3D; 480px) {
+    .explore-content {
+      padding: 0 1rem;
+    }
+  }
+
   .explore-section {
     display: flex;
     flex-direction: column;
@@ -213,16 +256,18 @@ export class LandingPageComponent {}
     .explore-content {
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 2rem;
-      width: 33%;
 
       .search-box {
         padding: 2rem 1.5rem;
-        gap: 2rem;
+        gap: 1.5rem;
         display: flex;
         flex-direction: column;
         box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
         border-radius: 1rem;
+        background: white;
+        width: calc(100% - 3rem);
 
         .search-title {
           font-style: normal;
@@ -238,7 +283,6 @@ export class LandingPageComponent {}
       text-align: center;
       margin: 0 auto;
       color: #22005d;
-      width: 90%;
     }
   }
 
@@ -280,7 +324,7 @@ export class LandingPageComponent {}
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        width: 21.375rem;
+        width: 33%;
 
         .info-item-name {
           font-size: 1.5rem;
@@ -324,8 +368,8 @@ export class LandingPageComponent {}
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="explore-section" style="background: url(assets/landing-background.png); background-size: cover">  <div class="explore-content">    <div class="explore-title">Discover your government career path with data-driven insights</div>    <div class="search-box">      <span class="search-title">Explore government careers</span>      <trust-ai-search-box></trust-ai-search-box>    </div>  </div></div><div class="info-section">  <div class="info-header">    <div class="info-title">About Career Explorer</div>    <div class="divider"></div>  </div>  <div class="info-list">    <div class="info-item">      <img class="info-item-icon" src="assets/icons/visibility.png" />      <div class="info-item-name">Visualize required skills</div>      <div class="info-item-description">        Explore government career paths with ease using our robust data visualizations.      </div>    </div>    <div class="info-item">      <img class="info-item-icon" src="assets/icons/warning.png" />      <div class="info-item-name">Understand automation risks</div>      <div class="info-item-description">        Stay ahead of the curve with our career explorer app, which helps you navigate the ever-evolving landscape of        career path automation risks.      </div>    </div>    <div class="info-item">      <img class="info-item-icon" src="assets/icons/explore.png" />      <div class="info-item-name">Discover government careers</div>      <div class="info-item-description">        With our app by your side, you can feel confident in your career decisions and embark on a fulfilling and        rewarding career journey in the public sector.      </div>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+        var COMPONENT_TEMPLATE = '<div><div class="explore-section" style="background: url(assets/landing-background.png) 50% / cover no-repeat">  <div class="explore-content">    <div class="explore-title">Discover your government career path with data-driven insights</div>    <div class="search-box">      <span class="search-title">Explore government careers</span>      <trust-ai-search-box></trust-ai-search-box>    </div>  </div></div><div class="info-section">  <div class="info-header">    <div class="info-title">About Career Explorer</div>    <div class="divider"></div>  </div>  <div class="info-list">    <div class="info-item">      <img class="info-item-icon" src="assets/icons/visibility.png" />      <div class="info-item-name">Visualize required skills</div>      <div class="info-item-description">        Explore government career paths with ease using our robust data visualizations.      </div>    </div>    <div class="info-item">      <img class="info-item-icon" src="assets/icons/warning.png" />      <div class="info-item-name">Understand automation risks</div>      <div class="info-item-description">        Stay ahead of the curve with our career explorer app, which helps you navigate the ever-evolving landscape of        career path automation risks.      </div>    </div>    <div class="info-item">      <img class="info-item-icon" src="assets/icons/explore.png" />      <div class="info-item-name">Discover government careers</div>      <div class="info-item-description">        With our app by your side, you can feel confident in your career decisions and embark on a fulfilling and        rewarding career journey in the public sector.      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LandingPageComponent'};
 </script>

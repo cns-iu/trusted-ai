@@ -906,9 +906,9 @@ export class ProfilePageComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;search&quot; style&#x3D;&quot;background: url(assets/landing-background.png); background-size: cover&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;search&quot; style&#x3D;&quot;background: url(assets/landing-background.png) 50% / cover no-repeat&quot;&gt;
   &lt;div class&#x3D;&quot;search-content&quot;&gt;
-    Search Occupations
+    &lt;div class&#x3D;&quot;search-title&quot;&gt;Search Occupations&lt;/div&gt;
     &lt;trust-ai-search-box class&#x3D;&quot;search-box&quot; placeholder&#x3D;&quot;{{ currentJobInfo[&#x27;title&#x27;] }}&quot;&gt;&lt;/trust-ai-search-box&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -1034,19 +1034,19 @@ export class ProfilePageComponent implements OnInit {
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;sub-section&quot;&gt;
       &lt;div class&#x3D;&quot;sub-section-title&quot;&gt;Average Salary&lt;/div&gt;
-      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;
+      &lt;div class&#x3D;&quot;sub-section-content salary-nat&quot;&gt;
         &lt;trust-ai-profile-salary [dataNat]&#x3D;&quot;salaryNatInfo&quot;&gt;&lt;/trust-ai-profile-salary&gt;
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;sub-section&quot;&gt;
       &lt;div class&#x3D;&quot;sub-section-title&quot;&gt;Average Wage By State&lt;/div&gt;
-      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;
+      &lt;div class&#x3D;&quot;sub-section-content salary-states&quot;&gt;
         &lt;trust-ai-profile-salary [dataStates]&#x3D;&quot;salaryStatesInfo&quot;&gt;&lt;/trust-ai-profile-salary&gt;
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;sub-section&quot;&gt;
       &lt;div class&#x3D;&quot;sub-section-title&quot;&gt;Top Five Highest Earning Industries&lt;/div&gt;
-      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;
+      &lt;div class&#x3D;&quot;sub-section-content salary-ind&quot;&gt;
         &lt;trust-ai-profile-salary [dataInd]&#x3D;&quot;salaryIndInfo&quot;&gt;&lt;/trust-ai-profile-salary&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -1112,6 +1112,48 @@ export class ProfilePageComponent implements OnInit {
                     <code>./profile-page.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
+  @media (width &lt;&#x3D; 1168px) {
+    .search-content {
+      padding: 6.5rem 0 0.5rem 0 !important;
+    }
+
+    .sub-section-title {
+      font-size: 1.375rem !important;
+    }
+
+    .sub-section-content {
+      font-size: 0.875rem !important;
+      line-height: 1.25rem !important;
+    }
+  }
+
+  @media (480px &lt; width &lt; 1168px) {
+    .content,
+    .section-title,
+    .code,
+    .search-content {
+      width: calc(100% - 10rem) !important;
+    }
+  }
+
+  @media (width &lt;&#x3D; 480px) {
+    .content,
+    .section-title,
+    .code,
+    .search-content {
+      width: calc(100% - 2rem) !important;
+    }
+
+    .sub-section-title {
+      font-size: 1rem !important;
+      font-weight: 500;
+    }
+
+    .salary-ind {
+      height: 100vw !important;
+    }
+  }
+
   .search {
     display: flex;
     flex-direction: column;
@@ -1119,12 +1161,18 @@ export class ProfilePageComponent implements OnInit {
     justify-content: center;
     padding-bottom: 0.5rem;
 
+    @media (width &lt;&#x3D; 1168px) {
+      .search-title {
+        display: none;
+      }
+    }
+
     .search-content {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      padding: 6.5rem 7rem 2.5rem 7rem;
-      width: 33%;
+      padding: 6.5rem 0 2rem 0;
+      width: 50%;
       font-weight: 500;
       font-size: 0.875rem;
       color: #22005d;
@@ -1136,6 +1184,28 @@ export class ProfilePageComponent implements OnInit {
     flex-direction: column;
     align-items: center;
 
+    &amp;.salary {
+      .sub-section {
+        align-items: center;
+
+        .salary-nat {
+          height: 40vw;
+        }
+        .salary-states {
+          height: 50vw;
+        }
+        .salary-ind {
+          height: 50vw;
+        }
+      }
+    }
+
+    .content,
+    .section-title,
+    .code {
+      width: 80%;
+    }
+
     .section-header {
       display: flex;
       flex-direction: column;
@@ -1145,10 +1215,6 @@ export class ProfilePageComponent implements OnInit {
       padding: 1.5rem 0;
       width: 100%;
       gap: 0.5rem;
-
-      div {
-        width: 69.25rem;
-      }
 
       .section-title {
         font-size: 1.5rem;
@@ -1166,25 +1232,25 @@ export class ProfilePageComponent implements OnInit {
       display: flex;
       flex-direction: column;
       padding: 1.5rem 0;
-      width: 69.25rem;
-      gap: 1.5rem;
+      gap: 1rem;
 
       .sub-section {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        width: 100%;
 
         .sub-section-title {
           font-size: 1.375rem;
           display: flex;
           align-items: center;
           gap: 10px;
+          width: 100%;
         }
 
         .sub-section-content {
           font-size: 1rem;
           line-height: 1.5rem;
+          width: 100%;
         }
       }
 
@@ -1229,6 +1295,10 @@ export class ProfilePageComponent implements OnInit {
     gap: 1rem;
     padding: 2rem 0;
 
+    div {
+      text-align: center;
+    }
+
     .scroll-top-button {
       border-radius: 1rem;
       border-color: rgba(122, 117, 127, 1);
@@ -1265,8 +1335,8 @@ export class ProfilePageComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="search" style="background: url(assets/landing-background.png); background-size: cover">  <div class="search-content">    Search Occupations    <trust-ai-search-box class="search-box" placeholder="{{ currentJobInfo[\'title\'] }}"></trust-ai-search-box>  </div></div><div class="profile-section description">  <div class="section-header">    <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>  </div>  <div class="content">    <div class="sub-section">      <div class="sub-section-title">Occupation Description</div>      <div class="sub-section-content">{{ currentJobInfo[\'descr\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Reported job title examples</div>      <div class="sub-section-content">{{ currentJobInfo.alt_titles?.toString() }}</div>    </div>  </div></div><div class="profile-section behaviors">  <div class="section-header">    <div class="section-title">Work Behaviors</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>  </div></div><div class="profile-section preparedness">  <div class="section-header">    <div class="section-title">Preparedness Level</div>  </div>  <div class="content">    <div class="sub-section">      <div class="sub-section-title">        <img          *ngIf="currentJobInfo[\'job_zone\']"          class="preparation-level"          src="{{ \'assets/icons/counter_\' + currentJobInfo[\'job_zone\'] + \'.svg\' }}"        />        {{ currentJobInfo[\'job_zone\'] ? preparednessLevel(currentJobInfo[\'job_zone\']) : \'\' }}      </div>      <div class="sub-section-content">        Preparedness Levels group occupations into one of five categories based on levels of education, experience, and        training necessary to perform the occupation.      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Education</div>      <div class="sub-section-content">{{ currentJobInfo[\'education\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Related Experience</div>      <div class="sub-section-content">{{ currentJobInfo[\'experience\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Job Training</div>      <div class="sub-section-content">{{ currentJobInfo[\'job_training\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Preparedness Examples</div>      <div class="sub-section-content">{{ currentJobInfo[\'example\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Specific Vocational Preparation (SVP) Range</div>      <div class="sub-section-content">{{ currentJobInfo[\'svp_range\'] }}</div>    </div>  </div></div><div class="profile-section tasks">  <div class="section-header">    <div class="section-title">Work Tasks</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <trust-ai-work-tasks-list      [tasks]="workTasks"      [showAll]="showAllTasks"      (showAllButtonClick)="showAllWorkTasksButtonClicked()"    ></trust-ai-work-tasks-list>  </div></div><div class="profile-section technology">  <div class="section-header">    <div class="section-title">Technology Skills</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Technology Skills by Importance</div>      <div class="sub-section-content">        <trust-ai-profile-technology-skills          [allSkills]="techSkills"          [showAll]="showAllSkills"          (showAllButtonClick)="showAllTechnologyButtonClicked()"        ></trust-ai-profile-technology-skills>      </div>    </div>  </div></div><div class="profile-section salary">  <div class="section-header">    <div class="section-title">Salary Statistics</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Average Salary</div>      <div class="sub-section-content">        <trust-ai-profile-salary [dataNat]="salaryNatInfo"></trust-ai-profile-salary>      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Average Wage By State</div>      <div class="sub-section-content">        <trust-ai-profile-salary [dataStates]="salaryStatesInfo"></trust-ai-profile-salary>      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Top Five Highest Earning Industries</div>      <div class="sub-section-content">        <trust-ai-profile-salary [dataInd]="salaryIndInfo"></trust-ai-profile-salary>      </div>    </div>  </div></div><div class="profile-section employment">  <div class="section-header">    <div class="section-title">Employment Statistics</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Number of Occupations by State</div>      <div class="sub-section-content">        <trust-ai-profile-employment [dataStates]="salaryStatesInfo"></trust-ai-profile-employment>      </div>    </div>  </div></div><div class="profile-section projection">  <div class="section-header">    <div class="section-title">Occupation Projection</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Occupation Projection</div>      <div class="sub-section-content"></div>    </div>    <div class="sub-section">      <div class="sub-section-title">Near Term Outlook</div>      <div class="sub-section-content"></div>    </div>    <div class="sub-section">      <div class="sub-section-title">Automation Risk</div>      <div class="sub-section-content"></div>    </div>    <div class="sub-section">      <div class="sub-section-title">Future of Work Resources</div>      <div class="sub-section-content"></div>    </div>  </div></div><div class="profile-bottom">  <div>{{ currentJobInfo[\'soc_id\'] }}</div>  <div>{{ currentJobInfo[\'title\'] }}</div>  <button class="scroll-top-button" (click)="scrollToTop()" mat-stroked-button color="primary">Back to Top</button></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+        var COMPONENT_TEMPLATE = '<div><div class="search" style="background: url(assets/landing-background.png) 50% / cover no-repeat">  <div class="search-content">    <div class="search-title">Search Occupations</div>    <trust-ai-search-box class="search-box" placeholder="{{ currentJobInfo[\'title\'] }}"></trust-ai-search-box>  </div></div><div class="profile-section description">  <div class="section-header">    <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>  </div>  <div class="content">    <div class="sub-section">      <div class="sub-section-title">Occupation Description</div>      <div class="sub-section-content">{{ currentJobInfo[\'descr\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Reported job title examples</div>      <div class="sub-section-content">{{ currentJobInfo.alt_titles?.toString() }}</div>    </div>  </div></div><div class="profile-section behaviors">  <div class="section-header">    <div class="section-title">Work Behaviors</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>  </div></div><div class="profile-section preparedness">  <div class="section-header">    <div class="section-title">Preparedness Level</div>  </div>  <div class="content">    <div class="sub-section">      <div class="sub-section-title">        <img          *ngIf="currentJobInfo[\'job_zone\']"          class="preparation-level"          src="{{ \'assets/icons/counter_\' + currentJobInfo[\'job_zone\'] + \'.svg\' }}"        />        {{ currentJobInfo[\'job_zone\'] ? preparednessLevel(currentJobInfo[\'job_zone\']) : \'\' }}      </div>      <div class="sub-section-content">        Preparedness Levels group occupations into one of five categories based on levels of education, experience, and        training necessary to perform the occupation.      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Education</div>      <div class="sub-section-content">{{ currentJobInfo[\'education\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Related Experience</div>      <div class="sub-section-content">{{ currentJobInfo[\'experience\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Job Training</div>      <div class="sub-section-content">{{ currentJobInfo[\'job_training\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Preparedness Examples</div>      <div class="sub-section-content">{{ currentJobInfo[\'example\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Specific Vocational Preparation (SVP) Range</div>      <div class="sub-section-content">{{ currentJobInfo[\'svp_range\'] }}</div>    </div>  </div></div><div class="profile-section tasks">  <div class="section-header">    <div class="section-title">Work Tasks</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <trust-ai-work-tasks-list      [tasks]="workTasks"      [showAll]="showAllTasks"      (showAllButtonClick)="showAllWorkTasksButtonClicked()"    ></trust-ai-work-tasks-list>  </div></div><div class="profile-section technology">  <div class="section-header">    <div class="section-title">Technology Skills</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Technology Skills by Importance</div>      <div class="sub-section-content">        <trust-ai-profile-technology-skills          [allSkills]="techSkills"          [showAll]="showAllSkills"          (showAllButtonClick)="showAllTechnologyButtonClicked()"        ></trust-ai-profile-technology-skills>      </div>    </div>  </div></div><div class="profile-section salary">  <div class="section-header">    <div class="section-title">Salary Statistics</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Average Salary</div>      <div class="sub-section-content salary-nat">        <trust-ai-profile-salary [dataNat]="salaryNatInfo"></trust-ai-profile-salary>      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Average Wage By State</div>      <div class="sub-section-content salary-states">        <trust-ai-profile-salary [dataStates]="salaryStatesInfo"></trust-ai-profile-salary>      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Top Five Highest Earning Industries</div>      <div class="sub-section-content salary-ind">        <trust-ai-profile-salary [dataInd]="salaryIndInfo"></trust-ai-profile-salary>      </div>    </div>  </div></div><div class="profile-section employment">  <div class="section-header">    <div class="section-title">Employment Statistics</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Number of Occupations by State</div>      <div class="sub-section-content">        <trust-ai-profile-employment [dataStates]="salaryStatesInfo"></trust-ai-profile-employment>      </div>    </div>  </div></div><div class="profile-section projection">  <div class="section-header">    <div class="section-title">Occupation Projection</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Occupation Projection</div>      <div class="sub-section-content"></div>    </div>    <div class="sub-section">      <div class="sub-section-title">Near Term Outlook</div>      <div class="sub-section-content"></div>    </div>    <div class="sub-section">      <div class="sub-section-title">Automation Risk</div>      <div class="sub-section-content"></div>    </div>    <div class="sub-section">      <div class="sub-section-title">Future of Work Resources</div>      <div class="sub-section-content"></div>    </div>  </div></div><div class="profile-bottom">  <div>{{ currentJobInfo[\'soc_id\'] }}</div>  <div>{{ currentJobInfo[\'title\'] }}</div>  <button class="scroll-top-button" (click)="scrollToTop()" mat-stroked-button color="primary">Back to Top</button></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ProfilePageComponent'};
 </script>

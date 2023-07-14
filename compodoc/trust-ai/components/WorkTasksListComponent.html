@@ -860,16 +860,16 @@ export class WorkTasksListComponent implements DoCheck {
   &lt;div class&#x3D;&quot;legend&quot;&gt;
     &lt;div class&#x3D;&quot;label&quot;&gt;Legend&lt;/div&gt;
     &lt;div class&#x3D;&quot;legend-group importance&quot; *ngIf&#x3D;&quot;selection &#x3D;&#x3D;&#x3D; &#x27;0&#x27;&quot;&gt;
-      &lt;div class&#x3D;&quot;high&quot;&gt;&gt;4.0&lt;/div&gt;
-      &lt;div class&#x3D;&quot;med&quot;&gt;3.5 - 4.0&lt;/div&gt;
-      &lt;div class&#x3D;&quot;low&quot;&gt;3.0 - 3.5&lt;/div&gt;
-      &lt;div class&#x3D;&quot;lowest&quot;&gt;&lt;3.0&lt;/div&gt;
+      &lt;div class&#x3D;&quot;legend-item high&quot;&gt;&gt;4.0&lt;/div&gt;
+      &lt;div class&#x3D;&quot;legend-item med&quot;&gt;3.5 - 4.0&lt;/div&gt;
+      &lt;div class&#x3D;&quot;legend-item low&quot;&gt;3.0 - 3.5&lt;/div&gt;
+      &lt;div class&#x3D;&quot;legend-item lowest&quot;&gt;&lt;3.0&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;legend-group frequency&quot; *ngIf&#x3D;&quot;selection &#x3D;&#x3D;&#x3D; &#x27;1&#x27;&quot;&gt;
-      &lt;div class&#x3D;&quot;high&quot;&gt;100% - 76%&lt;/div&gt;
-      &lt;div class&#x3D;&quot;med&quot;&gt;75% - 51%&lt;/div&gt;
-      &lt;div class&#x3D;&quot;low&quot;&gt;50% - 26%&lt;/div&gt;
-      &lt;div class&#x3D;&quot;lowest&quot;&gt;25% - 0%&lt;/div&gt;
+      &lt;div class&#x3D;&quot;legend-item high&quot;&gt;100% - 76%&lt;/div&gt;
+      &lt;div class&#x3D;&quot;legend-item med&quot;&gt;75% - 51%&lt;/div&gt;
+      &lt;div class&#x3D;&quot;legend-item low&quot;&gt;50% - 26%&lt;/div&gt;
+      &lt;div class&#x3D;&quot;legend-item lowest&quot;&gt;25% - 0%&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 
@@ -898,6 +898,30 @@ export class WorkTasksListComponent implements DoCheck {
                     <code>./work-tasks-list.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
+  @media (width &lt;&#x3D; 1168px) {
+    .toggle,
+    .legend-group {
+      width: 100% !important;
+    }
+
+    .sub-section-title {
+      font-size: 1rem !important;
+      font-weight: 500;
+      line-height: 1.5rem !important;
+    }
+
+    .sub-section-content {
+      font-size: 0.875rem !important;
+      line-height: 1.25rem !important;
+    }
+  }
+
+  @media (width &lt;&#x3D; 480px) {
+    .sub-section-content {
+      display: none;
+    }
+  }
+
   gap: 1rem;
   display: flex;
   flex-direction: column;
@@ -930,9 +954,9 @@ export class WorkTasksListComponent implements DoCheck {
     gap: 1rem;
 
     .toggle {
-      width: 32.375rem;
       border-radius: 6.25rem;
       border: 1px solid #7a757f;
+      width: 32.375rem;
 
       mat-button-toggle:first-of-type {
         border-right: 1px solid #7a757f;
@@ -940,16 +964,20 @@ export class WorkTasksListComponent implements DoCheck {
 
       mat-button-toggle {
         width: 50%;
-        font-size: 0.875rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 1.25rem;
 
-        .checkmark {
-          height: 1.125rem;
-          width: 1.125rem;
-          line-height: 1.125rem;
-          padding-right: 0.5rem;
+        ::ng-deep .mat-button-toggle-label-content {
+          font-size: 0.875rem;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 1.25rem;
+          padding: 0.625rem 0.75rem;
+
+          .checkmark {
+            height: 1.125rem;
+            width: 1.125rem;
+            line-height: 1.125rem;
+            padding-right: 0.5rem;
+          }
         }
       }
 
@@ -966,6 +994,7 @@ export class WorkTasksListComponent implements DoCheck {
 
       .sub-section-title {
         font-size: 1.375rem;
+        line-height: 1.75rem;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -989,20 +1018,19 @@ export class WorkTasksListComponent implements DoCheck {
         display: flex;
         padding: 0.25rem 0rem;
         width: 32.375rem;
-        align-items: flex-start;
+        justify-content: space-between;
         gap: 0.5rem;
 
-        div {
+        .legend-item {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          height: 2.5rem;
-          min-width: 2.5rem;
           padding: 0.25rem;
           gap: 0.625rem;
           border-radius: 100px;
-          flex: 1 0 0;
+          line-height: 1rem;
+          flex-grow: 1;
         }
       }
     }
@@ -1017,6 +1045,8 @@ export class WorkTasksListComponent implements DoCheck {
       .view-toggle {
         cursor: pointer;
         color: #6750a4;
+        font-size: 0.875rem;
+        padding: 0 0.6rem;
       }
     }
   }
@@ -1030,6 +1060,7 @@ export class WorkTasksListComponent implements DoCheck {
   .task-item {
     display: flex;
     align-self: stretch;
+    align-items: center;
     border-top: 0.0625rem solid #cac4d0;
     padding: 1rem 1.5rem 1rem 1rem;
     gap: 1rem;
@@ -1038,6 +1069,7 @@ export class WorkTasksListComponent implements DoCheck {
       display: flex;
       align-items: center;
       font-size: 1rem;
+      line-height: 1.5rem;
     }
 
     .value {
@@ -1047,6 +1079,8 @@ export class WorkTasksListComponent implements DoCheck {
       justify-content: center;
       min-height: 2.5rem;
       min-width: 2.5rem;
+      max-height: 2.5rem;
+      max-width: 2.5rem;
       border-radius: 2rem;
     }
   }
@@ -1079,8 +1113,8 @@ export class WorkTasksListComponent implements DoCheck {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="controls">  <mat-button-toggle-group class="toggle" name="show-occupations-toggle" (change)="selectionChange($event)">    <mat-button-toggle value="0" checked="true">      <mat-icon class="checkmark" *ngIf="selection === \'0\'">check</mat-icon>      Importance    </mat-button-toggle>    <mat-button-toggle value="1">      <mat-icon class="checkmark" *ngIf="selection === \'1\'">check</mat-icon>      Frequency of Task    </mat-button-toggle>  </mat-button-toggle-group>  <div class="sub-section" *ngIf="selection === \'0\'">    <div class="sub-section-title">Task List by Importance</div>    <div class="sub-section-content">This list is ranked by how important the task is to this occupation.</div>  </div>  <div class="sub-section" *ngIf="selection === \'1\'">    <div class="sub-section-title">Task List by Frequency</div>    <div class="sub-section-content">      This list is ranked by how frequently the task is performed in this occupation.    </div>  </div>  <div class="legend">    <div class="label">Legend</div>    <div class="legend-group importance" *ngIf="selection === \'0\'">      <div class="high">>4.0</div>      <div class="med">3.5 - 4.0</div>      <div class="low">3.0 - 3.5</div>      <div class="lowest"><3.0</div>    </div>    <div class="legend-group frequency" *ngIf="selection === \'1\'">      <div class="high">100% - 76%</div>      <div class="med">75% - 51%</div>      <div class="low">50% - 26%</div>      <div class="lowest">25% - 0%</div>    </div>  </div>  <div class="list-controls">    <div class="list-count">Viewing {{ tasksShown.length }} of {{ tasks.length }}</div>    <div class="view-toggle" (click)="showAllButtonClick.emit()">{{ showAll ? \'View less\' : \'View all\' }}</div>  </div></div><div class="task-list" *ngIf="selection === \'0\'">  <div class="task-item" *ngFor="let task of tasksShown">    <div class="value {{ importanceCategory(task.importance) }}">{{ task.importance.toFixed(1) }}</div>    <div class="name">{{ task.task }}</div>  </div></div><div class="task-list" *ngIf="selection === \'1\'">  <div class="task-item" *ngFor="let task of tasksShown">    <div class="value {{ frequencyCategory(task.relevance) }}">{{ roundFrequency(task.relevance) }}%</div>    <div class="name">{{ task.task }}</div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+        var COMPONENT_TEMPLATE = '<div><div class="controls">  <mat-button-toggle-group class="toggle" name="show-occupations-toggle" (change)="selectionChange($event)">    <mat-button-toggle value="0" checked="true">      <mat-icon class="checkmark" *ngIf="selection === \'0\'">check</mat-icon>      Importance    </mat-button-toggle>    <mat-button-toggle value="1">      <mat-icon class="checkmark" *ngIf="selection === \'1\'">check</mat-icon>      Frequency of Task    </mat-button-toggle>  </mat-button-toggle-group>  <div class="sub-section" *ngIf="selection === \'0\'">    <div class="sub-section-title">Task List by Importance</div>    <div class="sub-section-content">This list is ranked by how important the task is to this occupation.</div>  </div>  <div class="sub-section" *ngIf="selection === \'1\'">    <div class="sub-section-title">Task List by Frequency</div>    <div class="sub-section-content">      This list is ranked by how frequently the task is performed in this occupation.    </div>  </div>  <div class="legend">    <div class="label">Legend</div>    <div class="legend-group importance" *ngIf="selection === \'0\'">      <div class="legend-item high">>4.0</div>      <div class="legend-item med">3.5 - 4.0</div>      <div class="legend-item low">3.0 - 3.5</div>      <div class="legend-item lowest"><3.0</div>    </div>    <div class="legend-group frequency" *ngIf="selection === \'1\'">      <div class="legend-item high">100% - 76%</div>      <div class="legend-item med">75% - 51%</div>      <div class="legend-item low">50% - 26%</div>      <div class="legend-item lowest">25% - 0%</div>    </div>  </div>  <div class="list-controls">    <div class="list-count">Viewing {{ tasksShown.length }} of {{ tasks.length }}</div>    <div class="view-toggle" (click)="showAllButtonClick.emit()">{{ showAll ? \'View less\' : \'View all\' }}</div>  </div></div><div class="task-list" *ngIf="selection === \'0\'">  <div class="task-item" *ngFor="let task of tasksShown">    <div class="value {{ importanceCategory(task.importance) }}">{{ task.importance.toFixed(1) }}</div>    <div class="name">{{ task.task }}</div>  </div></div><div class="task-list" *ngIf="selection === \'1\'">  <div class="task-item" *ngFor="let task of tasksShown">    <div class="value {{ frequencyCategory(task.relevance) }}">{{ roundFrequency(task.relevance) }}%</div>    <div class="name">{{ task.task }}</div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'WorkTasksListComponent'};
 </script>
