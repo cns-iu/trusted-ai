@@ -151,4 +151,38 @@ describe('OccupationsPageComponent', () => {
     });
     expect(spy).toHaveBeenCalledWith(['/profile', { code: '11111' }]);
   });
+
+  it('sorts jobs', () => {
+    component.filteredJobs = [
+      {
+        Occupation: 'A',
+        Code: '1',
+        'Job Zone': '1',
+        'Data-level': '0',
+      },
+      {
+        Occupation: 'B',
+        Code: '2',
+        'Job Zone': '2',
+        'Data-level': '0',
+      },
+      {
+        Occupation: 'C',
+        Code: '3',
+        'Job Zone': '3',
+        'Data-level': '0',
+      },
+    ];
+
+    component.sortJobs('Job Title: Z - A');
+    expect(component.filteredJobs[0].Occupation).toEqual('C');
+    component.sortJobs('Code: Low - High');
+    expect(component.filteredJobs[0].Code).toEqual('1');
+    component.sortJobs('Code: High - Low');
+    expect(component.filteredJobs[0].Code).toEqual('3');
+    component.sortJobs('Preparedness Level: 1 - 5');
+    expect(component.filteredJobs[0]['Job Zone']).toEqual('1');
+    component.sortJobs('Preparedness Level: 5 - 1');
+    expect(component.filteredJobs[0]['Job Zone']).toEqual('3');
+  });
 });

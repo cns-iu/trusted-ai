@@ -43,7 +43,7 @@ export class ProfileSalaryComponent implements OnChanges {
       this.spec = createSalaryIndPlot(this.dataInd);
     }
     if (this.vis) {
-      await embed(this.vis.nativeElement, this.spec);
+      await embed(this.vis.nativeElement, this.spec, { actions: false });
     }
   }
 }
