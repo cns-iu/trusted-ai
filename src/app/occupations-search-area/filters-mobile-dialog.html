@@ -1,39 +1,47 @@
-<div class="occupations-toggle disabled">
-  Show Occupations
-  <mat-button-toggle-group
-    name="show-occupations-toggle"
-    aria-label="Show Occupations"
-    (change)="filtersChange('showOccupations', $event)"
-  >
-    <mat-button-toggle value="0" checked="{{ filters['showOccupations'] === '0' }}">
-      <mat-icon class="checkmark" *ngIf="filters['showOccupations'] === '0'">check</mat-icon>
-      All
-    </mat-button-toggle>
-    <mat-button-toggle value="1" checked="{{ filters['showOccupations'] === '1' }}">
-      <mat-icon class="checkmark" *ngIf="filters['showOccupations'] === '1'">check</mat-icon>
-      Data-level
-    </mat-button-toggle>
-  </mat-button-toggle-group>
-</div>
-
-<div class="preparedness-toggle">
-  Preparedness Level
-  <mat-button-toggle-group
-    name="preparedness-toggle"
-    aria-label="Preparedness Level"
-    (change)="filtersChange('preparednessLevel', $event)"
-  >
-    <mat-button-toggle
-      *ngFor="let item of ['0', '1', '2', '3', '4', '5']"
-      value="{{ item }}"
-      checked="{{ filters['preparednessLevel'] === item }}"
+<div class="dialog-container">
+  <div class="dialog-header">
+    Filters
+    <mat-icon class="close" (click)="cancelClick()">close</mat-icon>
+  </div>
+  <div class="preparedness-toggle">
+    Preparedness Level
+    <mat-button-toggle-group
+      name="preparedness-toggle"
+      aria-label="Preparedness Level"
+      (change)="filtersChange('preparednessLevel', $event)"
     >
-      <mat-icon class="checkmark" *ngIf="filters['preparednessLevel'] === item">check</mat-icon>
-      {{ item === '0' ? 'All' : item }}
-    </mat-button-toggle>
-  </mat-button-toggle-group>
+      <mat-button-toggle
+        *ngFor="let item of ['0', '1', '2', '3', '4', '5']"
+        value="{{ item }}"
+        checked="{{ filters['preparednessLevel'] === item }}"
+        disableRipple="true"
+      >
+        <mat-icon class="checkmark" *ngIf="filters['preparednessLevel'] === item">check</mat-icon>
+        {{ item === '0' ? 'All' : item }}
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div class="occupations-toggle disabled">
+    Show Occupations
+    <mat-button-toggle-group
+      name="show-occupations-toggle"
+      aria-label="Show Occupations"
+      (change)="filtersChange('showOccupations', $event)"
+    >
+      <mat-button-toggle value="0" checked="{{ filters['showOccupations'] === '0' }}" [disableRipple]="true">
+        <mat-icon class="checkmark" *ngIf="filters['showOccupations'] === '0'">check</mat-icon>
+        All
+      </mat-button-toggle>
+      <mat-button-toggle value="1" checked="{{ filters['showOccupations'] === '1' }}" [disableRipple]="true">
+        <mat-icon class="checkmark" *ngIf="filters['showOccupations'] === '1'">check</mat-icon>
+        Data-level
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div class="button-group">
+    <div class="button" (click)="cancelClick()">Cancel</div>
+    <div class="button" (click)="submitClick()">Apply</div>
+  </div>
 </div>
-
-<button (click)="cancelClick()">Cancel</button>
-
-<button (click)="submitClick()">Apply</button>
