@@ -1,12 +1,11 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
-import { Shallow } from 'shallow-render';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SearchFilters } from '../pages/occupations-page/occupations-page.component';
 import { OccupationsSearchAreaComponent } from './occupations-search-area.component';
 
 describe('OccupationsSearchAreaComponent', () => {
-  let shallow: Shallow<OccupationsSearchAreaComponent>;
-
   const testFilters: SearchFilters = {
     searchTerm: '',
     showOccupations: '0',
@@ -29,25 +28,30 @@ describe('OccupationsSearchAreaComponent', () => {
     } as unknown as HTMLInputElement,
   } as unknown as Event;
 
-  beforeEach(async () => {
-    shallow = new Shallow(OccupationsSearchAreaComponent);
-  });
+  let component: OccupationsSearchAreaComponent;
+  let fixture: ComponentFixture<OccupationsSearchAreaComponent>;
 
-  it('creates', async () => {
-    await expect(shallow.render()).resolves.toBeDefined();
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [OccupationsSearchAreaComponent, BrowserAnimationsModule],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(OccupationsSearchAreaComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should emit the changed filter value', async () => {
-    const { instance, outputs } = await shallow.render();
-    instance.filters = testFilters;
-    instance.filtersChange('showOccupations', testToggleEvent);
-    expect(outputs.filtersChanged.emit).toHaveBeenCalledWith(testFilters2);
+    jest.spyOn(component.filtersChanged, 'emit');
+    component.filters = testFilters;
+    component.filtersChange('showOccupations', testToggleEvent);
+    expect(component.filtersChanged.emit).toHaveBeenCalledWith(testFilters2);
   });
 
   it('should emit the changed search input value', async () => {
-    const { instance, outputs } = await shallow.render();
-    instance.filters = testFilters;
-    instance.inputChange(testInputEvent);
-    expect(outputs.filtersChanged.emit).toHaveBeenCalled();
+    jest.spyOn(component.filtersChanged, 'emit');
+    component.filters = testFilters;
+    component.inputChange(testInputEvent);
+    expect(component.filtersChanged.emit).toHaveBeenCalled();
   });
 });

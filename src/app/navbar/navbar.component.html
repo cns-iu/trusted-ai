@@ -1,6 +1,10 @@
 <div class="navbar-content">
   <div routerLink="/" class="logo">Career Explorer</div>
-  <a routerLink="/faq">
-    <img class="faq-link" src="assets/icons/info.png" />
+  <div *ngIf="(notHome$ | async) === false" class="filler"></div>
+  <a *ngIf="notHome$ | async" routerLink="/">
+    <mat-icon fontSet="material-icons-outlined" class="home-icon">home</mat-icon>
+  </a>
+  <a class="faq-link" routerLink="/faq">
+    <img src="assets/icons/info.png" />
   </a>
 </div>

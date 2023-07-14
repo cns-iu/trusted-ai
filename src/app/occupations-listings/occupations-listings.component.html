@@ -1,13 +1,18 @@
-<div class="counter">{{ allJobs ? allJobs.length.toLocaleString() : 0 }} occupations</div>
-
 <div class="job-list-header">
-  <div class="column-1">Job Title</div>
-  <div class="column-2">Preparation Level</div>
-  <div class="column-3">Code</div>
+  <div class="header-labels">
+    <div class="column-1">Job Title</div>
+    <div class="column-2-3">
+      <div class="column-2">Preparation Level</div>
+      <div class="column-3">Code</div>
+    </div>
+    <div class="filler"></div>
+  </div>
 </div>
 
 <div class="job-list">
-  <div *ngFor="let job of allJobs">
-    <trust-ai-career-card [jobInfo]="job" (jobClicked)="jobClicked.emit($event)"></trust-ai-career-card>
-  </div>
+  <trust-ai-career-card
+    *ngFor="let job of allJobs"
+    [jobInfo]="job"
+    (jobClicked)="jobClicked.emit($event)"
+  ></trust-ai-career-card>
 </div>
