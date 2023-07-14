@@ -263,18 +263,23 @@ export class OccupationsListingsComponent {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;counter&quot;&gt;{{ allJobs ? allJobs.length.toLocaleString() : 0 }} occupations&lt;/div&gt;
-
-&lt;div class&#x3D;&quot;job-list-header&quot;&gt;
-  &lt;div class&#x3D;&quot;column-1&quot;&gt;Job Title&lt;/div&gt;
-  &lt;div class&#x3D;&quot;column-2&quot;&gt;Preparation Level&lt;/div&gt;
-  &lt;div class&#x3D;&quot;column-3&quot;&gt;Code&lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;job-list-header&quot;&gt;
+  &lt;div class&#x3D;&quot;header-labels&quot;&gt;
+    &lt;div class&#x3D;&quot;column-1&quot;&gt;Job Title&lt;/div&gt;
+    &lt;div class&#x3D;&quot;column-2-3&quot;&gt;
+      &lt;div class&#x3D;&quot;column-2&quot;&gt;Preparation Level&lt;/div&gt;
+      &lt;div class&#x3D;&quot;column-3&quot;&gt;Code&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;filler&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;div class&#x3D;&quot;job-list&quot;&gt;
-  &lt;div *ngFor&#x3D;&quot;let job of allJobs&quot;&gt;
-    &lt;trust-ai-career-card [jobInfo]&#x3D;&quot;job&quot; (jobClicked)&#x3D;&quot;jobClicked.emit($event)&quot;&gt;&lt;/trust-ai-career-card&gt;
-  &lt;/div&gt;
+  &lt;trust-ai-career-card
+    *ngFor&#x3D;&quot;let job of allJobs&quot;
+    [jobInfo]&#x3D;&quot;job&quot;
+    (jobClicked)&#x3D;&quot;jobClicked.emit($event)&quot;
+  &gt;&lt;/trust-ai-career-card&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -284,40 +289,50 @@ export class OccupationsListingsComponent {
                     <code>./occupations-listings.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
+  @media (width &lt;&#x3D; 1168px) {
+    .job-list-header {
+      display: none;
+    }
+  }
+
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-
-  .counter {
-    width: 100%;
-    font-weight: 500;
-    font-size: 0.875rem;
-    color: #22005d;
-    padding: 0.5rem;
-  }
+  width: 100%;
 
   .job-list-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem;
     background: #e6e1e6;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
     border-radius: 0.75rem;
-    width: fit-content;
-    gap: 1rem;
+    width: 100%;
+
+    .header-labels {
+      display: flex;
+      align-items: center;
+      padding: 1.5rem;
+      justify-content: space-between;
+    }
 
     .column-1 {
-      min-width: 30rem;
+      width: 40%;
     }
 
-    .column-2 {
-      min-width: 17.25rem;
-    }
+    .column-2-3 {
+      display: flex;
+      gap: 10px;
+      width: 40%;
+      justify-content: space-between;
 
-    .column-3 {
-      min-width: 17rem;
+      .column-2 {
+        width: 66%;
+      }
+      .column-3 {
+        min-width: 33%;
+      }
+    }
+    .filler {
+      width: 10rem;
     }
   }
 
@@ -325,7 +340,7 @@ export class OccupationsListingsComponent {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: fit-content;
+    width: 100%;
   }
 }
 </code></pre>
@@ -356,8 +371,8 @@ export class OccupationsListingsComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="counter">{{ allJobs ? allJobs.length.toLocaleString() : 0 }} occupations</div><div class="job-list-header">  <div class="column-1">Job Title</div>  <div class="column-2">Preparation Level</div>  <div class="column-3">Code</div></div><div class="job-list">  <div *ngFor="let job of allJobs">    <trust-ai-career-card [jobInfo]="job" (jobClicked)="jobClicked.emit($event)"></trust-ai-career-card>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+        var COMPONENT_TEMPLATE = '<div><div class="job-list-header">  <div class="header-labels">    <div class="column-1">Job Title</div>    <div class="column-2-3">      <div class="column-2">Preparation Level</div>      <div class="column-3">Code</div>    </div>    <div class="filler"></div>  </div></div><div class="job-list">  <trust-ai-career-card    *ngFor="let job of allJobs"    [jobInfo]="job"    (jobClicked)="jobClicked.emit($event)"  ></trust-ai-career-card></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'OccupationsListingsComponent'};
 </script>

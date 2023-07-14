@@ -188,6 +188,37 @@ export class PageFooterComponent {}
                     <code>./page-footer.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
+  @media (width &lt;&#x3D; 1168px) {
+    .partner-links,
+    .cns-link {
+      padding: 3rem 0rem !important;
+      gap: 2.5rem !important;
+    }
+
+    .link-list {
+      gap: 2.5rem !important;
+    }
+  }
+
+  @media (480px &lt; width &lt; 1168px) {
+    .section-title {
+      font-size: 1rem !important;
+      line-height: 1.25rem !important;
+      letter-spacing: 0.02rem !important;
+    }
+  }
+
+  @media (width &lt; 480px) {
+    .section-title {
+      font-size: 0.875rem !important;
+      line-height: 1.25rem !important;
+    }
+
+    .link-list {
+      flex-direction: column;
+    }
+  }
+
   .partner-links,
   .cns-link,
   .section-header {
@@ -205,6 +236,9 @@ export class PageFooterComponent {}
 
   .section-title {
     font-size: 1.5rem;
+    text-align: center;
+    line-height: 1.25rem;
+    letter-spacing: 0.03rem;
   }
 
   .divider {
@@ -253,7 +287,7 @@ export class PageFooterComponent {}
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="partner-links">  <div class="section-header">    <div class="section-title">Thanks to our partners</div>    <div class="divider"></div>  </div>  <div class="link-list">    <a href="">      <img src="assets/navsea.png" />    </a>    <a href="">      <img src="assets/onet.png" />    </a>    <a href="">      <img src="assets/luddy.png" />    </a>  </div></div><div class="cns-link">  <div class="section-header">    <div class="section-title">Learn about our research center</div>    <div class="divider"></div>  </div>  <div class="link-list">    <a href="">      <img src="assets/CNS logo.png" />    </a>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PageFooterComponent'};
 </script>

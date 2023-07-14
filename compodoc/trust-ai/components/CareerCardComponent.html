@@ -337,15 +337,17 @@ export class CareerCardComponent {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;job-title&quot;&gt;{{ jobInfo[&#x27;Occupation&#x27;] }}&lt;/div&gt;
-&lt;div class&#x3D;&quot;preparation&quot;&gt;
-  &lt;img
-    class&#x3D;&quot;preparation-level&quot;
-    *ngIf&#x3D;&quot;jobInfo[&#x27;Job Zone&#x27;] !&#x3D;&#x3D; &#x27;n/a&#x27;&quot;
-    src&#x3D;&quot;{{ &#x27;assets/icons/counter_&#x27; + jobInfo[&#x27;Job Zone&#x27;] + &#x27;.svg&#x27; }}&quot;
-  /&gt;
-  &lt;div class&#x3D;&quot;preparation-text&quot;&gt;{{ preparednessLevels[jobInfo[&#x27;Job Zone&#x27;]] }}&lt;/div&gt;
+&lt;div class&#x3D;&quot;preparation-code&quot;&gt;
+  &lt;div class&#x3D;&quot;preparation&quot;&gt;
+    &lt;img
+      class&#x3D;&quot;preparation-level&quot;
+      *ngIf&#x3D;&quot;jobInfo[&#x27;Job Zone&#x27;] !&#x3D;&#x3D; &#x27;n/a&#x27;&quot;
+      src&#x3D;&quot;{{ &#x27;assets/icons/counter_&#x27; + jobInfo[&#x27;Job Zone&#x27;] + &#x27;.svg&#x27; }}&quot;
+    /&gt;
+    &lt;div class&#x3D;&quot;preparation-text&quot;&gt;{{ preparednessLevels[jobInfo[&#x27;Job Zone&#x27;]] }}&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;code&quot;&gt;{{ jobInfo[&#x27;Code&#x27;] }}&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class&#x3D;&quot;code&quot;&gt;{{ jobInfo[&#x27;Code&#x27;] }}&lt;/div&gt;
 &lt;button class&#x3D;&quot;view-button&quot; (click)&#x3D;&quot;jobClicked.emit(jobInfo)&quot; mat-stroked-button&gt;View Occupation&lt;/button&gt;
 </code></pre>
     </div>
@@ -355,37 +357,72 @@ export class CareerCardComponent {
                     <code>./career-card.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
+  @media (width &lt;&#x3D; 1168px) {
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+
+    .job-title {
+      width: 100% !important;
+    }
+
+    .preparation-code {
+      width: 100% !important;
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1.25rem;
+      display: flex;
+      padding: 0.25rem 0rem;
+      justify-content: space-between;
+      align-items: center;
+      align-self: stretch;
+    }
+
+    .preparation {
+      width: unset !important;
+    }
+
+    .code {
+      width: unset !important;
+    }
+  }
+
+  @media (width &lt;&#x3D; 480px) {
+    padding: 1.5rem 1rem;
+  }
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 1.5rem;
-  gap: 1rem;
   background: #f7f2f7;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
   border-radius: 0.75rem;
-  width: fit-content;
+  justify-content: space-between;
+  gap: 1rem;
 
   div {
     display: flex;
     gap: 0.5rem;
-    max-width: 30rem;
   }
 
   .job-title {
-    min-width: 30rem;
+    width: 40%;
+    line-height: 1.5rem;
   }
 
-  .preparation {
-    min-width: 17.25rem;
-    gap: 10px;
+  .preparation-code {
+    width: 40%;
+    justify-content: space-between;
 
-    .preparation-text {
+    .preparation {
+      width: 66%;
+      .preparation-text {
+        line-height: 1.5rem;
+      }
+    }
+    .code {
+      width: 33%;
       line-height: 1.5rem;
     }
-  }
-
-  .code {
-    min-width: 6rem;
   }
 
   .view-button {
@@ -397,6 +434,7 @@ export class CareerCardComponent {
     font-size: 0.875rem;
     width: 10rem;
     height: 2.5rem;
+    align-self: flex-end;
   }
 }
 </code></pre>
@@ -427,8 +465,8 @@ export class CareerCardComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="job-title">{{ jobInfo[\'Occupation\'] }}</div><div class="preparation">  <img    class="preparation-level"    *ngIf="jobInfo[\'Job Zone\'] !== \'n/a\'"    src="{{ \'assets/icons/counter_\' + jobInfo[\'Job Zone\'] + \'.svg\' }}"  />  <div class="preparation-text">{{ preparednessLevels[jobInfo[\'Job Zone\']] }}</div></div><div class="code">{{ jobInfo[\'Code\'] }}</div><button class="view-button" (click)="jobClicked.emit(jobInfo)" mat-stroked-button>View Occupation</button></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+        var COMPONENT_TEMPLATE = '<div><div class="job-title">{{ jobInfo[\'Occupation\'] }}</div><div class="preparation-code">  <div class="preparation">    <img      class="preparation-level"      *ngIf="jobInfo[\'Job Zone\'] !== \'n/a\'"      src="{{ \'assets/icons/counter_\' + jobInfo[\'Job Zone\'] + \'.svg\' }}"    />    <div class="preparation-text">{{ preparednessLevels[jobInfo[\'Job Zone\']] }}</div>  </div>  <div class="code">{{ jobInfo[\'Code\'] }}</div></div><button class="view-button" (click)="jobClicked.emit(jobInfo)" mat-stroked-button>View Occupation</button></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CareerCardComponent'};
 </script>

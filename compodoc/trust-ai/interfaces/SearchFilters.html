@@ -126,6 +126,7 @@ export interface SearchFilters {
 
 /** Job info from csv */
 export interface JobInfo {
+  [key: string]: string;
   /** Job code */
   Code: string;
   /** Data level */
@@ -172,6 +173,19 @@ export class OccupationsPageComponent implements OnInit {
     preparednessLevel: &#x27;0&#x27;,
   };
 
+  /** Sort menu items */
+  menuListItems &#x3D; [
+    &#x27;Job Title: A - Z&#x27;,
+    &#x27;Job Title: Z - A&#x27;,
+    &#x27;Code: Low - High&#x27;,
+    &#x27;Code: High - Low&#x27;,
+    &#x27;Preparedness Level: 1 - 5&#x27;,
+    &#x27;Preparedness Level: 5 - 1&#x27;,
+  ];
+
+  /** Current sort setting */
+  sortBy &#x3D; this.menuListItems[0];
+
   /** Subscribes to setJobs on init */
   ngOnInit(): void {
     this.setJobs().subscribe();
@@ -202,6 +216,48 @@ export class OccupationsPageComponent implements OnInit {
         (job) &#x3D;&gt; filters[&#x27;preparednessLevel&#x27;] &#x3D;&#x3D;&#x3D; &#x27;0&#x27; || job[&#x27;Job Zone&#x27;].toString() &#x3D;&#x3D;&#x3D; filters[&#x27;preparednessLevel&#x27;]
       );
     // .filter((job) &#x3D;&gt; filters[&#x27;showOccupations&#x27;] &#x3D;&#x3D;&#x3D; &#x27;0&#x27; || job[&#x27;Data-level&#x27;] &#x3D;&#x3D;&#x3D; &#x27;Y&#x27;);
+    this.sortJobs(this.sortBy);
+  }
+
+  /**
+   * Sorts jobs by criteria
+   * @param sortBy Sort selection
+   */
+  sortJobs(sortBy: string): void {
+    this.sortBy &#x3D; sortBy;
+    switch (sortBy) {
+      case &#x27;Job Title: A - Z&#x27;:
+        this.sort(&#x27;Occupation&#x27;, 0);
+        break;
+      case &#x27;Job Title: Z - A&#x27;:
+        this.sort(&#x27;Occupation&#x27;, 1);
+        break;
+      case &#x27;Code: Low - High&#x27;:
+        this.sort(&#x27;Code&#x27;, 0);
+        break;
+      case &#x27;Code: High - Low&#x27;:
+        this.sort(&#x27;Code&#x27;, 1);
+        break;
+      case &#x27;Preparedness Level: 1 - 5&#x27;:
+        this.sort(&#x27;Job Zone&#x27;, 0);
+        break;
+      case &#x27;Preparedness Level: 5 - 1&#x27;:
+        this.sort(&#x27;Job Zone&#x27;, 1);
+        break;
+    }
+  }
+
+  /** Sorts current displayed jobs by category and direction */
+  private sort(category: string, direction: number) {
+    this.filteredJobs.sort((a, b) &#x3D;&gt; {
+      const x &#x3D; a[category],
+        y &#x3D; b[category];
+      if (direction &#x3D;&#x3D;&#x3D; 0) {
+        return x &#x3D;&#x3D; y ? 0 : x &gt; y ? 1 : -1;
+      } else {
+        return x &#x3D;&#x3D; y ? 0 : x &lt; y ? 1 : -1;
+      }
+    });
   }
 
   /** Scrolls to top of page */

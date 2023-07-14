@@ -403,6 +403,8 @@ export class ProfileTechnologySkillsComponent implements DoCheck {
     .view-toggle {
       cursor: pointer;
       color: #6750a4;
+      font-size: 0.875rem;
+      padding: 0 0.6rem;
     }
   }
 
@@ -418,10 +420,11 @@ export class ProfileTechnologySkillsComponent implements DoCheck {
     justify-content: center;
     align-self: stretch;
     border-top: 0.0625rem solid #cac4d0;
-    padding: 1rem 1.5rem 1rem 1rem;
+    padding: 0.5rem 1.5rem 0.5rem 1rem;
 
     .title {
       font-size: 1rem;
+      line-height: 1.5rem;
     }
 
     .examples {
@@ -460,7 +463,7 @@ export class ProfileTechnologySkillsComponent implements DoCheck {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="controls">  <div class="list-count">Viewing {{ skillsShown.length }} of {{ allSkills.length }}</div>  <div class="view-toggle" (click)="showAllButtonClick.emit()">{{ showAll ? \'View less\' : \'View all\' }}</div></div><div class="technology-list">  <div class="technology-skill" *ngFor="let skill of skillsShown">    <div class="title">{{ skill[0] }}</div>    <div class="examples">{{ skill[1].toString().split(\',\').join(\'; \') }}</div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ProfileTechnologySkillsComponent'};
 </script>

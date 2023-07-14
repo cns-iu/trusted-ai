@@ -68,6 +68,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/FaqPageComponent.html" data-type="entity-link" >FaqPageComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/FiltersMobileDialogComponent.html" data-type="entity-link" >FiltersMobileDialogComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/LandingPageComponent.html" data-type="entity-link" >LandingPageComponent</a>
                             </li>
                             <li class="link">

@@ -122,22 +122,113 @@
     </table>
 </section>
 
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#notHome$" >notHome$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
 
 
 
+        </tbody>
+    </table>
+</section>
 
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/navbar/navbar.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Sets notHome$</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notHome$"></a>
+                    <span class="name">
+                        <span ><b>notHome$</b></span>
+                        <a href="#notHome$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/navbar/navbar.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Changes appearance of nav bar if not on home page</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { Component } from &#x27;@angular/core&#x27;;
+import { Component, inject } from &#x27;@angular/core&#x27;;
 import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
-import { RouterModule } from &#x27;@angular/router&#x27;;
+import { NavigationEnd, Router, RouterEvent, RouterModule } from &#x27;@angular/router&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { filter, map } from &#x27;rxjs/operators&#x27;;
 
 /**
  * Application navbar
@@ -149,15 +240,37 @@ import { RouterModule } from &#x27;@angular/router&#x27;;
   templateUrl: &#x27;./navbar.component.html&#x27;,
   styleUrls: [&#x27;./navbar.component.scss&#x27;],
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  /** Handles when search term is changed */
+  private readonly router &#x3D; inject(Router);
+
+  /** Changes appearance of nav bar if not on home page */
+  notHome$: Observable&lt;boolean&gt;;
+
+  /**
+   * Sets notHome$
+   */
+  constructor() {
+    this.notHome$ &#x3D; (this.router.events as Observable&lt;RouterEvent&gt;).pipe(
+      filter((event) &#x3D;&gt; event instanceof NavigationEnd),
+      map((event) &#x3D;&gt; {
+        return !(event.url &#x3D;&#x3D;&#x3D; &#x27;/&#x27;);
+      })
+    );
+  }
+}
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;navbar-content&quot;&gt;
   &lt;div routerLink&#x3D;&quot;/&quot; class&#x3D;&quot;logo&quot;&gt;Career Explorer&lt;/div&gt;
-  &lt;a routerLink&#x3D;&quot;/faq&quot;&gt;
-    &lt;img class&#x3D;&quot;faq-link&quot; src&#x3D;&quot;assets/icons/info.png&quot; /&gt;
+  &lt;div *ngIf&#x3D;&quot;(notHome$ | async) &#x3D;&#x3D;&#x3D; false&quot; class&#x3D;&quot;filler&quot;&gt;&lt;/div&gt;
+  &lt;a *ngIf&#x3D;&quot;notHome$ | async&quot; routerLink&#x3D;&quot;/&quot;&gt;
+    &lt;mat-icon fontSet&#x3D;&quot;material-icons-outlined&quot; class&#x3D;&quot;home-icon&quot;&gt;home&lt;/mat-icon&gt;
+  &lt;/a&gt;
+  &lt;a class&#x3D;&quot;faq-link&quot; routerLink&#x3D;&quot;/faq&quot;&gt;
+    &lt;img src&#x3D;&quot;assets/icons/info.png&quot; /&gt;
   &lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
@@ -168,6 +281,28 @@ export class NavbarComponent {}
                     <code>./navbar.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
+  @media (width &lt;&#x3D; 480px) {
+    .navbar-content {
+      width: calc(100% - 2rem) !important;
+    }
+
+    .logo {
+      display: none;
+    }
+  }
+
+  @media (width &gt; 480px) {
+    .home-icon {
+      display: none;
+    }
+  }
+
+  @media (480px &lt; width &lt; 1168px) {
+    .navbar-content {
+      width: calc(100% - 4rem) !important;
+    }
+  }
+
   display: flex;
   justify-content: center;
   position: fixed;
@@ -180,7 +315,7 @@ export class NavbarComponent {}
 
   .navbar-content {
     display: flex;
-    width: calc(100% - 14rem);
+    width: 80%;
     justify-content: space-between;
     align-items: center;
 
@@ -188,6 +323,10 @@ export class NavbarComponent {}
       font-size: 1.5rem;
       color: #22005d;
       cursor: pointer;
+    }
+
+    .faq-link {
+      // align-self: flex-end;
     }
   }
 }
@@ -219,8 +358,8 @@ export class NavbarComponent {}
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="navbar-content">  <div routerLink="/" class="logo">Career Explorer</div>  <a routerLink="/faq">    <img class="faq-link" src="assets/icons/info.png" />  </a></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+        var COMPONENT_TEMPLATE = '<div><div class="navbar-content">  <div routerLink="/" class="logo">Career Explorer</div>  <div *ngIf="(notHome$ | async) === false" class="filler"></div>  <a *ngIf="notHome$ | async" routerLink="/">    <mat-icon fontSet="material-icons-outlined" class="home-icon">home</mat-icon>  </a>  <a class="faq-link" routerLink="/faq">    <img src="assets/icons/info.png" />  </a></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NavbarComponent'};
 </script>
