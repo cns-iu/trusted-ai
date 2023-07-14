@@ -1,8 +1,21 @@
 :host {
+  @media (width <= 480px) {
+    .title,
+    .content {
+      width: calc(100% - 2rem) !important;
+    }
+  }
+
+  @media (480px < width < 1168px) {
+    .title,
+    .content {
+      width: calc(100% - 4rem) !important;
+    }
+  }
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: 4.5rem;
   position: relative;
 
   .banner {
@@ -12,10 +25,11 @@
     font-size: 1.75rem;
     background: #e9ddff;
     width: 100%;
+    padding-top: 4.5rem;
 
-    div {
+    .title {
       padding: 2rem 0;
-      width: 69.25rem;
+      width: 80%;
     }
   }
 
@@ -23,11 +37,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: fit-content;
     padding-bottom: 2rem;
+    width: 80%;
 
-    trust-ai-occupations-search-area,
-    trust-ai-search-listings {
+    trust-ai-occupations-search-area {
       width: 100%;
     }
   }

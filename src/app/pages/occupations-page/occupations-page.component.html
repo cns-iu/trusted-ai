@@ -1,10 +1,14 @@
 <div class="banner">
-  <div>All Occupations</div>
+  <div class="title">All Occupations</div>
 </div>
 <div class="content">
   <trust-ai-occupations-search-area
     [filters]="currentFilters"
     (filtersChanged)="filterJobs($event)"
+    [menuListItems]="menuListItems"
+    [sortBy]="sortBy"
+    (sortChanged)="sortJobs($event)"
+    [numJobs]="filteredJobs.length.toLocaleString()"
   ></trust-ai-occupations-search-area>
   <trust-ai-occupations-listings
     [allJobs]="filteredJobs"

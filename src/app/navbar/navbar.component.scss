@@ -1,4 +1,26 @@
 :host {
+  @media (width <= 480px) {
+    .navbar-content {
+      width: calc(100% - 2rem) !important;
+    }
+
+    .logo {
+      display: none;
+    }
+  }
+
+  @media (width > 480px) {
+    .home-icon {
+      display: none;
+    }
+  }
+
+  @media (480px < width < 1168px) {
+    .navbar-content {
+      width: calc(100% - 4rem) !important;
+    }
+  }
+
   display: flex;
   justify-content: center;
   position: fixed;
@@ -11,7 +33,7 @@
 
   .navbar-content {
     display: flex;
-    width: calc(100% - 14rem);
+    width: 80%;
     justify-content: space-between;
     align-items: center;
 
@@ -19,6 +41,10 @@
       font-size: 1.5rem;
       color: #22005d;
       cursor: pointer;
+    }
+
+    .faq-link {
+      // align-self: flex-end;
     }
   }
 }
