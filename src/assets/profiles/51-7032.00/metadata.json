@@ -8,7 +8,7 @@
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
-  "svp_range": "(6.0 to < 7.0)",
+  "svp_range": "6 to 7",
   "work_tasks": [
     {
       "soc_id": "51-7032.00",
@@ -3758,5 +3758,37 @@
       "annual": null,
       "hourly": null
     }
-  ]
+  ],
+  "projections": [
+    {
+      "soc_id": "51-7032.00",
+      "soc_nems_id": "51-7032",
+      "title": "Patternmakers, Wood",
+      "occ_title": "Patternmakers, wood",
+      "grouping": "Detailed Occupation",
+      "naics_code": "3370A1",
+      "industry_title": "Furniture and related product manufacturing (3371,2)",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0,
+      "per_occupation": 23.2,
+      "employed_10": 0.1,
+      "per_industry_10": 0,
+      "per_occupation_10": 22,
+      "emp_change_10": 0,
+      "per_change_10": 2,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
+  "per_change_10_nat": 7.8,
+  "employed_nat": 0.3,
+  "employed_10_nat": 0.3,
+  "bright_futures": "Bright",
+  "automation_risk": "High",
+  "near_future": "Projected to grow rapidly."
 }

@@ -8,7 +8,7 @@
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
-  "svp_range": "(4.0 to < 6.0)",
+  "svp_range": "4 to 6",
   "work_tasks": [
     {
       "soc_id": "47-5043.00",
@@ -5723,5 +5723,61 @@
       "annual": null,
       "hourly": null
     }
-  ]
+  ],
+  "projections": [
+    {
+      "soc_id": "47-5043.00",
+      "soc_nems_id": "47-5043",
+      "title": "Roof Bolters, Mining",
+      "occ_title": "Roof bolters, mining",
+      "grouping": "Detailed Occupation",
+      "naics_code": "212100",
+      "industry_title": "Coal mining",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 1.5,
+      "per_industry": 4.2,
+      "per_occupation": 81.9,
+      "employed_10": 1.1,
+      "per_industry_10": 4,
+      "per_occupation_10": 74.8,
+      "emp_change_10": -0.4,
+      "per_change_10": -28.2,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "47-5043.00",
+      "soc_nems_id": "47-5043",
+      "title": "Roof Bolters, Mining",
+      "occ_title": "Roof bolters, mining",
+      "grouping": "Detailed Occupation",
+      "naics_code": "212300",
+      "industry_title": "Nonmetallic mineral mining and quarrying",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0.1,
+      "per_occupation": 6.3,
+      "employed_10": 0.1,
+      "per_industry_10": 0.1,
+      "per_occupation_10": 8.4,
+      "emp_change_10": 0,
+      "per_change_10": 5.3,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
+  "per_change_10_nat": -21.5,
+  "employed_nat": 1.9,
+  "employed_10_nat": 1.5,
+  "bright_futures": "Below Average",
+  "automation_risk": "Low",
+  "near_future": null
 }

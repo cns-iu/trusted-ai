@@ -8,7 +8,7 @@
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
-  "svp_range": "(4.0 to < 6.0)",
+  "svp_range": "4 to 6",
   "work_tasks": [
     {
       "soc_id": "11-9131.00",
@@ -10260,5 +10260,37 @@
       "annual": null,
       "hourly": null
     }
-  ]
+  ],
+  "projections": [
+    {
+      "soc_id": "11-9131.00",
+      "soc_nems_id": "11-9131",
+      "title": "Postmasters and Mail Superintendents",
+      "occ_title": "Postmasters and mail superintendents",
+      "grouping": "Detailed Occupation",
+      "naics_code": "491000",
+      "industry_title": "Postal service",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 12.3,
+      "per_industry": 2,
+      "per_occupation": 100,
+      "employed_10": 11.7,
+      "per_industry_10": 2,
+      "per_occupation_10": 100,
+      "emp_change_10": -0.6,
+      "per_change_10": -4.8,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
+  "per_change_10_nat": -4.8,
+  "employed_nat": 12.3,
+  "employed_10_nat": 11.7,
+  "bright_futures": "Below Average",
+  "automation_risk": "Medium",
+  "near_future": null
 }

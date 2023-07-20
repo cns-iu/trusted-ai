@@ -8,7 +8,7 @@
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
-  "svp_range": "(4.0 to < 6.0)",
+  "svp_range": "4 to 6",
   "work_tasks": [
     {
       "soc_id": "47-3016.00",
@@ -7576,5 +7576,37 @@
       "annual": null,
       "hourly": null
     }
-  ]
+  ],
+  "projections": [
+    {
+      "soc_id": "47-3016.00",
+      "soc_nems_id": "47-3016",
+      "title": "Helpers--Roofers",
+      "occ_title": "Helpers--roofers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "238160",
+      "industry_title": "Roofing contractors",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 6.4,
+      "per_industry": 2.9,
+      "per_occupation": 91,
+      "employed_10": 6.5,
+      "per_industry_10": 2.9,
+      "per_occupation_10": 90.8,
+      "emp_change_10": 0.1,
+      "per_change_10": 1.7,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
+  "per_change_10_nat": 1.9,
+  "employed_nat": 7,
+  "employed_10_nat": 7.1,
+  "bright_futures": "Below Average",
+  "automation_risk": "Medium",
+  "near_future": null
 }
