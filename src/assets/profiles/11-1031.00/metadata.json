@@ -8,7 +8,7 @@
   "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
   "job_training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training.",
   "example": "Many of these occupations involve coordinating, supervising, managing, or training others. Examples include real estate brokers, sales managers, database administrators, graphic designers, conservation scientists, art directors, and cost estimators.",
-  "svp_range": "(7.0 to < 8.0)",
+  "svp_range": "7 to 8",
   "work_tasks": null,
   "salary_states": [
     {
@@ -6541,5 +6541,9 @@
       "annual": true,
       "hourly": null
     }
-  ]
+  ],
+  "behaviors_abilities": null,
+  "behaviors_work_activities": null,
+  "behaviors_skills": null,
+  "behaviors_knowledge": null
 }

@@ -14,5 +14,9 @@
   "tech_skills": null,
   "work_behaviors": null,
   "salary_nat": null,
-  "salary_ind": null
+  "salary_ind": null,
+  "behaviors_abilities": null,
+  "behaviors_work_activities": null,
+  "behaviors_skills": null,
+  "behaviors_knowledge": null
 }

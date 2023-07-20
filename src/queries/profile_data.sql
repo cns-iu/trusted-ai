@@ -56,12 +56,32 @@ SELECT r.soc_id, array_to_json(array_agg(r)) as salary_ind
 FROM profile_sec_five_oews_ind as r
 GROUP BY r.soc_id;
 
+CREATE TEMP VIEW foo9 AS
+SELECT r.soc_id, array_to_json(array_agg(r)) as behaviors_abilities
+FROM abilities_treemaps as r
+GROUP BY r.soc_id;
+
+CREATE TEMP VIEW foo10 AS
+SELECT r.soc_id, array_to_json(array_agg(r)) as behaviors_work_activities
+FROM work_activities_treemaps as r
+GROUP BY r.soc_id;
+
+CREATE TEMP VIEW foo11 AS
+SELECT r.soc_id, array_to_json(array_agg(r)) as behaviors_skills
+FROM skills_treemaps as r
+GROUP BY r.soc_id;
+
+CREATE TEMP VIEW foo12 AS
+SELECT r.soc_id, array_to_json(array_agg(r)) as behaviors_knowledge
+FROM knowledge_treemaps as r
+GROUP BY r.soc_id;
+
 \t
 \a
 \o src/assets/data/profile_data.json
 SELECT array_to_json(array_agg(ROW_TO_JSON(r)), TRUE)
 FROM (
-  SELECT foo1.*, foo2.work_tasks, foo3.salary_states, foo4.tech_skills, foo5.work_behaviors, foo6.salary_nat, foo7.salary_ind
+  SELECT foo1.*, foo2.work_tasks, foo3.salary_states, foo4.tech_skills, foo5.work_behaviors, foo6.salary_nat, foo7.salary_ind, foo9.behaviors_abilities, foo10.behaviors_work_activities, foo11.behaviors_skills, foo12.behaviors_knowledge
   FROM foo1
     LEFT JOIN foo2 on foo2.soc_id = foo1.soc_id
     LEFT JOIN foo3 on foo3.soc_id = foo1.soc_id
@@ -69,4 +89,8 @@ FROM (
     LEFT JOIN foo5 on foo5.soc_id = foo1.soc_id
     LEFT JOIN foo6 on foo6.soc_id = foo1.soc_id
     LEFT JOIN foo7 on foo7.soc_id = foo1.soc_id
+    LEFT JOIN foo9 on foo9.soc_id = foo1.soc_id
+    LEFT JOIN foo10 on foo10.soc_id = foo1.soc_id
+    LEFT JOIN foo11 on foo11.soc_id = foo1.soc_id
+    LEFT JOIN foo12 on foo12.soc_id = foo1.soc_id
   ) AS r;
