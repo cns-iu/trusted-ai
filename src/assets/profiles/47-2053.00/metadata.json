@@ -8,7 +8,7 @@
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
-  "svp_range": "(4.0 to < 6.0)",
+  "svp_range": "4 to 6",
   "work_tasks": [
     {
       "soc_id": "47-2053.00",
@@ -4979,5 +4979,12 @@
       "annual": null,
       "hourly": null
     }
-  ]
+  ],
+  "projections": null,
+  "per_change_10_nat": -11.2,
+  "employed_nat": 2.7,
+  "employed_10_nat": 2.4,
+  "bright_futures": "Below Average",
+  "automation_risk": "High",
+  "near_future": null
 }

@@ -14,5 +14,12 @@
   "tech_skills": null,
   "work_behaviors": null,
   "salary_nat": null,
-  "salary_ind": null
+  "salary_ind": null,
+  "projections": null,
+  "per_change_10_nat": null,
+  "employed_nat": null,
+  "employed_10_nat": null,
+  "bright_futures": null,
+  "automation_risk": null,
+  "near_future": null
 }

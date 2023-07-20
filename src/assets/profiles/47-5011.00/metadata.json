@@ -8,7 +8,7 @@
   "education": "Some of these occupations may require a high school diploma or GED certificate.",
   "job_training": "Employees in these occupations need anywhere from a few days to a few months of training. Usually, an experienced worker could show you how to do the job.",
   "example": "These occupations involve following instructions and helping others. Examples include food preparation workers, dishwashers, floor sanders and finishers, landscaping and groundskeeping workers, logging equipment operators, and baristas.",
-  "svp_range": "(Below 4.0)",
+  "svp_range": "Below 4",
   "work_tasks": [
     {
       "soc_id": "47-5011.00",
@@ -5482,5 +5482,37 @@
       "annual": null,
       "hourly": null
     }
-  ]
+  ],
+  "projections": [
+    {
+      "soc_id": "47-5011.00",
+      "soc_nems_id": "47-5011",
+      "title": "Derrick Operators, Oil and Gas",
+      "occ_title": "Derrick operators, oil and gas",
+      "grouping": "Detailed Occupation",
+      "naics_code": "213000",
+      "industry_title": "Support activities for mining",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 5.1,
+      "per_industry": 2.3,
+      "per_occupation": 59.8,
+      "employed_10": 6.5,
+      "per_industry_10": 2.2,
+      "per_occupation_10": 64.8,
+      "emp_change_10": 1.4,
+      "per_change_10": 26.6,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
+  "per_change_10_nat": 16.9,
+  "employed_nat": 8.6,
+  "employed_10_nat": 10,
+  "bright_futures": "Bright",
+  "automation_risk": "Medium",
+  "near_future": "Projected to grow rapidly."
 }

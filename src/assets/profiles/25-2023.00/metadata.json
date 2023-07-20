@@ -8,7 +8,7 @@
   "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
   "job_training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training.",
   "example": "Many of these occupations involve coordinating, supervising, managing, or training others. Examples include real estate brokers, sales managers, database administrators, graphic designers, conservation scientists, art directors, and cost estimators.",
-  "svp_range": "(7.0 to < 8.0)",
+  "svp_range": "7 to 8",
   "work_tasks": [
     {
       "soc_id": "25-2023.00",
@@ -9653,5 +9653,61 @@
       "annual": true,
       "hourly": null
     }
-  ]
+  ],
+  "projections": [
+    {
+      "soc_id": "25-2023.00",
+      "soc_nems_id": "25-2023",
+      "title": "Career/Technical Education Teachers, Middle School",
+      "occ_title": "Career/technical education teachers, middle school",
+      "grouping": "Detailed Occupation",
+      "naics_code": "611103",
+      "industry_title": "Elementary and secondary schools; local",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 11,
+      "per_industry": 0.2,
+      "per_occupation": 92.9,
+      "employed_10": 11.3,
+      "per_industry_10": 0.2,
+      "per_occupation_10": 92.3,
+      "emp_change_10": 0.3,
+      "per_change_10": 2.7,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "25-2023.00",
+      "soc_nems_id": "25-2023",
+      "title": "Career/Technical Education Teachers, Middle School",
+      "occ_title": "Career/technical education teachers, middle school",
+      "grouping": "Detailed Occupation",
+      "naics_code": "611105",
+      "industry_title": "Elementary and secondary schools; private",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.8,
+      "per_industry": 0.1,
+      "per_occupation": 6.6,
+      "employed_10": 0.9,
+      "per_industry_10": 0.1,
+      "per_occupation_10": 7.2,
+      "emp_change_10": 0.1,
+      "per_change_10": 13.1,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
+  "per_change_10_nat": 3.4,
+  "employed_nat": 11.9,
+  "employed_10_nat": 12.3,
+  "bright_futures": "Below Average",
+  "automation_risk": "Low",
+  "near_future": null
 }

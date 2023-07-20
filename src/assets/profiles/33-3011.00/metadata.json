@@ -8,7 +8,7 @@
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
-  "svp_range": "(6.0 to < 7.0)",
+  "svp_range": "6 to 7",
   "work_tasks": [
     {
       "soc_id": "33-3011.00",
@@ -8731,5 +8731,61 @@
       "annual": null,
       "hourly": null
     }
-  ]
+  ],
+  "projections": [
+    {
+      "soc_id": "33-3011.00",
+      "soc_nems_id": "33-3011",
+      "title": "Bailiffs",
+      "occ_title": "Bailiffs",
+      "grouping": "Detailed Occupation",
+      "naics_code": "999200",
+      "industry_title": "State government, excluding education and hospitals",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 5.9,
+      "per_industry": 0.3,
+      "per_occupation": 35,
+      "employed_10": 5.4,
+      "per_industry_10": 0.3,
+      "per_occupation_10": 33.2,
+      "emp_change_10": -0.5,
+      "per_change_10": -8.6,
+      "employed_rank": 2,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "33-3011.00",
+      "soc_nems_id": "33-3011",
+      "title": "Bailiffs",
+      "occ_title": "Bailiffs",
+      "grouping": "Detailed Occupation",
+      "naics_code": "999300",
+      "industry_title": "Local government, excluding education and hospitals",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 10.8,
+      "per_industry": 0.2,
+      "per_occupation": 64.1,
+      "employed_10": 10.6,
+      "per_industry_10": 0.2,
+      "per_occupation_10": 65.7,
+      "emp_change_10": -0.1,
+      "per_change_10": -1.3,
+      "employed_rank": 1,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
+  "per_change_10_nat": -3.8,
+  "employed_nat": 16.8,
+  "employed_10_nat": 16.2,
+  "bright_futures": "Below Average",
+  "automation_risk": "Low",
+  "near_future": null
 }

@@ -8,7 +8,7 @@
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
-  "svp_range": "(6.0 to < 7.0)",
+  "svp_range": "6 to 7",
   "work_tasks": [
     {
       "soc_id": "39-4011.00",
@@ -7405,5 +7405,37 @@
       "annual": null,
       "hourly": null
     }
-  ]
+  ],
+  "projections": [
+    {
+      "soc_id": "39-4011.00",
+      "soc_nems_id": "39-4011",
+      "title": "Embalmers",
+      "occ_title": "Embalmers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "812200",
+      "industry_title": "Death care services",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 4,
+      "per_industry": 3,
+      "per_occupation": 92.8,
+      "employed_10": 4.1,
+      "per_industry_10": 2.9,
+      "per_occupation_10": 91.9,
+      "emp_change_10": 0.1,
+      "per_change_10": 2.5,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
+  "per_change_10_nat": 3.5,
+  "employed_nat": 4.3,
+  "employed_10_nat": 4.4,
+  "bright_futures": "Average",
+  "automation_risk": "Medium",
+  "near_future": null
 }
