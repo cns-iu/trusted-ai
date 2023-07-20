@@ -1,4 +1,4 @@
-import { SalaryInfo } from 'src/app/pages/profile-page/profile-page.component';
+import { ProjectionInfo, SalaryInfo } from 'src/app/pages/profile-page/profile-page.component';
 import { VisualizationSpec } from 'vega-embed';
 
 /** Maps state names to ids for map visualization */
@@ -141,6 +141,26 @@ function parseIndData(values: SalaryInfo[]): unknown[] {
     }).slice(0, 5)
 }
 
+function parseProjectionData(values: ProjectionInfo[]): unknown[] {
+  const result = [];
+  for (const occ of values) {
+    result.push({
+      year: 2021,
+      per_change_10: 0,
+      employed: occ['employed'],
+      industry: occ['industry_title'],
+      increase: occ['per_change_10'] ? occ['per_change_10'] > 0 : false
+    })
+    result.push({
+      year: 2031,
+      per_change_10: occ['per_change_10'],
+      employed: occ['employed_10'],
+      industry: occ['industry_title']
+    })
+  }
+  return result;
+}
+
 /**
  * Creates national salary visualization
  * @param values salary data
@@ -160,7 +180,7 @@ export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
     params: [
       {
         name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} < 480, 14, 18)`
+        expr: `if (${window.innerWidth} <= 480, 14, 18)`
       },
     ],
     mark: {
@@ -227,15 +247,15 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
       },
       {
         name: 'gradientTitleSize',
-        expr: `if (${window.innerWidth} < 480, 10, 20)`
+        expr: `if (${window.innerWidth} <= 480, 10, 20)`
       },
       {
         name: 'gradientLabelSize',
-        expr: `if (${window.innerWidth} < 480, 10, 16)`
+        expr: `if (${window.innerWidth} <= 480, 10, 16)`
       },
       {
         name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} < 480, 12, 18)`
+        expr: `if (${window.innerWidth} <= 480, 12, 18)`
       },
     ],
     width: 'container',
@@ -262,7 +282,10 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
 
     ],
     projection: { type: 'albersUsa' },
-    mark: 'geoshape',
+    mark: {
+      type: "geoshape",
+      stroke: "dimgray"
+    },
     encoding: {
       shape: {
         field: 'geo',
@@ -321,7 +344,7 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
     params: [
       {
         name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} < 480, 14, 18)`
+        expr: `if (${window.innerWidth} <= 480, 14, 18)`
       },
     ],
     encoding: {
@@ -453,4 +476,101 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
   };
 
 
+}
+
+export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSpec {
+  console.log(parseProjectionData(values))
+  return {
+    $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+    description: "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
+    width: 'container',
+    height: 'container',
+    autosize: {
+      resize: true
+    },
+    data: { values: parseProjectionData(values) },
+    params: [
+      {
+        name: 'axisTitleSize',
+        expr: `if (${window.innerWidth} <= 480, 14, 18)`
+      },
+      {
+        name: 'labelLength',
+        expr: `if (${window.innerWidth} <= 480, 100, 200)`
+      },
+    ],
+    encoding: {
+      x: {
+        field: 'per_change_10',
+        type: 'quantitative',
+        title: 'Employment % change',
+        axis: {
+          labelFontSize: 15,
+          titleFontSize: { expr: 'axisTitleSize' }
+        }
+      },
+      y: {
+        field: 'industry',
+        type: 'nominal',
+        title: 'Industry',
+        axis: {
+          offset: 5,
+          ticks: false,
+          domain: false,
+          labelFontSize: 15,
+          titleFontSize: { expr: 'axisTitleSize' },
+          labelLimit: { expr: 'labelLength' },
+        },
+        sort: ['National average']
+      }
+    },
+    layer: [
+      {
+        mark: {
+          type: 'line',
+          strokeWidth: 5,
+        },
+        encoding: {
+          detail: {
+            field: 'industry',
+            type: 'nominal',
+          },
+          color: {
+            value: {
+              expr: "datum.increase ? 'blue' : '#db646f'"
+            }
+          }
+        }
+      },
+      {
+        mark: {
+          type: 'point',
+          filled: true,
+        },
+        encoding: {
+          color: {
+            field: 'year',
+            type: 'ordinal',
+            title: 'Year'
+          },
+          size: { value: 150 },
+          opacity: { value: 1 },
+          tooltip: [
+            {
+              field: 'industry',
+              title: 'Industry'
+            },
+            {
+              field: 'employed',
+              title: 'Employment (thousands)'
+            },
+            {
+              field: 'per_change_10',
+              title: 'Employment % Change'
+            },
+          ],
+        }
+      }
+    ]
+  };
 }
