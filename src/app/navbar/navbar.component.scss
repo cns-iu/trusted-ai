@@ -1,5 +1,7 @@
 :host {
-  @media (width <= 480px) {
+  font-family: Lexend;
+
+  @media (width <= 600px) {
     .navbar-content {
       width: calc(100% - 2rem) !important;
     }
@@ -9,13 +11,13 @@
     }
   }
 
-  @media (width > 480px) {
+  @media (width > 600px) {
     .home-icon {
       display: none;
     }
   }
 
-  @media (480px < width < 1168px) {
+  @media (600px < width < 1240px) {
     .navbar-content {
       width: calc(100% - 4rem) !important;
     }
@@ -41,10 +43,6 @@
       font-size: 1.5rem;
       color: #22005d;
       cursor: pointer;
-    }
-
-    .faq-link {
-      // align-self: flex-end;
     }
   }
 }
