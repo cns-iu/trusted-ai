@@ -5896,5 +5896,9 @@
       "annual": true,
       "hourly": null
     }
-  ]
+  ],
+  "behaviors_abilities": null,
+  "behaviors_work_activities": null,
+  "behaviors_skills": null,
+  "behaviors_knowledge": null
 }
