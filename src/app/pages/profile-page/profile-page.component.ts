@@ -10,25 +10,33 @@ import { ProfileTechnologySkillsComponent } from 'src/app/profile-technology-ski
 import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
 import { WorkTasksListComponent } from 'src/app/work-tasks-list/work-tasks-list.component';
 import { ProfileEmploymentComponent } from 'src/app/profile-employment/profile-employment.component';
+import { ProfileOccupationProjectionComponent } from 'src/app/profile-occupation-projection/profile-occupation-projection.component';
 
 /** Queried job data format */
 export interface AllJobInfo {
   /** Job data value */
   [key: string]: unknown;
   /** List of alternative job titles */
-  alt_titles?: string[];
+  alt_titles: string[];
   /** Job zone (preparedness level) */
-  job_zone?: number;
+  job_zone: number;
   /** List of technology skills */
-  tech_skills?: TechSkill[];
+  tech_skills: TechSkill[];
   /** List of work tasks */
-  work_tasks?: WorkTasks[];
+  work_tasks: WorkTasks[];
   /** List of state salary info */
-  salary_states?: SalaryInfo[];
+  salary_states: SalaryInfo[];
   /** List of national salary info */
-  salary_nat?: SalaryInfo[];
+  salary_nat: SalaryInfo[];
   /** List of industry salary info */
-  salary_ind?: SalaryInfo[];
+  salary_ind: SalaryInfo[];
+  projections: ProjectionInfo[];
+  employed_nat: number;
+  employed_10_nat: number;
+  per_change_10_nat: number;
+  bright_futures: string;
+  automation_risk: string;
+  near_future: string;
 }
 
 /** Info on a technology skill */
@@ -73,6 +81,13 @@ export interface SalaryInfo {
   tot_emp?: number;
 }
 
+export interface ProjectionInfo {
+  industry_title?: string;
+  employed?: number;
+  employed_10?: number;
+  per_change_10?: number;
+}
+
 /**
  * Profile page component
  */
@@ -88,6 +103,7 @@ export interface SalaryInfo {
     ProfileSalaryComponent,
     WorkTasksListComponent,
     ProfileEmploymentComponent,
+    ProfileOccupationProjectionComponent,
   ],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
@@ -98,7 +114,22 @@ export class ProfilePageComponent implements OnInit {
   /** Http client */
   private readonly http = inject(HttpClient);
   /** Current job info */
-  currentJobInfo: AllJobInfo = {};
+  currentJobInfo: AllJobInfo = {
+    alt_titles: [],
+    job_zone: 1,
+    tech_skills: [],
+    work_tasks: [],
+    salary_states: [],
+    salary_nat: [],
+    salary_ind: [],
+    projections: [],
+    employed_nat: 0,
+    employed_10_nat: 0,
+    per_change_10_nat: 0,
+    bright_futures: '',
+    automation_risk: '',
+    near_future: '',
+  };
   /** Tech skills for the job (each pair = type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] = [];
   /** Work tasks list */
@@ -113,6 +144,13 @@ export class ProfilePageComponent implements OnInit {
   showAllTasks = false;
   /** Whether or not all technology skills should be displayed */
   showAllSkills = false;
+  projectionInfo: ProjectionInfo[] = [];
+
+  outlookDescription: Record<string, string> = {
+    Bright: 'Many job openings predicted in the near future',
+    Average: 'Average outlook',
+    'Below Average': 'Below average outlook',
+  };
 
   /**
    * Scrolls to top of page and fetches profile data on init
@@ -134,6 +172,7 @@ export class ProfilePageComponent implements OnInit {
     return this.http.get(`assets/profiles/${code}/metadata.json`, { responseType: 'text' }).pipe(
       tap((result) => {
         this.currentJobInfo = JSON.parse(result);
+        console.log(this.currentJobInfo);
         if (this.currentJobInfo['tech_skills']) {
           this.setSkillsGrouping(this.currentJobInfo['tech_skills']);
         }
@@ -148,6 +187,15 @@ export class ProfilePageComponent implements OnInit {
         }
         if (this.currentJobInfo['work_tasks']) {
           this.workTasks = this.currentJobInfo['work_tasks'];
+        }
+        if (this.currentJobInfo['projections']) {
+          this.projectionInfo = this.currentJobInfo['projections'];
+          this.projectionInfo.push({
+            industry_title: 'National average',
+            employed: this.currentJobInfo['employed_nat'],
+            employed_10: this.currentJobInfo['employed_10_nat'],
+            per_change_10: this.currentJobInfo['per_change_10_nat'],
+          });
         }
       })
     );
@@ -198,5 +246,13 @@ export class ProfilePageComponent implements OnInit {
    */
   showAllWorkTasksButtonClicked(): void {
     this.showAllTasks = !this.showAllTasks;
+  }
+
+  automationDescription(): string {
+    if (this.currentJobInfo['automation_risk']) {
+      return `This job has a ${this.currentJobInfo['automation_risk'].toLowerCase()} risk of automation.`;
+    } else {
+      return 'No data';
+    }
   }
 }
