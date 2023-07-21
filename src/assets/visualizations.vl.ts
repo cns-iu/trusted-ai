@@ -1,4 +1,4 @@
-import { SalaryInfo } from 'src/app/pages/profile-page/profile-page.component';
+import { SalaryInfo, TreemapData } from 'src/app/pages/profile-page/profile-page.component';
 import { VisualizationSpec } from 'vega-embed';
 
 /** Maps state names to ids for map visualization */
@@ -141,6 +141,22 @@ function parseIndData(values: SalaryInfo[]): unknown[] {
     }).slice(0, 5)
 }
 
+function parseTreemapData(values: TreemapData[], layers: number): unknown[] {
+  return values.map(entry => {
+    return {
+      name: entry['element_id'] ? entry['element_name'] : entry['sub_group'] ? entry['sub_group'] : entry['group'],
+      x0: entry['x0'],
+      y0: entry['y0'],
+      x1: entry['x1'],
+      y1: entry['y1'],
+      color: entry['color'],
+      depth: entry['level'],
+      children: entry['element_id'] ? 0 : 1,
+      layers: layers
+    }
+  })
+}
+
 /**
  * Creates national salary visualization
  * @param values salary data
@@ -151,9 +167,6 @@ export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     width: 'container',
     height: 'container',
-    autosize: {
-      resize: true
-    },
     data: {
       values: parseNatData(values)
     },
@@ -240,10 +253,6 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
     ],
     width: 'container',
     height: 'container',
-    autosize: {
-      resize: true,
-      contains: 'padding'
-    },
     transform: [
       {
         lookup: 'id',
@@ -312,9 +321,6 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     width: 'container',
     height: 'container',
-    autosize: {
-      resize: true
-    },
     data: {
       values: parseIndData(values)
     },
@@ -452,5 +458,150 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
     ]
   };
 
+
+
+
+}
+
+export function createTreemap(values: TreemapData[], layers: number): VisualizationSpec {
+  return {
+    $schema: 'https://vega.github.io/schema/vega/v5.json',
+    signals: [
+      {
+        name: 'width',
+        update: 'containerSize()[0]',
+        on: [
+          {
+            events: { source: 'window', type: 'resize' },
+            update: 'containerSize()[0]'
+          }
+        ]
+      },
+      {
+        name: 'height',
+        update: 'containerSize()[1]',
+        on: [
+          {
+            events: { source: 'window', type: 'resize' },
+            update: 'containerSize()[1]'
+          }
+        ]
+      }
+    ],
+
+    data: [
+      {
+        name: 'tree',
+        values: parseTreemapData(values, layers)
+      },
+      {
+        name: 'nodes',
+        source: 'tree',
+        transform: [{ type: 'filter', expr: 'datum.children' }]
+      },
+      {
+        name: 'nodes2',
+        source: 'nodes',
+        transform: [{ type: 'filter', expr: `datum.depth == ${layers - 1}` }]
+      },
+      {
+        name: 'leaves',
+        source: 'tree',
+        transform: [{ type: 'filter', expr: '!datum.children' }]
+      }
+    ],
+
+    scales: [
+      {
+        name: 'color',
+        type: 'ordinal',
+        domain: { data: 'nodes2', field: 'name' },
+        range: [
+          '#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#e6550d',
+          '#fd8d3c', '#fdae6b', '#fdd0a2', '#31a354', '#74c476',
+          '#a1d99b', '#c7e9c0', '#756bb1', '#9e9ac8', '#bcbddc',
+          '#dadaeb', '#636363', '#969696', '#bdbdbd', '#d9d9d9'
+        ]
+      },
+      {
+        name: 'size',
+        type: 'ordinal',
+        domain: [1, 2, 3],
+        range: [28, 20, 14]
+      },
+      {
+        name: 'opacity',
+        type: 'ordinal',
+        domain: [1, 2, 3],
+        range: [0.5, 0.8, 1.0]
+      }
+    ],
+
+    marks: [
+      {
+        type: 'rect',
+        from: { data: 'nodes' },
+        interactive: false,
+        encode: {
+          enter: {
+            fill: { scale: 'color', field: 'name' }
+          },
+          update: {
+            x: { signal: "datum['x0'] * width" },
+            y: { signal: "datum['y0'] * height" },
+            x2: { signal: "datum['x1'] * width" },
+            y2: { signal: "datum['y1'] * height" },
+          },
+        }
+      },
+      {
+        type: 'rect',
+        from: { data: 'leaves' },
+        encode: {
+          enter: {
+            stroke: { value: '#fff' },
+            tooltip: { signal: "datum['name']" }
+          },
+          update: {
+            x: { signal: "datum['x0'] * width" },
+            y: { signal: "datum['y0'] * height" },
+            x2: { signal: "datum['x1'] * width" },
+            y2: { signal: "datum['y1'] * height" },
+            fill: { value: 'transparent' }
+          },
+          hover: {
+            fill: { value: 'red' }
+          }
+        }
+      },
+      {
+        type: 'text',
+        from: { data: 'nodes' },
+        interactive: false,
+        encode: {
+          enter: {
+            font: { value: 'Helvetica Neue, Arial' },
+            align: { value: 'center' },
+            baseline: { value: 'middle' },
+            fill: { value: '#000' },
+            text: { field: 'name' },
+            fontSize: { scale: 'size', field: 'depth' },
+            fillOpacity: { scale: 'opacity', field: 'depth' }
+          },
+          update: {
+            x: { signal: "0.5 * width * (datum['x0'] + datum['x1'])" },
+            y: { signal: "0.5 * height * (datum['y0'] + datum['y1'])" }
+          }
+        },
+        transform: [
+          {
+            type: 'label',
+            anchor: ['top', 'bottom'],
+            size: { signal: '[width, height]' },
+          }
+        ]
+      }
+    ]
+  }
 
 }

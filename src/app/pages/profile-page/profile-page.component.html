@@ -31,6 +31,22 @@
       <div class="code">{{ currentJobInfo['soc_id'] }}</div>
       <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
+    <div class="sub-section-content">
+      <mat-tab-group (selectedTabChange)="refreshVis()">
+        <mat-tab label="Activities">
+          <trust-ai-treemap #vis1 [activitiesData]="treemapWorkActivitiesData"></trust-ai-treemap>
+        </mat-tab>
+        <mat-tab label="Skills">
+          <trust-ai-treemap #vis2 [skillsData]="treemapSkillsData"></trust-ai-treemap>
+        </mat-tab>
+        <mat-tab label="Knowledge">
+          <trust-ai-treemap #vis3 [knowledgeData]="treemapKnowledgeData"></trust-ai-treemap>
+        </mat-tab>
+        <mat-tab label="Abilities">
+          <trust-ai-treemap #vis4 [abilitiesData]="treemapAbilitiesData"></trust-ai-treemap>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
 </div>
 
