@@ -161,6 +161,31 @@
     }
   }
 
+  .behaviors {
+    .sub-section-content {
+      height: 50vw;
+      display: flex;
+      mat-tab-group {
+        flex-grow: 1;
+        ::ng-deep .mat-mdc-tab-body-wrapper {
+          flex-grow: 1;
+          mat-tab-body {
+            display: flex;
+            overflow: visible;
+            width: 100%;
+            .mat-mdc-tab-body-content {
+              overflow: visible;
+              width: 100%;
+              trust-ai-treemap {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   .preparedness {
     .content {
       :first-child .sub-section-title {

@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { PreparednessLevels } from 'src/app/career-card/career-card.component';
+import { ProfileEmploymentComponent } from 'src/app/profile-employment/profile-employment.component';
 import { ProfileSalaryComponent } from 'src/app/profile-salary/profile-salary.component';
 import { ProfileTechnologySkillsComponent } from 'src/app/profile-technology-skills/profile-technology-skills.component';
 import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
+import { TreemapComponent } from 'src/app/treemap/treemap.component';
 import { WorkTasksListComponent } from 'src/app/work-tasks-list/work-tasks-list.component';
-import { ProfileEmploymentComponent } from 'src/app/profile-employment/profile-employment.component';
 
 /** Queried job data format */
 export interface AllJobInfo {
@@ -29,6 +31,10 @@ export interface AllJobInfo {
   salary_nat?: SalaryInfo[];
   /** List of industry salary info */
   salary_ind?: SalaryInfo[];
+  behaviors_abilities?: TreemapData[];
+  behaviors_work_activities?: TreemapData[];
+  behaviors_skills?: TreemapData[];
+  behaviors_knowledge?: TreemapData[];
 }
 
 /** Info on a technology skill */
@@ -73,6 +79,14 @@ export interface SalaryInfo {
   tot_emp?: number;
 }
 
+export interface TreemapData {
+  [key: string]: unknown;
+  x0: number;
+  y0: number;
+  x1: number;
+  y1: number;
+}
+
 /**
  * Profile page component
  */
@@ -88,6 +102,8 @@ export interface SalaryInfo {
     ProfileSalaryComponent,
     WorkTasksListComponent,
     ProfileEmploymentComponent,
+    TreemapComponent,
+    MatTabsModule,
   ],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
@@ -97,6 +113,12 @@ export class ProfilePageComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   /** Http client */
   private readonly http = inject(HttpClient);
+
+  @ViewChild('vis1') private vis1: TreemapComponent = new TreemapComponent();
+  @ViewChild('vis2') private vis2: TreemapComponent = new TreemapComponent();
+  @ViewChild('vis3') private vis3: TreemapComponent = new TreemapComponent();
+  @ViewChild('vis4') private vis4: TreemapComponent = new TreemapComponent();
+
   /** Current job info */
   currentJobInfo: AllJobInfo = {};
   /** Tech skills for the job (each pair = type of tech, list of examples for that tech)  */
@@ -113,6 +135,10 @@ export class ProfilePageComponent implements OnInit {
   showAllTasks = false;
   /** Whether or not all technology skills should be displayed */
   showAllSkills = false;
+  treemapWorkActivitiesData: TreemapData[] = [];
+  treemapSkillsData: TreemapData[] = [];
+  treemapKnowledgeData: TreemapData[] = [];
+  treemapAbilitiesData: TreemapData[] = [];
 
   /**
    * Scrolls to top of page and fetches profile data on init
@@ -148,6 +174,18 @@ export class ProfilePageComponent implements OnInit {
         }
         if (this.currentJobInfo['work_tasks']) {
           this.workTasks = this.currentJobInfo['work_tasks'];
+        }
+        if (this.currentJobInfo['behaviors_work_activities']) {
+          this.treemapWorkActivitiesData = this.currentJobInfo['behaviors_work_activities'];
+        }
+        if (this.currentJobInfo['behaviors_skills']) {
+          this.treemapSkillsData = this.currentJobInfo['behaviors_skills'];
+        }
+        if (this.currentJobInfo['behaviors_knowledge']) {
+          this.treemapKnowledgeData = this.currentJobInfo['behaviors_knowledge'];
+        }
+        if (this.currentJobInfo['behaviors_abilities']) {
+          this.treemapAbilitiesData = this.currentJobInfo['behaviors_abilities'];
         }
       })
     );
@@ -198,5 +236,12 @@ export class ProfilePageComponent implements OnInit {
    */
   showAllWorkTasksButtonClicked(): void {
     this.showAllTasks = !this.showAllTasks;
+  }
+
+  refreshVis(): void {
+    this.vis1.reload();
+    this.vis2.reload();
+    this.vis3.reload();
+    this.vis4.reload();
   }
 }
