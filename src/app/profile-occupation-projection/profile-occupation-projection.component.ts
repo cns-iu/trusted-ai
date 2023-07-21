@@ -1,12 +1,8 @@
-import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { createProjectionsPlot } from 'src/assets/visualizations.vl';
 import embed, { VisualizationSpec } from 'vega-embed';
-import {
-  createStatePlot,
-  createSalaryNatPlot,
-  createSalaryIndPlot,
-  createProjectionsPlot,
-} from 'src/assets/visualizations.vl';
+
 import { ProjectionInfo } from '../pages/profile-page/profile-page.component';
 
 @Component({
