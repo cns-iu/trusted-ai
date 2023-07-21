@@ -5,12 +5,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { PreparednessLevels } from 'src/app/career-card/career-card.component';
+import { ProfileEmploymentComponent } from 'src/app/profile-employment/profile-employment.component';
+import { ProfileOccupationProjectionComponent } from 'src/app/profile-occupation-projection/profile-occupation-projection.component';
 import { ProfileSalaryComponent } from 'src/app/profile-salary/profile-salary.component';
 import { ProfileTechnologySkillsComponent } from 'src/app/profile-technology-skills/profile-technology-skills.component';
 import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
 import { WorkTasksListComponent } from 'src/app/work-tasks-list/work-tasks-list.component';
-import { ProfileEmploymentComponent } from 'src/app/profile-employment/profile-employment.component';
-import { ProfileOccupationProjectionComponent } from 'src/app/profile-occupation-projection/profile-occupation-projection.component';
 
 /** Queried job data format */
 export interface AllJobInfo {
