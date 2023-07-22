@@ -44,10 +44,18 @@
       mat-button-toggle:first-of-type {
         border-left: 1px solid #7a757f !important;
         border-radius: 6.25rem 0 0 6.25rem;
+
+        ::ng-deep .mat-ripple {
+          border-radius: 6.25rem 0 0 6.25rem;
+        }
       }
 
       mat-button-toggle:last-of-type {
         border-radius: 0 6.25rem 6.25rem 0;
+
+        ::ng-deep .mat-ripple {
+          border-radius: 0 6.25rem 6.25rem 0;
+        }
       }
 
       mat-button-toggle {
@@ -85,6 +93,7 @@
       padding: 0.625rem 0.75rem;
       color: #6750a4;
       font-weight: 500;
+      cursor: pointer;
     }
   }
 
