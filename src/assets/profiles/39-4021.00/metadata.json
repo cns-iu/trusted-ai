@@ -10169,6 +10169,32 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "39-4021.00",
+      "soc_nems_id": "39-4021",
+      "title": "Funeral Attendants",
+      "occ_title": "Funeral attendants",
+      "grouping": "Detailed Occupation",
+      "naics_code": "812200",
+      "industry_title": "Death care services",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 32.8,
+      "per_industry": 24.5,
+      "per_occupation": 96.4,
+      "employed_10": 35.4,
+      "per_industry_10": 25.2,
+      "per_occupation_10": 95.9,
+      "emp_change_10": 2.6,
+      "per_change_10": 7.9,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "39-4021.00",
@@ -14544,5 +14570,11 @@
       "h": 0.223744798243286,
       "color": "#4BB812"
     }
-  ]
+  ],
+  "per_change_10_nat": 8.4,
+  "employed_nat": 34,
+  "employed_10_nat": 36.9,
+  "bright_futures": "Bright",
+  "automation_risk": "Low",
+  "near_future": "Projected to grow rapidly."
 }

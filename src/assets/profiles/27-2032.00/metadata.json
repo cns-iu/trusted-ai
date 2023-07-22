@@ -5350,6 +5350,80 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "27-2032.00",
+      "soc_nems_id": "27-2032",
+      "title": "Choreographers",
+      "occ_title": "Choreographers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "611605",
+      "industry_title": "Other schools and instruction; private",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 2.9,
+      "per_industry": 0.7,
+      "per_occupation": 47.1,
+      "employed_10": 4,
+      "per_industry_10": 0.7,
+      "per_occupation_10": 49.1,
+      "emp_change_10": 1,
+      "per_change_10": 35.1,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "27-2032.00",
+      "soc_nems_id": "27-2032",
+      "title": "Choreographers",
+      "occ_title": "Choreographers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "611103",
+      "industry_title": "Elementary and secondary schools; local",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0,
+      "per_occupation": 2,
+      "employed_10": 0.1,
+      "per_industry_10": 0,
+      "per_occupation_10": 1.6,
+      "emp_change_10": 0,
+      "per_change_10": 2.7,
+      "employed_rank": 2,
+      "per_industry_rank": 3,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    },
+    {
+      "soc_id": "27-2032.00",
+      "soc_nems_id": "27-2032",
+      "title": "Choreographers",
+      "occ_title": "Choreographers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "711300",
+      "industry_title": "Promoters of performing arts, sports, and similar events",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0.1,
+      "per_occupation": 1.4,
+      "employed_10": 0.1,
+      "per_industry_10": 0.1,
+      "per_occupation_10": 1.6,
+      "emp_change_10": 0,
+      "per_change_10": 52.2,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 3,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "27-2032.00",
@@ -7643,5 +7717,11 @@
       "color": "#7CB0BF"
     }
   ],
-  "behaviors_knowledge": null
+  "behaviors_knowledge": null,
+  "per_change_10_nat": 29.7,
+  "employed_nat": 6.3,
+  "employed_10_nat": 8.1,
+  "bright_futures": "Bright",
+  "automation_risk": "Low",
+  "near_future": "Projected to grow rapidly."
 }

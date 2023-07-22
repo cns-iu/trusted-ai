@@ -10645,6 +10645,32 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "43-5051.00",
+      "soc_nems_id": "43-5051",
+      "title": "Postal Service Clerks",
+      "occ_title": "Postal service clerks",
+      "grouping": "Detailed Occupation",
+      "naics_code": "491000",
+      "industry_title": "Postal service",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 76.3,
+      "per_industry": 12.6,
+      "per_occupation": 100,
+      "employed_10": 72.7,
+      "per_industry_10": 12.7,
+      "per_occupation_10": 100,
+      "emp_change_10": -3.6,
+      "per_change_10": -4.8,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "43-5051.00",
@@ -14972,5 +14998,11 @@
       "h": 0.244806580112656,
       "color": "#43A410"
     }
-  ]
+  ],
+  "per_change_10_nat": -4.8,
+  "employed_nat": 76.3,
+  "employed_10_nat": 72.7,
+  "bright_futures": "Below Average",
+  "automation_risk": "High",
+  "near_future": null
 }

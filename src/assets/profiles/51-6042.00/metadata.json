@@ -3983,6 +3983,80 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "51-6042.00",
+      "soc_nems_id": "51-6042",
+      "title": "Shoe Machine Operators and Tenders",
+      "occ_title": "Shoe machine operators and tenders",
+      "grouping": "Detailed Occupation",
+      "naics_code": "316000",
+      "industry_title": "Leather and allied product manufacturing",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 3.4,
+      "per_industry": 13.5,
+      "per_occupation": 72.8,
+      "employed_10": 2.9,
+      "per_industry_10": 14,
+      "per_occupation_10": 66.7,
+      "emp_change_10": -0.5,
+      "per_change_10": -14.9,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "51-6042.00",
+      "soc_nems_id": "51-6042",
+      "title": "Shoe Machine Operators and Tenders",
+      "occ_title": "Shoe machine operators and tenders",
+      "grouping": "Detailed Occupation",
+      "naics_code": "424300",
+      "industry_title": "Apparel, piece goods, and notions merchant wholesalers",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0.1,
+      "per_occupation": 2.2,
+      "employed_10": 0.1,
+      "per_industry_10": 0.1,
+      "per_occupation_10": 2.5,
+      "emp_change_10": 0,
+      "per_change_10": 4.1,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 3,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    },
+    {
+      "soc_id": "51-6042.00",
+      "soc_nems_id": "51-6042",
+      "title": "Shoe Machine Operators and Tenders",
+      "occ_title": "Shoe machine operators and tenders",
+      "grouping": "Detailed Occupation",
+      "naics_code": "561320",
+      "industry_title": "Temporary help services",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0,
+      "per_occupation": 2.5,
+      "employed_10": 0.1,
+      "per_industry_10": 0,
+      "per_occupation_10": 2.8,
+      "emp_change_10": 0,
+      "per_change_10": 3.9,
+      "employed_rank": 2,
+      "per_industry_rank": 3,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "51-6042.00",
@@ -7617,5 +7691,11 @@
       "h": 0.431069958847737,
       "color": "#2F710C"
     }
-  ]
+  ],
+  "per_change_10_nat": -7.2,
+  "employed_nat": 4.7,
+  "employed_10_nat": 4.3,
+  "bright_futures": "Below Average",
+  "automation_risk": "High",
+  "near_future": null
 }

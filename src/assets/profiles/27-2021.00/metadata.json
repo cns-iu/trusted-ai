@@ -8342,6 +8342,80 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "27-2021.00",
+      "soc_nems_id": "27-2021",
+      "title": "Athletes and Sports Competitors",
+      "occ_title": "Athletes and sports competitors",
+      "grouping": "Detailed Occupation",
+      "naics_code": "711200",
+      "industry_title": "Spectator sports",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 9.5,
+      "per_industry": 8,
+      "per_occupation": 60,
+      "employed_10": 12.4,
+      "per_industry_10": 7.9,
+      "per_occupation_10": 57.6,
+      "emp_change_10": 2.9,
+      "per_change_10": 30.1,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "27-2021.00",
+      "soc_nems_id": "27-2021",
+      "title": "Athletes and Sports Competitors",
+      "occ_title": "Athletes and sports competitors",
+      "grouping": "Detailed Occupation",
+      "naics_code": "713940",
+      "industry_title": "Fitness and recreational sports centers",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.5,
+      "per_industry": 0.1,
+      "per_occupation": 3.4,
+      "employed_10": 0.6,
+      "per_industry_10": 0.1,
+      "per_occupation_10": 2.9,
+      "emp_change_10": 0.1,
+      "per_change_10": 13.3,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    },
+    {
+      "soc_id": "27-2021.00",
+      "soc_nems_id": "27-2021",
+      "title": "Athletes and Sports Competitors",
+      "occ_title": "Athletes and sports competitors",
+      "grouping": "Detailed Occupation",
+      "naics_code": "999300",
+      "industry_title": "Local government, excluding education and hospitals",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0,
+      "per_occupation": 0.5,
+      "employed_10": 0.1,
+      "per_industry_10": 0,
+      "per_occupation_10": 0.4,
+      "emp_change_10": 0,
+      "per_change_10": 3.9,
+      "employed_rank": 3,
+      "per_industry_rank": 3,
+      "per_occupation_rank": 3,
+      "curr_rank_avg": 3,
+      "curr_emp_avg_rank": 3
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "27-2021.00",
@@ -12918,5 +12992,11 @@
       "h": 0.222012987012987,
       "color": "#4BB812"
     }
-  ]
+  ],
+  "per_change_10_nat": 35.7,
+  "employed_nat": 15.8,
+  "employed_10_nat": 21.5,
+  "bright_futures": "Bright",
+  "automation_risk": "Low",
+  "near_future": "Projected to grow rapidly."
 }

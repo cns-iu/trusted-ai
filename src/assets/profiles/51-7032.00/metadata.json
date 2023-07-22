@@ -3759,6 +3759,32 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "51-7032.00",
+      "soc_nems_id": "51-7032",
+      "title": "Patternmakers, Wood",
+      "occ_title": "Patternmakers, wood",
+      "grouping": "Detailed Occupation",
+      "naics_code": "3370A1",
+      "industry_title": "Furniture and related product manufacturing (3371,2)",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0,
+      "per_occupation": 23.2,
+      "employed_10": 0.1,
+      "per_industry_10": 0,
+      "per_occupation_10": 22,
+      "emp_change_10": 0,
+      "per_change_10": 2,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "51-7032.00",
@@ -8112,5 +8138,11 @@
       "h": 0.173410195200696,
       "color": "#58D416"
     }
-  ]
+  ],
+  "per_change_10_nat": 7.8,
+  "employed_nat": 0.3,
+  "employed_10_nat": 0.3,
+  "bright_futures": "Bright",
+  "automation_risk": "High",
+  "near_future": "Projected to grow rapidly."
 }

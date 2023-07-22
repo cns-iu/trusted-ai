@@ -6953,6 +6953,56 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "29-1023.00",
+      "soc_nems_id": "29-1023",
+      "title": "Orthodontists",
+      "occ_title": "Orthodontists",
+      "grouping": "Detailed Occupation",
+      "naics_code": "621200",
+      "industry_title": "Offices of dentists",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 4.7,
+      "per_industry": 0.5,
+      "per_occupation": 78.1,
+      "employed_10": 5.1,
+      "per_industry_10": 0.5,
+      "per_occupation_10": 81.2,
+      "emp_change_10": 0.4,
+      "per_change_10": 8.7,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "29-1023.00",
+      "soc_nems_id": "29-1023",
+      "title": "Orthodontists",
+      "occ_title": "Orthodontists",
+      "grouping": "Detailed Occupation",
+      "naics_code": "622105",
+      "industry_title": "General medical and surgical hospitals; private",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0,
+      "per_occupation": 2.2,
+      "employed_10": 0.1,
+      "per_industry_10": 0,
+      "per_occupation_10": 2.2,
+      "emp_change_10": 0,
+      "per_change_10": 4.8,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "29-1023.00",
@@ -11141,5 +11191,11 @@
       "h": 0.134497656646716,
       "color": "#66DB28"
     }
-  ]
+  ],
+  "per_change_10_nat": 4.5,
+  "employed_nat": 6,
+  "employed_10_nat": 6.3,
+  "bright_futures": "Average",
+  "automation_risk": "Low",
+  "near_future": null
 }

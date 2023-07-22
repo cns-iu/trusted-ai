@@ -5828,6 +5828,80 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "47-2142.00",
+      "soc_nems_id": "47-2142",
+      "title": "Paperhangers",
+      "occ_title": "Paperhangers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "238320",
+      "industry_title": "Painting and wall covering contractors",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.6,
+      "per_industry": 0.3,
+      "per_occupation": 15.8,
+      "employed_10": 0.7,
+      "per_industry_10": 0.3,
+      "per_occupation_10": 15.7,
+      "emp_change_10": 0,
+      "per_change_10": 2,
+      "employed_rank": 2,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "47-2142.00",
+      "soc_nems_id": "47-2142",
+      "title": "Paperhangers",
+      "occ_title": "Paperhangers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "541800",
+      "industry_title": "Advertising, public relations, and related services",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 1.1,
+      "per_industry": 0.2,
+      "per_occupation": 25.7,
+      "employed_10": 1.2,
+      "per_industry_10": 0.2,
+      "per_occupation_10": 27.3,
+      "emp_change_10": 0.1,
+      "per_change_10": 9.4,
+      "employed_rank": 1,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "47-2142.00",
+      "soc_nems_id": "47-2142",
+      "title": "Paperhangers",
+      "occ_title": "Paperhangers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "238310",
+      "industry_title": "Drywall and insulation contractors",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0,
+      "per_occupation": 2.8,
+      "employed_10": 0.1,
+      "per_industry_10": 0,
+      "per_occupation_10": 2.8,
+      "emp_change_10": 0,
+      "per_change_10": 4.7,
+      "employed_rank": 3,
+      "per_industry_rank": 3,
+      "per_occupation_rank": 3,
+      "curr_rank_avg": 3,
+      "curr_emp_avg_rank": 3
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "47-2142.00",
@@ -10137,5 +10211,11 @@
       "h": 0.301068090787717,
       "color": "#52C813"
     }
-  ]
+  ],
+  "per_change_10_nat": 3,
+  "employed_nat": 4.1,
+  "employed_10_nat": 4.2,
+  "bright_futures": "Below Average",
+  "automation_risk": "High",
+  "near_future": null
 }

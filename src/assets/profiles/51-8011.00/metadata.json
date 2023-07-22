@@ -4620,6 +4620,80 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "51-8011.00",
+      "soc_nems_id": "51-8011",
+      "title": "Nuclear Power Reactor Operators",
+      "occ_title": "Nuclear power reactor operators",
+      "grouping": "Detailed Occupation",
+      "naics_code": "221113",
+      "industry_title": "Nuclear electric power generation",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 3.6,
+      "per_industry": 9.9,
+      "per_occupation": 76.1,
+      "employed_10": 2.4,
+      "per_industry_10": 10.1,
+      "per_occupation_10": 68.4,
+      "emp_change_10": -1.2,
+      "per_change_10": -34.2,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "51-8011.00",
+      "soc_nems_id": "51-8011",
+      "title": "Nuclear Power Reactor Operators",
+      "occ_title": "Nuclear power reactor operators",
+      "grouping": "Detailed Occupation",
+      "naics_code": "999300",
+      "industry_title": "Local government, excluding education and hospitals",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0,
+      "per_occupation": 2.5,
+      "employed_10": 0.1,
+      "per_industry_10": 0,
+      "per_occupation_10": 3.6,
+      "emp_change_10": 0,
+      "per_change_10": 3.9,
+      "employed_rank": 3,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 3,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    },
+    {
+      "soc_id": "51-8011.00",
+      "soc_nems_id": "51-8011",
+      "title": "Nuclear Power Reactor Operators",
+      "occ_title": "Nuclear power reactor operators",
+      "grouping": "Detailed Occupation",
+      "naics_code": "999100",
+      "industry_title": "Federal government, excluding postal service",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.6,
+      "per_industry": 0,
+      "per_occupation": 11.5,
+      "employed_10": 0.5,
+      "per_industry_10": 0,
+      "per_occupation_10": 15.1,
+      "emp_change_10": 0,
+      "per_change_10": -3.8,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "51-8011.00",
@@ -8607,5 +8681,11 @@
       "h": 0.112961556680025,
       "color": "#60D820"
     }
-  ]
+  ],
+  "per_change_10_nat": -26.8,
+  "employed_nat": 4.8,
+  "employed_10_nat": 3.5,
+  "bright_futures": "Below Average",
+  "automation_risk": "High",
+  "near_future": null
 }

@@ -5197,8 +5197,40 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "39-4012.00",
+      "soc_nems_id": "39-4012",
+      "title": "Crematory Operators",
+      "occ_title": "Crematory operators",
+      "grouping": "Detailed Occupation",
+      "naics_code": "812200",
+      "industry_title": "Death care services",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 1.9,
+      "per_industry": 1.4,
+      "per_occupation": 90.8,
+      "employed_10": 2.1,
+      "per_industry_10": 1.5,
+      "per_occupation_10": 90.2,
+      "emp_change_10": 0.2,
+      "per_change_10": 7.9,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
   "behaviors_abilities": null,
   "behaviors_work_activities": null,
   "behaviors_skills": null,
-  "behaviors_knowledge": null
+  "behaviors_knowledge": null,
+  "per_change_10_nat": 8.6,
+  "employed_nat": 2.1,
+  "employed_10_nat": 2.3,
+  "bright_futures": "Bright",
+  "automation_risk": null,
+  "near_future": "Projected to grow rapidly."
 }

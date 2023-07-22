@@ -8271,6 +8271,56 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "39-5011.00",
+      "soc_nems_id": "39-5011",
+      "title": "Barbers",
+      "occ_title": "Barbers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "812100",
+      "industry_title": "Personal care services",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 12.7,
+      "per_industry": 1.9,
+      "per_occupation": 25.3,
+      "employed_10": 14.7,
+      "per_industry_10": 1.9,
+      "per_occupation_10": 27.1,
+      "emp_change_10": 2.1,
+      "per_change_10": 16.2,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "39-5011.00",
+      "soc_nems_id": "39-5011",
+      "title": "Barbers",
+      "occ_title": "Barbers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "999200",
+      "industry_title": "State government, excluding education and hospitals",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0,
+      "per_occupation": 0.1,
+      "employed_10": 0.1,
+      "per_industry_10": 0,
+      "per_occupation_10": 0.1,
+      "emp_change_10": 0,
+      "per_change_10": -3.8,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "39-5011.00",
@@ -12307,5 +12357,11 @@
       "h": 0.265202702702703,
       "color": "#4AB412"
     }
-  ]
+  ],
+  "per_change_10_nat": 8.3,
+  "employed_nat": 50.2,
+  "employed_10_nat": 54.4,
+  "bright_futures": "Bright",
+  "automation_risk": "Medium",
+  "near_future": "Projected to grow rapidly."
 }

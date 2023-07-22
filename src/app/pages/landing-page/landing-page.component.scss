@@ -1,5 +1,7 @@
 :host {
-  @media (width <= 1168px) {
+  font-family: Lexend;
+
+  @media (width <= 1240px) {
     .info-section {
       gap: 3rem !important;
       padding: 4rem 1rem !important;
@@ -20,7 +22,7 @@
     }
   }
 
-  @media (480px < width < 1168px) {
+  @media (600px < width < 1240px) {
     .info-section {
       padding: 4rem 0rem !important;
 
@@ -30,13 +32,13 @@
     }
   }
 
-  @media (width > 480px) {
+  @media (width > 600px) {
     .explore-content {
       width: 50%;
     }
   }
 
-  @media (width <= 480px) {
+  @media (width <= 600px) {
     .explore-content {
       padding: 0 1rem;
     }

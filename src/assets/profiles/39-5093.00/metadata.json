@@ -5303,6 +5303,32 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "39-5093.00",
+      "soc_nems_id": "39-5093",
+      "title": "Shampooers",
+      "occ_title": "Shampooers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "812100",
+      "industry_title": "Personal care services",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 9.9,
+      "per_industry": 1.5,
+      "per_occupation": 46.4,
+      "employed_10": 11.4,
+      "per_industry_10": 1.4,
+      "per_occupation_10": 48.8,
+      "emp_change_10": 1.6,
+      "per_change_10": 16.2,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "39-5093.00",
@@ -9028,5 +9054,11 @@
       "h": 0.278301886792453,
       "color": "#5AD519"
     }
-  ]
+  ],
+  "per_change_10_nat": 10.6,
+  "employed_nat": 21.2,
+  "employed_10_nat": 23.5,
+  "bright_futures": "Bright",
+  "automation_risk": "Medium",
+  "near_future": "Projected to grow rapidly."
 }

@@ -8250,6 +8250,56 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "33-3031.00",
+      "soc_nems_id": "33-3031",
+      "title": "Fish and Game Wardens",
+      "occ_title": "Fish and game wardens",
+      "grouping": "Detailed Occupation",
+      "naics_code": "999200",
+      "industry_title": "State government, excluding education and hospitals",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 6.6,
+      "per_industry": 0.3,
+      "per_occupation": 95,
+      "employed_10": 6.3,
+      "per_industry_10": 0.3,
+      "per_occupation_10": 94.6,
+      "emp_change_10": -0.3,
+      "per_change_10": -3.8,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "33-3031.00",
+      "soc_nems_id": "33-3031",
+      "title": "Fish and Game Wardens",
+      "occ_title": "Fish and game wardens",
+      "grouping": "Detailed Occupation",
+      "naics_code": "999300",
+      "industry_title": "Local government, excluding education and hospitals",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.3,
+      "per_industry": 0,
+      "per_occupation": 5,
+      "employed_10": 0.4,
+      "per_industry_10": 0,
+      "per_occupation_10": 5.4,
+      "emp_change_10": 0,
+      "per_change_10": 3.9,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "33-3031.00",
@@ -12891,5 +12941,11 @@
       "h": 0.264895147711618,
       "color": "#52C813"
     }
-  ]
+  ],
+  "per_change_10_nat": -3.5,
+  "employed_nat": 6.9,
+  "employed_10_nat": 6.7,
+  "bright_futures": "Below Average",
+  "automation_risk": "Low",
+  "near_future": null
 }

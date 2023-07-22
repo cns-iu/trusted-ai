@@ -3864,6 +3864,32 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "39-5091.00",
+      "soc_nems_id": "39-5091",
+      "title": "Makeup Artists, Theatrical and Performance",
+      "occ_title": "Makeup artists, theatrical and performance",
+      "grouping": "Detailed Occupation",
+      "naics_code": "515120",
+      "industry_title": "Television broadcasting",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0.1,
+      "per_occupation": 2.7,
+      "employed_10": 0.1,
+      "per_industry_10": 0.1,
+      "per_occupation_10": 2.4,
+      "emp_change_10": 0,
+      "per_change_10": -5.4,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "39-5091.00",
@@ -6109,5 +6135,11 @@
       "color": "#79AEBD"
     }
   ],
-  "behaviors_knowledge": null
+  "behaviors_knowledge": null,
+  "per_change_10_nat": 7,
+  "employed_nat": 4.4,
+  "employed_10_nat": 4.7,
+  "bright_futures": "Average",
+  "automation_risk": "Low",
+  "near_future": null
 }
