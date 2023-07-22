@@ -2,6 +2,10 @@
   @media (width <= 1240px) {
     .search-content {
       padding: 6.5rem 0 0.5rem 0 !important;
+
+      .search-title {
+        display: none;
+      }
     }
 
     .sub-section-title {
@@ -42,6 +46,7 @@
     .sub-section-title {
       font-size: 1rem !important;
       font-weight: 500;
+      line-height: 1.5rem;
     }
 
     .salary-ind {
@@ -60,12 +65,6 @@
     justify-content: center;
     padding-bottom: 0.5rem;
 
-    @media (width <= 1240px) {
-      .search-title {
-        display: none;
-      }
-    }
-
     .search-content {
       display: flex;
       flex-direction: column;
@@ -83,52 +82,10 @@
     flex-direction: column;
     align-items: center;
 
-    &.salary {
-      .sub-section {
-        align-items: center;
-
-        .salary-nat {
-          height: 40vw;
-        }
-        .salary-states {
-          height: 50vw;
-        }
-        .salary-ind {
-          height: 50vw;
-        }
-      }
-    }
-
-    &.projection {
-      .sub-section {
-        align-items: center;
-
-        .projection {
-          height: 65vw;
-        }
-
-        .button-group {
-          display: flex;
-          justify-content: space-between;
-          gap: 1rem;
-
-          .resource-link {
-            border-radius: 1rem;
-            border-color: rgb(122, 117, 127);
-            color: #6750a4;
-            font-size: 0.875rem;
-            font-weight: 500;
-            width: calc((100% - 2rem) / 3);
-            height: 2.5rem;
-          }
-        }
-      }
-    }
-
     .content,
     .section-title,
     .code {
-      width: 80%;
+      width: 65%;
     }
 
     .section-header {
@@ -197,39 +154,94 @@
         }
       }
     }
-  }
 
-  .behaviors {
-    .sub-section-content {
-      height: 50vw;
-      display: flex;
-      mat-tab-group {
-        flex-grow: 1;
-        ::ng-deep .mat-mdc-tab-body-wrapper {
-          flex-grow: 1;
-          mat-tab-body {
-            display: flex;
-            overflow: visible;
-            width: 100%;
-            .mat-mdc-tab-body-content {
-              overflow: visible;
-              width: 100%;
-              trust-ai-treemap {
-                width: 100%;
-              }
-            }
+    &.behaviors {
+      ::ng-deep mat-tab-group {
+        mat-tab-header {
+          border-bottom: 1px solid #e6e0e9;
+        }
+
+        .sub-section-title {
+          padding: 1.5rem 0;
+          line-height: 1.75rem;
+        }
+
+        .mdc-tab__text-label {
+          line-height: 1.25rem;
+          letter-spacing: 0.00625rem;
+        }
+
+        .mat-mdc-tab {
+          padding: 0;
+          width: 25%;
+          min-width: 0;
+
+          &.mdc-tab--active {
+            color: #6750a4;
+          }
+        }
+
+        .mat-mdc-tab-body-content {
+          height: unset;
+        }
+
+        canvas {
+          height: 50vw !important;
+          width: 100% !important;
+        }
+      }
+    }
+
+    &.preparedness {
+      .content {
+        :first-child .sub-section-title {
+          color: #6750a4;
+
+          img {
+            height: 1.5rem;
           }
         }
       }
     }
-  }
 
-  .preparedness {
-    .content {
-      :first-child .sub-section-title {
-        color: #6750a4;
-        img {
-          height: 1.5rem;
+    &.salary {
+      .sub-section {
+        align-items: center;
+
+        .salary-nat {
+          height: 40vw;
+        }
+        .salary-states {
+          height: 50vw;
+        }
+        .salary-ind {
+          height: 50vw;
+        }
+      }
+    }
+
+    &.projection {
+      .sub-section {
+        align-items: center;
+
+        .projection {
+          height: 65vw;
+        }
+
+        .button-group {
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+
+          .resource-link {
+            border-radius: 1rem;
+            border-color: rgb(122, 117, 127);
+            color: #6750a4;
+            font-size: 0.875rem;
+            font-weight: 500;
+            width: calc((100% - 2rem) / 3);
+            height: 2.5rem;
+          }
         }
       }
     }

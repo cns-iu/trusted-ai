@@ -198,7 +198,6 @@ export class ProfilePageComponent implements OnInit {
     return this.http.get(`assets/profiles/${code}/metadata.json`, { responseType: 'text' }).pipe(
       tap((result) => {
         this.currentJobInfo = JSON.parse(result);
-        console.log(this.currentJobInfo);
         if (this.currentJobInfo['tech_skills']) {
           this.setSkillsGrouping(this.currentJobInfo['tech_skills']);
         }

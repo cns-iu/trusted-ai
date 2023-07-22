@@ -32,17 +32,21 @@
       <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
     <div class="sub-section-content">
-      <mat-tab-group (selectedTabChange)="refreshVis()">
+      <mat-tab-group (selectedTabChange)="refreshVis()" fitInkBarToContent disablePagination="true">
         <mat-tab label="Activities">
+          <div class="sub-section-title">Activities by Importance</div>
           <trust-ai-treemap #vis1 [activitiesData]="treemapWorkActivitiesData"></trust-ai-treemap>
         </mat-tab>
         <mat-tab label="Skills">
+          <div class="sub-section-title">Skills by Importance</div>
           <trust-ai-treemap #vis2 [skillsData]="treemapSkillsData"></trust-ai-treemap>
         </mat-tab>
         <mat-tab label="Knowledge">
+          <div class="sub-section-title">Knowledge by Importance</div>
           <trust-ai-treemap #vis3 [knowledgeData]="treemapKnowledgeData"></trust-ai-treemap>
         </mat-tab>
         <mat-tab label="Abilities">
+          <div class="sub-section-title">Abilities by Importance</div>
           <trust-ai-treemap #vis4 [abilitiesData]="treemapAbilitiesData"></trust-ai-treemap>
         </mat-tab>
       </mat-tab-group>
