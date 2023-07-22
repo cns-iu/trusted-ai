@@ -3445,6 +3445,32 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "29-1024.00",
+      "soc_nems_id": "29-1024",
+      "title": "Prosthodontists",
+      "occ_title": "Prosthodontists",
+      "grouping": "Detailed Occupation",
+      "naics_code": "621200",
+      "industry_title": "Offices of dentists",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.7,
+      "per_industry": 0.1,
+      "per_occupation": 77.9,
+      "employed_10": 0.8,
+      "per_industry_10": 0.1,
+      "per_occupation_10": 80.6,
+      "emp_change_10": 0.1,
+      "per_change_10": 8.7,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "29-1024.00",
@@ -7837,5 +7863,11 @@
       "h": 0.214438700953129,
       "color": "#5AD519"
     }
-  ]
+  ],
+  "per_change_10_nat": 5.1,
+  "employed_nat": 0.9,
+  "employed_10_nat": 1,
+  "bright_futures": "Average",
+  "automation_risk": "Low",
+  "near_future": null
 }

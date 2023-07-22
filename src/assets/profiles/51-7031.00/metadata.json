@@ -3934,6 +3934,32 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "51-7031.00",
+      "soc_nems_id": "51-7031",
+      "title": "Model Makers, Wood",
+      "occ_title": "Model makers, wood",
+      "grouping": "Detailed Occupation",
+      "naics_code": "999100",
+      "industry_title": "Federal government, excluding postal service",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0,
+      "per_occupation": 10.6,
+      "employed_10": 0,
+      "per_industry_10": 0,
+      "per_occupation_10": 9.5,
+      "emp_change_10": 0,
+      "per_change_10": -3.8,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "51-7031.00",
@@ -8198,5 +8224,11 @@
       "h": 0.28982962398804,
       "color": "#64DA25"
     }
-  ]
+  ],
+  "per_change_10_nat": 7.3,
+  "employed_nat": 0.5,
+  "employed_10_nat": 0.5,
+  "bright_futures": "Average",
+  "automation_risk": "High",
+  "near_future": null
 }

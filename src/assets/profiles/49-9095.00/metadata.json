@@ -6432,6 +6432,80 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "49-9095.00",
+      "soc_nems_id": "49-9095",
+      "title": "Manufactured Building and Mobile Home Installers",
+      "occ_title": "Manufactured building and mobile home installers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "453900",
+      "industry_title": "Other miscellaneous store retailers",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 1.4,
+      "per_industry": 0.4,
+      "per_occupation": 35.5,
+      "employed_10": 1.1,
+      "per_industry_10": 0.3,
+      "per_occupation_10": 35,
+      "emp_change_10": -0.3,
+      "per_change_10": -21.3,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "49-9095.00",
+      "soc_nems_id": "49-9095",
+      "title": "Manufactured Building and Mobile Home Installers",
+      "occ_title": "Manufactured building and mobile home installers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "321900",
+      "industry_title": "Other wood product manufacturing",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.8,
+      "per_industry": 0.3,
+      "per_occupation": 19.8,
+      "employed_10": 0.6,
+      "per_industry_10": 0.3,
+      "per_occupation_10": 19.9,
+      "emp_change_10": -0.2,
+      "per_change_10": -19.7,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    },
+    {
+      "soc_id": "49-9095.00",
+      "soc_nems_id": "49-9095",
+      "title": "Manufactured Building and Mobile Home Installers",
+      "occ_title": "Manufactured building and mobile home installers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "236100",
+      "industry_title": "Residential building construction",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.3,
+      "per_industry": 0,
+      "per_occupation": 8.7,
+      "employed_10": 0.3,
+      "per_industry_10": 0,
+      "per_occupation_10": 8.4,
+      "emp_change_10": -0.1,
+      "per_change_10": -23.2,
+      "employed_rank": 3,
+      "per_industry_rank": 3,
+      "per_occupation_rank": 3,
+      "curr_rank_avg": 3,
+      "curr_emp_avg_rank": 3
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "49-9095.00",
@@ -10762,5 +10836,11 @@
       "h": 0.445421624418003,
       "color": "#3B900E"
     }
-  ]
+  ],
+  "per_change_10_nat": -20.3,
+  "employed_nat": 3.9,
+  "employed_10_nat": 3.1,
+  "bright_futures": "Below Average",
+  "automation_risk": "Low",
+  "near_future": null
 }

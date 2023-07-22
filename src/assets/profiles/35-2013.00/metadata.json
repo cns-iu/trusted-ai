@@ -3790,6 +3790,56 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "35-2013.00",
+      "soc_nems_id": "35-2013",
+      "title": "Cooks, Private Household",
+      "occ_title": "Cooks, private household",
+      "grouping": "Detailed Occupation",
+      "naics_code": "814000",
+      "industry_title": "Private households",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 4.1,
+      "per_industry": 0.6,
+      "per_occupation": 9.8,
+      "employed_10": 4.6,
+      "per_industry_10": 0.6,
+      "per_occupation_10": 11.3,
+      "emp_change_10": 0.5,
+      "per_change_10": 12.9,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "35-2013.00",
+      "soc_nems_id": "35-2013",
+      "title": "Cooks, Private Household",
+      "occ_title": "Cooks, private household",
+      "grouping": "Detailed Occupation",
+      "naics_code": "111000",
+      "industry_title": "Crop production",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.9,
+      "per_industry": 0.1,
+      "per_occupation": 2.2,
+      "employed_10": 1,
+      "per_industry_10": 0.1,
+      "per_occupation_10": 2.6,
+      "emp_change_10": 0.1,
+      "per_change_10": 14.2,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "35-2013.00",
@@ -6149,5 +6199,11 @@
       "color": "#699EAC"
     }
   ],
-  "behaviors_knowledge": null
+  "behaviors_knowledge": null,
+  "per_change_10_nat": -1.7,
+  "employed_nat": 41.4,
+  "employed_10_nat": 40.7,
+  "bright_futures": "Below Average",
+  "automation_risk": "Low",
+  "near_future": null
 }

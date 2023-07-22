@@ -1,4 +1,4 @@
-import { SalaryInfo, TreemapData } from 'src/app/pages/profile-page/profile-page.component';
+import { ProjectionInfo, SalaryInfo, TreemapData } from 'src/app/pages/profile-page/profile-page.component';
 import { VisualizationSpec } from 'vega-embed';
 
 /** Maps state names to ids for map visualization */
@@ -155,453 +155,568 @@ function parseTreemapData(values: TreemapData[], layers: number): unknown[] {
       layers: layers
     }
   })
-}
 
-/**
- * Creates national salary visualization
- * @param values salary data
- * @returns visualization spec
- */
-export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
-  return {
-    $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-    width: 'container',
-    height: 'container',
-    data: {
-      values: parseNatData(values)
-    },
-    params: [
-      {
-        name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} < 480, 14, 18)`
-      },
-    ],
-    mark: {
-      type: 'line',
-      strokeWidth: 8,
-      point: {
-        filled: false,
-        fill: 'white',
-        size: 100
-      }
-    },
-    encoding: {
-      x: {
-        field: 'percentile',
-        type: 'quantitative',
-        title: 'Percentile',
-        axis: {
-          values: [10, 25, 50, 75, 90],
-          labelExpr: "datum.value == 50 ? 'Median' : datum.value",
-          labelFontSize: 15,
-          titleFontSize: { expr: 'axisTitleSize' }
-        }
-      },
-      y: {
-        field: 'salary',
-        type: 'quantitative',
-        stack: 'zero',
-        title: 'Salary (annual)',
-        axis: {
-          labelFontSize: 15,
-          titleFontSize: { expr: 'axisTitleSize' }
-        }
-      },
-      tooltip: [
-        {
-          field: 'percentile',
-          title: 'Percentile'
-        },
-        {
-          field: 'salary',
-          title: 'Salary'
-        }
-      ]
+  function parseProjectionData(values: ProjectionInfo[]): unknown[] {
+    const result = [];
+    for (const occ of values) {
+      result.push({
+        year: 2021,
+        per_change_10: 0,
+        employed: occ['employed'],
+        industry: occ['industry_title'],
+        increase: occ['per_change_10'] ? occ['per_change_10'] > 0 : false
+      })
+      result.push({
+        year: 2031,
+        per_change_10: occ['per_change_10'],
+        employed: occ['employed_10'],
+        industry: occ['industry_title']
+      })
     }
-  };
-}
-
-/**
- * Creates state salary visualization
- * @param values salary data
- * @returns visualization spec
- */
-export function createStatePlot(values: SalaryInfo[], section: string): VisualizationSpec {
-  const value = section === 'salary' ? 'a_mean' : 'tot_emp';
-  return {
-    $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-    data: {
-      values: parseStateData(values)
-    },
-    params: [
-      {
-        name: 'gradientHeight',
-        expr: 'containerSize()[1] * .5'
-      },
-      {
-        name: 'gradientTitleSize',
-        expr: `if (${window.innerWidth} < 480, 10, 20)`
-      },
-      {
-        name: 'gradientLabelSize',
-        expr: `if (${window.innerWidth} < 480, 10, 16)`
-      },
-      {
-        name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} < 480, 12, 18)`
-      },
-    ],
-    width: 'container',
-    height: 'container',
-    transform: [
-      {
-        lookup: 'id',
-        from: {
-          data: {
-            url: 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json',
-            format: {
-              type: 'topojson',
-              feature: 'states'
-            }
-          },
-          key: 'id'
-        },
-        as: 'geo'
-      },
-
-    ],
-    projection: { type: 'albersUsa' },
-    mark: 'geoshape',
-    encoding: {
-      shape: {
-        field: 'geo',
-        type: 'geojson'
-      },
-      color: {
-        field: value,
-        title: value === 'a_mean' ? 'Salary' : 'Occupations',
-        type: 'quantitative',
-        condition: {
-          test: `isValid(datum['${value}']) === false`,
-          value: '#aaa'
-        },
-        legend: {
-          titleFontSize: { expr: 'gradientTitleSize' },
-          gradientLength: { expr: 'gradientHeight' },
-          gradientThickness: 10,
-          labelFontSize: { expr: 'gradientLabelSize' }
-        }
-      },
-      tooltip: [
-        {
-          field: 'state',
-          title: 'State'
-        },
-        {
-          field: value,
-          title: value === 'a_mean' ? 'Salary (annual)' : 'Occupations'
-        }
-      ]
-    },
-    config: {
-      mark: {
-        invalid: null
-      }
-    }
-  };
-}
-
-/**
- * Creates industry salary visualization
- * @param values salary data
- * @returns visualization spec
- */
-export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
-  return {
-    $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-    width: 'container',
-    height: 'container',
-    data: {
-      values: parseIndData(values)
-    },
-    params: [
-      {
-        name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} < 480, 14, 18)`
-      },
-    ],
-    encoding: {
-      x: {
-        field: 'industry_name',
-        type: 'nominal',
-        title: 'Industry',
-        axis: {
-          labelFontSize: 15,
-          titleFontSize: { expr: 'axisTitleSize' },
-          labelAngle: -45,
-          labelLimit: 100,
-        },
-        sort: {
-          field: 'mid_box_salary'
-        }
-      },
-    },
-    layer: [
-      {
-        mark: { type: 'errorbar', ticks: true },
-        encoding: {
-          y: {
-            field: 'lower_whisker_salary',
-            type: 'quantitative',
-            scale: { zero: false },
-            title: 'Salary (annual)',
-            axis: {
-              labelFontSize: 15,
-              titleFontSize: { expr: 'axisTitleSize' }
-            }
-          },
-          y2: { field: 'upper_whisker_salary' },
-          tooltip: [
-            {
-              field: 'industry_name',
-              title: 'Industry'
-            },
-            {
-              field: 'lower_whisker_salary',
-              title: '10th percentile'
-            },
-            {
-              field: 'lower_box_salary',
-              title: '25th percentile'
-            },
-            {
-              field: 'mid_box_salary',
-              title: '50th percentile'
-            },
-            {
-              field: 'upper_box_salary',
-              title: '75th percentile'
-            },
-            {
-              field: 'upper_whisker_salary',
-              title: '90th percentile'
-            },
-          ]
-        }
-      },
-      {
-        mark: { type: 'bar', size: 28 },
-        encoding: {
-          y: { field: 'lower_box_salary', type: 'quantitative' },
-          y2: { field: 'upper_box_salary' },
-          tooltip: [
-            {
-              field: 'industry_name',
-              title: 'Industry'
-            },
-            {
-              field: 'lower_whisker_salary',
-              title: '10th percentile'
-            },
-            {
-              field: 'lower_box_salary',
-              title: '25th percentile'
-            },
-            {
-              field: 'mid_box_salary',
-              title: '50th percentile'
-            },
-            {
-              field: 'upper_box_salary',
-              title: '75th percentile'
-            },
-            {
-              field: 'upper_whisker_salary',
-              title: '90th percentile'
-            },
-          ],
-          color: { field: 'industry_name', type: 'nominal', legend: null },
-        }
-      },
-      {
-        mark: { type: 'tick', color: 'white', size: 14 },
-        encoding: {
-          y: { field: 'mid_box_salary', type: 'quantitative' },
-          tooltip: [
-            {
-              field: 'industry_name',
-              title: 'Industry'
-            },
-            {
-              field: 'lower_whisker_salary',
-              title: '10th percentile'
-            },
-            {
-              field: 'lower_box_salary',
-              title: '25th percentile'
-            },
-            {
-              field: 'mid_box_salary',
-              title: '50th percentile'
-            },
-            {
-              field: 'upper_box_salary',
-              title: '75th percentile'
-            },
-            {
-              field: 'upper_whisker_salary',
-              title: '90th percentile'
-            },
-          ],
-        }
-      },
-    ]
-  };
-
-
-
-
-}
-
-export function createTreemap(values: TreemapData[], layers: number): VisualizationSpec {
-  return {
-    $schema: 'https://vega.github.io/schema/vega/v5.json',
-    signals: [
-      {
-        name: 'width',
-        update: 'containerSize()[0]',
-        on: [
-          {
-            events: { source: 'window', type: 'resize' },
-            update: 'containerSize()[0]'
-          }
-        ]
-      },
-      {
-        name: 'height',
-        update: 'containerSize()[1]',
-        on: [
-          {
-            events: { source: 'window', type: 'resize' },
-            update: 'containerSize()[1]'
-          }
-        ]
-      }
-    ],
-
-    data: [
-      {
-        name: 'tree',
-        values: parseTreemapData(values, layers)
-      },
-      {
-        name: 'nodes',
-        source: 'tree',
-        transform: [{ type: 'filter', expr: 'datum.children' }]
-      },
-      {
-        name: 'nodes2',
-        source: 'nodes',
-        transform: [{ type: 'filter', expr: `datum.depth == ${layers - 1}` }]
-      },
-      {
-        name: 'leaves',
-        source: 'tree',
-        transform: [{ type: 'filter', expr: '!datum.children' }]
-      }
-    ],
-
-    scales: [
-      {
-        name: 'color',
-        type: 'ordinal',
-        domain: { data: 'nodes2', field: 'name' },
-        range: [
-          '#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#e6550d',
-          '#fd8d3c', '#fdae6b', '#fdd0a2', '#31a354', '#74c476',
-          '#a1d99b', '#c7e9c0', '#756bb1', '#9e9ac8', '#bcbddc',
-          '#dadaeb', '#636363', '#969696', '#bdbdbd', '#d9d9d9'
-        ]
-      },
-      {
-        name: 'size',
-        type: 'ordinal',
-        domain: [1, 2, 3],
-        range: [28, 20, 14]
-      },
-      {
-        name: 'opacity',
-        type: 'ordinal',
-        domain: [1, 2, 3],
-        range: [0.5, 0.8, 1.0]
-      }
-    ],
-
-    marks: [
-      {
-        type: 'rect',
-        from: { data: 'nodes' },
-        interactive: false,
-        encode: {
-          enter: {
-            fill: { scale: 'color', field: 'name' }
-          },
-          update: {
-            x: { signal: "datum['x0'] * width" },
-            y: { signal: "datum['y0'] * height" },
-            x2: { signal: "datum['x1'] * width" },
-            y2: { signal: "datum['y1'] * height" },
-          },
-        }
-      },
-      {
-        type: 'rect',
-        from: { data: 'leaves' },
-        encode: {
-          enter: {
-            stroke: { value: '#fff' },
-            tooltip: { signal: "datum['name']" }
-          },
-          update: {
-            x: { signal: "datum['x0'] * width" },
-            y: { signal: "datum['y0'] * height" },
-            x2: { signal: "datum['x1'] * width" },
-            y2: { signal: "datum['y1'] * height" },
-            fill: { value: 'transparent' }
-          },
-          hover: {
-            fill: { value: 'red' }
-          }
-        }
-      },
-      {
-        type: 'text',
-        from: { data: 'nodes' },
-        interactive: false,
-        encode: {
-          enter: {
-            font: { value: 'Helvetica Neue, Arial' },
-            align: { value: 'center' },
-            baseline: { value: 'middle' },
-            fill: { value: '#000' },
-            text: { field: 'name' },
-            fontSize: { scale: 'size', field: 'depth' },
-            fillOpacity: { scale: 'opacity', field: 'depth' }
-          },
-          update: {
-            x: { signal: "0.5 * width * (datum['x0'] + datum['x1'])" },
-            y: { signal: "0.5 * height * (datum['y0'] + datum['y1'])" }
-          }
-        },
-        transform: [
-          {
-            type: 'label',
-            anchor: ['top', 'bottom'],
-            size: { signal: '[width, height]' },
-          }
-        ]
-      }
-    ]
+    return result;
   }
 
+  /**
+   * Creates national salary visualization
+   * @param values salary data
+   * @returns visualization spec
+   */
+  export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
+    return {
+      $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+      width: 'container',
+      height: 'container',
+      data: {
+        values: parseNatData(values)
+      },
+      params: [
+        {
+          name: 'axisTitleSize',
+          expr: `if (${window.innerWidth} <= 480, 14, 18)`
+        },
+      ],
+      mark: {
+        type: 'line',
+        strokeWidth: 8,
+        point: {
+          filled: false,
+          fill: 'white',
+          size: 100
+        }
+      },
+      encoding: {
+        x: {
+          field: 'percentile',
+          type: 'quantitative',
+          title: 'Percentile',
+          axis: {
+            values: [10, 25, 50, 75, 90],
+            labelExpr: "datum.value == 50 ? 'Median' : datum.value",
+            labelFontSize: 15,
+            titleFontSize: { expr: 'axisTitleSize' }
+          }
+        },
+        y: {
+          field: 'salary',
+          type: 'quantitative',
+          stack: 'zero',
+          title: 'Salary (annual)',
+          axis: {
+            labelFontSize: 15,
+            titleFontSize: { expr: 'axisTitleSize' }
+          }
+        },
+        tooltip: [
+          {
+            field: 'percentile',
+            title: 'Percentile'
+          },
+          {
+            field: 'salary',
+            title: 'Salary'
+          }
+        ]
+      }
+    };
+  }
+
+  /**
+   * Creates state salary visualization
+   * @param values salary data
+   * @returns visualization spec
+   */
+  export function createStatePlot(values: SalaryInfo[], section: string): VisualizationSpec {
+    const value = section === 'salary' ? 'a_mean' : 'tot_emp';
+    return {
+      $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+      data: {
+        values: parseStateData(values)
+      },
+      params: [
+        {
+          name: 'gradientHeight',
+          expr: 'containerSize()[1] * .5'
+        },
+        {
+          name: 'gradientTitleSize',
+          expr: `if (${window.innerWidth} <= 480, 10, 20)`
+        },
+        {
+          name: 'gradientLabelSize',
+          expr: `if (${window.innerWidth} <= 480, 10, 16)`
+        },
+        {
+          name: 'axisTitleSize',
+          expr: `if (${window.innerWidth} <= 480, 12, 18)`
+        },
+      ],
+      width: 'container',
+      height: 'container',
+      transform: [
+        {
+          lookup: 'id',
+          from: {
+            data: {
+              url: 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json',
+              format: {
+                type: 'topojson',
+                feature: 'states'
+              }
+            },
+            key: 'id'
+          },
+          as: 'geo'
+        },
+
+      ],
+      projection: { type: 'albersUsa' },
+      mark: {
+        type: "geoshape",
+        stroke: "dimgray"
+      },
+      encoding: {
+        shape: {
+          field: 'geo',
+          type: 'geojson'
+        },
+        color: {
+          field: value,
+          title: value === 'a_mean' ? 'Salary' : 'Occupations',
+          type: 'quantitative',
+          condition: {
+            test: `isValid(datum['${value}']) === false`,
+            value: '#aaa'
+          },
+          legend: {
+            titleFontSize: { expr: 'gradientTitleSize' },
+            gradientLength: { expr: 'gradientHeight' },
+            gradientThickness: 10,
+            labelFontSize: { expr: 'gradientLabelSize' }
+          }
+        },
+        tooltip: [
+          {
+            field: 'state',
+            title: 'State'
+          },
+          {
+            field: value,
+            title: value === 'a_mean' ? 'Salary (annual)' : 'Occupations'
+          }
+        ]
+      },
+      config: {
+        mark: {
+          invalid: null
+        }
+      }
+    };
+  }
+
+  /**
+   * Creates industry salary visualization
+   * @param values salary data
+   * @returns visualization spec
+   */
+  export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
+    return {
+      $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+      width: 'container',
+      height: 'container',
+      data: {
+        values: parseIndData(values)
+      },
+      params: [
+        {
+          name: 'axisTitleSize',
+          expr: `if (${window.innerWidth} <= 480, 14, 18)`
+        },
+      ],
+      encoding: {
+        x: {
+          field: 'industry_name',
+          type: 'nominal',
+          title: 'Industry',
+          axis: {
+            labelFontSize: 15,
+            titleFontSize: { expr: 'axisTitleSize' },
+            labelAngle: -45,
+            labelLimit: 100,
+          },
+          sort: {
+            field: 'mid_box_salary'
+          }
+        },
+      },
+      layer: [
+        {
+          mark: { type: 'errorbar', ticks: true },
+          encoding: {
+            y: {
+              field: 'lower_whisker_salary',
+              type: 'quantitative',
+              scale: { zero: false },
+              title: 'Salary (annual)',
+              axis: {
+                labelFontSize: 15,
+                titleFontSize: { expr: 'axisTitleSize' }
+              }
+            },
+            y2: { field: 'upper_whisker_salary' },
+            tooltip: [
+              {
+                field: 'industry_name',
+                title: 'Industry'
+              },
+              {
+                field: 'lower_whisker_salary',
+                title: '10th percentile'
+              },
+              {
+                field: 'lower_box_salary',
+                title: '25th percentile'
+              },
+              {
+                field: 'mid_box_salary',
+                title: '50th percentile'
+              },
+              {
+                field: 'upper_box_salary',
+                title: '75th percentile'
+              },
+              {
+                field: 'upper_whisker_salary',
+                title: '90th percentile'
+              },
+            ]
+          }
+        },
+        {
+          mark: { type: 'bar', size: 28 },
+          encoding: {
+            y: { field: 'lower_box_salary', type: 'quantitative' },
+            y2: { field: 'upper_box_salary' },
+            tooltip: [
+              {
+                field: 'industry_name',
+                title: 'Industry'
+              },
+              {
+                field: 'lower_whisker_salary',
+                title: '10th percentile'
+              },
+              {
+                field: 'lower_box_salary',
+                title: '25th percentile'
+              },
+              {
+                field: 'mid_box_salary',
+                title: '50th percentile'
+              },
+              {
+                field: 'upper_box_salary',
+                title: '75th percentile'
+              },
+              {
+                field: 'upper_whisker_salary',
+                title: '90th percentile'
+              },
+            ],
+            color: { field: 'industry_name', type: 'nominal', legend: null },
+          }
+        },
+        {
+          mark: { type: 'tick', color: 'white', size: 14 },
+          encoding: {
+            y: { field: 'mid_box_salary', type: 'quantitative' },
+            tooltip: [
+              {
+                field: 'industry_name',
+                title: 'Industry'
+              },
+              {
+                field: 'lower_whisker_salary',
+                title: '10th percentile'
+              },
+              {
+                field: 'lower_box_salary',
+                title: '25th percentile'
+              },
+              {
+                field: 'mid_box_salary',
+                title: '50th percentile'
+              },
+              {
+                field: 'upper_box_salary',
+                title: '75th percentile'
+              },
+              {
+                field: 'upper_whisker_salary',
+                title: '90th percentile'
+              },
+            ],
+          }
+        },
+      ]
+    };
+  }
+
+  export function createTreemap(values: TreemapData[], layers: number): VisualizationSpec {
+    return {
+      $schema: 'https://vega.github.io/schema/vega/v5.json',
+      signals: [
+        {
+          name: 'width',
+          update: 'containerSize()[0]',
+          on: [
+            {
+              events: { source: 'window', type: 'resize' },
+              update: 'containerSize()[0]'
+            }
+          ]
+        },
+        {
+          name: 'height',
+          update: 'containerSize()[1]',
+          on: [
+            {
+              events: { source: 'window', type: 'resize' },
+              update: 'containerSize()[1]'
+            }
+          ]
+        }
+      ],
+
+      data: [
+        {
+          name: 'tree',
+          values: parseTreemapData(values, layers)
+        },
+        {
+          name: 'nodes',
+          source: 'tree',
+          transform: [{ type: 'filter', expr: 'datum.children' }]
+        },
+        {
+          name: 'nodes2',
+          source: 'nodes',
+          transform: [{ type: 'filter', expr: `datum.depth == ${layers - 1}` }]
+        },
+        {
+          name: 'leaves',
+          source: 'tree',
+          transform: [{ type: 'filter', expr: '!datum.children' }]
+        }
+      ],
+
+      scales: [
+        {
+          name: 'color',
+          type: 'ordinal',
+          domain: { data: 'nodes2', field: 'name' },
+          range: [
+            '#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#e6550d',
+            '#fd8d3c', '#fdae6b', '#fdd0a2', '#31a354', '#74c476',
+            '#a1d99b', '#c7e9c0', '#756bb1', '#9e9ac8', '#bcbddc',
+            '#dadaeb', '#636363', '#969696', '#bdbdbd', '#d9d9d9'
+          ]
+        },
+        {
+          name: 'size',
+          type: 'ordinal',
+          domain: [1, 2, 3],
+          range: [28, 20, 14]
+        },
+        {
+          name: 'opacity',
+          type: 'ordinal',
+          domain: [1, 2, 3],
+          range: [0.5, 0.8, 1.0]
+        }
+      ],
+
+      marks: [
+        {
+          type: 'rect',
+          from: { data: 'nodes' },
+          interactive: false,
+          encode: {
+            enter: {
+              fill: { scale: 'color', field: 'name' }
+            },
+            update: {
+              x: { signal: "datum['x0'] * width" },
+              y: { signal: "datum['y0'] * height" },
+              x2: { signal: "datum['x1'] * width" },
+              y2: { signal: "datum['y1'] * height" },
+            },
+          }
+        },
+        {
+          type: 'rect',
+          from: { data: 'leaves' },
+          encode: {
+            enter: {
+              stroke: { value: '#fff' },
+              tooltip: { signal: "datum['name']" }
+            },
+            update: {
+              x: { signal: "datum['x0'] * width" },
+              y: { signal: "datum['y0'] * height" },
+              x2: { signal: "datum['x1'] * width" },
+              y2: { signal: "datum['y1'] * height" },
+              fill: { value: 'transparent' }
+            },
+            hover: {
+              fill: { value: 'red' }
+            }
+          }
+        },
+        {
+          type: 'text',
+          from: { data: 'nodes' },
+          interactive: false,
+          encode: {
+            enter: {
+              font: { value: 'Helvetica Neue, Arial' },
+              align: { value: 'center' },
+              baseline: { value: 'middle' },
+              fill: { value: '#000' },
+              text: { field: 'name' },
+              fontSize: { scale: 'size', field: 'depth' },
+              fillOpacity: { scale: 'opacity', field: 'depth' }
+            },
+            update: {
+              x: { signal: "0.5 * width * (datum['x0'] + datum['x1'])" },
+              y: { signal: "0.5 * height * (datum['y0'] + datum['y1'])" }
+            }
+          },
+          transform: [
+            {
+              type: 'label',
+              anchor: ['top', 'bottom'],
+              size: { signal: '[width, height]' },
+            }
+          ]
+        }
+      ]
+    }
+  }
+
+  export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSpec {
+    console.log(parseProjectionData(values))
+    return {
+      $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+      description: "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
+      width: 'container',
+      height: 'container',
+      autosize: {
+        resize: true
+      },
+      data: { values: parseProjectionData(values) },
+      params: [
+        {
+          name: 'axisTitleSize',
+          expr: `if (${window.innerWidth} <= 480, 14, 18)`
+        },
+        {
+          name: 'labelLength',
+          expr: `if (${window.innerWidth} <= 480, 100, 200)`
+        },
+      ],
+      encoding: {
+        x: {
+          field: 'per_change_10',
+          type: 'quantitative',
+          title: 'Employment % change',
+          axis: {
+            labelFontSize: 15,
+            titleFontSize: { expr: 'axisTitleSize' }
+          }
+        },
+        y: {
+          field: 'industry',
+          type: 'nominal',
+          title: 'Industry',
+          axis: {
+            offset: 5,
+            ticks: false,
+            domain: false,
+            labelFontSize: 15,
+            titleFontSize: { expr: 'axisTitleSize' },
+            labelLimit: { expr: 'labelLength' },
+          },
+          sort: ['National average']
+        }
+      },
+      layer: [
+        {
+          mark: {
+            type: 'line',
+            strokeWidth: 5,
+          },
+          encoding: {
+            detail: {
+              field: 'industry',
+              type: 'nominal',
+            },
+            color: {
+              value: {
+                expr: "datum.increase ? 'blue' : '#db646f'"
+              }
+            }
+          }
+        },
+        {
+          mark: {
+            type: 'point',
+            filled: true,
+          },
+          encoding: {
+            color: {
+              field: 'year',
+              type: 'ordinal',
+              title: 'Year'
+            },
+            size: { value: 150 },
+            opacity: { value: 1 },
+            tooltip: [
+              {
+                field: 'industry',
+                title: 'Industry'
+              },
+              {
+                field: 'employed',
+                title: 'Employment (thousands)'
+              },
+              {
+                field: 'per_change_10',
+                title: 'Employment % Change'
+              },
+            ],
+          }
+        }
+      ]
+    };
+  }
 }

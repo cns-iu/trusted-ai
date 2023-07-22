@@ -10559,6 +10559,32 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "43-5052.00",
+      "soc_nems_id": "43-5052",
+      "title": "Postal Service Mail Carriers",
+      "occ_title": "Postal service mail carriers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "491000",
+      "industry_title": "Postal service",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 322.9,
+      "per_industry": 53.3,
+      "per_occupation": 100,
+      "employed_10": 307.4,
+      "per_industry_10": 53.8,
+      "per_occupation_10": 100,
+      "emp_change_10": -15.4,
+      "per_change_10": -4.8,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "43-5052.00",
@@ -14669,5 +14695,11 @@
       "h": 0.280618620573781,
       "color": "#48B011"
     }
-  ]
+  ],
+  "per_change_10_nat": -4.8,
+  "employed_nat": 322.9,
+  "employed_10_nat": 307.4,
+  "bright_futures": "Below Average",
+  "automation_risk": "Medium",
+  "near_future": null
 }

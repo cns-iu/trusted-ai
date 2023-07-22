@@ -5724,6 +5724,56 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "47-5043.00",
+      "soc_nems_id": "47-5043",
+      "title": "Roof Bolters, Mining",
+      "occ_title": "Roof bolters, mining",
+      "grouping": "Detailed Occupation",
+      "naics_code": "212100",
+      "industry_title": "Coal mining",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 1.5,
+      "per_industry": 4.2,
+      "per_occupation": 81.9,
+      "employed_10": 1.1,
+      "per_industry_10": 4,
+      "per_occupation_10": 74.8,
+      "emp_change_10": -0.4,
+      "per_change_10": -28.2,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "47-5043.00",
+      "soc_nems_id": "47-5043",
+      "title": "Roof Bolters, Mining",
+      "occ_title": "Roof bolters, mining",
+      "grouping": "Detailed Occupation",
+      "naics_code": "212300",
+      "industry_title": "Nonmetallic mineral mining and quarrying",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0.1,
+      "per_occupation": 6.3,
+      "employed_10": 0.1,
+      "per_industry_10": 0.1,
+      "per_occupation_10": 8.4,
+      "emp_change_10": 0,
+      "per_change_10": 5.3,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "47-5043.00",
@@ -10054,5 +10104,11 @@
       "h": 0.430972388955582,
       "color": "#4AB412"
     }
-  ]
+  ],
+  "per_change_10_nat": -21.5,
+  "employed_nat": 1.9,
+  "employed_10_nat": 1.5,
+  "bright_futures": "Below Average",
+  "automation_risk": "Low",
+  "near_future": null
 }

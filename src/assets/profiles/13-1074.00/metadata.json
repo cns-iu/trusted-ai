@@ -3074,6 +3074,56 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "13-1074.00",
+      "soc_nems_id": "13-1074",
+      "title": "Farm Labor Contractors",
+      "occ_title": "Farm labor contractors",
+      "grouping": "Detailed Occupation",
+      "naics_code": "115000",
+      "industry_title": "Support activities for agriculture and forestry",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.9,
+      "per_industry": 0.8,
+      "per_occupation": 74.5,
+      "employed_10": 1.2,
+      "per_industry_10": 0.8,
+      "per_occupation_10": 76.6,
+      "emp_change_10": 0.2,
+      "per_change_10": 25.7,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "13-1074.00",
+      "soc_nems_id": "13-1074",
+      "title": "Farm Labor Contractors",
+      "occ_title": "Farm labor contractors",
+      "grouping": "Detailed Occupation",
+      "naics_code": "111000",
+      "industry_title": "Crop production",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.3,
+      "per_industry": 0,
+      "per_occupation": 23,
+      "employed_10": 0.3,
+      "per_industry_10": 0,
+      "per_occupation_10": 21.5,
+      "emp_change_10": 0,
+      "per_change_10": 14.2,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "13-1074.00",
@@ -7133,5 +7183,11 @@
       "h": 0.117350481507949,
       "color": "#4AB412"
     }
-  ]
+  ],
+  "per_change_10_nat": 22.3,
+  "employed_nat": 1.2,
+  "employed_10_nat": 1.5,
+  "bright_futures": "Bright",
+  "automation_risk": "High",
+  "near_future": "Projected to grow rapidly."
 }

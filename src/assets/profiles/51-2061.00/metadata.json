@@ -3841,6 +3841,32 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "51-2061.00",
+      "soc_nems_id": "51-2061",
+      "title": "Timing Device Assemblers and Adjusters",
+      "occ_title": "Timing device assemblers and adjusters",
+      "grouping": "Detailed Occupation",
+      "naics_code": "334500",
+      "industry_title": "Navigational, measuring, electromedical, and control instruments manufacturing",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.3,
+      "per_industry": 0.1,
+      "per_occupation": 52.6,
+      "employed_10": 0.2,
+      "per_industry_10": 0.1,
+      "per_occupation_10": 51.4,
+      "emp_change_10": -0.1,
+      "per_change_10": -20.2,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "51-2061.00",
@@ -7831,5 +7857,11 @@
       "h": 0.281593406593407,
       "color": "#60D820"
     }
-  ]
+  ],
+  "per_change_10_nat": -18.3,
+  "employed_nat": 0.6,
+  "employed_10_nat": 0.5,
+  "bright_futures": "Below Average",
+  "automation_risk": "High",
+  "near_future": null
 }

@@ -6652,6 +6652,56 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "39-3021.00",
+      "soc_nems_id": "39-3021",
+      "title": "Motion Picture Projectionists",
+      "occ_title": "Motion picture projectionists",
+      "grouping": "Detailed Occupation",
+      "naics_code": "512130",
+      "industry_title": "Motion picture and video exhibition",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 1.7,
+      "per_industry": 2.5,
+      "per_occupation": 84.6,
+      "employed_10": 2.4,
+      "per_industry_10": 2.1,
+      "per_occupation_10": 86.6,
+      "emp_change_10": 0.7,
+      "per_change_10": 43.7,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "39-3021.00",
+      "soc_nems_id": "39-3021",
+      "title": "Motion Picture Projectionists",
+      "occ_title": "Motion picture projectionists",
+      "grouping": "Detailed Occupation",
+      "naics_code": "712000",
+      "industry_title": "Museums, historical sites, and similar institutions",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.1,
+      "per_industry": 0.1,
+      "per_occupation": 5,
+      "employed_10": 0.1,
+      "per_industry_10": 0.1,
+      "per_occupation_10": 4.3,
+      "emp_change_10": 0,
+      "per_change_10": 22.4,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "39-3021.00",
@@ -11049,5 +11099,11 @@
       "h": 0.186282093275707,
       "color": "#5DD71D"
     }
-  ]
+  ],
+  "per_change_10_nat": 40.3,
+  "employed_nat": 2,
+  "employed_10_nat": 2.8,
+  "bright_futures": "Bright",
+  "automation_risk": "High",
+  "near_future": "Projected to grow rapidly."
 }

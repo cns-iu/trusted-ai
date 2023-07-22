@@ -4513,6 +4513,80 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "53-4041.00",
+      "soc_nems_id": "53-4041",
+      "title": "Subway and Streetcar Operators",
+      "occ_title": "Subway and streetcar operators",
+      "grouping": "Detailed Occupation",
+      "naics_code": "999300",
+      "industry_title": "Local government, excluding education and hospitals",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 8.8,
+      "per_industry": 0.2,
+      "per_occupation": 83.2,
+      "employed_10": 9.1,
+      "per_industry_10": 0.2,
+      "per_occupation_10": 83.5,
+      "emp_change_10": 0.3,
+      "per_change_10": 3.9,
+      "employed_rank": 1,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "53-4041.00",
+      "soc_nems_id": "53-4041",
+      "title": "Subway and Streetcar Operators",
+      "occ_title": "Subway and streetcar operators",
+      "grouping": "Detailed Occupation",
+      "naics_code": "999200",
+      "industry_title": "State government, excluding education and hospitals",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 1,
+      "per_industry": 0,
+      "per_occupation": 9.9,
+      "employed_10": 1,
+      "per_industry_10": 0,
+      "per_occupation_10": 9.2,
+      "emp_change_10": 0,
+      "per_change_10": -3.8,
+      "employed_rank": 2,
+      "per_industry_rank": 3,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    },
+    {
+      "soc_id": "53-4041.00",
+      "soc_nems_id": "53-4041",
+      "title": "Subway and Streetcar Operators",
+      "occ_title": "Subway and streetcar operators",
+      "grouping": "Detailed Occupation",
+      "naics_code": "485100",
+      "industry_title": "Urban transit systems",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.5,
+      "per_industry": 1,
+      "per_occupation": 4.6,
+      "employed_10": 0.5,
+      "per_industry_10": 1.1,
+      "per_occupation_10": 4.8,
+      "emp_change_10": 0,
+      "per_change_10": 7.9,
+      "employed_rank": 3,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 3,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "53-4041.00",
@@ -8780,5 +8854,11 @@
       "h": 0.382450331125828,
       "color": "#2F710C"
     }
-  ]
+  ],
+  "per_change_10_nat": 3.5,
+  "employed_nat": 10.6,
+  "employed_10_nat": 10.9,
+  "bright_futures": "Average",
+  "automation_risk": "High",
+  "near_future": null
 }

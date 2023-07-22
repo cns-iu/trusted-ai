@@ -4980,6 +4980,7 @@
       "hourly": null
     }
   ],
+  "projections": null,
   "behaviors_abilities": [
     {
       "soc_id": "47-2053.00",
@@ -9336,5 +9337,11 @@
       "h": 0.238578680203046,
       "color": "#53CC14"
     }
-  ]
+  ],
+  "per_change_10_nat": -11.2,
+  "employed_nat": 2.7,
+  "employed_10_nat": 2.4,
+  "bright_futures": "Below Average",
+  "automation_risk": "High",
+  "near_future": null
 }

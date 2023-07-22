@@ -10226,6 +10226,32 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "43-5053.00",
+      "soc_nems_id": "43-5053",
+      "title": "Postal Service Mail Sorters, Processors, and Processing Machine Operators",
+      "occ_title": "Postal service mail sorters, processors, and processing machine operators",
+      "grouping": "Detailed Occupation",
+      "naics_code": "491000",
+      "industry_title": "Postal service",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 107.5,
+      "per_industry": 17.7,
+      "per_occupation": 99.6,
+      "employed_10": 97.2,
+      "per_industry_10": 17,
+      "per_occupation_10": 99.5,
+      "emp_change_10": -10.3,
+      "per_change_10": -9.5,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "43-5053.00",
@@ -14266,5 +14292,11 @@
       "h": 0.414766558089034,
       "color": "#48B011"
     }
-  ]
+  ],
+  "per_change_10_nat": -9.4,
+  "employed_nat": 107.9,
+  "employed_10_nat": 97.7,
+  "bright_futures": "Below Average",
+  "automation_risk": "Medium",
+  "near_future": null
 }

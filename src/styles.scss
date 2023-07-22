@@ -10,14 +10,21 @@ body {
 }
 
 .vg-tooltip {
+  td {
+    max-width: 30vw !important;
+  }
   tr {
     font-size: 1rem;
   }
+  .value {
+    max-height: unset !important;
+    height: fit-content;
+  }
 }
 
-@media (width <= 480px) {
+@media (width <= 600px) {
   .vg-tooltip {
-    left: 0 !important;
+    left: calc(50% - 100px) !important;
   }
 }
 

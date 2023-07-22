@@ -10424,6 +10424,56 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "39-4031.00",
+      "soc_nems_id": "39-4031",
+      "title": "Morticians, Undertakers, and Funeral Arrangers",
+      "occ_title": "Morticians, undertakers, and funeral arrangers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "812200",
+      "industry_title": "Death care services",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 24.7,
+      "per_industry": 18.4,
+      "per_occupation": 90,
+      "employed_10": 26.6,
+      "per_industry_10": 19,
+      "per_occupation_10": 89.1,
+      "emp_change_10": 2,
+      "per_change_10": 7.9,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "39-4031.00",
+      "soc_nems_id": "39-4031",
+      "title": "Morticians, Undertakers, and Funeral Arrangers",
+      "occ_title": "Morticians, undertakers, and funeral arrangers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "999100",
+      "industry_title": "Federal government, excluding postal service",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.2,
+      "per_industry": 0,
+      "per_occupation": 0.8,
+      "employed_10": 0.2,
+      "per_industry_10": 0,
+      "per_occupation_10": 0.7,
+      "emp_change_10": 0,
+      "per_change_10": -3.8,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "39-4031.00",
@@ -14932,5 +14982,11 @@
       "h": 0.301495477865341,
       "color": "#4DBC12"
     }
-  ]
+  ],
+  "per_change_10_nat": 9,
+  "employed_nat": 27.4,
+  "employed_10_nat": 29.9,
+  "bright_futures": "Bright",
+  "automation_risk": "Low",
+  "near_future": "Projected to grow rapidly."
 }

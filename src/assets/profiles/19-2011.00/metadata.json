@@ -3502,6 +3502,80 @@
       "hourly": null
     }
   ],
+  "projections": [
+    {
+      "soc_id": "19-2011.00",
+      "soc_nems_id": "19-2011",
+      "title": "Astronomers",
+      "occ_title": "Astronomers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "541710",
+      "industry_title": "Research and development in the physical, engineering, and life sciences",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.9,
+      "per_industry": 0.1,
+      "per_occupation": 41.1,
+      "employed_10": 1,
+      "per_industry_10": 0.1,
+      "per_occupation_10": 42.9,
+      "emp_change_10": 0.1,
+      "per_change_10": 10,
+      "employed_rank": 1,
+      "per_industry_rank": 1,
+      "per_occupation_rank": 1,
+      "curr_rank_avg": 1,
+      "curr_emp_avg_rank": 1
+    },
+    {
+      "soc_id": "19-2011.00",
+      "soc_nems_id": "19-2011",
+      "title": "Astronomers",
+      "occ_title": "Astronomers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "999100",
+      "industry_title": "Federal government, excluding postal service",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.5,
+      "per_industry": 0,
+      "per_occupation": 22.5,
+      "employed_10": 0.5,
+      "per_industry_10": 0,
+      "per_occupation_10": 20.5,
+      "emp_change_10": 0,
+      "per_change_10": -3.8,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 3,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    },
+    {
+      "soc_id": "19-2011.00",
+      "soc_nems_id": "19-2011",
+      "title": "Astronomers",
+      "occ_title": "Astronomers",
+      "grouping": "Detailed Occupation",
+      "naics_code": "611302",
+      "industry_title": "Colleges, universities, and professional schools; state",
+      "year": 2021,
+      "project_year": 2031,
+      "employed": 0.5,
+      "per_industry": 0,
+      "per_occupation": 23.4,
+      "employed_10": 0.6,
+      "per_industry_10": 0,
+      "per_occupation_10": 23.9,
+      "emp_change_10": 0,
+      "per_change_10": 8.1,
+      "employed_rank": 2,
+      "per_industry_rank": 2,
+      "per_occupation_rank": 2,
+      "curr_rank_avg": 2,
+      "curr_emp_avg_rank": 2
+    }
+  ],
   "behaviors_abilities": [
     {
       "soc_id": "19-2011.00",
@@ -5628,5 +5702,11 @@
       "color": "#7FB2C0"
     }
   ],
-  "behaviors_knowledge": null
+  "behaviors_knowledge": null,
+  "per_change_10_nat": 5.6,
+  "employed_nat": 2.2,
+  "employed_10_nat": 2.4,
+  "bright_futures": "Average",
+  "automation_risk": "Low",
+  "near_future": null
 }
