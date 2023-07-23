@@ -1,5 +1,5 @@
 :host {
-  @media (width <= 1168px) {
+  @media (width <= 1240px) {
     .toggle,
     .legend-group {
       width: 100% !important;
@@ -17,9 +17,14 @@
     }
   }
 
-  @media (width <= 480px) {
+  @media (width <= 600px) {
     .sub-section-content {
       display: none;
+    }
+
+    .legend-item {
+      font-size: 0.875rem;
+      width: 22% !important;
     }
   }
 
@@ -27,26 +32,51 @@
   display: flex;
   flex-direction: column;
 
-  .high,
-  .med,
-  .low {
-    color: white;
+  .importance {
+    .high,
+    .med,
+    .low {
+      color: white;
+    }
+
+    .high {
+      background: black;
+    }
+
+    .med {
+      background: #381e72;
+    }
+
+    .low {
+      background: #6750a4;
+    }
+
+    .lowest {
+      background: #cfbcff;
+    }
   }
 
-  .high {
-    background: black;
-  }
+  .frequency {
+    .high,
+    .med {
+      color: white;
+    }
 
-  .med {
-    background: #381e72;
-  }
+    .high {
+      background: black;
+    }
 
-  .low {
-    background: #6750a4;
-  }
+    .med {
+      background: #5e1134;
+    }
 
-  .lowest {
-    background: #cfbcff;
+    .low {
+      background: #d57195;
+    }
+
+    .lowest {
+      background: #ffb0c9;
+    }
   }
 
   .controls {
@@ -121,6 +151,7 @@
         width: 32.375rem;
         justify-content: space-between;
         gap: 0.5rem;
+        height: 2.5rem;
 
         .legend-item {
           display: flex;
@@ -132,6 +163,8 @@
           border-radius: 100px;
           line-height: 1rem;
           flex-grow: 1;
+          width: 25%;
+          text-align: center;
         }
       }
     }

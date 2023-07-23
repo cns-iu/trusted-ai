@@ -17,7 +17,7 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Reported job title examples</div>
-      <div class="sub-section-content">{{ currentJobInfo.alt_titles?.toString() }}</div>
+      <div class="sub-section-content">{{ currentJobInfo.alt_titles.toString() }}</div>
     </div>
   </div>
 </div>
@@ -30,6 +30,26 @@
     <div class="job-header">
       <div class="code">{{ currentJobInfo['soc_id'] }}</div>
       <div class="section-title">{{ currentJobInfo['title'] }}</div>
+    </div>
+    <div class="treemaps">
+      <mat-tab-group (selectedTabChange)="refreshTreemaps()" fitInkBarToContent disablePagination>
+        <mat-tab label="Activities">
+          <div class="treemaps-title">Activities by Importance</div>
+          <trust-ai-treemap #treemap1 [activitiesData]="treemapWorkActivitiesData"></trust-ai-treemap>
+        </mat-tab>
+        <mat-tab label="Skills">
+          <div class="treemaps-title">Skills by Importance</div>
+          <trust-ai-treemap #treemap2 [skillsData]="treemapSkillsData"></trust-ai-treemap>
+        </mat-tab>
+        <mat-tab label="Knowledge">
+          <div class="treemaps-title">Knowledge by Importance</div>
+          <trust-ai-treemap #treemap3 [knowledgeData]="treemapKnowledgeData"></trust-ai-treemap>
+        </mat-tab>
+        <mat-tab label="Abilities">
+          <div class="treemaps-title">Abilities by Importance</div>
+          <trust-ai-treemap #treemap4 [abilitiesData]="treemapAbilitiesData"></trust-ai-treemap>
+        </mat-tab>
+      </mat-tab-group>
     </div>
   </div>
 </div>
@@ -174,19 +194,59 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Occupation Projection</div>
-      <div class="sub-section-content"></div>
+      <div class="sub-section-content projection">
+        <trust-ai-profile-occupation-projection
+          [dataProjections]="projectionInfo"
+        ></trust-ai-profile-occupation-projection>
+      </div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Near Term Outlook</div>
-      <div class="sub-section-content"></div>
+      <div class="sub-section-content">
+        {{ outlookDescription }}
+      </div>
     </div>
     <div class="sub-section">
-      <div class="sub-section-title">Automation Risk</div>
-      <div class="sub-section-content"></div>
+      <div class="sub-section-title">
+        Automation Risk
+        <div class="risk-tag">
+          {{ currentJobInfo['automation_risk'] }}
+        </div>
+      </div>
+      <div class="sub-section-content">
+        {{ automationDescription }}
+      </div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Future of Work Resources</div>
-      <div class="sub-section-content"></div>
+      <div class="sub-section-content">
+        <div class="button-group">
+          <button
+            class="resource-link"
+            onClick="window.open('https://www.onetonline.org/find/bright?b=0')"
+            mat-stroked-button
+            color="primary"
+          >
+            Bright Outlook Projections
+          </button>
+          <button
+            class="resource-link"
+            onClick="window.open('https://www.oxfordmartin.ox.ac.uk/downloads/academic/future-of-employment.pdf')"
+            mat-stroked-button
+            color="primary"
+          >
+            Future of Employment Report
+          </button>
+          <button
+            class="resource-link"
+            onClick="window.open('https://www.onetcenter.org/future_of_work')"
+            mat-stroked-button
+            color="primary"
+          >
+            Future of Work: Bibliography of Papers
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

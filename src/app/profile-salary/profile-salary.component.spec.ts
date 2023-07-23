@@ -58,36 +58,4 @@ describe('ProfileSalaryComponent', () => {
       dataInd: mockChange,
     });
   });
-
-  // it('should handle missing a_mean values', async () => {
-  //   const mockChange = {
-  //     currentValue: [],
-  //     previousValue: [],
-  //     firstChange: false,
-  //     isFirstChange: () => false,
-  //   };
-  //   component.dataInd = [
-  //     {
-  //       year: 2022,
-  //       industry_name: 'industry',
-  //       a_pct10: 0,
-  //       a_pct25: 1,
-  //       a_median: 2,
-  //       a_pct75: 3,
-  //       a_pct90: 4
-  //     },
-  //     {
-  //       year: 2022,
-  //       industry_name: 'industry',
-  //       a_pct10: 0,
-  //       a_pct25: 1,
-  //       a_median: 2,
-  //       a_pct75: 3,
-  //       a_pct90: 4
-  //     },
-  //   ];
-  //   await component.ngOnChanges({
-  //     dataInd: mockChange,
-  //   });
-  // });
 });

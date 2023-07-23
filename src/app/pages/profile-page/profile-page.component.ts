@@ -1,34 +1,59 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { PreparednessLevels } from 'src/app/career-card/career-card.component';
+import { ProfileEmploymentComponent } from 'src/app/profile-employment/profile-employment.component';
+import { ProfileOccupationProjectionComponent } from 'src/app/profile-occupation-projection/profile-occupation-projection.component';
 import { ProfileSalaryComponent } from 'src/app/profile-salary/profile-salary.component';
 import { ProfileTechnologySkillsComponent } from 'src/app/profile-technology-skills/profile-technology-skills.component';
 import { SearchBoxComponent } from 'src/app/search-box/search-box.component';
+import { TreemapComponent } from 'src/app/treemap/treemap.component';
 import { WorkTasksListComponent } from 'src/app/work-tasks-list/work-tasks-list.component';
-import { ProfileEmploymentComponent } from 'src/app/profile-employment/profile-employment.component';
 
 /** Queried job data format */
 export interface AllJobInfo {
   /** Job data value */
   [key: string]: unknown;
   /** List of alternative job titles */
-  alt_titles?: string[];
+  alt_titles: string[];
   /** Job zone (preparedness level) */
-  job_zone?: number;
+  job_zone: number;
   /** List of technology skills */
-  tech_skills?: TechSkill[];
+  tech_skills: TechSkill[];
   /** List of work tasks */
-  work_tasks?: WorkTasks[];
+  work_tasks: WorkTasks[];
   /** List of state salary info */
-  salary_states?: SalaryInfo[];
+  salary_states: SalaryInfo[];
   /** List of national salary info */
-  salary_nat?: SalaryInfo[];
+  salary_nat: SalaryInfo[];
   /** List of industry salary info */
   salary_ind?: SalaryInfo[];
+  /** Abilities treemap data */
+  behaviors_abilities?: TreemapData[];
+  /** Work activities treemap data */
+  behaviors_work_activities?: TreemapData[];
+  /** Skills treemap data */
+  behaviors_skills?: TreemapData[];
+  /** Knowledge treemap data */
+  behaviors_knowledge?: TreemapData[];
+  /** List of industry projection data */
+  projections: ProjectionInfo[];
+  /** National employed total */
+  employed_nat: number;
+  /** Projected national employed total */
+  employed_10_nat: number;
+  /** National percent change */
+  per_change_10_nat: number;
+  /** Bright future status */
+  bright_futures: string;
+  /** Automation risk projection */
+  automation_risk: string;
+  /** Near term outlook */
+  near_future: string;
 }
 
 /** Info on a technology skill */
@@ -73,6 +98,45 @@ export interface SalaryInfo {
   tot_emp?: number;
 }
 
+/** Treemap data entry */
+export interface TreemapData {
+  /** Element name */
+  element_name: string;
+  /** Parent group */
+  sub_group: string;
+  /** Highest level group */
+  group: string;
+  /** Level of element */
+  level: number;
+  /** x0 coordinate */
+  x0: number;
+  /** y0 coordinate */
+  y0: number;
+  /** x1 coordinate */
+  x1: number;
+  /** y1 coordinate */
+  y1: number;
+}
+
+/** Occupation projection info */
+export interface ProjectionInfo {
+  /** Industry title */
+  industry_title?: string;
+  /** Number employed in industry */
+  employed?: number;
+  /** Projected number employed in 10 years */
+  employed_10?: number;
+  /** Percent employment change in 10 years */
+  per_change_10?: number;
+}
+
+/** Outlook descriptions */
+const outlookDescriptions: Record<string, string> = {
+  Bright: 'Many job openings predicted in the near future',
+  Average: 'Average outlook',
+  'Below Average': 'Below average outlook',
+};
+
 /**
  * Profile page component
  */
@@ -88,6 +152,9 @@ export interface SalaryInfo {
     ProfileSalaryComponent,
     WorkTasksListComponent,
     ProfileEmploymentComponent,
+    TreemapComponent,
+    MatTabsModule,
+    ProfileOccupationProjectionComponent,
   ],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
@@ -97,8 +164,34 @@ export class ProfilePageComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   /** Http client */
   private readonly http = inject(HttpClient);
+
+  /** Treemap1 element */
+  @ViewChild('treemap1') private treemap1: TreemapComponent = new TreemapComponent();
+  /** Treemap2 element */
+  @ViewChild('treemap2') private treemap2: TreemapComponent = new TreemapComponent();
+  /** Treemap3 element */
+  @ViewChild('treemap3') private treemap3: TreemapComponent = new TreemapComponent();
+  /** Treemap4 element */
+  @ViewChild('treemap4') private treemap4: TreemapComponent = new TreemapComponent();
+
   /** Current job info */
-  currentJobInfo: AllJobInfo = {};
+  currentJobInfo: AllJobInfo = {
+    alt_titles: [],
+    job_zone: 1,
+    tech_skills: [],
+    work_tasks: [],
+    salary_states: [],
+    salary_nat: [],
+    salary_ind: [],
+    projections: [],
+    employed_nat: 0,
+    employed_10_nat: 0,
+    per_change_10_nat: 0,
+    bright_futures: '',
+    automation_risk: '',
+    near_future: '',
+  };
+
   /** Tech skills for the job (each pair = type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] = [];
   /** Work tasks list */
@@ -113,6 +206,36 @@ export class ProfilePageComponent implements OnInit {
   showAllTasks = false;
   /** Whether or not all technology skills should be displayed */
   showAllSkills = false;
+  /** Work Activities data */
+  treemapWorkActivitiesData: TreemapData[] = [];
+  /** Skills data */
+  treemapSkillsData: TreemapData[] = [];
+  /** Knowledge data */
+  treemapKnowledgeData: TreemapData[] = [];
+  /** Abilities data */
+  treemapAbilitiesData: TreemapData[] = [];
+  /** Occupation projection data */
+  projectionInfo: ProjectionInfo[] = [];
+
+  /**
+   * Gets automation description
+   */
+  get automationDescription(): string {
+    if (this.currentJobInfo['automation_risk']) {
+      return `This job has a ${this.currentJobInfo['automation_risk'].toLowerCase()} risk of automation.`;
+    } else {
+      return 'No data';
+    }
+  }
+
+  /**
+   * Gets outlook description
+   */
+  get outlookDescription(): string {
+    return this.currentJobInfo['near_future']
+      ? this.currentJobInfo['near_future']
+      : outlookDescriptions[this.currentJobInfo['bright_futures']];
+  }
 
   /**
    * Scrolls to top of page and fetches profile data on init
@@ -148,6 +271,27 @@ export class ProfilePageComponent implements OnInit {
         }
         if (this.currentJobInfo['work_tasks']) {
           this.workTasks = this.currentJobInfo['work_tasks'];
+        }
+        if (this.currentJobInfo['behaviors_work_activities']) {
+          this.treemapWorkActivitiesData = this.currentJobInfo['behaviors_work_activities'];
+        }
+        if (this.currentJobInfo['behaviors_skills']) {
+          this.treemapSkillsData = this.currentJobInfo['behaviors_skills'];
+        }
+        if (this.currentJobInfo['behaviors_knowledge']) {
+          this.treemapKnowledgeData = this.currentJobInfo['behaviors_knowledge'];
+        }
+        if (this.currentJobInfo['behaviors_abilities']) {
+          this.treemapAbilitiesData = this.currentJobInfo['behaviors_abilities'];
+        }
+        if (this.currentJobInfo['projections']) {
+          this.projectionInfo = this.currentJobInfo['projections'];
+          this.projectionInfo.push({
+            industry_title: 'National average',
+            employed: this.currentJobInfo['employed_nat'],
+            employed_10: this.currentJobInfo['employed_10_nat'],
+            per_change_10: this.currentJobInfo['per_change_10_nat'],
+          });
         }
       })
     );
@@ -198,5 +342,12 @@ export class ProfilePageComponent implements OnInit {
    */
   showAllWorkTasksButtonClicked(): void {
     this.showAllTasks = !this.showAllTasks;
+  }
+
+  /**
+   * Refreshs all treemaps
+   */
+  refreshTreemaps(): void {
+    [this.treemap1, this.treemap2, this.treemap3, this.treemap4].forEach((treemap) => treemap.reload());
   }
 }

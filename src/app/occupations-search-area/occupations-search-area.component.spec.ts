@@ -54,4 +54,10 @@ describe('OccupationsSearchAreaComponent', () => {
     component.inputChange(testInputEvent);
     expect(component.filtersChanged.emit).toHaveBeenCalled();
   });
+
+  it('should open the dailog', async () => {
+    jest.spyOn(component.filtersChanged, 'emit');
+    component.filters = testFilters;
+    component.openDialog();
+  });
 });
