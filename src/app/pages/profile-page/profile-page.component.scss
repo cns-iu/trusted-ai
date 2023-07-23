@@ -8,10 +8,6 @@
       }
     }
 
-    .sub-section-title {
-      font-size: 1.375rem !important;
-    }
-
     .sub-section-content {
       font-size: 0.875rem !important;
       line-height: 1.25rem !important;
@@ -43,7 +39,8 @@
       width: calc(100% - 2rem) !important;
     }
 
-    .sub-section-title {
+    .sub-section-title,
+    .treemaps-title {
       font-size: 1rem !important;
       font-weight: 500;
       line-height: 1.5rem;
@@ -92,7 +89,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-size: 1.75rem;
       background: #e9ddff;
       padding: 1.5rem 0;
       width: 100%;
@@ -126,7 +122,6 @@
           display: flex;
           align-items: center;
           gap: 10px;
-          width: 100%;
         }
 
         .sub-section-content {
@@ -161,9 +156,9 @@
           border-bottom: 1px solid #e6e0e9;
         }
 
-        .sub-section-title {
+        .treemaps-title {
           padding: 1.5rem 0;
-          line-height: 1.75rem;
+          font-size: 1.375rem;
         }
 
         .mdc-tab__text-label {
@@ -222,8 +217,6 @@
 
     &.projection {
       .sub-section {
-        align-items: center;
-
         .projection {
           height: 65vw;
         }
@@ -232,15 +225,13 @@
           display: flex;
           justify-content: space-between;
           gap: 1rem;
+          line-height: 1rem;
 
           .resource-link {
             border-radius: 1rem;
             border-color: rgb(122, 117, 127);
             color: #6750a4;
-            font-size: 0.875rem;
-            font-weight: 500;
             width: calc((100% - 2rem) / 3);
-            height: 2.5rem;
           }
         }
       }

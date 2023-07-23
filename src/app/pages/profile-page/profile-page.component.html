@@ -31,23 +31,23 @@
       <div class="code">{{ currentJobInfo['soc_id'] }}</div>
       <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
-    <div class="sub-section-content">
-      <mat-tab-group (selectedTabChange)="refreshVis()" fitInkBarToContent disablePagination="true">
+    <div class="treemaps">
+      <mat-tab-group (selectedTabChange)="refreshTreemaps()" fitInkBarToContent disablePagination>
         <mat-tab label="Activities">
-          <div class="sub-section-title">Activities by Importance</div>
-          <trust-ai-treemap #vis1 [activitiesData]="treemapWorkActivitiesData"></trust-ai-treemap>
+          <div class="treemaps-title">Activities by Importance</div>
+          <trust-ai-treemap #treemap1 [activitiesData]="treemapWorkActivitiesData"></trust-ai-treemap>
         </mat-tab>
         <mat-tab label="Skills">
-          <div class="sub-section-title">Skills by Importance</div>
-          <trust-ai-treemap #vis2 [skillsData]="treemapSkillsData"></trust-ai-treemap>
+          <div class="treemaps-title">Skills by Importance</div>
+          <trust-ai-treemap #treemap2 [skillsData]="treemapSkillsData"></trust-ai-treemap>
         </mat-tab>
         <mat-tab label="Knowledge">
-          <div class="sub-section-title">Knowledge by Importance</div>
-          <trust-ai-treemap #vis3 [knowledgeData]="treemapKnowledgeData"></trust-ai-treemap>
+          <div class="treemaps-title">Knowledge by Importance</div>
+          <trust-ai-treemap #treemap3 [knowledgeData]="treemapKnowledgeData"></trust-ai-treemap>
         </mat-tab>
         <mat-tab label="Abilities">
-          <div class="sub-section-title">Abilities by Importance</div>
-          <trust-ai-treemap #vis4 [abilitiesData]="treemapAbilitiesData"></trust-ai-treemap>
+          <div class="treemaps-title">Abilities by Importance</div>
+          <trust-ai-treemap #treemap4 [abilitiesData]="treemapAbilitiesData"></trust-ai-treemap>
         </mat-tab>
       </mat-tab-group>
     </div>
@@ -203,11 +203,7 @@
     <div class="sub-section">
       <div class="sub-section-title">Near Term Outlook</div>
       <div class="sub-section-content">
-        {{
-          currentJobInfo['near_future']
-            ? currentJobInfo['near_future']
-            : outlookDescription[currentJobInfo['bright_futures']]
-        }}
+        {{ outlookDescription }}
       </div>
     </div>
     <div class="sub-section">
@@ -218,7 +214,7 @@
         </div>
       </div>
       <div class="sub-section-content">
-        {{ automationDescription() }}
+        {{ automationDescription }}
       </div>
     </div>
     <div class="sub-section">

@@ -15,7 +15,23 @@ describe('ProfileOccupationProjectionComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create specs with data', async () => {
+    const mockChange = {
+      currentValue: [],
+      previousValue: [],
+      firstChange: false,
+      isFirstChange: () => false,
+    };
+    component.dataProjections = [
+      {
+        industry_title: 'title',
+        employed: 1000,
+        employed_10: 2000,
+        per_change_10: 100,
+      },
+    ];
+    await component.ngOnChanges({
+      dataProjections: mockChange,
+    });
   });
 });

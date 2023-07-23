@@ -5,6 +5,9 @@ import embed, { VisualizationSpec } from 'vega-embed';
 
 import { ProjectionInfo } from '../pages/profile-page/profile-page.component';
 
+/**
+ * Profile occupation projection visualization
+ */
 @Component({
   selector: 'trust-ai-profile-occupation-projection',
   standalone: true,
@@ -17,7 +20,7 @@ export class ProfileOccupationProjectionComponent implements OnChanges {
   @ViewChild('vis') vis?: ElementRef;
   /** Vega lite spec for visualization */
   @Input() spec: VisualizationSpec = {};
-
+  /** Projections data */
   @Input() dataProjections: ProjectionInfo[] = [];
 
   /**

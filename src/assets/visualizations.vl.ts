@@ -141,22 +141,35 @@ function parseIndData(values: SalaryInfo[]): unknown[] {
     }).slice(0, 5)
 }
 
+/**
+ * Parses data for treemap visualization
+ * @param values Treemap data
+ * @param layers Number of layers in treemap
+ * @returns parsed data
+ */
 function parseTreemapData(values: TreemapData[], layers: number): unknown[] {
   return values.map(entry => {
+    const entryNames = [entry['element_name'], entry['sub_group'], entry['group']].filter(entry => entry)
     return {
-      name: entry['element_id'] ? entry['element_name'] : entry['sub_group'] ? entry['sub_group'] : entry['group'],
+      name: entryNames[0],
+      parent_group: entryNames[1],
+      grandparent_group: entryNames.length === 3 ? entryNames[2] : null,
       x0: entry['x0'],
       y0: entry['y0'],
       x1: entry['x1'],
       y1: entry['y1'],
-      color: entry['color'],
       depth: entry['level'],
-      children: entry['element_id'] ? 0 : 1,
+      children: entry['element_name'] ? 0 : 1,
       layers: layers
     }
   })
 }
 
+/**
+ * Parses data for occupation projection visualization
+ * @param values Projection data
+ * @returns projection data
+ */
 function parseProjectionData(values: ProjectionInfo[]): unknown[] {
   const result = [];
   for (const occ of values) {
@@ -193,7 +206,7 @@ export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
     params: [
       {
         name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} <= 480, 14, 18)`
+        expr: `if (${window.innerWidth} <= 600, 14, 18)`
       },
     ],
     mark: {
@@ -260,15 +273,15 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
       },
       {
         name: 'gradientTitleSize',
-        expr: `if (${window.innerWidth} <= 480, 10, 20)`
+        expr: `if (${window.innerWidth} <= 600, 10, 20)`
       },
       {
         name: 'gradientLabelSize',
-        expr: `if (${window.innerWidth} <= 480, 10, 16)`
+        expr: `if (${window.innerWidth} <= 600, 10, 16)`
       },
       {
         name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} <= 480, 12, 18)`
+        expr: `if (${window.innerWidth} <= 600, 12, 18)`
       },
     ],
     width: 'container',
@@ -359,7 +372,7 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
     params: [
       {
         name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} <= 480, 14, 18)`
+        expr: `if (${window.innerWidth} <= 600, 14, 18)`
       },
     ],
     encoding: {
@@ -371,7 +384,7 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
           labelFontSize: 15,
           titleFontSize: { expr: 'axisTitleSize' },
           labelAngle: -45,
-          labelLimit: 300,
+          labelLimit: window.innerWidth <= 600 ? 150 : 300,
         },
         sort: {
           field: 'mid_box_salary'
@@ -491,11 +504,15 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
   };
 }
 
+/**
+ * Creates treemap visuallization
+ * @param values treemap data
+ * @param layers layers in visualization
+ * @returns treemap spec
+ */
 export function createTreemap(values: TreemapData[], layers: number): VisualizationSpec {
   return {
     $schema: 'https://vega.github.io/schema/vega/v5.json',
-    width: { signal: 'width' },
-    // autosize: {"contains": 'content'},
     autosize: { type: "none", "contains": 'content' },
     signals: [
       {
@@ -515,6 +532,16 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
           {
             events: { source: 'window', type: 'resize' },
             update: 'containerSize()[1]'
+          }
+        ]
+      },
+      {
+        name: 'treemapTextSize',
+        update: "if(width < 550, [18, 12, 10], [28, 20, 14])",
+        on: [
+          {
+            events: { source: 'window', type: 'resize' },
+            update: "if(width < 550, [18, 12, 10], [28, 20, 14])"
           }
         ]
       }
@@ -557,13 +584,13 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
         name: 'size',
         type: 'ordinal',
         domain: [1, 2, 3],
-        range: [28, 20, 14]
+        range: { signal: 'treemapTextSize' }
       },
       {
         name: 'opacity',
         type: 'ordinal',
         domain: [1, 2, 3],
-        range: [0.5, 0.8, 1.0]
+        range: [0.3, 0.8, 1.0]
       }
     ],
 
@@ -590,7 +617,11 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
         encode: {
           enter: {
             stroke: { value: '#fff' },
-            tooltip: { signal: "datum['name']" }
+            tooltip: {
+              signal: layers === 3 ?
+                "{'Behavior': datum.name, 'Parent Group': datum.parent_group, 'Main Group': datum.grandparent_group}"
+                : "{'Behavior': datum.name, 'Parent Group': datum.parent_group}"
+            }
           },
           update: {
             x: { signal: "datum['x0'] * width" },
@@ -635,6 +666,11 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
   }
 }
 
+/**
+ * Creates projections visualization
+ * @param values Projections data
+ * @returns projections plot
+ */
 export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSpec {
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
@@ -648,11 +684,11 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
     params: [
       {
         name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} <= 480, 14, 18)`
+        expr: `if (${window.innerWidth} <= 600, 14, 18)`
       },
       {
         name: 'labelLength',
-        expr: `if (${window.innerWidth} <= 480, 100, 200)`
+        expr: `if (${window.innerWidth} <= 600, 100, 200)`
       },
     ],
     encoding: {
