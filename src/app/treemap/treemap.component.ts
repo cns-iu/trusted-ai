@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { createTreemap } from 'src/assets/visualizations.vl';
-import embed from 'vega-embed';
+import embed, { VisualizationSpec } from 'vega-embed';
 
 import { TreemapData } from '../pages/profile-page/profile-page.component';
 
+/**
+ * Profile work behaviors treemap visualization
+ */
 @Component({
   selector: 'trust-ai-treemap',
   standalone: true,
@@ -15,12 +18,22 @@ import { TreemapData } from '../pages/profile-page/profile-page.component';
 export class TreemapComponent implements OnChanges {
   /** Visualization element */
   @ViewChild('vis') vis?: ElementRef;
-  @Input() spec = {};
+  /** Vega lite spec for visualization */
+  @Input() spec: VisualizationSpec = {};
+  /** Activities treemap data */
   @Input() activitiesData: TreemapData[] = [];
+  /** Skills treemap data */
   @Input() skillsData: TreemapData[] = [];
+  /** Knowledge treemap data */
   @Input() knowledgeData: TreemapData[] = [];
+  /** Abilities treemap data */
   @Input() abilitiesData: TreemapData[] = [];
 
+  /**
+   * Updates visualizations on data changes
+   * @param changes Changes
+   * @returns Promise
+   */
   async ngOnChanges(changes: SimpleChanges): Promise<void> {
     if ('activitiesData' in changes) {
       this.spec = createTreemap(this.activitiesData, 3);
@@ -39,6 +52,9 @@ export class TreemapComponent implements OnChanges {
     }
   }
 
+  /**
+   * Reloads treemap visualization
+   */
   reload() {
     embed(this.vis?.nativeElement, this.spec, { actions: false });
   }
