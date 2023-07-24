@@ -83,7 +83,7 @@ GROUP BY r.soc_id;
 
 \t
 \a
-\o src/assets/data/profile_data.json
+\o tmp/profile_data.json
 SELECT array_to_json(array_agg(ROW_TO_JSON(r)), TRUE)
 FROM (
   SELECT
