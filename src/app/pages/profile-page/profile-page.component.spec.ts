@@ -1,7 +1,9 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
+import { mock } from 'jest-mock-extended';
 import { BehaviorSubject } from 'rxjs';
+import { TreemapComponent } from 'src/app/treemap/treemap.component';
 
 import { ProfilePageComponent } from './profile-page.component';
 
@@ -9,6 +11,7 @@ describe('ProfilePageComponent', () => {
   let component: ProfilePageComponent;
   let controller: HttpTestingController;
   const paramsSubject = new BehaviorSubject({ code: '11111' });
+  const treemap = mock<TreemapComponent>();
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
@@ -119,5 +122,13 @@ describe('ProfilePageComponent', () => {
   it('scrolls to top', () => {
     component.scrollToTop();
     expect(window.scrollY).toEqual(0);
+  });
+
+  it('refreshes the treemaps', () => {
+    component.treemap1 = treemap;
+    component.treemap2 = treemap;
+    component.treemap3 = treemap;
+    component.treemap4 = treemap;
+    component.refreshTreemaps();
   });
 });

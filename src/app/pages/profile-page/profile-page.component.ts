@@ -169,16 +169,16 @@ export class ProfilePageComponent implements OnInit {
   private readonly http = inject(HttpClient);
 
   /** Treemap1 element */
-  @ViewChild('treemap1') private treemap1: TreemapComponent = new TreemapComponent();
+  @ViewChild('treemap1') treemap1: TreemapComponent = new TreemapComponent();
 
   /** Treemap2 element */
-  @ViewChild('treemap2') private treemap2: TreemapComponent = new TreemapComponent();
+  @ViewChild('treemap2') treemap2: TreemapComponent = new TreemapComponent();
 
   /** Treemap3 element */
-  @ViewChild('treemap3') private treemap3: TreemapComponent = new TreemapComponent();
+  @ViewChild('treemap3') treemap3: TreemapComponent = new TreemapComponent();
 
   /** Treemap4 element */
-  @ViewChild('treemap4') private treemap4: TreemapComponent = new TreemapComponent();
+  @ViewChild('treemap4') treemap4: TreemapComponent = new TreemapComponent();
 
   /** Current job info */
   currentJobInfo: AllJobInfo = {
