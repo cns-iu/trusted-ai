@@ -4,15 +4,21 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent, RouterTestingModule],
+      providers: [AppComponent],
     }).compileComponents();
+
+    window.scrollTo = jest.fn();
+    component = TestBed.inject(AppComponent);
   });
 
-  it(`should have as title 'trust-ai'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('trust-ai');
+  it('scrolls to top', () => {
+    const spy = jest.spyOn(window, 'scrollTo');
+    component.scrollToTop();
+    expect(spy).toHaveBeenCalled();
   });
 });
