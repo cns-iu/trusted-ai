@@ -18,14 +18,19 @@ import { WorkTasks } from '../pages/profile-page/profile-page.component';
 export class WorkTasksListComponent implements DoCheck {
   /** List of all tasks */
   @Input() tasks: WorkTasks[] = [];
+
   /** Whether to show all tasks or not */
   @Input() showAll = false;
+
   /** List type selected (0 = importance, 1 = frequency) */
   @Input() selection = '0';
+
   /** Emits when show all is clicked */
   @Output() showAllButtonClick = new EventEmitter();
+
   /** Emits when list selection changed */
   @Output() readonly selectionChanged = new EventEmitter<string>();
+
   /** Currently visible tasks */
   tasksShown: WorkTasks[] = [];
 
