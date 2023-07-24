@@ -18,14 +18,19 @@ import { TreemapData } from '../pages/profile-page/profile-page.component';
 export class TreemapComponent implements OnChanges {
   /** Visualization element */
   @ViewChild('vis') vis?: ElementRef;
+
   /** Vega lite spec for visualization */
   @Input() spec: VisualizationSpec = {};
+
   /** Activities treemap data */
   @Input() activitiesData: TreemapData[] = [];
+
   /** Skills treemap data */
   @Input() skillsData: TreemapData[] = [];
+
   /** Knowledge treemap data */
   @Input() knowledgeData: TreemapData[] = [];
+
   /** Abilities treemap data */
   @Input() abilitiesData: TreemapData[] = [];
 

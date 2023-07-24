@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { CareerCardComponent } from './career-card.component';
 
 describe('CareerCardComponent', () => {
