@@ -19,17 +19,17 @@ export interface AllJobInfo {
   /** Job data value */
   [key: string]: unknown;
   /** List of alternative job titles */
-  alt_titles: string[];
+  alt_titles?: string[];
   /** Job zone (preparedness level) */
-  job_zone: number;
+  job_zone?: number;
   /** List of technology skills */
-  tech_skills: TechSkill[];
+  tech_skills?: TechSkill[];
   /** List of work tasks */
-  work_tasks: WorkTasks[];
+  work_tasks?: WorkTasks[];
   /** List of state salary info */
-  salary_states: SalaryInfo[];
+  salary_states?: SalaryInfo[];
   /** List of national salary info */
-  salary_nat: SalaryInfo[];
+  salary_nat?: SalaryInfo[];
   /** List of industry salary info */
   salary_ind?: SalaryInfo[];
   /** Abilities treemap data */
@@ -41,19 +41,19 @@ export interface AllJobInfo {
   /** Knowledge treemap data */
   behaviors_knowledge?: TreemapData[];
   /** List of industry projection data */
-  projections: ProjectionInfo[];
+  projections?: ProjectionInfo[];
   /** National employed total */
-  employed_nat: number;
+  employed_nat?: number;
   /** Projected national employed total */
-  employed_10_nat: number;
+  employed_10_nat?: number;
   /** National percent change */
-  per_change_10_nat: number;
+  per_change_10_nat?: number;
   /** Bright future status */
-  bright_futures: string;
+  bright_futures?: string;
   /** Automation risk projection */
-  automation_risk: string;
+  automation_risk?: string;
   /** Near term outlook */
-  near_future: string;
+  near_future?: string;
 }
 
 /** Info on a technology skill */
@@ -162,15 +162,19 @@ const outlookDescriptions: Record<string, string> = {
 export class ProfilePageComponent implements OnInit {
   /** Scrolls to top of page */
   private readonly route = inject(ActivatedRoute);
+
   /** Http client */
   private readonly http = inject(HttpClient);
 
   /** Treemap1 element */
   @ViewChild('treemap1') private treemap1: TreemapComponent = new TreemapComponent();
+
   /** Treemap2 element */
   @ViewChild('treemap2') private treemap2: TreemapComponent = new TreemapComponent();
+
   /** Treemap3 element */
   @ViewChild('treemap3') private treemap3: TreemapComponent = new TreemapComponent();
+
   /** Treemap4 element */
   @ViewChild('treemap4') private treemap4: TreemapComponent = new TreemapComponent();
 
@@ -194,26 +198,37 @@ export class ProfilePageComponent implements OnInit {
 
   /** Tech skills for the job (each pair = type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] = [];
+
   /** Work tasks list */
   workTasks: WorkTasks[] = [];
+
   /** Salary states info */
   salaryStatesInfo: SalaryInfo[] = [];
+
   /** Salary national info */
   salaryNatInfo: SalaryInfo[] = [];
+
   /** Salary industry info */
   salaryIndInfo: SalaryInfo[] = [];
+
   /** Whether or not all work tasks should be displayed */
   showAllTasks = false;
+
   /** Whether or not all technology skills should be displayed */
   showAllSkills = false;
+
   /** Work Activities data */
   treemapWorkActivitiesData: TreemapData[] = [];
+
   /** Skills data */
   treemapSkillsData: TreemapData[] = [];
+
   /** Knowledge data */
   treemapKnowledgeData: TreemapData[] = [];
+
   /** Abilities data */
   treemapAbilitiesData: TreemapData[] = [];
+
   /** Occupation projection data */
   projectionInfo: ProjectionInfo[] = [];
 
@@ -234,7 +249,7 @@ export class ProfilePageComponent implements OnInit {
   get outlookDescription(): string {
     return this.currentJobInfo['near_future']
       ? this.currentJobInfo['near_future']
-      : outlookDescriptions[this.currentJobInfo['bright_futures']];
+      : outlookDescriptions[this.currentJobInfo['bright_futures'] ? this.currentJobInfo['bright_futures'] : 'No data'];
   }
 
   /**
@@ -242,7 +257,6 @@ export class ProfilePageComponent implements OnInit {
    */
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      this.scrollToTop();
       this.getData(params['code']).subscribe();
       this.showAllSkills = false;
     });

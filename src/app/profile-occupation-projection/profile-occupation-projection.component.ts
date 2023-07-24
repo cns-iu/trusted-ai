@@ -18,8 +18,10 @@ import { ProjectionInfo } from '../pages/profile-page/profile-page.component';
 export class ProfileOccupationProjectionComponent implements OnChanges {
   /** Visualization element */
   @ViewChild('vis') vis?: ElementRef;
+
   /** Vega lite spec for visualization */
   @Input() spec: VisualizationSpec = {};
+
   /** Projections data */
   @Input() dataProjections: ProjectionInfo[] = [];
 

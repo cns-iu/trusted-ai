@@ -30,16 +30,6 @@ describe('ProfilePageComponent', () => {
     controller = TestBed.inject(HttpTestingController);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('should scroll to top on load', () => {
-    const spy = jest.spyOn(component, 'scrollToTop');
-    component.ngOnInit();
-    expect(spy).toHaveBeenCalled();
-  });
-
   it('gets data', () => {
     component.ngOnInit();
     const req = controller.expectOne('assets/profiles/11111/metadata.json');
@@ -102,5 +92,32 @@ describe('ProfilePageComponent', () => {
   it('shows all work tasks', () => {
     component.showAllWorkTasksButtonClicked();
     expect(component.showAllTasks).toBeTruthy();
+  });
+
+  it('gets the automation description', () => {
+    component.currentJobInfo = {
+      automation_risk: 'low',
+    };
+    expect(component.automationDescription).toEqual('This job has a low risk of automation.');
+  });
+
+  it('gets the outlook description if near future is available', () => {
+    component.currentJobInfo = {
+      near_future: 'near future',
+    };
+    expect(component.outlookDescription).toEqual('near future');
+  });
+
+  it('gets the outlook description if near future is unavailable', () => {
+    component.currentJobInfo = {
+      near_future: undefined,
+      bright_futures: 'Bright',
+    };
+    expect(component.outlookDescription).toEqual('Many job openings predicted in the near future');
+  });
+
+  it('scrolls to top', () => {
+    component.scrollToTop();
+    expect(window.scrollY).toEqual(0);
   });
 });

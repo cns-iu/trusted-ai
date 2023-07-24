@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { TreemapComponent } from './treemap.component';
-import embed from 'vega-embed';
 
 describe('TreemapComponent', () => {
   let component: TreemapComponent;
