@@ -61,6 +61,9 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#createProjectionsPlot" title="src/assets/visualizations.vl.ts" ><b>createProjectionsPlot</b>&nbsp;&nbsp;&nbsp;(src/.../visualizations.vl.ts)</a>
+                        </li>
+                        <li>
                             <a href="#createSalaryIndPlot" title="src/assets/visualizations.vl.ts" ><b>createSalaryIndPlot</b>&nbsp;&nbsp;&nbsp;(src/.../visualizations.vl.ts)</a>
                         </li>
                         <li>
@@ -70,13 +73,22 @@
                             <a href="#createStatePlot" title="src/assets/visualizations.vl.ts" ><b>createStatePlot</b>&nbsp;&nbsp;&nbsp;(src/.../visualizations.vl.ts)</a>
                         </li>
                         <li>
+                            <a href="#createTreemap" title="src/assets/visualizations.vl.ts" ><b>createTreemap</b>&nbsp;&nbsp;&nbsp;(src/.../visualizations.vl.ts)</a>
+                        </li>
+                        <li>
                             <a href="#parseIndData" title="src/assets/visualizations.vl.ts" ><b>parseIndData</b>&nbsp;&nbsp;&nbsp;(src/.../visualizations.vl.ts)</a>
                         </li>
                         <li>
                             <a href="#parseNatData" title="src/assets/visualizations.vl.ts" ><b>parseNatData</b>&nbsp;&nbsp;&nbsp;(src/.../visualizations.vl.ts)</a>
                         </li>
                         <li>
+                            <a href="#parseProjectionData" title="src/assets/visualizations.vl.ts" ><b>parseProjectionData</b>&nbsp;&nbsp;&nbsp;(src/.../visualizations.vl.ts)</a>
+                        </li>
+                        <li>
                             <a href="#parseStateData" title="src/assets/visualizations.vl.ts" ><b>parseStateData</b>&nbsp;&nbsp;&nbsp;(src/.../visualizations.vl.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#parseTreemapData" title="src/assets/visualizations.vl.ts" ><b>parseTreemapData</b>&nbsp;&nbsp;&nbsp;(src/.../visualizations.vl.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -88,6 +100,73 @@
     <h3>src/assets/visualizations.vl.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createProjectionsPlot"></a>
+                    <span class="name">
+                        <span ><b>createProjectionsPlot</b></span>
+                        <a href="#createProjectionsPlot"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createProjectionsPlot(values)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Creates projections visualization</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>values</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Projections data</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>VisualizationSpec</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>projections plot</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
@@ -309,6 +388,92 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createTreemap"></a>
+                    <span class="name">
+                        <span ><b>createTreemap</b></span>
+                        <a href="#createTreemap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createTreemap(values, layers: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Creates treemap visuallization</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>values</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>treemap data</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>layers</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>layers in visualization</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>VisualizationSpec</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>treemap spec</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="parseIndData"></a>
                     <span class="name">
                         <span ><b>parseIndData</b></span>
@@ -443,6 +608,73 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="parseProjectionData"></a>
+                    <span class="name">
+                        <span ><b>parseProjectionData</b></span>
+                        <a href="#parseProjectionData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>parseProjectionData(values)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Parses data for occupation projection visualization</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>values</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Projection data</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>projection data</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="parseStateData"></a>
                     <span class="name">
                         <span ><b>parseStateData</b></span>
@@ -496,6 +728,92 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../interfaces/SalaryInfo.html" target="_self" >SalaryInfo[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>parsed data</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parseTreemapData"></a>
+                    <span class="name">
+                        <span ><b>parseTreemapData</b></span>
+                        <a href="#parseTreemapData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>parseTreemapData(values, layers: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Parses data for treemap visualization</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>values</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Treemap data</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>layers</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Number of layers in treemap</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>[]</code>
 
                     </div>
                     <div class="io-description">

@@ -144,6 +144,9 @@
                                 <a href="#currentJobInfo" >currentJobInfo</a>
                             </li>
                             <li>
+                                <a href="#projectionInfo" >projectionInfo</a>
+                            </li>
+                            <li>
                                 <a href="#salaryIndInfo" >salaryIndInfo</a>
                             </li>
                             <li>
@@ -160,6 +163,18 @@
                             </li>
                             <li>
                                 <a href="#techSkills" >techSkills</a>
+                            </li>
+                            <li>
+                                <a href="#treemapAbilitiesData" >treemapAbilitiesData</a>
+                            </li>
+                            <li>
+                                <a href="#treemapKnowledgeData" >treemapKnowledgeData</a>
+                            </li>
+                            <li>
+                                <a href="#treemapSkillsData" >treemapSkillsData</a>
+                            </li>
+                            <li>
+                                <a href="#treemapWorkActivitiesData" >treemapWorkActivitiesData</a>
                             </li>
                             <li>
                                 <a href="#workTasks" >workTasks</a>
@@ -180,6 +195,9 @@
                                 <a href="#preparednessLevel" >preparednessLevel</a>
                             </li>
                             <li>
+                                <a href="#refreshTreemaps" >refreshTreemaps</a>
+                            </li>
+                            <li>
                                 <a href="#scrollToTop" >scrollToTop</a>
                             </li>
                             <li>
@@ -196,6 +214,23 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#automationDescription" >automationDescription</a>
+                                </li>
+                                <li>
+                                    <a href="#outlookDescription" >outlookDescription</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -230,8 +265,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="185"
-                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:185</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="343"
+                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:343</a></div>
                 </td>
             </tr>
 
@@ -291,6 +326,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="refreshTreemaps"></a>
+                    <span class="name">
+                        <span ><b>refreshTreemaps</b></span>
+                        <a href="#refreshTreemaps"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>refreshTreemaps()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="364"
+                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:364</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Refreshs all treemaps</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="scrollToTop"></a>
                     <span class="name">
                         <span ><b>scrollToTop</b></span>
@@ -307,8 +381,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="176"
-                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:176</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="334"
+                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:334</a></div>
                 </td>
             </tr>
 
@@ -346,8 +420,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="192"
-                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:192</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="350"
+                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:350</a></div>
                 </td>
             </tr>
 
@@ -385,8 +459,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="199"
-                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:199</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="357"
+                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:357</a></div>
                 </td>
             </tr>
 
@@ -429,18 +503,70 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>{}</code>
+                        <i>Default value : </i><code>{
+    alt_titles: [],
+    job_zone: 1,
+    tech_skills: [],
+    work_tasks: [],
+    salary_states: [],
+    salary_nat: [],
+    salary_ind: [],
+    projections: [],
+    employed_nat: 0,
+    employed_10_nat: 0,
+    per_change_10_nat: 0,
+    bright_futures: &#x27;&#x27;,
+    automation_risk: &#x27;&#x27;,
+    near_future: &#x27;&#x27;,
+  }</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:101</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:182</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Current job info</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="projectionInfo"></a>
+                    <span class="name">
+                        <span ><b>projectionInfo</b></span>
+                        <a href="#projectionInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ProjectionInfo.html" target="_self" >ProjectionInfo[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="233" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:233</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Occupation projection data</p>
 </div>
                 </td>
             </tr>
@@ -471,7 +597,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:111</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="212" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:212</a></div>
                         </td>
                     </tr>
 
@@ -508,7 +634,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:109</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="209" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:209</a></div>
                         </td>
                     </tr>
 
@@ -545,7 +671,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:107</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="206" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:206</a></div>
                         </td>
                     </tr>
 
@@ -576,7 +702,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:115</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="218" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:218</a></div>
                         </td>
                     </tr>
 
@@ -607,7 +733,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:113</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="215" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:215</a></div>
                         </td>
                     </tr>
 
@@ -644,13 +770,161 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:103</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="200" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:200</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Tech skills for the job (each pair = type of tech, list of examples for that tech)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="treemapAbilitiesData"></a>
+                    <span class="name">
+                        <span ><b>treemapAbilitiesData</b></span>
+                        <a href="#treemapAbilitiesData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TreemapData.html" target="_self" >TreemapData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="230" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:230</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Abilities data</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="treemapKnowledgeData"></a>
+                    <span class="name">
+                        <span ><b>treemapKnowledgeData</b></span>
+                        <a href="#treemapKnowledgeData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TreemapData.html" target="_self" >TreemapData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="227" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:227</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Knowledge data</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="treemapSkillsData"></a>
+                    <span class="name">
+                        <span ><b>treemapSkillsData</b></span>
+                        <a href="#treemapSkillsData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TreemapData.html" target="_self" >TreemapData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="224" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:224</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Skills data</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="treemapWorkActivitiesData"></a>
+                    <span class="name">
+                        <span ><b>treemapWorkActivitiesData</b></span>
+                        <a href="#treemapWorkActivitiesData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TreemapData.html" target="_self" >TreemapData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="221" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:221</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Work Activities data</p>
 </div>
                 </td>
             </tr>
@@ -681,7 +955,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:105</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="203" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:203</a></div>
                         </td>
                     </tr>
 
@@ -696,22 +970,96 @@
     </table>
 </section>
 
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="automationDescription"></a>
+                        <span class="name"><b>automationDescription</b><a href="#automationDescription"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>automationDescription()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="238" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:238</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets automation description</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="outlookDescription"></a>
+                        <span class="name"><b>outlookDescription</b><a href="#outlookDescription"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>outlookDescription()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="249" class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:249</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets outlook description</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
 import { HttpClient, HttpClientModule } from &#x27;@angular/common/http&#x27;;
-import { Component, inject, OnInit } from &#x27;@angular/core&#x27;;
+import { Component, inject, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
 import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { MatTabsModule } from &#x27;@angular/material/tabs&#x27;;
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { Observable, tap } from &#x27;rxjs&#x27;;
 import { PreparednessLevels } from &#x27;src/app/career-card/career-card.component&#x27;;
+import { ProfileEmploymentComponent } from &#x27;src/app/profile-employment/profile-employment.component&#x27;;
+import { ProfileOccupationProjectionComponent } from &#x27;src/app/profile-occupation-projection/profile-occupation-projection.component&#x27;;
 import { ProfileSalaryComponent } from &#x27;src/app/profile-salary/profile-salary.component&#x27;;
 import { ProfileTechnologySkillsComponent } from &#x27;src/app/profile-technology-skills/profile-technology-skills.component&#x27;;
 import { SearchBoxComponent } from &#x27;src/app/search-box/search-box.component&#x27;;
+import { TreemapComponent } from &#x27;src/app/treemap/treemap.component&#x27;;
 import { WorkTasksListComponent } from &#x27;src/app/work-tasks-list/work-tasks-list.component&#x27;;
-import { ProfileEmploymentComponent } from &#x27;src/app/profile-employment/profile-employment.component&#x27;;
 
 /** Queried job data format */
 export interface AllJobInfo {
@@ -731,6 +1079,28 @@ export interface AllJobInfo {
   salary_nat?: SalaryInfo[];
   /** List of industry salary info */
   salary_ind?: SalaryInfo[];
+  /** Abilities treemap data */
+  behaviors_abilities?: TreemapData[];
+  /** Work activities treemap data */
+  behaviors_work_activities?: TreemapData[];
+  /** Skills treemap data */
+  behaviors_skills?: TreemapData[];
+  /** Knowledge treemap data */
+  behaviors_knowledge?: TreemapData[];
+  /** List of industry projection data */
+  projections?: ProjectionInfo[];
+  /** National employed total */
+  employed_nat?: number;
+  /** Projected national employed total */
+  employed_10_nat?: number;
+  /** National percent change */
+  per_change_10_nat?: number;
+  /** Bright future status */
+  bright_futures?: string;
+  /** Automation risk projection */
+  automation_risk?: string;
+  /** Near term outlook */
+  near_future?: string;
 }
 
 /** Info on a technology skill */
@@ -775,6 +1145,45 @@ export interface SalaryInfo {
   tot_emp?: number;
 }
 
+/** Treemap data entry */
+export interface TreemapData {
+  /** Element name */
+  element_name: string;
+  /** Parent group */
+  sub_group: string;
+  /** Highest level group */
+  group: string;
+  /** Level of element */
+  level: number;
+  /** x0 coordinate */
+  x0: number;
+  /** y0 coordinate */
+  y0: number;
+  /** x1 coordinate */
+  x1: number;
+  /** y1 coordinate */
+  y1: number;
+}
+
+/** Occupation projection info */
+export interface ProjectionInfo {
+  /** Industry title */
+  industry_title?: string;
+  /** Number employed in industry */
+  employed?: number;
+  /** Projected number employed in 10 years */
+  employed_10?: number;
+  /** Percent employment change in 10 years */
+  per_change_10?: number;
+}
+
+/** Outlook descriptions */
+const outlookDescriptions: Record&lt;string, string&gt; &#x3D; {
+  Bright: &#x27;Many job openings predicted in the near future&#x27;,
+  Average: &#x27;Average outlook&#x27;,
+  &#x27;Below Average&#x27;: &#x27;Below average outlook&#x27;,
+};
+
 /**
  * Profile page component
  */
@@ -790,6 +1199,9 @@ export interface SalaryInfo {
     ProfileSalaryComponent,
     WorkTasksListComponent,
     ProfileEmploymentComponent,
+    TreemapComponent,
+    MatTabsModule,
+    ProfileOccupationProjectionComponent,
   ],
   templateUrl: &#x27;./profile-page.component.html&#x27;,
   styleUrls: [&#x27;./profile-page.component.scss&#x27;],
@@ -797,31 +1209,101 @@ export interface SalaryInfo {
 export class ProfilePageComponent implements OnInit {
   /** Scrolls to top of page */
   private readonly route &#x3D; inject(ActivatedRoute);
+
   /** Http client */
   private readonly http &#x3D; inject(HttpClient);
+
+  /** Treemap1 element */
+  @ViewChild(&#x27;treemap1&#x27;) private treemap1: TreemapComponent &#x3D; new TreemapComponent();
+
+  /** Treemap2 element */
+  @ViewChild(&#x27;treemap2&#x27;) private treemap2: TreemapComponent &#x3D; new TreemapComponent();
+
+  /** Treemap3 element */
+  @ViewChild(&#x27;treemap3&#x27;) private treemap3: TreemapComponent &#x3D; new TreemapComponent();
+
+  /** Treemap4 element */
+  @ViewChild(&#x27;treemap4&#x27;) private treemap4: TreemapComponent &#x3D; new TreemapComponent();
+
   /** Current job info */
-  currentJobInfo: AllJobInfo &#x3D; {};
+  currentJobInfo: AllJobInfo &#x3D; {
+    alt_titles: [],
+    job_zone: 1,
+    tech_skills: [],
+    work_tasks: [],
+    salary_states: [],
+    salary_nat: [],
+    salary_ind: [],
+    projections: [],
+    employed_nat: 0,
+    employed_10_nat: 0,
+    per_change_10_nat: 0,
+    bright_futures: &#x27;&#x27;,
+    automation_risk: &#x27;&#x27;,
+    near_future: &#x27;&#x27;,
+  };
+
   /** Tech skills for the job (each pair &#x3D; type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] &#x3D; [];
+
   /** Work tasks list */
   workTasks: WorkTasks[] &#x3D; [];
+
   /** Salary states info */
   salaryStatesInfo: SalaryInfo[] &#x3D; [];
+
   /** Salary national info */
   salaryNatInfo: SalaryInfo[] &#x3D; [];
+
   /** Salary industry info */
   salaryIndInfo: SalaryInfo[] &#x3D; [];
+
   /** Whether or not all work tasks should be displayed */
   showAllTasks &#x3D; false;
+
   /** Whether or not all technology skills should be displayed */
   showAllSkills &#x3D; false;
+
+  /** Work Activities data */
+  treemapWorkActivitiesData: TreemapData[] &#x3D; [];
+
+  /** Skills data */
+  treemapSkillsData: TreemapData[] &#x3D; [];
+
+  /** Knowledge data */
+  treemapKnowledgeData: TreemapData[] &#x3D; [];
+
+  /** Abilities data */
+  treemapAbilitiesData: TreemapData[] &#x3D; [];
+
+  /** Occupation projection data */
+  projectionInfo: ProjectionInfo[] &#x3D; [];
+
+  /**
+   * Gets automation description
+   */
+  get automationDescription(): string {
+    if (this.currentJobInfo[&#x27;automation_risk&#x27;]) {
+      return &#x60;This job has a ${this.currentJobInfo[&#x27;automation_risk&#x27;].toLowerCase()} risk of automation.&#x60;;
+    } else {
+      return &#x27;No data&#x27;;
+    }
+  }
+
+  /**
+   * Gets outlook description
+   */
+  get outlookDescription(): string {
+    return this.currentJobInfo[&#x27;near_future&#x27;]
+      ? this.currentJobInfo[&#x27;near_future&#x27;]
+      : outlookDescriptions[this.currentJobInfo[&#x27;bright_futures&#x27;] ? this.currentJobInfo[&#x27;bright_futures&#x27;] : &#x27;No data&#x27;];
+  }
 
   /**
    * Scrolls to top of page and fetches profile data on init
    */
   ngOnInit() {
     this.route.params.subscribe((params) &#x3D;&gt; {
-      this.scrollToTop();
       this.getData(params[&#x27;code&#x27;]).subscribe();
       this.showAllSkills &#x3D; false;
     });
@@ -850,6 +1332,27 @@ export class ProfilePageComponent implements OnInit {
         }
         if (this.currentJobInfo[&#x27;work_tasks&#x27;]) {
           this.workTasks &#x3D; this.currentJobInfo[&#x27;work_tasks&#x27;];
+        }
+        if (this.currentJobInfo[&#x27;behaviors_work_activities&#x27;]) {
+          this.treemapWorkActivitiesData &#x3D; this.currentJobInfo[&#x27;behaviors_work_activities&#x27;];
+        }
+        if (this.currentJobInfo[&#x27;behaviors_skills&#x27;]) {
+          this.treemapSkillsData &#x3D; this.currentJobInfo[&#x27;behaviors_skills&#x27;];
+        }
+        if (this.currentJobInfo[&#x27;behaviors_knowledge&#x27;]) {
+          this.treemapKnowledgeData &#x3D; this.currentJobInfo[&#x27;behaviors_knowledge&#x27;];
+        }
+        if (this.currentJobInfo[&#x27;behaviors_abilities&#x27;]) {
+          this.treemapAbilitiesData &#x3D; this.currentJobInfo[&#x27;behaviors_abilities&#x27;];
+        }
+        if (this.currentJobInfo[&#x27;projections&#x27;]) {
+          this.projectionInfo &#x3D; this.currentJobInfo[&#x27;projections&#x27;];
+          this.projectionInfo.push({
+            industry_title: &#x27;National average&#x27;,
+            employed: this.currentJobInfo[&#x27;employed_nat&#x27;],
+            employed_10: this.currentJobInfo[&#x27;employed_10_nat&#x27;],
+            per_change_10: this.currentJobInfo[&#x27;per_change_10_nat&#x27;],
+          });
         }
       })
     );
@@ -901,6 +1404,13 @@ export class ProfilePageComponent implements OnInit {
   showAllWorkTasksButtonClicked(): void {
     this.showAllTasks &#x3D; !this.showAllTasks;
   }
+
+  /**
+   * Refreshs all treemaps
+   */
+  refreshTreemaps(): void {
+    [this.treemap1, this.treemap2, this.treemap3, this.treemap4].forEach((treemap) &#x3D;&gt; treemap.reload());
+  }
 }
 </code></pre>
     </div>
@@ -938,6 +1448,26 @@ export class ProfilePageComponent implements OnInit {
     &lt;div class&#x3D;&quot;job-header&quot;&gt;
       &lt;div class&#x3D;&quot;code&quot;&gt;{{ currentJobInfo[&#x27;soc_id&#x27;] }}&lt;/div&gt;
       &lt;div class&#x3D;&quot;section-title&quot;&gt;{{ currentJobInfo[&#x27;title&#x27;] }}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;treemaps&quot;&gt;
+      &lt;mat-tab-group (selectedTabChange)&#x3D;&quot;refreshTreemaps()&quot; fitInkBarToContent disablePagination&gt;
+        &lt;mat-tab label&#x3D;&quot;Activities&quot;&gt;
+          &lt;div class&#x3D;&quot;treemaps-title&quot;&gt;Activities by Importance&lt;/div&gt;
+          &lt;trust-ai-treemap #treemap1 [activitiesData]&#x3D;&quot;treemapWorkActivitiesData&quot;&gt;&lt;/trust-ai-treemap&gt;
+        &lt;/mat-tab&gt;
+        &lt;mat-tab label&#x3D;&quot;Skills&quot;&gt;
+          &lt;div class&#x3D;&quot;treemaps-title&quot;&gt;Skills by Importance&lt;/div&gt;
+          &lt;trust-ai-treemap #treemap2 [skillsData]&#x3D;&quot;treemapSkillsData&quot;&gt;&lt;/trust-ai-treemap&gt;
+        &lt;/mat-tab&gt;
+        &lt;mat-tab label&#x3D;&quot;Knowledge&quot;&gt;
+          &lt;div class&#x3D;&quot;treemaps-title&quot;&gt;Knowledge by Importance&lt;/div&gt;
+          &lt;trust-ai-treemap #treemap3 [knowledgeData]&#x3D;&quot;treemapKnowledgeData&quot;&gt;&lt;/trust-ai-treemap&gt;
+        &lt;/mat-tab&gt;
+        &lt;mat-tab label&#x3D;&quot;Abilities&quot;&gt;
+          &lt;div class&#x3D;&quot;treemaps-title&quot;&gt;Abilities by Importance&lt;/div&gt;
+          &lt;trust-ai-treemap #treemap4 [abilitiesData]&#x3D;&quot;treemapAbilitiesData&quot;&gt;&lt;/trust-ai-treemap&gt;
+        &lt;/mat-tab&gt;
+      &lt;/mat-tab-group&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -1082,19 +1612,59 @@ export class ProfilePageComponent implements OnInit {
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;sub-section&quot;&gt;
       &lt;div class&#x3D;&quot;sub-section-title&quot;&gt;Occupation Projection&lt;/div&gt;
-      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;sub-section-content projection&quot;&gt;
+        &lt;trust-ai-profile-occupation-projection
+          [dataProjections]&#x3D;&quot;projectionInfo&quot;
+        &gt;&lt;/trust-ai-profile-occupation-projection&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;sub-section&quot;&gt;
       &lt;div class&#x3D;&quot;sub-section-title&quot;&gt;Near Term Outlook&lt;/div&gt;
-      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;
+        {{ outlookDescription }}
+      &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;sub-section&quot;&gt;
-      &lt;div class&#x3D;&quot;sub-section-title&quot;&gt;Automation Risk&lt;/div&gt;
-      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;sub-section-title&quot;&gt;
+        Automation Risk
+        &lt;div class&#x3D;&quot;risk-tag&quot;&gt;
+          {{ currentJobInfo[&#x27;automation_risk&#x27;] }}
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;
+        {{ automationDescription }}
+      &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;sub-section&quot;&gt;
       &lt;div class&#x3D;&quot;sub-section-title&quot;&gt;Future of Work Resources&lt;/div&gt;
-      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;
+        &lt;div class&#x3D;&quot;button-group&quot;&gt;
+          &lt;button
+            class&#x3D;&quot;resource-link&quot;
+            onClick&#x3D;&quot;window.open(&#x27;https://www.onetonline.org/find/bright?b&#x3D;0&#x27;)&quot;
+            mat-stroked-button
+            color&#x3D;&quot;primary&quot;
+          &gt;
+            Bright Outlook Projections
+          &lt;/button&gt;
+          &lt;button
+            class&#x3D;&quot;resource-link&quot;
+            onClick&#x3D;&quot;window.open(&#x27;https://www.oxfordmartin.ox.ac.uk/downloads/academic/future-of-employment.pdf&#x27;)&quot;
+            mat-stroked-button
+            color&#x3D;&quot;primary&quot;
+          &gt;
+            Future of Employment Report
+          &lt;/button&gt;
+          &lt;button
+            class&#x3D;&quot;resource-link&quot;
+            onClick&#x3D;&quot;window.open(&#x27;https://www.onetcenter.org/future_of_work&#x27;)&quot;
+            mat-stroked-button
+            color&#x3D;&quot;primary&quot;
+          &gt;
+            Future of Work: Bibliography of Papers
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -1112,22 +1682,30 @@ export class ProfilePageComponent implements OnInit {
                     <code>./profile-page.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
-  @media (width &lt;&#x3D; 1168px) {
+  @media (width &lt;&#x3D; 1240px) {
     .search-content {
       padding: 6.5rem 0 0.5rem 0 !important;
-    }
 
-    .sub-section-title {
-      font-size: 1.375rem !important;
+      .search-title {
+        display: none;
+      }
     }
 
     .sub-section-content {
       font-size: 0.875rem !important;
       line-height: 1.25rem !important;
     }
+
+    .button-group {
+      flex-direction: column;
+
+      .resource-link {
+        min-width: 50vw;
+      }
+    }
   }
 
-  @media (480px &lt; width &lt; 1168px) {
+  @media (600px &lt; width &lt; 1240px) {
     .content,
     .section-title,
     .code,
@@ -1136,7 +1714,7 @@ export class ProfilePageComponent implements OnInit {
     }
   }
 
-  @media (width &lt;&#x3D; 480px) {
+  @media (width &lt;&#x3D; 600px) {
     .content,
     .section-title,
     .code,
@@ -1144,13 +1722,19 @@ export class ProfilePageComponent implements OnInit {
       width: calc(100% - 2rem) !important;
     }
 
-    .sub-section-title {
+    .sub-section-title,
+    .treemaps-title {
       font-size: 1rem !important;
       font-weight: 500;
+      line-height: 1.5rem;
     }
 
     .salary-ind {
       height: 100vw !important;
+    }
+
+    .resource-link {
+      width: 100% !important;
     }
   }
 
@@ -1160,12 +1744,6 @@ export class ProfilePageComponent implements OnInit {
     align-items: center;
     justify-content: center;
     padding-bottom: 0.5rem;
-
-    @media (width &lt;&#x3D; 1168px) {
-      .search-title {
-        display: none;
-      }
-    }
 
     .search-content {
       display: flex;
@@ -1184,33 +1762,16 @@ export class ProfilePageComponent implements OnInit {
     flex-direction: column;
     align-items: center;
 
-    &amp;.salary {
-      .sub-section {
-        align-items: center;
-
-        .salary-nat {
-          height: 40vw;
-        }
-        .salary-states {
-          height: 50vw;
-        }
-        .salary-ind {
-          height: 50vw;
-        }
-      }
-    }
-
     .content,
     .section-title,
     .code {
-      width: 80%;
+      width: 65%;
     }
 
     .section-header {
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-size: 1.75rem;
       background: #e9ddff;
       padding: 1.5rem 0;
       width: 100%;
@@ -1244,7 +1805,6 @@ export class ProfilePageComponent implements OnInit {
           display: flex;
           align-items: center;
           gap: 10px;
-          width: 100%;
         }
 
         .sub-section-content {
@@ -1272,14 +1832,90 @@ export class ProfilePageComponent implements OnInit {
         }
       }
     }
-  }
 
-  .preparedness {
-    .content {
-      :first-child .sub-section-title {
-        color: #6750a4;
-        img {
-          height: 1.5rem;
+    &amp;.behaviors {
+      ::ng-deep mat-tab-group {
+        mat-tab-header {
+          border-bottom: 1px solid #e6e0e9;
+        }
+
+        .treemaps-title {
+          padding: 1.5rem 0;
+          font-size: 1.375rem;
+        }
+
+        .mdc-tab__text-label {
+          line-height: 1.25rem;
+          letter-spacing: 0.00625rem;
+        }
+
+        .mat-mdc-tab {
+          padding: 0;
+          width: 25%;
+          min-width: 0;
+
+          &amp;.mdc-tab--active {
+            color: #6750a4;
+          }
+        }
+
+        .mat-mdc-tab-body-content {
+          height: unset;
+        }
+
+        canvas {
+          height: 50vw !important;
+          width: 100% !important;
+        }
+      }
+    }
+
+    &amp;.preparedness {
+      .content {
+        :first-child .sub-section-title {
+          color: #6750a4;
+
+          img {
+            height: 1.5rem;
+          }
+        }
+      }
+    }
+
+    &amp;.salary {
+      .sub-section {
+        align-items: center;
+
+        .salary-nat {
+          height: 40vw;
+        }
+        .salary-states {
+          height: 50vw;
+        }
+        .salary-ind {
+          height: 50vw;
+        }
+      }
+    }
+
+    &amp;.projection {
+      .sub-section {
+        .projection {
+          height: 65vw;
+        }
+
+        .button-group {
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+          line-height: 1rem;
+
+          .resource-link {
+            border-radius: 1rem;
+            border-color: rgb(122, 117, 127);
+            color: #6750a4;
+            width: calc((100% - 2rem) / 3);
+          }
         }
       }
     }
@@ -1300,10 +1936,12 @@ export class ProfilePageComponent implements OnInit {
     }
 
     .scroll-top-button {
-      border-radius: 1rem;
-      border-color: rgba(122, 117, 127, 1);
+      border-radius: 6.25rem;
       color: #6750a4;
       background: #f7f2fa;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+      letter-spacing: normal;
+      padding: 0 1.5rem;
     }
   }
 }
@@ -1335,8 +1973,8 @@ export class ProfilePageComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="search" style="background: url(assets/landing-background.png) 50% / cover no-repeat">  <div class="search-content">    <div class="search-title">Search Occupations</div>    <trust-ai-search-box class="search-box" placeholder="{{ currentJobInfo[\'title\'] }}"></trust-ai-search-box>  </div></div><div class="profile-section description">  <div class="section-header">    <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>  </div>  <div class="content">    <div class="sub-section">      <div class="sub-section-title">Occupation Description</div>      <div class="sub-section-content">{{ currentJobInfo[\'descr\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Reported job title examples</div>      <div class="sub-section-content">{{ currentJobInfo.alt_titles?.toString() }}</div>    </div>  </div></div><div class="profile-section behaviors">  <div class="section-header">    <div class="section-title">Work Behaviors</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>  </div></div><div class="profile-section preparedness">  <div class="section-header">    <div class="section-title">Preparedness Level</div>  </div>  <div class="content">    <div class="sub-section">      <div class="sub-section-title">        <img          *ngIf="currentJobInfo[\'job_zone\']"          class="preparation-level"          src="{{ \'assets/icons/counter_\' + currentJobInfo[\'job_zone\'] + \'.svg\' }}"        />        {{ currentJobInfo[\'job_zone\'] ? preparednessLevel(currentJobInfo[\'job_zone\']) : \'\' }}      </div>      <div class="sub-section-content">        Preparedness Levels group occupations into one of five categories based on levels of education, experience, and        training necessary to perform the occupation.      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Education</div>      <div class="sub-section-content">{{ currentJobInfo[\'education\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Related Experience</div>      <div class="sub-section-content">{{ currentJobInfo[\'experience\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Job Training</div>      <div class="sub-section-content">{{ currentJobInfo[\'job_training\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Preparedness Examples</div>      <div class="sub-section-content">{{ currentJobInfo[\'example\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Specific Vocational Preparation (SVP) Range</div>      <div class="sub-section-content">{{ currentJobInfo[\'svp_range\'] }}</div>    </div>  </div></div><div class="profile-section tasks">  <div class="section-header">    <div class="section-title">Work Tasks</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <trust-ai-work-tasks-list      [tasks]="workTasks"      [showAll]="showAllTasks"      (showAllButtonClick)="showAllWorkTasksButtonClicked()"    ></trust-ai-work-tasks-list>  </div></div><div class="profile-section technology">  <div class="section-header">    <div class="section-title">Technology Skills</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Technology Skills by Importance</div>      <div class="sub-section-content">        <trust-ai-profile-technology-skills          [allSkills]="techSkills"          [showAll]="showAllSkills"          (showAllButtonClick)="showAllTechnologyButtonClicked()"        ></trust-ai-profile-technology-skills>      </div>    </div>  </div></div><div class="profile-section salary">  <div class="section-header">    <div class="section-title">Salary Statistics</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Average Salary</div>      <div class="sub-section-content salary-nat">        <trust-ai-profile-salary [dataNat]="salaryNatInfo"></trust-ai-profile-salary>      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Average Wage By State</div>      <div class="sub-section-content salary-states">        <trust-ai-profile-salary [dataStates]="salaryStatesInfo"></trust-ai-profile-salary>      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Top Five Highest Earning Industries</div>      <div class="sub-section-content salary-ind">        <trust-ai-profile-salary [dataInd]="salaryIndInfo"></trust-ai-profile-salary>      </div>    </div>  </div></div><div class="profile-section employment">  <div class="section-header">    <div class="section-title">Employment Statistics</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Number of Occupations by State</div>      <div class="sub-section-content">        <trust-ai-profile-employment [dataStates]="salaryStatesInfo"></trust-ai-profile-employment>      </div>    </div>  </div></div><div class="profile-section projection">  <div class="section-header">    <div class="section-title">Occupation Projection</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Occupation Projection</div>      <div class="sub-section-content"></div>    </div>    <div class="sub-section">      <div class="sub-section-title">Near Term Outlook</div>      <div class="sub-section-content"></div>    </div>    <div class="sub-section">      <div class="sub-section-title">Automation Risk</div>      <div class="sub-section-content"></div>    </div>    <div class="sub-section">      <div class="sub-section-title">Future of Work Resources</div>      <div class="sub-section-content"></div>    </div>  </div></div><div class="profile-bottom">  <div>{{ currentJobInfo[\'soc_id\'] }}</div>  <div>{{ currentJobInfo[\'title\'] }}</div>  <button class="scroll-top-button" (click)="scrollToTop()" mat-stroked-button color="primary">Back to Top</button></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+        var COMPONENT_TEMPLATE = '<div><div class="search" style="background: url(assets/landing-background.png) 50% / cover no-repeat">  <div class="search-content">    <div class="search-title">Search Occupations</div>    <trust-ai-search-box class="search-box" placeholder="{{ currentJobInfo[\'title\'] }}"></trust-ai-search-box>  </div></div><div class="profile-section description">  <div class="section-header">    <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>  </div>  <div class="content">    <div class="sub-section">      <div class="sub-section-title">Occupation Description</div>      <div class="sub-section-content">{{ currentJobInfo[\'descr\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Reported job title examples</div>      <div class="sub-section-content">{{ currentJobInfo.alt_titles?.toString() }}</div>    </div>  </div></div><div class="profile-section behaviors">  <div class="section-header">    <div class="section-title">Work Behaviors</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="treemaps">      <mat-tab-group (selectedTabChange)="refreshTreemaps()" fitInkBarToContent disablePagination>        <mat-tab label="Activities">          <div class="treemaps-title">Activities by Importance</div>          <trust-ai-treemap #treemap1 [activitiesData]="treemapWorkActivitiesData"></trust-ai-treemap>        </mat-tab>        <mat-tab label="Skills">          <div class="treemaps-title">Skills by Importance</div>          <trust-ai-treemap #treemap2 [skillsData]="treemapSkillsData"></trust-ai-treemap>        </mat-tab>        <mat-tab label="Knowledge">          <div class="treemaps-title">Knowledge by Importance</div>          <trust-ai-treemap #treemap3 [knowledgeData]="treemapKnowledgeData"></trust-ai-treemap>        </mat-tab>        <mat-tab label="Abilities">          <div class="treemaps-title">Abilities by Importance</div>          <trust-ai-treemap #treemap4 [abilitiesData]="treemapAbilitiesData"></trust-ai-treemap>        </mat-tab>      </mat-tab-group>    </div>  </div></div><div class="profile-section preparedness">  <div class="section-header">    <div class="section-title">Preparedness Level</div>  </div>  <div class="content">    <div class="sub-section">      <div class="sub-section-title">        <img          *ngIf="currentJobInfo[\'job_zone\']"          class="preparation-level"          src="{{ \'assets/icons/counter_\' + currentJobInfo[\'job_zone\'] + \'.svg\' }}"        />        {{ currentJobInfo[\'job_zone\'] ? preparednessLevel(currentJobInfo[\'job_zone\']) : \'\' }}      </div>      <div class="sub-section-content">        Preparedness Levels group occupations into one of five categories based on levels of education, experience, and        training necessary to perform the occupation.      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Education</div>      <div class="sub-section-content">{{ currentJobInfo[\'education\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Related Experience</div>      <div class="sub-section-content">{{ currentJobInfo[\'experience\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Job Training</div>      <div class="sub-section-content">{{ currentJobInfo[\'job_training\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Preparedness Examples</div>      <div class="sub-section-content">{{ currentJobInfo[\'example\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Specific Vocational Preparation (SVP) Range</div>      <div class="sub-section-content">{{ currentJobInfo[\'svp_range\'] }}</div>    </div>  </div></div><div class="profile-section tasks">  <div class="section-header">    <div class="section-title">Work Tasks</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <trust-ai-work-tasks-list      [tasks]="workTasks"      [showAll]="showAllTasks"      (showAllButtonClick)="showAllWorkTasksButtonClicked()"    ></trust-ai-work-tasks-list>  </div></div><div class="profile-section technology">  <div class="section-header">    <div class="section-title">Technology Skills</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Technology Skills by Importance</div>      <div class="sub-section-content">        <trust-ai-profile-technology-skills          [allSkills]="techSkills"          [showAll]="showAllSkills"          (showAllButtonClick)="showAllTechnologyButtonClicked()"        ></trust-ai-profile-technology-skills>      </div>    </div>  </div></div><div class="profile-section salary">  <div class="section-header">    <div class="section-title">Salary Statistics</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Average Salary</div>      <div class="sub-section-content salary-nat">        <trust-ai-profile-salary [dataNat]="salaryNatInfo"></trust-ai-profile-salary>      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Average Wage By State</div>      <div class="sub-section-content salary-states">        <trust-ai-profile-salary [dataStates]="salaryStatesInfo"></trust-ai-profile-salary>      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Top Five Highest Earning Industries</div>      <div class="sub-section-content salary-ind">        <trust-ai-profile-salary [dataInd]="salaryIndInfo"></trust-ai-profile-salary>      </div>    </div>  </div></div><div class="profile-section employment">  <div class="section-header">    <div class="section-title">Employment Statistics</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Number of Occupations by State</div>      <div class="sub-section-content">        <trust-ai-profile-employment [dataStates]="salaryStatesInfo"></trust-ai-profile-employment>      </div>    </div>  </div></div><div class="profile-section projection">  <div class="section-header">    <div class="section-title">Occupation Projection</div>  </div>  <div class="content">    <div class="job-header">      <div class="code">{{ currentJobInfo[\'soc_id\'] }}</div>      <div class="section-title">{{ currentJobInfo[\'title\'] }}</div>    </div>    <div class="sub-section">      <div class="sub-section-title">Occupation Projection</div>      <div class="sub-section-content projection">        <trust-ai-profile-occupation-projection          [dataProjections]="projectionInfo"        ></trust-ai-profile-occupation-projection>      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Near Term Outlook</div>      <div class="sub-section-content">        {{ outlookDescription }}      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">        Automation Risk        <div class="risk-tag">          {{ currentJobInfo[\'automation_risk\'] }}        </div>      </div>      <div class="sub-section-content">        {{ automationDescription }}      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Future of Work Resources</div>      <div class="sub-section-content">        <div class="button-group">          <button            class="resource-link"            onClick="window.open(\'https://www.onetonline.org/find/bright?b=0\')"            mat-stroked-button            color="primary"          >            Bright Outlook Projections          </button>          <button            class="resource-link"            onClick="window.open(\'https://www.oxfordmartin.ox.ac.uk/downloads/academic/future-of-employment.pdf\')"            mat-stroked-button            color="primary"          >            Future of Employment Report          </button>          <button            class="resource-link"            onClick="window.open(\'https://www.onetcenter.org/future_of_work\')"            mat-stroked-button            color="primary"          >            Future of Work: Bibliography of Papers          </button>        </div>      </div>    </div>  </div></div><div class="profile-bottom">  <div>{{ currentJobInfo[\'soc_id\'] }}</div>  <div>{{ currentJobInfo[\'title\'] }}</div>  <button class="scroll-top-button" (click)="scrollToTop()" mat-stroked-button color="primary">Back to Top</button></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'PreparednessDialogComponent', 'selector': 'trust-ai-preparedness-dialog'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfileOccupationProjectionComponent', 'selector': 'trust-ai-profile-occupation-projection'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'TreemapComponent', 'selector': 'trust-ai-treemap'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ProfilePageComponent'};
 </script>

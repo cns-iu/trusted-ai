@@ -357,7 +357,7 @@ export class CareerCardComponent {
                     <code>./career-card.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
-  @media (width &lt;&#x3D; 1168px) {
+  @media (width &lt;&#x3D; 1240px) {
     flex-direction: column;
     padding: 1rem 1.5rem;
 
@@ -386,7 +386,7 @@ export class CareerCardComponent {
     }
   }
 
-  @media (width &lt;&#x3D; 480px) {
+  @media (width &lt;&#x3D; 600px) {
     padding: 1.5rem 1rem;
   }
 
@@ -466,7 +466,7 @@ export class CareerCardComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="job-title">{{ jobInfo[\'Occupation\'] }}</div><div class="preparation-code">  <div class="preparation">    <img      class="preparation-level"      *ngIf="jobInfo[\'Job Zone\'] !== \'n/a\'"      src="{{ \'assets/icons/counter_\' + jobInfo[\'Job Zone\'] + \'.svg\' }}"    />    <div class="preparation-text">{{ preparednessLevels[jobInfo[\'Job Zone\']] }}</div>  </div>  <div class="code">{{ jobInfo[\'Code\'] }}</div></div><button class="view-button" (click)="jobClicked.emit(jobInfo)" mat-stroked-button>View Occupation</button></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'PreparednessDialogComponent', 'selector': 'trust-ai-preparedness-dialog'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfileOccupationProjectionComponent', 'selector': 'trust-ai-profile-occupation-projection'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'TreemapComponent', 'selector': 'trust-ai-treemap'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CareerCardComponent'};
 </script>

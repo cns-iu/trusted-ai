@@ -204,7 +204,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/profile-salary/profile-salary.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/profile-salary/profile-salary.component.ts:32</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -236,7 +236,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/profile-salary/profile-salary.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/profile-salary/profile-salary.component.ts:29</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -268,7 +268,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/profile-salary/profile-salary.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/profile-salary/profile-salary.component.ts:26</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -300,7 +300,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/profile-salary/profile-salary.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/profile-salary/profile-salary.component.ts:23</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -389,12 +389,16 @@ import { SalaryInfo } from &#x27;../pages/profile-page/profile-page.component&#x
 export class ProfileSalaryComponent implements OnChanges {
   /** Visualization element */
   @ViewChild(&#x27;vis&#x27;) vis?: ElementRef;
+
   /** Vega lite spec for visualization */
   @Input() spec: VisualizationSpec &#x3D; {};
+
   /** State salary data */
   @Input() dataStates: SalaryInfo[] &#x3D; [];
+
   /** National salary data */
   @Input() dataNat: SalaryInfo[] &#x3D; [];
+
   /** Industry salary data */
   @Input() dataInd: SalaryInfo[] &#x3D; [];
 
@@ -465,7 +469,7 @@ export class ProfileSalaryComponent implements OnChanges {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div #vis></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'PreparednessDialogComponent', 'selector': 'trust-ai-preparedness-dialog'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfileOccupationProjectionComponent', 'selector': 'trust-ai-profile-occupation-projection'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'TreemapComponent', 'selector': 'trust-ai-treemap'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ProfileSalaryComponent'};
 </script>

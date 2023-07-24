@@ -200,8 +200,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="135"
-                            class="link-to-prism">src/app/occupations-search-area/occupations-search-area.component.ts:135</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="178"
+                            class="link-to-prism">src/app/occupations-search-area/occupations-search-area.component.ts:178</a></div>
                 </td>
             </tr>
 
@@ -239,8 +239,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="128"
-                            class="link-to-prism">src/app/occupations-search-area/occupations-search-area.component.ts:128</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="171"
+                            class="link-to-prism">src/app/occupations-search-area/occupations-search-area.component.ts:171</a></div>
                 </td>
             </tr>
 
@@ -322,8 +322,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="142"
-                            class="link-to-prism">src/app/occupations-search-area/occupations-search-area.component.ts:142</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="185"
+                            class="link-to-prism">src/app/occupations-search-area/occupations-search-area.component.ts:185</a></div>
                 </td>
             </tr>
 
@@ -371,7 +371,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/app/occupations-search-area/occupations-search-area.component.ts:125</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">src/app/occupations-search-area/occupations-search-area.component.ts:168</a></div>
                         </td>
                     </tr>
 
@@ -400,6 +400,7 @@ import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
 import { MatInputModule } from &#x27;@angular/material/input&#x27;;
 import { MatMenuModule } from &#x27;@angular/material/menu&#x27;;
 
+import { PreparednessLevels } from &#x27;../career-card/career-card.component&#x27;;
 import { SearchFilters } from &#x27;../pages/occupations-page/occupations-page.component&#x27;;
 
 /** Occupations page search component */
@@ -479,12 +480,54 @@ export class OccupationsSearchAreaComponent {
   }
 
   /**
+   * Opens preparedness dialog
+   */
+  openPreparednessDialog(): void {
+    this.dialog.open(PreparednessDialogComponent, {
+      width: &#x27;calc(100% - 2rem)&#x27;,
+      maxWidth: &#x27;25.5rem&#x27;,
+      panelClass: &#x27;preparedness-dialog&#x27;,
+    });
+  }
+
+  /**
    * Handles when sort selection is made
    * @param item selection
    */
   clickMenuItem(item: string) {
     this.sortBy &#x3D; item;
     this.sortChanged.emit(item);
+  }
+}
+
+/**
+ * Preparedness dialog component
+ */
+@Component({
+  selector: &#x27;trust-ai-preparedness-dialog&#x27;,
+  templateUrl: &#x27;preparedness-dialog.html&#x27;,
+  styleUrls: [&#x27;./preparedness-dialog.scss&#x27;],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, MatDialogModule, MatIconModule],
+})
+export class PreparednessDialogComponent {
+  /** Mat Dialog reference */
+  private readonly dialogRef &#x3D; inject(MatDialogRef&lt;PreparednessDialogComponent&gt;);
+
+  /**
+   * Closes dialog when cancel clicked
+   */
+  cancelClick() {
+    this.dialogRef.close();
+  }
+
+  /**
+   * Preparedness description line
+   * @param level Preparedness level
+   * @returns description
+   */
+  preparednessDescription(level: number): string {
+    return PreparednessLevels[level];
   }
 }
 
@@ -555,7 +598,6 @@ export class FiltersMobileDialogComponent {
         *ngFor&#x3D;&quot;let item of [&#x27;0&#x27;, &#x27;1&#x27;, &#x27;2&#x27;, &#x27;3&#x27;, &#x27;4&#x27;, &#x27;5&#x27;]&quot;
         value&#x3D;&quot;{{ item }}&quot;
         checked&#x3D;&quot;{{ filters[&#x27;preparednessLevel&#x27;] &#x3D;&#x3D;&#x3D; item }}&quot;
-        disableRipple&#x3D;&quot;true&quot;
       &gt;
         &lt;mat-icon class&#x3D;&quot;checkmark&quot; *ngIf&#x3D;&quot;filters[&#x27;preparednessLevel&#x27;] &#x3D;&#x3D;&#x3D; item&quot;&gt;check&lt;/mat-icon&gt;
         {{ item &#x3D;&#x3D;&#x3D; &#x27;0&#x27; ? &#x27;All&#x27; : item }}
@@ -594,6 +636,11 @@ export class FiltersMobileDialogComponent {
                     <code>filters-mobile-dialog.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
+  .close,
+  .button {
+    cursor: pointer;
+  }
+
   .dialog-container {
     display: flex;
     flex-direction: column;
@@ -639,10 +686,18 @@ export class FiltersMobileDialogComponent {
       mat-button-toggle:first-of-type {
         border-left: 1px solid #7a757f !important;
         border-radius: 6.25rem 0 0 6.25rem;
+
+        ::ng-deep .mat-ripple {
+          border-radius: 6.25rem 0 0 6.25rem;
+        }
       }
 
       mat-button-toggle:last-of-type {
         border-radius: 0 6.25rem 6.25rem 0;
+
+        ::ng-deep .mat-ripple {
+          border-radius: 0 6.25rem 6.25rem 0;
+        }
       }
 
       mat-button-toggle {
@@ -720,8 +775,8 @@ export class FiltersMobileDialogComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="dialog-container">  <div class="dialog-header">    Filters    <mat-icon class="close" (click)="cancelClick()">close</mat-icon>  </div>  <div class="preparedness-toggle">    Preparedness Level    <mat-button-toggle-group      name="preparedness-toggle"      aria-label="Preparedness Level"      (change)="filtersChange(\'preparednessLevel\', $event)"    >      <mat-button-toggle        *ngFor="let item of [\'0\', \'1\', \'2\', \'3\', \'4\', \'5\']"        value="{{ item }}"        checked="{{ filters[\'preparednessLevel\'] === item }}"        disableRipple="true"      >        <mat-icon class="checkmark" *ngIf="filters[\'preparednessLevel\'] === item">check</mat-icon>        {{ item === \'0\' ? \'All\' : item }}      </mat-button-toggle>    </mat-button-toggle-group>  </div>  <div class="occupations-toggle disabled">    Show Occupations    <mat-button-toggle-group      name="show-occupations-toggle"      aria-label="Show Occupations"      (change)="filtersChange(\'showOccupations\', $event)"    >      <mat-button-toggle value="0" checked="{{ filters[\'showOccupations\'] === \'0\' }}" [disableRipple]="true">        <mat-icon class="checkmark" *ngIf="filters[\'showOccupations\'] === \'0\'">check</mat-icon>        All      </mat-button-toggle>      <mat-button-toggle value="1" checked="{{ filters[\'showOccupations\'] === \'1\' }}" [disableRipple]="true">        <mat-icon class="checkmark" *ngIf="filters[\'showOccupations\'] === \'1\'">check</mat-icon>        Data-level      </mat-button-toggle>    </mat-button-toggle-group>  </div>  <div class="button-group">    <div class="button" (click)="cancelClick()">Cancel</div>    <div class="button" (click)="submitClick()">Apply</div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+        var COMPONENT_TEMPLATE = '<div><div class="dialog-container">  <div class="dialog-header">    Filters    <mat-icon class="close" (click)="cancelClick()">close</mat-icon>  </div>  <div class="preparedness-toggle">    Preparedness Level    <mat-button-toggle-group      name="preparedness-toggle"      aria-label="Preparedness Level"      (change)="filtersChange(\'preparednessLevel\', $event)"    >      <mat-button-toggle        *ngFor="let item of [\'0\', \'1\', \'2\', \'3\', \'4\', \'5\']"        value="{{ item }}"        checked="{{ filters[\'preparednessLevel\'] === item }}"      >        <mat-icon class="checkmark" *ngIf="filters[\'preparednessLevel\'] === item">check</mat-icon>        {{ item === \'0\' ? \'All\' : item }}      </mat-button-toggle>    </mat-button-toggle-group>  </div>  <div class="occupations-toggle disabled">    Show Occupations    <mat-button-toggle-group      name="show-occupations-toggle"      aria-label="Show Occupations"      (change)="filtersChange(\'showOccupations\', $event)"    >      <mat-button-toggle value="0" checked="{{ filters[\'showOccupations\'] === \'0\' }}" [disableRipple]="true">        <mat-icon class="checkmark" *ngIf="filters[\'showOccupations\'] === \'0\'">check</mat-icon>        All      </mat-button-toggle>      <mat-button-toggle value="1" checked="{{ filters[\'showOccupations\'] === \'1\' }}" [disableRipple]="true">        <mat-icon class="checkmark" *ngIf="filters[\'showOccupations\'] === \'1\'">check</mat-icon>        Data-level      </mat-button-toggle>    </mat-button-toggle-group>  </div>  <div class="button-group">    <div class="button" (click)="cancelClick()">Cancel</div>    <div class="button" (click)="submitClick()">Apply</div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'PreparednessDialogComponent', 'selector': 'trust-ai-preparedness-dialog'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfileOccupationProjectionComponent', 'selector': 'trust-ai-profile-occupation-projection'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'TreemapComponent', 'selector': 'trust-ai-treemap'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FiltersMobileDialogComponent'};
 </script>
