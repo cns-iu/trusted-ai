@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import shell from 'shelljs';
 
-const data = JSON.parse(fs.readFileSync('./src/assets/data/profile_data.json', { encoding: 'utf8', flag: 'r' }));
+const data = JSON.parse(fs.readFileSync('./tmp/profile_data.json', { encoding: 'utf8', flag: 'r' }));
 data.forEach((row) => {
   const code = row['soc_id'];
   const p = path.join('./src/assets/profiles', code);

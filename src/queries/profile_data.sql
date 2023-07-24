@@ -9,7 +9,8 @@ SELECT
   d.education,
   d.job_training,
   d.example,
-  d.svp_range
+  d.svp_range,
+  d.svp_desc
 FROM occs a
   LEFT JOIN alt_titles b ON a.soc_id = b.soc_id
   LEFT JOIN job_zones c ON a.soc_id = c.soc_id
@@ -23,7 +24,8 @@ GROUP BY
 	d.education,
 	d.job_training,
   d.example,
-	d.svp_range;
+	d.svp_range,
+  d.svp_desc;
 
 CREATE TEMP VIEW foo2 AS
 SELECT r.soc_id, array_to_json(array_agg(r)) as work_tasks
@@ -83,7 +85,7 @@ GROUP BY r.soc_id;
 
 \t
 \a
-\o src/assets/data/profile_data.json
+\o tmp/profile_data.json
 SELECT array_to_json(array_agg(ROW_TO_JSON(r)), TRUE)
 FROM (
   SELECT
