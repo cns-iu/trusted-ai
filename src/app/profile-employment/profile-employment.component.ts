@@ -1,8 +1,9 @@
-import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { createStatePlot } from 'src/assets/visualizations.vl';
-import { SalaryInfo } from '../pages/profile-page/profile-page.component';
 import embed, { VisualizationSpec } from 'vega-embed';
+
+import { SalaryInfo } from '../pages/profile-page/profile-page.component';
 
 /**
  * Employment section of job profile
@@ -17,8 +18,10 @@ import embed, { VisualizationSpec } from 'vega-embed';
 export class ProfileEmploymentComponent implements OnChanges {
   /** Visualization element */
   @ViewChild('vis') vis?: ElementRef;
+
   /** Vega lite spec for visualization */
   @Input() spec: VisualizationSpec = {};
+
   /** State salary data */
   @Input() dataStates: SalaryInfo[] = [];
 
