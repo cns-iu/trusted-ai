@@ -1,4 +1,4 @@
-import { SalaryInfo } from 'src/app/pages/profile-page/profile-page.component';
+import { ProjectionInfo, SalaryInfo, TreemapData } from 'src/app/pages/profile-page/profile-page.component';
 import { VisualizationSpec } from 'vega-embed';
 
 /** Maps state names to ids for map visualization */
@@ -142,6 +142,55 @@ function parseIndData(values: SalaryInfo[]): unknown[] {
 }
 
 /**
+ * Parses data for treemap visualization
+ * @param values Treemap data
+ * @param layers Number of layers in treemap
+ * @returns parsed data
+ */
+function parseTreemapData(values: TreemapData[], layers: number): unknown[] {
+  return values.map(entry => {
+    const entryNames = [entry['element_name'], entry['sub_group'], entry['group']].filter(entry => entry)
+    return {
+      name: entryNames[0],
+      parent_group: entryNames[1],
+      grandparent_group: entryNames.length === 3 ? entryNames[2] : null,
+      x0: entry['x0'],
+      y0: entry['y0'],
+      x1: entry['x1'],
+      y1: entry['y1'],
+      depth: entry['level'],
+      children: entry['element_name'] ? 0 : 1,
+      layers: layers
+    }
+  })
+}
+
+/**
+ * Parses data for occupation projection visualization
+ * @param values Projection data
+ * @returns projection data
+ */
+function parseProjectionData(values: ProjectionInfo[]): unknown[] {
+  const result = [];
+  for (const occ of values) {
+    result.push({
+      year: 2021,
+      per_change_10: 0,
+      employed: occ['employed'],
+      industry: occ['industry_title'],
+      increase: occ['per_change_10'] ? occ['per_change_10'] > 0 : false
+    })
+    result.push({
+      year: 2031,
+      per_change_10: occ['per_change_10'],
+      employed: occ['employed_10'],
+      industry: occ['industry_title']
+    })
+  }
+  return result;
+}
+
+/**
  * Creates national salary visualization
  * @param values salary data
  * @returns visualization spec
@@ -151,16 +200,13 @@ export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     width: 'container',
     height: 'container',
-    autosize: {
-      resize: true
-    },
     data: {
       values: parseNatData(values)
     },
     params: [
       {
         name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} < 480, 14, 18)`
+        expr: `if (${window.innerWidth} <= 600, 14, 18)`
       },
     ],
     mark: {
@@ -227,23 +273,19 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
       },
       {
         name: 'gradientTitleSize',
-        expr: `if (${window.innerWidth} < 480, 10, 20)`
+        expr: `if (${window.innerWidth} <= 600, 10, 20)`
       },
       {
         name: 'gradientLabelSize',
-        expr: `if (${window.innerWidth} < 480, 10, 16)`
+        expr: `if (${window.innerWidth} <= 600, 10, 16)`
       },
       {
         name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} < 480, 12, 18)`
+        expr: `if (${window.innerWidth} <= 600, 12, 18)`
       },
     ],
     width: 'container',
     height: 'container',
-    autosize: {
-      resize: true,
-      contains: 'padding'
-    },
     transform: [
       {
         lookup: 'id',
@@ -262,7 +304,10 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
 
     ],
     projection: { type: 'albersUsa' },
-    mark: 'geoshape',
+    mark: {
+      type: "geoshape",
+      stroke: "lightgray"
+    },
     encoding: {
       shape: {
         field: 'geo',
@@ -275,6 +320,15 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
         condition: {
           test: `isValid(datum['${value}']) === false`,
           value: '#aaa'
+        },
+        scale: {
+          range: [
+            '#FFF',
+            '#CFBCFF',
+            '#6750A4',
+            '#381E72',
+            '#000'
+          ]
         },
         legend: {
           titleFontSize: { expr: 'gradientTitleSize' },
@@ -312,16 +366,13 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     width: 'container',
     height: 'container',
-    autosize: {
-      resize: true
-    },
     data: {
       values: parseIndData(values)
     },
     params: [
       {
         name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} < 480, 14, 18)`
+        expr: `if (${window.innerWidth} <= 600, 14, 18)`
       },
     ],
     encoding: {
@@ -333,7 +384,7 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
           labelFontSize: 15,
           titleFontSize: { expr: 'axisTitleSize' },
           labelAngle: -45,
-          labelLimit: 100,
+          labelLimit: window.innerWidth <= 600 ? 150 : 300,
         },
         sort: {
           field: 'mid_box_salary'
@@ -451,6 +502,267 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
       },
     ]
   };
+}
 
+/**
+ * Creates treemap visuallization
+ * @param values treemap data
+ * @param layers layers in visualization
+ * @returns treemap spec
+ */
+export function createTreemap(values: TreemapData[], layers: number): VisualizationSpec {
+  return {
+    $schema: 'https://vega.github.io/schema/vega/v5.json',
+    autosize: { type: "none", "contains": 'content' },
+    signals: [
+      {
+        name: 'width',
+        update: 'containerSize()[0]',
+        on: [
+          {
+            events: { source: 'window', type: 'resize' },
+            update: 'containerSize()[0]'
+          }
+        ]
+      },
+      {
+        name: 'height',
+        update: 'containerSize()[1]',
+        on: [
+          {
+            events: { source: 'window', type: 'resize' },
+            update: 'containerSize()[1]'
+          }
+        ]
+      },
+      {
+        name: 'treemapTextSize',
+        update: "if(width < 550, [18, 12, 10], [28, 20, 14])",
+        on: [
+          {
+            events: { source: 'window', type: 'resize' },
+            update: "if(width < 550, [18, 12, 10], [28, 20, 14])"
+          }
+        ]
+      }
+    ],
+    data: [
+      {
+        name: 'tree',
+        values: parseTreemapData(values, layers)
+      },
+      {
+        name: 'nodes',
+        source: 'tree',
+        transform: [{ type: 'filter', expr: 'datum.children' }]
+      },
+      {
+        name: 'nodes2',
+        source: 'nodes',
+        transform: [{ type: 'filter', expr: `datum.depth == ${layers - 1}` }]
+      },
+      {
+        name: 'leaves',
+        source: 'tree',
+        transform: [{ type: 'filter', expr: '!datum.children' }]
+      }
+    ],
 
+    scales: [
+      {
+        name: 'color',
+        type: 'ordinal',
+        domain: { data: 'nodes2', field: 'name' },
+        range: [
+          '#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#e6550d',
+          '#fd8d3c', '#fdae6b', '#fdd0a2', '#31a354', '#74c476',
+          '#a1d99b', '#c7e9c0', '#756bb1', '#9e9ac8', '#bcbddc',
+          '#dadaeb', '#636363', '#969696', '#bdbdbd', '#d9d9d9'
+        ]
+      },
+      {
+        name: 'size',
+        type: 'ordinal',
+        domain: [1, 2, 3],
+        range: { signal: 'treemapTextSize' }
+      },
+      {
+        name: 'opacity',
+        type: 'ordinal',
+        domain: [1, 2, 3],
+        range: [0.3, 0.8, 1.0]
+      }
+    ],
+
+    marks: [
+      {
+        type: 'rect',
+        from: { data: 'nodes' },
+        interactive: false,
+        encode: {
+          enter: {
+            fill: { scale: 'color', field: 'name' }
+          },
+          update: {
+            x: { signal: "datum['x0'] * width" },
+            y: { signal: "datum['y0'] * height" },
+            x2: { signal: "datum['x1'] * width" },
+            y2: { signal: "datum['y1'] * height" },
+          },
+        }
+      },
+      {
+        type: 'rect',
+        from: { data: 'leaves' },
+        encode: {
+          enter: {
+            stroke: { value: '#fff' },
+            tooltip: {
+              signal: layers === 3 ?
+                "{'Behavior': datum.name, 'Parent Group': datum.parent_group, 'Main Group': datum.grandparent_group}"
+                : "{'Behavior': datum.name, 'Parent Group': datum.parent_group}"
+            }
+          },
+          update: {
+            x: { signal: "datum['x0'] * width" },
+            y: { signal: "datum['y0'] * height" },
+            x2: { signal: "datum['x1'] * width" },
+            y2: { signal: "datum['y1'] * height" },
+            fill: { value: 'transparent' }
+          },
+          hover: {
+            fill: { value: 'red' }
+          }
+        }
+      },
+      {
+        type: 'text',
+        from: { data: 'nodes' },
+        interactive: false,
+        encode: {
+          enter: {
+            font: { value: 'Helvetica Neue, Arial' },
+            align: { value: 'center' },
+            baseline: { value: 'middle' },
+            fill: { value: '#000' },
+            text: { field: 'name' },
+            fontSize: { scale: 'size', field: 'depth' },
+            fillOpacity: { scale: 'opacity', field: 'depth' }
+          },
+          update: {
+            x: { signal: "0.5 * width * (datum['x0'] + datum['x1'])" },
+            y: { signal: "0.5 * height * (datum['y0'] + datum['y1'])" }
+          }
+        },
+        transform: [
+          {
+            type: 'label',
+            anchor: ['top', 'bottom'],
+            size: { signal: '[width, height]' },
+          }
+        ]
+      }
+    ]
+  }
+}
+
+/**
+ * Creates projections visualization
+ * @param values Projections data
+ * @returns projections plot
+ */
+export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSpec {
+  return {
+    $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+    description: "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
+    width: 'container',
+    height: 'container',
+    autosize: {
+      resize: true
+    },
+    data: { values: parseProjectionData(values) },
+    params: [
+      {
+        name: 'axisTitleSize',
+        expr: `if (${window.innerWidth} <= 600, 14, 18)`
+      },
+      {
+        name: 'labelLength',
+        expr: `if (${window.innerWidth} <= 600, 100, 200)`
+      },
+    ],
+    encoding: {
+      x: {
+        field: 'per_change_10',
+        type: 'quantitative',
+        title: 'Employment % change',
+        axis: {
+          labelFontSize: 15,
+          titleFontSize: { expr: 'axisTitleSize' }
+        }
+      },
+      y: {
+        field: 'industry',
+        type: 'nominal',
+        title: 'Industry',
+        axis: {
+          offset: 5,
+          ticks: false,
+          domain: false,
+          labelFontSize: 15,
+          titleFontSize: { expr: 'axisTitleSize' },
+          labelLimit: { expr: 'labelLength' },
+        },
+        sort: ['National average']
+      }
+    },
+    layer: [
+      {
+        mark: {
+          type: 'line',
+          strokeWidth: 5,
+        },
+        encoding: {
+          detail: {
+            field: 'industry',
+            type: 'nominal',
+          },
+          color: {
+            value: {
+              expr: "datum.increase ? 'blue' : '#db646f'"
+            }
+          }
+        }
+      },
+      {
+        mark: {
+          type: 'point',
+          filled: true,
+        },
+        encoding: {
+          color: {
+            field: 'year',
+            type: 'ordinal',
+            title: 'Year'
+          },
+          size: { value: 150 },
+          opacity: { value: 1 },
+          tooltip: [
+            {
+              field: 'industry',
+              title: 'Industry'
+            },
+            {
+              field: 'employed',
+              title: 'Employment (thousands)'
+            },
+            {
+              field: 'per_change_10',
+              title: 'Employment % Change'
+            },
+          ],
+        }
+      }
+    ]
+  };
 }
