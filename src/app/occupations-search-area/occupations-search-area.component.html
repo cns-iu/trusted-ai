@@ -1,15 +1,15 @@
+<div class="mobile-search-filters">
+  <div>Find in list</div>
+  <div class="filters-button" (click)="openDialog()" mat-stroked-button color="primary">Filters</div>
+</div>
 <div class="row1">
   <div class="search-box">
-    <div class="mobile-search-filters">
-      <div>Find in list</div>
-      <div class="filters-button" (click)="openDialog()" mat-stroked-button color="primary">Filters</div>
-    </div>
     <mat-form-field class="form" appearance="fill" subscriptSizing="dynamic">
       <input class="search-input" matInput (input)="inputChange($event)" placeholder="Job title, keywords" />
       <mat-icon class="material-icons">search</mat-icon>
     </mat-form-field>
   </div>
-  <button class="preparedness-button" mat-stroked-button color="primary">
+  <button class="preparedness-button" mat-stroked-button color="primary" (click)="openPreparednessDialog()">
     <div class="label">
       <mat-icon fontSet="material-icons-outlined" class="info-icon">info</mat-icon>
       <div>Preparedness Levels</div>
@@ -74,7 +74,7 @@
   </div>
 </div>
 
-<button class="preparedness-button-mobile" mat-stroked-button color="primary">
+<button class="preparedness-button-mobile" mat-stroked-button color="primary" (click)="openPreparednessDialog()">
   <div class="label">
     <mat-icon fontSet="material-icons-outlined" class="info-icon">info</mat-icon>
     <div>Preparedness Levels</div>
