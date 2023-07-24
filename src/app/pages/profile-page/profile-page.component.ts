@@ -162,15 +162,19 @@ const outlookDescriptions: Record<string, string> = {
 export class ProfilePageComponent implements OnInit {
   /** Scrolls to top of page */
   private readonly route = inject(ActivatedRoute);
+
   /** Http client */
   private readonly http = inject(HttpClient);
 
   /** Treemap1 element */
   @ViewChild('treemap1') private treemap1: TreemapComponent = new TreemapComponent();
+
   /** Treemap2 element */
   @ViewChild('treemap2') private treemap2: TreemapComponent = new TreemapComponent();
+
   /** Treemap3 element */
   @ViewChild('treemap3') private treemap3: TreemapComponent = new TreemapComponent();
+
   /** Treemap4 element */
   @ViewChild('treemap4') private treemap4: TreemapComponent = new TreemapComponent();
 
@@ -194,26 +198,37 @@ export class ProfilePageComponent implements OnInit {
 
   /** Tech skills for the job (each pair = type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] = [];
+
   /** Work tasks list */
   workTasks: WorkTasks[] = [];
+
   /** Salary states info */
   salaryStatesInfo: SalaryInfo[] = [];
+
   /** Salary national info */
   salaryNatInfo: SalaryInfo[] = [];
+
   /** Salary industry info */
   salaryIndInfo: SalaryInfo[] = [];
+
   /** Whether or not all work tasks should be displayed */
   showAllTasks = false;
+
   /** Whether or not all technology skills should be displayed */
   showAllSkills = false;
+
   /** Work Activities data */
   treemapWorkActivitiesData: TreemapData[] = [];
+
   /** Skills data */
   treemapSkillsData: TreemapData[] = [];
+
   /** Knowledge data */
   treemapKnowledgeData: TreemapData[] = [];
+
   /** Abilities data */
   treemapAbilitiesData: TreemapData[] = [];
+
   /** Occupation projection data */
   projectionInfo: ProjectionInfo[] = [];
 
@@ -242,7 +257,6 @@ export class ProfilePageComponent implements OnInit {
    */
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      this.scrollToTop();
       this.getData(params['code']).subscribe();
       this.showAllSkills = false;
     });
