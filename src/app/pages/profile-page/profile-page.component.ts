@@ -19,17 +19,17 @@ export interface AllJobInfo {
   /** Job data value */
   [key: string]: unknown;
   /** List of alternative job titles */
-  alt_titles: string[];
+  alt_titles?: string[];
   /** Job zone (preparedness level) */
-  job_zone: number;
+  job_zone?: number;
   /** List of technology skills */
-  tech_skills: TechSkill[];
+  tech_skills?: TechSkill[];
   /** List of work tasks */
-  work_tasks: WorkTasks[];
+  work_tasks?: WorkTasks[];
   /** List of state salary info */
-  salary_states: SalaryInfo[];
+  salary_states?: SalaryInfo[];
   /** List of national salary info */
-  salary_nat: SalaryInfo[];
+  salary_nat?: SalaryInfo[];
   /** List of industry salary info */
   salary_ind?: SalaryInfo[];
   /** Abilities treemap data */
@@ -41,19 +41,19 @@ export interface AllJobInfo {
   /** Knowledge treemap data */
   behaviors_knowledge?: TreemapData[];
   /** List of industry projection data */
-  projections: ProjectionInfo[];
+  projections?: ProjectionInfo[];
   /** National employed total */
-  employed_nat: number;
+  employed_nat?: number;
   /** Projected national employed total */
-  employed_10_nat: number;
+  employed_10_nat?: number;
   /** National percent change */
-  per_change_10_nat: number;
+  per_change_10_nat?: number;
   /** Bright future status */
-  bright_futures: string;
+  bright_futures?: string;
   /** Automation risk projection */
-  automation_risk: string;
+  automation_risk?: string;
   /** Near term outlook */
-  near_future: string;
+  near_future?: string;
 }
 
 /** Info on a technology skill */
@@ -249,7 +249,7 @@ export class ProfilePageComponent implements OnInit {
   get outlookDescription(): string {
     return this.currentJobInfo['near_future']
       ? this.currentJobInfo['near_future']
-      : outlookDescriptions[this.currentJobInfo['bright_futures']];
+      : outlookDescriptions[this.currentJobInfo['bright_futures'] ? this.currentJobInfo['bright_futures'] : 'No data'];
   }
 
   /**
