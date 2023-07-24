@@ -8,8 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 
-import { SearchFilters } from '../pages/occupations-page/occupations-page.component';
 import { PreparednessLevels } from '../career-card/career-card.component';
+import { SearchFilters } from '../pages/occupations-page/occupations-page.component';
 
 /** Occupations page search component */
 @Component({
@@ -87,6 +87,9 @@ export class OccupationsSearchAreaComponent {
     });
   }
 
+  /**
+   * Opens preparedness dialog
+   */
   openPreparednessDialog(): void {
     this.dialog.open(PreparednessDialogComponent, {
       width: 'calc(100% - 2rem)',
@@ -105,6 +108,9 @@ export class OccupationsSearchAreaComponent {
   }
 }
 
+/**
+ * Preparedness dialog component
+ */
 @Component({
   selector: 'trust-ai-preparedness-dialog',
   templateUrl: 'preparedness-dialog.html',
@@ -123,6 +129,11 @@ export class PreparednessDialogComponent {
     this.dialogRef.close();
   }
 
+  /**
+   * Preparedness description line
+   * @param level Preparedness level
+   * @returns description
+   */
   preparednessDescription(level: number): string {
     return PreparednessLevels[level];
   }

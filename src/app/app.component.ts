@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   /** Router service */
   private readonly router = inject(Router);
 
+  /** If the user is scrolled to the top of the page */
   onTop = true;
 
   /** Scrolls to top of page after each route click */
@@ -35,6 +36,9 @@ export class AppComponent implements OnInit {
     fromEvent(document, 'scroll').subscribe(() => (this.onTop = window.scrollY === 0));
   }
 
+  /**
+   * Scrolls to top of page
+   */
   scrollToTop(): void {
     window.scrollTo(0, 0);
   }
