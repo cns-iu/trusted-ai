@@ -1,4 +1,9 @@
 :host {
+  .close,
+  .button {
+    cursor: pointer;
+  }
+
   .dialog-container {
     display: flex;
     flex-direction: column;
@@ -93,7 +98,6 @@
       padding: 0.625rem 0.75rem;
       color: #6750a4;
       font-weight: 500;
-      cursor: pointer;
     }
   }
 

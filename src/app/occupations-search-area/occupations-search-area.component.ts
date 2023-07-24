@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { SearchFilters } from '../pages/occupations-page/occupations-page.component';
+import { PreparednessLevels } from '../career-card/career-card.component';
 
 /** Occupations page search component */
 @Component({
@@ -86,6 +87,14 @@ export class OccupationsSearchAreaComponent {
     });
   }
 
+  openPreparednessDialog(): void {
+    this.dialog.open(PreparednessDialogComponent, {
+      width: 'calc(100% - 2rem)',
+      maxWidth: '25.5rem',
+      panelClass: 'preparedness-dialog',
+    });
+  }
+
   /**
    * Handles when sort selection is made
    * @param item selection
@@ -93,6 +102,29 @@ export class OccupationsSearchAreaComponent {
   clickMenuItem(item: string) {
     this.sortBy = item;
     this.sortChanged.emit(item);
+  }
+}
+
+@Component({
+  selector: 'trust-ai-preparedness-dialog',
+  templateUrl: 'preparedness-dialog.html',
+  styleUrls: ['./preparedness-dialog.scss'],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, MatDialogModule, MatIconModule],
+})
+export class PreparednessDialogComponent {
+  /** Mat Dialog reference */
+  private readonly dialogRef = inject(MatDialogRef<PreparednessDialogComponent>);
+
+  /**
+   * Closes dialog when cancel clicked
+   */
+  cancelClick() {
+    this.dialogRef.close();
+  }
+
+  preparednessDescription(level: number): string {
+    return PreparednessLevels[level];
   }
 }
 
