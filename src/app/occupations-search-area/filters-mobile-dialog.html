@@ -14,7 +14,6 @@
         *ngFor="let item of ['0', '1', '2', '3', '4', '5']"
         value="{{ item }}"
         checked="{{ filters['preparednessLevel'] === item }}"
-        disableRipple="true"
       >
         <mat-icon class="checkmark" *ngIf="filters['preparednessLevel'] === item">check</mat-icon>
         {{ item === '0' ? 'All' : item }}

@@ -18,12 +18,16 @@ import { SalaryInfo } from '../pages/profile-page/profile-page.component';
 export class ProfileSalaryComponent implements OnChanges {
   /** Visualization element */
   @ViewChild('vis') vis?: ElementRef;
+
   /** Vega lite spec for visualization */
   @Input() spec: VisualizationSpec = {};
+
   /** State salary data */
   @Input() dataStates: SalaryInfo[] = [];
+
   /** National salary data */
   @Input() dataNat: SalaryInfo[] = [];
+
   /** Industry salary data */
   @Input() dataInd: SalaryInfo[] = [];
 

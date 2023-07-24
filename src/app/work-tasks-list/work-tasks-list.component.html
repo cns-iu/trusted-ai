@@ -43,13 +43,13 @@
     <div class="view-toggle" (click)="showAllButtonClick.emit()">{{ showAll ? 'View less' : 'View all' }}</div>
   </div>
 </div>
-<div class="task-list" *ngIf="selection === '0'">
+<div class="task-list importance" *ngIf="selection === '0'">
   <div class="task-item" *ngFor="let task of tasksShown">
     <div class="value {{ importanceCategory(task.importance) }}">{{ task.importance.toFixed(1) }}</div>
     <div class="name">{{ task.task }}</div>
   </div>
 </div>
-<div class="task-list" *ngIf="selection === '1'">
+<div class="task-list frequency" *ngIf="selection === '1'">
   <div class="task-item" *ngFor="let task of tasksShown">
     <div class="value {{ frequencyCategory(task.relevance) }}">{{ roundFrequency(task.relevance) }}%</div>
     <div class="name">{{ task.task }}</div>

@@ -1,20 +1,28 @@
 :host {
-  @media (width <= 1168px) {
+  @media (width <= 1240px) {
     .search-content {
       padding: 6.5rem 0 0.5rem 0 !important;
-    }
 
-    .sub-section-title {
-      font-size: 1.375rem !important;
+      .search-title {
+        display: none;
+      }
     }
 
     .sub-section-content {
       font-size: 0.875rem !important;
       line-height: 1.25rem !important;
     }
+
+    .button-group {
+      flex-direction: column;
+
+      .resource-link {
+        min-width: 50vw;
+      }
+    }
   }
 
-  @media (480px < width < 1168px) {
+  @media (600px < width < 1240px) {
     .content,
     .section-title,
     .code,
@@ -23,7 +31,7 @@
     }
   }
 
-  @media (width <= 480px) {
+  @media (width <= 600px) {
     .content,
     .section-title,
     .code,
@@ -31,13 +39,19 @@
       width: calc(100% - 2rem) !important;
     }
 
-    .sub-section-title {
+    .sub-section-title,
+    .treemaps-title {
       font-size: 1rem !important;
       font-weight: 500;
+      line-height: 1.5rem;
     }
 
     .salary-ind {
       height: 100vw !important;
+    }
+
+    .resource-link {
+      width: 100% !important;
     }
   }
 
@@ -47,12 +61,6 @@
     align-items: center;
     justify-content: center;
     padding-bottom: 0.5rem;
-
-    @media (width <= 1168px) {
-      .search-title {
-        display: none;
-      }
-    }
 
     .search-content {
       display: flex;
@@ -71,33 +79,16 @@
     flex-direction: column;
     align-items: center;
 
-    &.salary {
-      .sub-section {
-        align-items: center;
-
-        .salary-nat {
-          height: 40vw;
-        }
-        .salary-states {
-          height: 50vw;
-        }
-        .salary-ind {
-          height: 50vw;
-        }
-      }
-    }
-
     .content,
     .section-title,
     .code {
-      width: 80%;
+      width: 65%;
     }
 
     .section-header {
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-size: 1.75rem;
       background: #e9ddff;
       padding: 1.5rem 0;
       width: 100%;
@@ -131,7 +122,6 @@
           display: flex;
           align-items: center;
           gap: 10px;
-          width: 100%;
         }
 
         .sub-section-content {
@@ -159,14 +149,90 @@
         }
       }
     }
-  }
 
-  .preparedness {
-    .content {
-      :first-child .sub-section-title {
-        color: #6750a4;
-        img {
-          height: 1.5rem;
+    &.behaviors {
+      ::ng-deep mat-tab-group {
+        mat-tab-header {
+          border-bottom: 1px solid #e6e0e9;
+        }
+
+        .treemaps-title {
+          padding: 1.5rem 0;
+          font-size: 1.375rem;
+        }
+
+        .mdc-tab__text-label {
+          line-height: 1.25rem;
+          letter-spacing: 0.00625rem;
+        }
+
+        .mat-mdc-tab {
+          padding: 0;
+          width: 25%;
+          min-width: 0;
+
+          &.mdc-tab--active {
+            color: #6750a4;
+          }
+        }
+
+        .mat-mdc-tab-body-content {
+          height: unset;
+        }
+
+        canvas {
+          height: 50vw !important;
+          width: 100% !important;
+        }
+      }
+    }
+
+    &.preparedness {
+      .content {
+        :first-child .sub-section-title {
+          color: #6750a4;
+
+          img {
+            height: 1.5rem;
+          }
+        }
+      }
+    }
+
+    &.salary {
+      .sub-section {
+        align-items: center;
+
+        .salary-nat {
+          height: 40vw;
+        }
+        .salary-states {
+          height: 50vw;
+        }
+        .salary-ind {
+          height: 50vw;
+        }
+      }
+    }
+
+    &.projection {
+      .sub-section {
+        .projection {
+          height: 65vw;
+        }
+
+        .button-group {
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+          line-height: 1rem;
+
+          .resource-link {
+            border-radius: 1rem;
+            border-color: rgb(122, 117, 127);
+            color: #6750a4;
+            width: calc((100% - 2rem) / 3);
+          }
         }
       }
     }
@@ -187,10 +253,12 @@
     }
 
     .scroll-top-button {
-      border-radius: 1rem;
-      border-color: rgba(122, 117, 127, 1);
+      border-radius: 6.25rem;
       color: #6750a4;
       background: #f7f2fa;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+      letter-spacing: normal;
+      padding: 0 1.5rem;
     }
   }
 }

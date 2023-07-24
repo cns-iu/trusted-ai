@@ -1,5 +1,8 @@
 :host {
-  @media (width <= 1168px) {
+  font-family: Lexend;
+  width: 100%;
+
+  @media (width <= 1240px) {
     .partner-links,
     .cns-link {
       padding: 3rem 0rem !important;
@@ -11,7 +14,7 @@
     }
   }
 
-  @media (480px < width < 1168px) {
+  @media (600px < width < 1240px) {
     .section-title {
       font-size: 1rem !important;
       line-height: 1.25rem !important;
@@ -19,7 +22,7 @@
     }
   }
 
-  @media (width < 480px) {
+  @media (width < 600px) {
     .section-title {
       font-size: 0.875rem !important;
       line-height: 1.25rem !important;
