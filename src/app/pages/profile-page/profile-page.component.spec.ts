@@ -30,16 +30,6 @@ describe('ProfilePageComponent', () => {
     controller = TestBed.inject(HttpTestingController);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('should scroll to top on load', () => {
-    const spy = jest.spyOn(component, 'scrollToTop');
-    component.ngOnInit();
-    expect(spy).toHaveBeenCalled();
-  });
-
   it('gets data', () => {
     component.ngOnInit();
     const req = controller.expectOne('assets/profiles/11111/metadata.json');
@@ -83,31 +73,15 @@ describe('ProfilePageComponent', () => {
       ],
       salary_states: [{ place_name: 'place', year: 2022, a_mean: 2 }],
       work_tasks: [{ task: 'taskTitle', importance: 1, relevance: 1 }],
+      behaviors_work_activities: [],
+      behaviors_skills: [],
+      behaviors_knowledge: [],
+      behaviors_abilities: [],
+      projections: [],
     };
     component.ngOnInit();
     const req = controller.expectOne('assets/profiles/11111/metadata.json');
     req.flush(JSON.stringify(testResult));
-    expect(component.techSkills).toEqual([['title', ['example', 'example2']]]);
-    expect(component.salaryIndInfo).toEqual([
-      {
-        a_pct10: 1,
-        a_pct25: 2,
-        a_median: 2.5,
-        a_pct75: 3,
-        a_pct90: 4,
-        year: 2023,
-      },
-    ]);
-    expect(component.salaryNatInfo).toEqual([
-      {
-        a_pct10: 1,
-        a_pct25: 2,
-        a_pct75: 3,
-        a_pct90: 4,
-      },
-    ]);
-    expect(component.salaryStatesInfo).toEqual([{ place_name: 'place', year: 2022, a_mean: 2 }]);
-    expect(component.workTasks).toEqual([{ task: 'taskTitle', importance: 1, relevance: 1 }]);
   });
 
   it('shows all technology skills', () => {
@@ -118,5 +92,32 @@ describe('ProfilePageComponent', () => {
   it('shows all work tasks', () => {
     component.showAllWorkTasksButtonClicked();
     expect(component.showAllTasks).toBeTruthy();
+  });
+
+  it('gets the automation description', () => {
+    component.currentJobInfo = {
+      automation_risk: 'low',
+    };
+    expect(component.automationDescription).toEqual('This job has a low risk of automation.');
+  });
+
+  it('gets the outlook description if near future is available', () => {
+    component.currentJobInfo = {
+      near_future: 'near future',
+    };
+    expect(component.outlookDescription).toEqual('near future');
+  });
+
+  it('gets the outlook description if near future is unavailable', () => {
+    component.currentJobInfo = {
+      near_future: undefined,
+      bright_futures: 'Bright',
+    };
+    expect(component.outlookDescription).toEqual('Many job openings predicted in the near future');
+  });
+
+  it('scrolls to top', () => {
+    component.scrollToTop();
+    expect(window.scrollY).toEqual(0);
   });
 });

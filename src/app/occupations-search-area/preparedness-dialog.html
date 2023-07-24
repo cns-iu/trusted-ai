@@ -1,0 +1,19 @@
+<div class="dialog-container">
+  <div class="dialog-header">
+    Preparedness Levels
+    <mat-icon class="close" (click)="cancelClick()">close</mat-icon>
+  </div>
+  <div class="description">
+    Preparedness Levels group occupations into one of five categories based on levels of education, experience, and
+    training necessary to perform the occupation.
+  </div>
+
+  <div class="list" *ngFor="let n of [1,2,3,4,5]">
+    <img class="preparation-level" src="{{ 'assets/icons/counter_' + n + '.svg' }}" />
+    <div class="preparation-text">{{ preparednessDescription(n) }}</div>
+  </div>
+
+  <div class="button-group">
+    <div class="button" (click)="cancelClick()">Close</div>
+  </div>
+</div>

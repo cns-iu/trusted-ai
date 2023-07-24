@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 
+import { PreparednessLevels } from '../career-card/career-card.component';
 import { SearchFilters } from '../pages/occupations-page/occupations-page.component';
 
 /** Occupations page search component */
@@ -87,12 +88,54 @@ export class OccupationsSearchAreaComponent {
   }
 
   /**
+   * Opens preparedness dialog
+   */
+  openPreparednessDialog(): void {
+    this.dialog.open(PreparednessDialogComponent, {
+      width: 'calc(100% - 2rem)',
+      maxWidth: '25.5rem',
+      panelClass: 'preparedness-dialog',
+    });
+  }
+
+  /**
    * Handles when sort selection is made
    * @param item selection
    */
   clickMenuItem(item: string) {
     this.sortBy = item;
     this.sortChanged.emit(item);
+  }
+}
+
+/**
+ * Preparedness dialog component
+ */
+@Component({
+  selector: 'trust-ai-preparedness-dialog',
+  templateUrl: 'preparedness-dialog.html',
+  styleUrls: ['./preparedness-dialog.scss'],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, MatDialogModule, MatIconModule],
+})
+export class PreparednessDialogComponent {
+  /** Mat Dialog reference */
+  private readonly dialogRef = inject(MatDialogRef<PreparednessDialogComponent>);
+
+  /**
+   * Closes dialog when cancel clicked
+   */
+  cancelClick() {
+    this.dialogRef.close();
+  }
+
+  /**
+   * Preparedness description line
+   * @param level Preparedness level
+   * @returns description
+   */
+  preparednessDescription(level: number): string {
+    return PreparednessLevels[level];
   }
 }
 
