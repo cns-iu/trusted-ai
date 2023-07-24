@@ -240,7 +240,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:26</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -272,7 +272,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:23</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -334,7 +334,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:32</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -361,7 +361,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:29</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -400,8 +400,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:81</a></div>
                 </td>
             </tr>
 
@@ -477,8 +477,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:62</a></div>
                 </td>
             </tr>
 
@@ -554,8 +554,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:95</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:100</a></div>
                 </td>
             </tr>
 
@@ -631,8 +631,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:53</a></div>
                 </td>
             </tr>
 
@@ -712,7 +712,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/work-tasks-list/work-tasks-list.component.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -751,14 +751,19 @@ import { WorkTasks } from &#x27;../pages/profile-page/profile-page.component&#x2
 export class WorkTasksListComponent implements DoCheck {
   /** List of all tasks */
   @Input() tasks: WorkTasks[] &#x3D; [];
+
   /** Whether to show all tasks or not */
   @Input() showAll &#x3D; false;
+
   /** List type selected (0 &#x3D; importance, 1 &#x3D; frequency) */
   @Input() selection &#x3D; &#x27;0&#x27;;
+
   /** Emits when show all is clicked */
   @Output() showAllButtonClick &#x3D; new EventEmitter();
+
   /** Emits when list selection changed */
   @Output() readonly selectionChanged &#x3D; new EventEmitter&lt;string&gt;();
+
   /** Currently visible tasks */
   tasksShown: WorkTasks[] &#x3D; [];
 
@@ -878,13 +883,13 @@ export class WorkTasksListComponent implements DoCheck {
     &lt;div class&#x3D;&quot;view-toggle&quot; (click)&#x3D;&quot;showAllButtonClick.emit()&quot;&gt;{{ showAll ? &#x27;View less&#x27; : &#x27;View all&#x27; }}&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class&#x3D;&quot;task-list&quot; *ngIf&#x3D;&quot;selection &#x3D;&#x3D;&#x3D; &#x27;0&#x27;&quot;&gt;
+&lt;div class&#x3D;&quot;task-list importance&quot; *ngIf&#x3D;&quot;selection &#x3D;&#x3D;&#x3D; &#x27;0&#x27;&quot;&gt;
   &lt;div class&#x3D;&quot;task-item&quot; *ngFor&#x3D;&quot;let task of tasksShown&quot;&gt;
     &lt;div class&#x3D;&quot;value {{ importanceCategory(task.importance) }}&quot;&gt;{{ task.importance.toFixed(1) }}&lt;/div&gt;
     &lt;div class&#x3D;&quot;name&quot;&gt;{{ task.task }}&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class&#x3D;&quot;task-list&quot; *ngIf&#x3D;&quot;selection &#x3D;&#x3D;&#x3D; &#x27;1&#x27;&quot;&gt;
+&lt;div class&#x3D;&quot;task-list frequency&quot; *ngIf&#x3D;&quot;selection &#x3D;&#x3D;&#x3D; &#x27;1&#x27;&quot;&gt;
   &lt;div class&#x3D;&quot;task-item&quot; *ngFor&#x3D;&quot;let task of tasksShown&quot;&gt;
     &lt;div class&#x3D;&quot;value {{ frequencyCategory(task.relevance) }}&quot;&gt;{{ roundFrequency(task.relevance) }}%&lt;/div&gt;
     &lt;div class&#x3D;&quot;name&quot;&gt;{{ task.task }}&lt;/div&gt;
@@ -898,7 +903,7 @@ export class WorkTasksListComponent implements DoCheck {
                     <code>./work-tasks-list.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
-  @media (width &lt;&#x3D; 1168px) {
+  @media (width &lt;&#x3D; 1240px) {
     .toggle,
     .legend-group {
       width: 100% !important;
@@ -916,9 +921,14 @@ export class WorkTasksListComponent implements DoCheck {
     }
   }
 
-  @media (width &lt;&#x3D; 480px) {
+  @media (width &lt;&#x3D; 600px) {
     .sub-section-content {
       display: none;
+    }
+
+    .legend-item {
+      font-size: 0.875rem;
+      width: 22% !important;
     }
   }
 
@@ -926,26 +936,51 @@ export class WorkTasksListComponent implements DoCheck {
   display: flex;
   flex-direction: column;
 
-  .high,
-  .med,
-  .low {
-    color: white;
+  .importance {
+    .high,
+    .med,
+    .low {
+      color: white;
+    }
+
+    .high {
+      background: black;
+    }
+
+    .med {
+      background: #381e72;
+    }
+
+    .low {
+      background: #6750a4;
+    }
+
+    .lowest {
+      background: #cfbcff;
+    }
   }
 
-  .high {
-    background: black;
-  }
+  .frequency {
+    .high,
+    .med {
+      color: white;
+    }
 
-  .med {
-    background: #381e72;
-  }
+    .high {
+      background: black;
+    }
 
-  .low {
-    background: #6750a4;
-  }
+    .med {
+      background: #5e1134;
+    }
 
-  .lowest {
-    background: #cfbcff;
+    .low {
+      background: #d57195;
+    }
+
+    .lowest {
+      background: #ffb0c9;
+    }
   }
 
   .controls {
@@ -1020,6 +1055,7 @@ export class WorkTasksListComponent implements DoCheck {
         width: 32.375rem;
         justify-content: space-between;
         gap: 0.5rem;
+        height: 2.5rem;
 
         .legend-item {
           display: flex;
@@ -1031,6 +1067,8 @@ export class WorkTasksListComponent implements DoCheck {
           border-radius: 100px;
           line-height: 1rem;
           flex-grow: 1;
+          width: 25%;
+          text-align: center;
         }
       }
     }
@@ -1113,8 +1151,8 @@ export class WorkTasksListComponent implements DoCheck {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="controls">  <mat-button-toggle-group class="toggle" name="show-occupations-toggle" (change)="selectionChange($event)">    <mat-button-toggle value="0" checked="true">      <mat-icon class="checkmark" *ngIf="selection === \'0\'">check</mat-icon>      Importance    </mat-button-toggle>    <mat-button-toggle value="1">      <mat-icon class="checkmark" *ngIf="selection === \'1\'">check</mat-icon>      Frequency of Task    </mat-button-toggle>  </mat-button-toggle-group>  <div class="sub-section" *ngIf="selection === \'0\'">    <div class="sub-section-title">Task List by Importance</div>    <div class="sub-section-content">This list is ranked by how important the task is to this occupation.</div>  </div>  <div class="sub-section" *ngIf="selection === \'1\'">    <div class="sub-section-title">Task List by Frequency</div>    <div class="sub-section-content">      This list is ranked by how frequently the task is performed in this occupation.    </div>  </div>  <div class="legend">    <div class="label">Legend</div>    <div class="legend-group importance" *ngIf="selection === \'0\'">      <div class="legend-item high">>4.0</div>      <div class="legend-item med">3.5 - 4.0</div>      <div class="legend-item low">3.0 - 3.5</div>      <div class="legend-item lowest"><3.0</div>    </div>    <div class="legend-group frequency" *ngIf="selection === \'1\'">      <div class="legend-item high">100% - 76%</div>      <div class="legend-item med">75% - 51%</div>      <div class="legend-item low">50% - 26%</div>      <div class="legend-item lowest">25% - 0%</div>    </div>  </div>  <div class="list-controls">    <div class="list-count">Viewing {{ tasksShown.length }} of {{ tasks.length }}</div>    <div class="view-toggle" (click)="showAllButtonClick.emit()">{{ showAll ? \'View less\' : \'View all\' }}</div>  </div></div><div class="task-list" *ngIf="selection === \'0\'">  <div class="task-item" *ngFor="let task of tasksShown">    <div class="value {{ importanceCategory(task.importance) }}">{{ task.importance.toFixed(1) }}</div>    <div class="name">{{ task.task }}</div>  </div></div><div class="task-list" *ngIf="selection === \'1\'">  <div class="task-item" *ngFor="let task of tasksShown">    <div class="value {{ frequencyCategory(task.relevance) }}">{{ roundFrequency(task.relevance) }}%</div>    <div class="name">{{ task.task }}</div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+        var COMPONENT_TEMPLATE = '<div><div class="controls">  <mat-button-toggle-group class="toggle" name="show-occupations-toggle" (change)="selectionChange($event)">    <mat-button-toggle value="0" checked="true">      <mat-icon class="checkmark" *ngIf="selection === \'0\'">check</mat-icon>      Importance    </mat-button-toggle>    <mat-button-toggle value="1">      <mat-icon class="checkmark" *ngIf="selection === \'1\'">check</mat-icon>      Frequency of Task    </mat-button-toggle>  </mat-button-toggle-group>  <div class="sub-section" *ngIf="selection === \'0\'">    <div class="sub-section-title">Task List by Importance</div>    <div class="sub-section-content">This list is ranked by how important the task is to this occupation.</div>  </div>  <div class="sub-section" *ngIf="selection === \'1\'">    <div class="sub-section-title">Task List by Frequency</div>    <div class="sub-section-content">      This list is ranked by how frequently the task is performed in this occupation.    </div>  </div>  <div class="legend">    <div class="label">Legend</div>    <div class="legend-group importance" *ngIf="selection === \'0\'">      <div class="legend-item high">>4.0</div>      <div class="legend-item med">3.5 - 4.0</div>      <div class="legend-item low">3.0 - 3.5</div>      <div class="legend-item lowest"><3.0</div>    </div>    <div class="legend-group frequency" *ngIf="selection === \'1\'">      <div class="legend-item high">100% - 76%</div>      <div class="legend-item med">75% - 51%</div>      <div class="legend-item low">50% - 26%</div>      <div class="legend-item lowest">25% - 0%</div>    </div>  </div>  <div class="list-controls">    <div class="list-count">Viewing {{ tasksShown.length }} of {{ tasks.length }}</div>    <div class="view-toggle" (click)="showAllButtonClick.emit()">{{ showAll ? \'View less\' : \'View all\' }}</div>  </div></div><div class="task-list importance" *ngIf="selection === \'0\'">  <div class="task-item" *ngFor="let task of tasksShown">    <div class="value {{ importanceCategory(task.importance) }}">{{ task.importance.toFixed(1) }}</div>    <div class="name">{{ task.task }}</div>  </div></div><div class="task-list frequency" *ngIf="selection === \'1\'">  <div class="task-item" *ngFor="let task of tasksShown">    <div class="value {{ frequencyCategory(task.relevance) }}">{{ roundFrequency(task.relevance) }}%</div>    <div class="name">{{ task.task }}</div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'PreparednessDialogComponent', 'selector': 'trust-ai-preparedness-dialog'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfileOccupationProjectionComponent', 'selector': 'trust-ai-profile-occupation-projection'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'TreemapComponent', 'selector': 'trust-ai-treemap'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'WorkTasksListComponent'};
 </script>

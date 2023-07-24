@@ -89,7 +89,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/PageFooterComponent.html" data-type="entity-link" >PageFooterComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/PreparednessDialogComponent.html" data-type="entity-link" >PreparednessDialogComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/ProfileEmploymentComponent.html" data-type="entity-link" >ProfileEmploymentComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/ProfileOccupationProjectionComponent.html" data-type="entity-link" >ProfileOccupationProjectionComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/ProfilePageComponent.html" data-type="entity-link" >ProfilePageComponent</a>
@@ -102,6 +108,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="components/SearchBoxComponent.html" data-type="entity-link" >SearchBoxComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/TreemapComponent.html" data-type="entity-link" >TreemapComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/WorkTasksListComponent.html" data-type="entity-link" >WorkTasksListComponent</a>
@@ -123,6 +132,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/JobInfo.html" data-type="entity-link" >JobInfo</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ProjectionInfo.html" data-type="entity-link" >ProjectionInfo</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/SalaryInfo.html" data-type="entity-link" >SalaryInfo</a>
                             </li>
                             <li class="link">
@@ -130,6 +142,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/TechSkill.html" data-type="entity-link" >TechSkill</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/TreemapData.html" data-type="entity-link" >TreemapData</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/WorkTasks.html" data-type="entity-link" >WorkTasks</a>

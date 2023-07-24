@@ -243,16 +243,19 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
 import { HttpClient, HttpClientModule } from &#x27;@angular/common/http&#x27;;
-import { Component, inject, OnInit } from &#x27;@angular/core&#x27;;
+import { Component, inject, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
 import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { MatTabsModule } from &#x27;@angular/material/tabs&#x27;;
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { Observable, tap } from &#x27;rxjs&#x27;;
 import { PreparednessLevels } from &#x27;src/app/career-card/career-card.component&#x27;;
+import { ProfileEmploymentComponent } from &#x27;src/app/profile-employment/profile-employment.component&#x27;;
+import { ProfileOccupationProjectionComponent } from &#x27;src/app/profile-occupation-projection/profile-occupation-projection.component&#x27;;
 import { ProfileSalaryComponent } from &#x27;src/app/profile-salary/profile-salary.component&#x27;;
 import { ProfileTechnologySkillsComponent } from &#x27;src/app/profile-technology-skills/profile-technology-skills.component&#x27;;
 import { SearchBoxComponent } from &#x27;src/app/search-box/search-box.component&#x27;;
+import { TreemapComponent } from &#x27;src/app/treemap/treemap.component&#x27;;
 import { WorkTasksListComponent } from &#x27;src/app/work-tasks-list/work-tasks-list.component&#x27;;
-import { ProfileEmploymentComponent } from &#x27;src/app/profile-employment/profile-employment.component&#x27;;
 
 /** Queried job data format */
 export interface AllJobInfo {
@@ -272,6 +275,28 @@ export interface AllJobInfo {
   salary_nat?: SalaryInfo[];
   /** List of industry salary info */
   salary_ind?: SalaryInfo[];
+  /** Abilities treemap data */
+  behaviors_abilities?: TreemapData[];
+  /** Work activities treemap data */
+  behaviors_work_activities?: TreemapData[];
+  /** Skills treemap data */
+  behaviors_skills?: TreemapData[];
+  /** Knowledge treemap data */
+  behaviors_knowledge?: TreemapData[];
+  /** List of industry projection data */
+  projections?: ProjectionInfo[];
+  /** National employed total */
+  employed_nat?: number;
+  /** Projected national employed total */
+  employed_10_nat?: number;
+  /** National percent change */
+  per_change_10_nat?: number;
+  /** Bright future status */
+  bright_futures?: string;
+  /** Automation risk projection */
+  automation_risk?: string;
+  /** Near term outlook */
+  near_future?: string;
 }
 
 /** Info on a technology skill */
@@ -316,6 +341,45 @@ export interface SalaryInfo {
   tot_emp?: number;
 }
 
+/** Treemap data entry */
+export interface TreemapData {
+  /** Element name */
+  element_name: string;
+  /** Parent group */
+  sub_group: string;
+  /** Highest level group */
+  group: string;
+  /** Level of element */
+  level: number;
+  /** x0 coordinate */
+  x0: number;
+  /** y0 coordinate */
+  y0: number;
+  /** x1 coordinate */
+  x1: number;
+  /** y1 coordinate */
+  y1: number;
+}
+
+/** Occupation projection info */
+export interface ProjectionInfo {
+  /** Industry title */
+  industry_title?: string;
+  /** Number employed in industry */
+  employed?: number;
+  /** Projected number employed in 10 years */
+  employed_10?: number;
+  /** Percent employment change in 10 years */
+  per_change_10?: number;
+}
+
+/** Outlook descriptions */
+const outlookDescriptions: Record&lt;string, string&gt; &#x3D; {
+  Bright: &#x27;Many job openings predicted in the near future&#x27;,
+  Average: &#x27;Average outlook&#x27;,
+  &#x27;Below Average&#x27;: &#x27;Below average outlook&#x27;,
+};
+
 /**
  * Profile page component
  */
@@ -331,6 +395,9 @@ export interface SalaryInfo {
     ProfileSalaryComponent,
     WorkTasksListComponent,
     ProfileEmploymentComponent,
+    TreemapComponent,
+    MatTabsModule,
+    ProfileOccupationProjectionComponent,
   ],
   templateUrl: &#x27;./profile-page.component.html&#x27;,
   styleUrls: [&#x27;./profile-page.component.scss&#x27;],
@@ -338,31 +405,101 @@ export interface SalaryInfo {
 export class ProfilePageComponent implements OnInit {
   /** Scrolls to top of page */
   private readonly route &#x3D; inject(ActivatedRoute);
+
   /** Http client */
   private readonly http &#x3D; inject(HttpClient);
+
+  /** Treemap1 element */
+  @ViewChild(&#x27;treemap1&#x27;) private treemap1: TreemapComponent &#x3D; new TreemapComponent();
+
+  /** Treemap2 element */
+  @ViewChild(&#x27;treemap2&#x27;) private treemap2: TreemapComponent &#x3D; new TreemapComponent();
+
+  /** Treemap3 element */
+  @ViewChild(&#x27;treemap3&#x27;) private treemap3: TreemapComponent &#x3D; new TreemapComponent();
+
+  /** Treemap4 element */
+  @ViewChild(&#x27;treemap4&#x27;) private treemap4: TreemapComponent &#x3D; new TreemapComponent();
+
   /** Current job info */
-  currentJobInfo: AllJobInfo &#x3D; {};
+  currentJobInfo: AllJobInfo &#x3D; {
+    alt_titles: [],
+    job_zone: 1,
+    tech_skills: [],
+    work_tasks: [],
+    salary_states: [],
+    salary_nat: [],
+    salary_ind: [],
+    projections: [],
+    employed_nat: 0,
+    employed_10_nat: 0,
+    per_change_10_nat: 0,
+    bright_futures: &#x27;&#x27;,
+    automation_risk: &#x27;&#x27;,
+    near_future: &#x27;&#x27;,
+  };
+
   /** Tech skills for the job (each pair &#x3D; type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] &#x3D; [];
+
   /** Work tasks list */
   workTasks: WorkTasks[] &#x3D; [];
+
   /** Salary states info */
   salaryStatesInfo: SalaryInfo[] &#x3D; [];
+
   /** Salary national info */
   salaryNatInfo: SalaryInfo[] &#x3D; [];
+
   /** Salary industry info */
   salaryIndInfo: SalaryInfo[] &#x3D; [];
+
   /** Whether or not all work tasks should be displayed */
   showAllTasks &#x3D; false;
+
   /** Whether or not all technology skills should be displayed */
   showAllSkills &#x3D; false;
+
+  /** Work Activities data */
+  treemapWorkActivitiesData: TreemapData[] &#x3D; [];
+
+  /** Skills data */
+  treemapSkillsData: TreemapData[] &#x3D; [];
+
+  /** Knowledge data */
+  treemapKnowledgeData: TreemapData[] &#x3D; [];
+
+  /** Abilities data */
+  treemapAbilitiesData: TreemapData[] &#x3D; [];
+
+  /** Occupation projection data */
+  projectionInfo: ProjectionInfo[] &#x3D; [];
+
+  /**
+   * Gets automation description
+   */
+  get automationDescription(): string {
+    if (this.currentJobInfo[&#x27;automation_risk&#x27;]) {
+      return &#x60;This job has a ${this.currentJobInfo[&#x27;automation_risk&#x27;].toLowerCase()} risk of automation.&#x60;;
+    } else {
+      return &#x27;No data&#x27;;
+    }
+  }
+
+  /**
+   * Gets outlook description
+   */
+  get outlookDescription(): string {
+    return this.currentJobInfo[&#x27;near_future&#x27;]
+      ? this.currentJobInfo[&#x27;near_future&#x27;]
+      : outlookDescriptions[this.currentJobInfo[&#x27;bright_futures&#x27;] ? this.currentJobInfo[&#x27;bright_futures&#x27;] : &#x27;No data&#x27;];
+  }
 
   /**
    * Scrolls to top of page and fetches profile data on init
    */
   ngOnInit() {
     this.route.params.subscribe((params) &#x3D;&gt; {
-      this.scrollToTop();
       this.getData(params[&#x27;code&#x27;]).subscribe();
       this.showAllSkills &#x3D; false;
     });
@@ -391,6 +528,27 @@ export class ProfilePageComponent implements OnInit {
         }
         if (this.currentJobInfo[&#x27;work_tasks&#x27;]) {
           this.workTasks &#x3D; this.currentJobInfo[&#x27;work_tasks&#x27;];
+        }
+        if (this.currentJobInfo[&#x27;behaviors_work_activities&#x27;]) {
+          this.treemapWorkActivitiesData &#x3D; this.currentJobInfo[&#x27;behaviors_work_activities&#x27;];
+        }
+        if (this.currentJobInfo[&#x27;behaviors_skills&#x27;]) {
+          this.treemapSkillsData &#x3D; this.currentJobInfo[&#x27;behaviors_skills&#x27;];
+        }
+        if (this.currentJobInfo[&#x27;behaviors_knowledge&#x27;]) {
+          this.treemapKnowledgeData &#x3D; this.currentJobInfo[&#x27;behaviors_knowledge&#x27;];
+        }
+        if (this.currentJobInfo[&#x27;behaviors_abilities&#x27;]) {
+          this.treemapAbilitiesData &#x3D; this.currentJobInfo[&#x27;behaviors_abilities&#x27;];
+        }
+        if (this.currentJobInfo[&#x27;projections&#x27;]) {
+          this.projectionInfo &#x3D; this.currentJobInfo[&#x27;projections&#x27;];
+          this.projectionInfo.push({
+            industry_title: &#x27;National average&#x27;,
+            employed: this.currentJobInfo[&#x27;employed_nat&#x27;],
+            employed_10: this.currentJobInfo[&#x27;employed_10_nat&#x27;],
+            per_change_10: this.currentJobInfo[&#x27;per_change_10_nat&#x27;],
+          });
         }
       })
     );
@@ -441,6 +599,13 @@ export class ProfilePageComponent implements OnInit {
    */
   showAllWorkTasksButtonClicked(): void {
     this.showAllTasks &#x3D; !this.showAllTasks;
+  }
+
+  /**
+   * Refreshs all treemaps
+   */
+  refreshTreemaps(): void {
+    [this.treemap1, this.treemap2, this.treemap3, this.treemap4].forEach((treemap) &#x3D;&gt; treemap.reload());
   }
 }
 </code></pre>

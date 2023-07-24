@@ -158,13 +158,13 @@ export class PageFooterComponent {}
     &lt;div class&#x3D;&quot;divider&quot;&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class&#x3D;&quot;link-list&quot;&gt;
-    &lt;a href&#x3D;&quot;&quot;&gt;
+    &lt;a href&#x3D;&quot;https://www.navsea.navy.mil/Home/Warfare-Centers/NSWC-Crane/&quot;&gt;
       &lt;img src&#x3D;&quot;assets/navsea.png&quot; /&gt;
     &lt;/a&gt;
-    &lt;a href&#x3D;&quot;&quot;&gt;
+    &lt;a href&#x3D;&quot;https://www.onetonline.org/&quot;&gt;
       &lt;img src&#x3D;&quot;assets/onet.png&quot; /&gt;
     &lt;/a&gt;
-    &lt;a href&#x3D;&quot;&quot;&gt;
+    &lt;a href&#x3D;&quot;https://luddy.indiana.edu/index.html&quot;&gt;
       &lt;img src&#x3D;&quot;assets/luddy.png&quot; /&gt;
     &lt;/a&gt;
   &lt;/div&gt;
@@ -175,7 +175,7 @@ export class PageFooterComponent {}
     &lt;div class&#x3D;&quot;divider&quot;&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class&#x3D;&quot;link-list&quot;&gt;
-    &lt;a href&#x3D;&quot;&quot;&gt;
+    &lt;a href&#x3D;&quot;https://cns.iu.edu/&quot;&gt;
       &lt;img src&#x3D;&quot;assets/CNS logo.png&quot; /&gt;
     &lt;/a&gt;
   &lt;/div&gt;
@@ -188,7 +188,10 @@ export class PageFooterComponent {}
                     <code>./page-footer.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">:host {
-  @media (width &lt;&#x3D; 1168px) {
+  font-family: Lexend;
+  width: 100%;
+
+  @media (width &lt;&#x3D; 1240px) {
     .partner-links,
     .cns-link {
       padding: 3rem 0rem !important;
@@ -200,7 +203,7 @@ export class PageFooterComponent {}
     }
   }
 
-  @media (480px &lt; width &lt; 1168px) {
+  @media (600px &lt; width &lt; 1240px) {
     .section-title {
       font-size: 1rem !important;
       line-height: 1.25rem !important;
@@ -208,7 +211,7 @@ export class PageFooterComponent {}
     }
   }
 
-  @media (width &lt; 480px) {
+  @media (width &lt; 600px) {
     .section-title {
       font-size: 0.875rem !important;
       line-height: 1.25rem !important;
@@ -286,8 +289,8 @@ export class PageFooterComponent {}
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="partner-links">  <div class="section-header">    <div class="section-title">Thanks to our partners</div>    <div class="divider"></div>  </div>  <div class="link-list">    <a href="">      <img src="assets/navsea.png" />    </a>    <a href="">      <img src="assets/onet.png" />    </a>    <a href="">      <img src="assets/luddy.png" />    </a>  </div></div><div class="cns-link">  <div class="section-header">    <div class="section-title">Learn about our research center</div>    <div class="divider"></div>  </div>  <div class="link-list">    <a href="">      <img src="assets/CNS logo.png" />    </a>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
+        var COMPONENT_TEMPLATE = '<div><div class="partner-links">  <div class="section-header">    <div class="section-title">Thanks to our partners</div>    <div class="divider"></div>  </div>  <div class="link-list">    <a href="https://www.navsea.navy.mil/Home/Warfare-Centers/NSWC-Crane/">      <img src="assets/navsea.png" />    </a>    <a href="https://www.onetonline.org/">      <img src="assets/onet.png" />    </a>    <a href="https://luddy.indiana.edu/index.html">      <img src="assets/luddy.png" />    </a>  </div></div><div class="cns-link">  <div class="section-header">    <div class="section-title">Learn about our research center</div>    <div class="divider"></div>  </div>  <div class="link-list">    <a href="https://cns.iu.edu/">      <img src="assets/CNS logo.png" />    </a>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'PreparednessDialogComponent', 'selector': 'trust-ai-preparedness-dialog'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfileOccupationProjectionComponent', 'selector': 'trust-ai-profile-occupation-projection'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'TreemapComponent', 'selector': 'trust-ai-treemap'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PageFooterComponent'};
 </script>
