@@ -2,7 +2,7 @@
   "soc_id": "53-5022.00",
   "title": "Motorboat Operators",
   "descr": "Operate small motor-driven boats. May assist in navigational activities.",
-  "alt_titles": "Boat Driver, Boat Launch Operator, Boat Operator, Boat Person, Boatman, Charter Boat Operator, Crew Boat Operator, Deputy Harbormaster, Dock Hand, Launch Operator, Launch Steward, Launchman, Mooring Master, Motorboat Operator, Outboard Motorboat Operator, Pilot Boat Operator, River and Lakes Boatman, Rivers and Lakes Boatman, Rivers and Lakes Leverman, Seating Captain, Speedboat Driver, Speedboat Operator, Taxi Captain, Towboat Operator, Water Taxi Boat Mate, Water Taxi Captain, Water Taxi Ferry Operator, Water Taxi Operator",
+  "alt_titles": "Charter Boat Operator, Boat Driver, Boat Launch Operator, Boat Operator, Boat Person, Boatman, Crew Boat Operator, Deputy Harbormaster, Dock Hand, Launch Operator, Launch Steward, Launchman, Mooring Master, Motorboat Operator, Outboard Motorboat Operator, Pilot Boat Operator, River and Lakes Boatman, Rivers and Lakes Boatman, Rivers and Lakes Leverman, Seating Captain, Speedboat Driver, Speedboat Operator, Taxi Captain, Towboat Operator, Water Taxi Boat Mate, Water Taxi Captain, Water Taxi Ferry Operator, Water Taxi Operator",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
@@ -11111,6 +11111,6 @@
   "employed_nat": 3.1,
   "employed_10_nat": 3.1,
   "bright_futures": "Below Average",
-  "automation_risk": "Low",
+  "automation_risk": "Medium",
   "near_future": null
 }
