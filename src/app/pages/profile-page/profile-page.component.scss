@@ -8,17 +8,15 @@
       }
     }
 
-    .sub-section-content {
-      font-size: 0.875rem !important;
-      line-height: 1.25rem !important;
+    .preparedness {
+      .sub-section-content {
+        font-size: 0.875rem !important;
+        line-height: 1.25rem !important;
+      }
     }
 
     .button-group {
       flex-direction: column;
-
-      .resource-link {
-        min-width: 50vw;
-      }
     }
 
     .salary {
@@ -48,7 +46,8 @@
     }
 
     .sub-section-title,
-    .treemaps-title {
+    .treemaps-title,
+    .resources-title {
       font-size: 1rem !important;
       font-weight: 500;
       line-height: 1.5rem;
@@ -131,12 +130,17 @@
           align-items: center;
           gap: 10px;
           justify-content: space-between;
+          width: fit-content;
         }
 
         .sub-section-content {
           font-size: 1rem;
           line-height: 1.5rem;
           width: 100%;
+
+          &.no-data {
+            height: fit-content !important;
+          }
         }
       }
 
@@ -188,6 +192,7 @@
         .mat-mdc-tab-body,
         .mat-mdc-tab-body-content {
           overflow: visible;
+          width: 100%;
         }
 
         .missing-text,
@@ -195,8 +200,9 @@
           height: 50vw !important;
         }
 
-        canvas {
+        svg {
           width: 100% !important;
+          height: 100% !important;
         }
       }
     }
@@ -214,6 +220,10 @@
     }
 
     &.salary {
+      .sub-section-title {
+        width: 100% !important;
+      }
+
       .salary-nat {
         height: 40vw;
       }
@@ -221,7 +231,20 @@
         height: 50vw;
       }
       .salary-ind {
+        display: flex;
+        flex-direction: column;
         height: 50vw;
+        gap: 5%;
+
+        trust-ai-profile-salary {
+          height: 80%;
+          width: 100%;
+        }
+
+        img {
+          height: 15%;
+          align-self: center;
+        }
       }
     }
 
@@ -233,7 +256,6 @@
 
         .button-group {
           display: flex;
-          justify-content: space-between;
           gap: 1rem;
           line-height: 1rem;
 
@@ -241,7 +263,7 @@
             border-radius: 1rem;
             border-color: rgb(122, 117, 127);
             color: #6750a4;
-            width: calc((100% - 2rem) / 3);
+            width: 20.375rem;
           }
         }
 
@@ -261,6 +283,16 @@
           top: unset;
           right: unset;
           width: fit-content;
+        }
+      }
+
+      .resources {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .resources-title {
+          font-size: 1.375rem;
         }
       }
     }
@@ -326,7 +358,7 @@
       flex-grow: 1;
 
       ::ng-deep .mat-button-toggle-label-content {
-        line-height: 2.5rem;
+        line-height: 1.5rem;
         padding: 0;
       }
 

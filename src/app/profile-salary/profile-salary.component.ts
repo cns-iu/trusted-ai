@@ -45,7 +45,7 @@ export class ProfileSalaryComponent implements OnChanges {
   async ngOnChanges(): Promise<void> {
     this.createPlot();
     if (this.vis) {
-      await embed(this.vis.nativeElement, this.spec, { actions: false });
+      await embed(this.vis.nativeElement, this.spec, { actions: false, renderer: 'svg' });
     }
   }
 
