@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterEvent, RouterModule } from '@angular/router';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { PageFooterComponent } from './page-footer/page-footer.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { fromEvent } from 'rxjs';
+import { filter, fromEvent, map, Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
 /**
@@ -22,18 +22,33 @@ export class AppComponent implements OnInit {
   /** Router service */
   private readonly router = inject(Router);
 
-  /** If the user is scrolled to the top of the page */
-  onTop = true;
+  /** Whether to show the back to top button */
+  showBackToTop = false;
 
-  /** Scrolls to top of page after each route click */
+  /** Whether the page is long enough to show the back to top button */
+  longPage = false;
+
+  /** Scrolls to top of page after each route change */
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (!(event instanceof NavigationEnd)) {
         return;
       }
-      window.scrollTo(0, 0);
+      this.longPage = event.url.includes('occupations') || event.url.includes('profile');
+      this.scrollToTop();
     });
-    fromEvent(document, 'scroll').subscribe(() => (this.onTop = window.scrollY === 0));
+    this.handleScroll();
+  }
+
+  /** Cancels tooltip display on scrolling and checks if page is on top */
+  private handleScroll(): void {
+    fromEvent(document, 'scroll').subscribe(() => {
+      const tooltip = document.getElementById('vg-tooltip-element');
+      if (tooltip) {
+        tooltip.className = 'vg-tooltip';
+      }
+      this.showBackToTop = this.longPage ? window.scrollY > 1000 : false;
+    });
   }
 
   /**

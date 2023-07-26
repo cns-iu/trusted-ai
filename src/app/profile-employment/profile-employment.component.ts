@@ -35,7 +35,7 @@ export class ProfileEmploymentComponent implements OnChanges {
       this.spec = createStatePlot(this.dataStates, 'employment');
     }
     if (this.vis) {
-      await embed(this.vis.nativeElement, this.spec, { actions: false });
+      await embed(this.vis.nativeElement, this.spec, { actions: false, renderer: 'svg' });
     }
   }
 }

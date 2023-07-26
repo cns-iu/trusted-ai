@@ -35,7 +35,7 @@ export class ProfileOccupationProjectionComponent implements OnChanges {
       this.spec = createProjectionsPlot(this.dataProjections);
     }
     if (this.vis) {
-      await embed(this.vis.nativeElement, this.spec, { actions: false });
+      await embed(this.vis.nativeElement, this.spec, { actions: false, renderer: 'svg' });
     }
   }
 }

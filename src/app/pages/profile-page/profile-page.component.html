@@ -144,7 +144,7 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Technology Skills by Importance</div>
-      <div class="sub-section-content">
+      <div class="sub-section-content" [class.no-data]="techSkills.length === 0">
         <div class="missing-text" [class.hidden]="techSkills.length > 0">No data</div>
         <trust-ai-profile-technology-skills
           [allSkills]="techSkills"
@@ -173,7 +173,7 @@
           <mat-button-toggle value="hourly">Hourly</mat-button-toggle>
         </mat-button-toggle-group>
       </div>
-      <div class="sub-section-content salary-nat">
+      <div class="sub-section-content salary-nat" [class.no-data]="isEmpty(salaryNatInfo, salaryNatSelection)">
         <div class="missing-text" [class.hidden]="!isEmpty(salaryNatInfo, salaryNatSelection)">No data</div>
         <trust-ai-profile-salary
           [class.hidden]="isEmpty(salaryNatInfo, salaryNatSelection)"
@@ -191,7 +191,7 @@
           <mat-button-toggle value="hourly">Hourly</mat-button-toggle>
         </mat-button-toggle-group>
       </div>
-      <div class="sub-section-content salary-states">
+      <div class="sub-section-content salary-states" [class.no-data]="isEmpty(salaryStatesInfo, salaryStatesSelection)">
         <div class="missing-text" [class.hidden]="!isEmpty(salaryStatesInfo, salaryStatesSelection)">No data</div>
         <trust-ai-profile-salary
           [class.hidden]="isEmpty(salaryStatesInfo, salaryStatesSelection)"
@@ -209,7 +209,7 @@
           <mat-button-toggle value="hourly">Hourly</mat-button-toggle>
         </mat-button-toggle-group>
       </div>
-      <div class="sub-section-content salary-ind">
+      <div class="sub-section-content salary-ind" [class.no-data]="isEmpty(salaryIndInfo, salaryIndSelection)">
         <div class="missing-text" [class.hidden]="!isEmpty(salaryIndInfo, salaryIndSelection)">No data</div>
         <trust-ai-profile-salary
           [class.hidden]="isEmpty(salaryIndInfo, salaryIndSelection)"
@@ -217,6 +217,7 @@
           [dataType]="salaryIndSelection"
           visualizationType="industry"
         ></trust-ai-profile-salary>
+        <img [class.hidden]="isEmpty(salaryIndInfo, salaryIndSelection)" src="assets/legend.png" />
       </div>
     </div>
   </div>
@@ -233,7 +234,7 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Number of Occupations by State (2022)</div>
-      <div class="sub-section-content">
+      <div class="sub-section-content" [class.no-data]="isEmpty(salaryStatesInfo, 'emp')">
         <div class="missing-text" [class.hidden]="!isEmpty(salaryStatesInfo, 'emp')">No data</div>
         <trust-ai-profile-employment
           [class.hidden]="isEmpty(salaryStatesInfo, 'emp')"
@@ -255,7 +256,7 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Occupation Projection</div>
-      <div class="sub-section-content projection">
+      <div class="sub-section-content projection" [class.no-data]="projectionInfo.length === 0">
         <div class="missing-text" [class.hidden]="projectionInfo.length > 0">No data</div>
         <trust-ai-profile-occupation-projection
           [dataProjections]="projectionInfo"
@@ -263,9 +264,19 @@
       </div>
     </div>
     <div class="sub-section">
-      <div class="sub-section-title">Near Term Outlook</div>
+      <div class="sub-section-title">Bright Outlook Projection</div>
       <div class="sub-section-content">
         {{ outlookDescription }}
+      </div>
+      <div class="button-group">
+        <button
+          class="resource-link"
+          onClick="window.open('https://www.onetonline.org/find/bright?b=0')"
+          mat-stroked-button
+          color="primary"
+        >
+          Bright Outlook Projections
+        </button>
       </div>
     </div>
     <div class="sub-section">
@@ -275,44 +286,38 @@
         matBadgeOverlap="false"
         matBadgePosition="after"
       >
-        Automation Risk
+        Future of Work Projection
       </div>
       <div class="sub-section-content">
         {{ automationDescription }}
       </div>
-    </div>
-    <div class="sub-section">
-      <div class="sub-section-title">Future of Work Resources</div>
-      <div class="sub-section-content">
-        <div class="button-group">
-          <button
-            class="resource-link"
-            onClick="window.open('https://www.onetonline.org/find/bright?b=0')"
-            mat-stroked-button
-            color="primary"
-          >
-            Bright Outlook Projections
-          </button>
-          <button
-            class="resource-link"
-            onClick="window.open('https://www.oxfordmartin.ox.ac.uk/downloads/academic/future-of-employment.pdf')"
-            mat-stroked-button
-            color="primary"
-          >
-            Future of Employment Report
-          </button>
-          <button
-            class="resource-link"
-            onClick="window.open('https://www.onetcenter.org/future_of_work')"
-            mat-stroked-button
-            color="primary"
-          >
-            Future of Work: Bibliography of Papers
-          </button>
+
+      <div class="resources">
+        <div class="resources-title">Future of Work Resources</div>
+        <div class="resources-content">
+          <div class="button-group">
+            <button
+              class="resource-link"
+              onClick="window.open('https://www.oxfordmartin.ox.ac.uk/downloads/academic/future-of-employment.pdf')"
+              mat-stroked-button
+              color="primary"
+            >
+              Future of Employment Report
+            </button>
+            <button
+              class="resource-link"
+              onClick="window.open('https://www.onetcenter.org/future_of_work')"
+              mat-stroked-button
+              color="primary"
+            >
+              Future of Work: Bibliography of Papers
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="sub-section"></div>
 </div>
 
 <div class="profile-bottom">
