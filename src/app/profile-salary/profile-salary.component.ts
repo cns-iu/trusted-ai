@@ -31,8 +31,10 @@ export class ProfileSalaryComponent implements OnChanges {
   /** Industry salary data */
   @Input() dataInd: SalaryInfo[] = [];
 
+  /** Visualization type */
   @Input() visualizationType: 'state' | 'national' | 'industry' = 'state';
 
+  /** Which type of data you are visualizing */
   @Input() dataType: SalaryDataType = 'annual';
 
   /**
@@ -47,6 +49,12 @@ export class ProfileSalaryComponent implements OnChanges {
     }
   }
 
+  /**
+   * Determines whether the dataset has any relevant data from 2022
+   * @param dataset Data
+   * @param type Type of data
+   * @returns true if empty
+   */
   isEmpty(dataset: SalaryInfo[], type: SalaryDataType): boolean {
     let parameter: string;
     switch (type) {
@@ -60,6 +68,9 @@ export class ProfileSalaryComponent implements OnChanges {
     return dataset.filter((value) => value['year'] === 2022).filter((entry) => entry[parameter]).length === 0;
   }
 
+  /**
+   * Creates visualization spec
+   */
   private createPlot() {
     switch (this.visualizationType) {
       case 'state':

@@ -154,6 +154,7 @@ const outlookDescriptions: Record<string, string> = {
   'Below Average': 'Below average outlook',
 };
 
+/** Type of entries from salary data that are used for visualizations */
 export type SalaryDataType = 'annual' | 'hourly' | 'emp';
 
 /**
@@ -254,6 +255,15 @@ export class ProfilePageComponent implements OnInit {
   /** Occupation projection data */
   projectionInfo: ProjectionInfo[] = [];
 
+  /** Type of national salary data chosen */
+  salaryNatSelection: SalaryDataType = 'annual';
+
+  /** Type of state salary data chosen */
+  salaryStatesSelection: SalaryDataType = 'annual';
+
+  /** Type of industry salary data chosen */
+  salaryIndSelection: SalaryDataType = 'annual';
+
   /**
    * Gets automation description
    */
@@ -274,10 +284,6 @@ export class ProfilePageComponent implements OnInit {
       : outlookDescriptions[this.currentJobInfo['bright_futures'] || ''] || 'No data';
   }
 
-  salaryNatSelection: SalaryDataType = 'annual';
-  salaryStatesSelection: SalaryDataType = 'annual';
-  salaryIndSelection: SalaryDataType = 'annual';
-
   /**
    * Scrolls to top of page and fetches profile data on init
    */
@@ -288,6 +294,12 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
+  /**
+   * Determines whether the dataset has any relevant data from 2022
+   * @param dataset Data
+   * @param type Type of data
+   * @returns true if empty
+   */
   isEmpty(dataset: SalaryInfo[], type: SalaryDataType): boolean {
     let parameter: string;
     switch (type) {
