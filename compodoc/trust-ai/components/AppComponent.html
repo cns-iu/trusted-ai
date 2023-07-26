@@ -141,7 +141,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#onTop" >onTop</a>
+                                <a href="#longPage" >longPage</a>
+                            </li>
+                            <li>
+                                <a href="#showBackToTop" >showBackToTop</a>
                             </li>
                         </ul>
                     </td>
@@ -200,8 +203,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/app/app.component.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/app.component.ts:57</a></div>
                 </td>
             </tr>
 
@@ -229,16 +232,47 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="onTop"></a>
+                    <a name="longPage"></a>
                     <span class="name">
-                        <span ><b>onTop</b></span>
-                        <a href="#onTop"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>longPage</b></span>
+                        <a href="#longPage"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>true</code>
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/app.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Whether the page is long enough to show the back to top button</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showBackToTop"></a>
+                    <span class="name">
+                        <span ><b>showBackToTop</b></span>
+                        <a href="#showBackToTop"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                     <tr>
@@ -249,7 +283,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>If the user is scrolled to the top of the page</p>
+                    <div class="io-description"><p>Whether to show the back to top button</p>
 </div>
                 </td>
             </tr>
@@ -263,13 +297,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, OnInit } from &#x27;@angular/core&#x27;;
-import { NavigationEnd, Router, RouterModule } from &#x27;@angular/router&#x27;;
+import { NavigationEnd, Router, RouterEvent, RouterModule } from &#x27;@angular/router&#x27;;
 
 import { NavbarComponent } from &#x27;./navbar/navbar.component&#x27;;
 import { PageFooterComponent } from &#x27;./page-footer/page-footer.component&#x27;;
 import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
 import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
-import { fromEvent } from &#x27;rxjs&#x27;;
+import { filter, fromEvent, map, Observable } from &#x27;rxjs&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 
 /**
@@ -286,18 +320,33 @@ export class AppComponent implements OnInit {
   /** Router service */
   private readonly router &#x3D; inject(Router);
 
-  /** If the user is scrolled to the top of the page */
-  onTop &#x3D; true;
+  /** Whether to show the back to top button */
+  showBackToTop &#x3D; false;
 
-  /** Scrolls to top of page after each route click */
+  /** Whether the page is long enough to show the back to top button */
+  longPage &#x3D; false;
+
+  /** Scrolls to top of page after each route change */
   ngOnInit(): void {
     this.router.events.subscribe((event) &#x3D;&gt; {
       if (!(event instanceof NavigationEnd)) {
         return;
       }
-      window.scrollTo(0, 0);
+      this.longPage &#x3D; event.url.includes(&#x27;occupations&#x27;) || event.url.includes(&#x27;profile&#x27;);
+      this.scrollToTop();
     });
-    fromEvent(document, &#x27;scroll&#x27;).subscribe(() &#x3D;&gt; (this.onTop &#x3D; window.scrollY &#x3D;&#x3D;&#x3D; 0));
+    this.handleScroll();
+  }
+
+  /** Cancels tooltip display on scrolling and checks if page is on top */
+  private handleScroll(): void {
+    fromEvent(document, &#x27;scroll&#x27;).subscribe(() &#x3D;&gt; {
+      const tooltip &#x3D; document.getElementById(&#x27;vg-tooltip-element&#x27;);
+      if (tooltip) {
+        tooltip.className &#x3D; &#x27;vg-tooltip&#x27;;
+      }
+      this.showBackToTop &#x3D; this.longPage ? window.scrollY &gt; 1000 : false;
+    });
   }
 
   /**
@@ -317,7 +366,7 @@ export class AppComponent implements OnInit {
 
 &lt;trust-ai-page-footer&gt;&lt;/trust-ai-page-footer&gt;
 
-&lt;button *ngIf&#x3D;&quot;!onTop&quot; class&#x3D;&quot;back-to-top&quot; mat-fab extended (click)&#x3D;&quot;scrollToTop()&quot;&gt;
+&lt;button *ngIf&#x3D;&quot;showBackToTop&quot; class&#x3D;&quot;back-to-top&quot; mat-fab extended (click)&#x3D;&quot;scrollToTop()&quot;&gt;
   &lt;mat-icon&gt;arrow_upward&lt;/mat-icon&gt;
   Back to Top
 &lt;/button&gt;
@@ -373,7 +422,7 @@ trust-ai-page-footer {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><trust-ai-navbar></trust-ai-navbar><router-outlet></router-outlet><trust-ai-page-footer></trust-ai-page-footer><button *ngIf="!onTop" class="back-to-top" mat-fab extended (click)="scrollToTop()">  <mat-icon>arrow_upward</mat-icon>  Back to Top</button></div>'
+        var COMPONENT_TEMPLATE = '<div><trust-ai-navbar></trust-ai-navbar><router-outlet></router-outlet><trust-ai-page-footer></trust-ai-page-footer><button *ngIf="showBackToTop" class="back-to-top" mat-fab extended (click)="scrollToTop()">  <mat-icon>arrow_upward</mat-icon>  Back to Top</button></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'PreparednessDialogComponent', 'selector': 'trust-ai-preparedness-dialog'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfileOccupationProjectionComponent', 'selector': 'trust-ai-profile-occupation-projection'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'TreemapComponent', 'selector': 'trust-ai-treemap'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};

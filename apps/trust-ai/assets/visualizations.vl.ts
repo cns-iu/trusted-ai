@@ -214,6 +214,7 @@ export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annu
     mark: {
       type: 'line',
       strokeWidth: 8,
+      color: '#6750A4',
       point: {
         filled: false,
         fill: 'white',
@@ -267,7 +268,6 @@ export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annu
  * @returns visualization spec
  */
 export function createStatePlot(values: SalaryInfo[], section: string, type?: 'hourly' | 'annual' | 'emp'): VisualizationSpec {
-  console.log(type)
   const value = section === 'salary' ? 'mean' : 'tot_emp';
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
@@ -281,15 +281,15 @@ export function createStatePlot(values: SalaryInfo[], section: string, type?: 'h
       },
       {
         name: 'gradientTitleSize',
-        expr: `if (${window.innerWidth} <= 600, 10, 20)`
+        expr: `if (${window.innerWidth} <= 600, 13, 20)`
       },
       {
         name: 'gradientLabelSize',
-        expr: `if (${window.innerWidth} <= 600, 10, 16)`
+        expr: `if (${window.innerWidth} <= 600, 12, 18)`
       },
       {
-        name: 'axisTitleSize',
-        expr: `if (${window.innerWidth} <= 600, 12, 18)`
+        name: 'gradientWidth',
+        expr: `if (${window.innerWidth} <= 600, 15, 25)`
       }
     ],
     width: 'container',
@@ -341,18 +341,12 @@ export function createStatePlot(values: SalaryInfo[], section: string, type?: 'h
           value: '#aaa'
         },
         scale: {
-          range: [
-            '#FFF',
-            '#CFBCFF',
-            '#6750A4',
-            '#381E72',
-            '#000'
-          ]
+          scheme: 'purpleorange'
         },
         legend: {
           titleFontSize: { expr: 'gradientTitleSize' },
           gradientLength: { expr: 'gradientHeight' },
-          gradientThickness: 10,
+          gradientThickness: { expr: 'gradientWidth' },
           labelFontSize: { expr: 'gradientLabelSize' },
           format: value === 'mean' ? '$f' : 'd'
         }
@@ -411,6 +405,37 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
           field: 'mid_box_salary'
         }
       },
+      tooltip: [
+        {
+          field: 'industry_name',
+          title: 'Industry'
+        },
+        {
+          field: 'lower_whisker_salary',
+          title: '10th percentile',
+          format: '$.0f'
+        },
+        {
+          field: 'lower_box_salary',
+          title: '25th percentile',
+          format: '$.0f'
+        },
+        {
+          field: 'mid_box_salary',
+          title: '50th percentile',
+          format: '$.0f'
+        },
+        {
+          field: 'upper_box_salary',
+          title: '75th percentile',
+          format: '$.0f'
+        },
+        {
+          field: 'upper_whisker_salary',
+          title: '90th percentile',
+          format: '$.0f'
+        },
+      ],
     },
     layer: [
       {
@@ -428,110 +453,30 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
             }
           },
           x2: { field: 'upper_whisker_salary' },
-          tooltip: [
-            {
-              field: 'industry_name',
-              title: 'Industry'
-            },
-            {
-              field: 'lower_whisker_salary',
-              title: '10th percentile',
-              format: '$.0f'
-            },
-            {
-              field: 'lower_box_salary',
-              title: '25th percentile',
-              format: '$.0f'
-            },
-            {
-              field: 'mid_box_salary',
-              title: '50th percentile',
-              format: '$.0f'
-            },
-            {
-              field: 'upper_box_salary',
-              title: '75th percentile',
-              format: '$.0f'
-            },
-            {
-              field: 'upper_whisker_salary',
-              title: '90th percentile',
-              format: '$.0f'
-            },
-          ]
         }
       },
       {
         mark: { type: 'bar', size: 28 },
         encoding: {
-          x: { field: 'lower_box_salary', type: 'quantitative' },
-          x2: { field: 'upper_box_salary' },
-          tooltip: [
-            {
-              field: 'industry_name',
-              title: 'Industry'
-            },
-            {
-              field: 'lower_whisker_salary',
-              title: '10th percentile',
-              format: '$.0f'
-            },
-            {
-              field: 'lower_box_salary',
-              title: '25th percentile',
-              format: '$.0f'
-            },
-            {
-              field: 'mid_box_salary',
-              title: '50th percentile',
-              format: '$.0f'
-            },
-            {
-              field: 'upper_box_salary',
-              title: '75th percentile',
-              format: '$.0f'
-            },
-            {
-              field: 'upper_whisker_salary',
-              title: '90th percentile',
-              format: '$.0f'
-            },
-          ],
-          color: { field: 'industry_name', type: 'nominal', legend: null },
+          x: { field: 'lower_box_salary', type: 'quantitative', },
+          x2: { field: 'mid_box_salary' },
+          color: { value: '#6750A4' },
         }
       },
       {
-        mark: { type: 'tick', color: 'white', size: 14 },
+        mark: { type: 'bar', size: 28 },
         encoding: {
-          x: { field: 'mid_box_salary', type: 'quantitative' },
-          tooltip: [
-            {
-              field: 'industry_name',
-              title: 'Industry'
-            },
-            {
-              field: 'lower_whisker_salary',
-              title: '10th percentile'
-            },
-            {
-              field: 'lower_box_salary',
-              title: '25th percentile'
-            },
-            {
-              field: 'mid_box_salary',
-              title: '50th percentile'
-            },
-            {
-              field: 'upper_box_salary',
-              title: '75th percentile'
-            },
-            {
-              field: 'upper_whisker_salary',
-              title: '90th percentile'
-            },
-          ],
+          x: { field: 'mid_box_salary', type: 'quantitative', },
+          x2: { field: 'upper_box_salary' },
+          color: { value: '#CFBCFF' },
         }
       },
+      {
+        mark: { type: 'tick', color: 'transparent' },
+        encoding: {
+          x: { field: 'mid_box_salary', type: 'quantitative' },
+        }
+      }
     ]
   };
 }
@@ -605,12 +550,7 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
         name: 'color',
         type: 'ordinal',
         domain: { data: 'nodes2', field: 'name' },
-        range: [
-          '#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#e6550d',
-          '#fd8d3c', '#fdae6b', '#fdd0a2', '#31a354', '#74c476',
-          '#a1d99b', '#c7e9c0', '#756bb1', '#9e9ac8', '#bcbddc',
-          '#dadaeb', '#636363', '#969696', '#bdbdbd', '#d9d9d9'
-        ]
+        range: { scheme: 'purpleorange' }
       },
       {
         name: 'size',
@@ -722,6 +662,10 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
         name: 'labelLength',
         expr: `if (${window.innerWidth} <= 600, 100, 200)`
       },
+      {
+        name: 'circleSize',
+        expr: `if (${window.innerWidth} <= 600, 100, 150)`
+      },
     ],
     encoding: {
       x: {
@@ -761,9 +705,10 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
           },
           color: {
             value: {
-              expr: "datum.increase ? 'blue' : '#db646f'"
+              expr: "datum.increase ? 'purple' : 'orange'"
             }
-          }
+          },
+          opacity: { value: 0.5 }
         }
       },
       {
@@ -775,9 +720,15 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
           color: {
             field: 'year',
             type: 'ordinal',
-            title: 'Year'
+            title: 'Year',
+            scale: { range: ['#CFBCFF', '#381E72'] },
+            legend: {
+              titleFontSize: { expr: 'axisTitleSize' },
+              labelFontSize: { expr: 'axisTitleSize' },
+              "symbolSize": { expr: 'circleSize' }
+            }
           },
-          size: { value: 150 },
+          size: { value: { expr: 'circleSize' } },
           opacity: { value: 1 },
           tooltip: [
             {
