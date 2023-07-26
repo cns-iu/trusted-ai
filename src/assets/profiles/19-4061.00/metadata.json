@@ -2,13 +2,14 @@
   "soc_id": "19-4061.00",
   "title": "Social Science Research Assistants",
   "descr": "Assist social scientists in laboratory, survey, and other social science research. May help prepare findings for publication and assist in laboratory analysis, quality control, or data management.",
-  "alt_titles": "Bilingual Research Interviewer, Clinical Research Assistant, Data Analyst, Economic Research Assistant, Economist Research Assistant, Graduate Assistant, Graduate Research Assistant, Historian Research Assistant, Laboratory Assistant, Market Research Interviewer, Political Science Research Assistant, Postdoctoral Research Associate, Psychologist Research Assistant, Research Aide, Research Assistant, Research Associate, Research Data Analyst, Research Interviewer, Research Scientist, Research Technician, Social Research Assistant, Sociology Research Assistant, UX Research Assistant (User Experience Research Assistant)",
+  "alt_titles": "Social Research Assistant, Bilingual Research Interviewer, Clinical Research Assistant, Data Analyst, Economic Research Assistant, Economist Research Assistant, Graduate Assistant, Graduate Research Assistant, Historian Research Assistant, Laboratory Assistant, Market Research Interviewer, Political Science Research Assistant, Postdoctoral Research Associate, Psychologist Research Assistant, Research Aide, Research Assistant, Research Associate, Research Data Analyst, Research Interviewer, Research Scientist, Research Technician, Sociology Research Assistant, UX Research Assistant (User Experience Research Assistant)",
   "job_zone": 4,
   "experience": "A considerable amount of work-related skill, knowledge, or experience is needed for these occupations. For example, an accountant must complete four years of college and work for several years in accounting to be considered qualified.",
   "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
   "job_training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training.",
   "example": "Many of these occupations involve coordinating, supervising, managing, or training others. Examples include real estate brokers, sales managers, database administrators, graphic designers, conservation scientists, art directors, and cost estimators.",
   "svp_range": "7 to 8",
+  "svp_desc": "Individuals workers typically need anywhere from between 2 and 4 years- up to 10 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "19-4061.00",

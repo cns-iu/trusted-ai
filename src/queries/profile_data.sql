@@ -9,7 +9,8 @@ SELECT
   d.education,
   d.job_training,
   d.example,
-  d.svp_range
+  d.svp_range,
+  d.svp_desc
 FROM occs a
   LEFT JOIN alt_titles b ON a.soc_id = b.soc_id
   LEFT JOIN job_zones c ON a.soc_id = c.soc_id
@@ -23,7 +24,8 @@ GROUP BY
 	d.education,
 	d.job_training,
   d.example,
-	d.svp_range;
+	d.svp_range,
+  d.svp_desc;
 
 CREATE TEMP VIEW foo2 AS
 SELECT r.soc_id, array_to_json(array_agg(r)) as work_tasks
@@ -81,9 +83,32 @@ SELECT r.soc_id, array_to_json(array_agg(r)) as behaviors_knowledge
 FROM knowledge_treemaps as r
 GROUP BY r.soc_id;
 
+CREATE TEMP VIEW foo13 AS
+SELECT
+  o.soc_id,
+  a.per_change_10 as per_change_10_nat,
+  a.employed as employed_nat,
+  a.employed_10 as employed_10_nat,
+	b.designation as bright_futures,
+  c.risk_group as automation_risk,
+  d.projection as near_future
+FROM occs o
+    LEFT JOIN profile_sec_sev_nem_prj_nat a on o.soc_id = a.soc_id
+    LEFT JOIN "outlook_brightFutures" b on o.soc_id = b.soc_id
+    LEFT JOIN outlook_future_of_work c on o.soc_id = c.soc_id
+    LEFT JOIN outlook_near_future d on o.soc_id = d.soc_id
+GROUP BY
+	o.soc_id,
+  a.per_change_10,
+  a.employed,
+  a.employed_10,
+	b.designation,
+  c.risk_group,
+  d.projection;
+
 \t
 \a
-\o src/assets/data/profile_data.json
+\o tmp/profile_data.json
 SELECT array_to_json(array_agg(ROW_TO_JSON(r)), TRUE)
 FROM (
   SELECT
@@ -99,12 +124,7 @@ FROM (
   foo10.behaviors_work_activities,
   foo11.behaviors_skills,
   foo12.behaviors_knowledge,
-  profile_sec_sev_nem_prj_nat.per_change_10 as per_change_10_nat,
-  profile_sec_sev_nem_prj_nat.employed as employed_nat,
-  profile_sec_sev_nem_prj_nat.employed_10 as employed_10_nat,
-  "outlook_brightFutures".designation as bright_futures,
-  outlook_future_of_work.risk_group as automation_risk,
-  outlook_near_future.projection as near_future
+  foo13.*
   FROM foo1
     LEFT JOIN foo2 on foo2.soc_id = foo1.soc_id
     LEFT JOIN foo3 on foo3.soc_id = foo1.soc_id
@@ -114,11 +134,8 @@ FROM (
     LEFT JOIN foo7 on foo7.soc_id = foo1.soc_id
     LEFT JOIN foo9 on foo9.soc_id = foo1.soc_id
     LEFT JOIN foo8 on foo8.soc_id = foo1.soc_id
-    LEFT JOIN profile_sec_sev_nem_prj_nat on profile_sec_sev_nem_prj_nat.soc_id = foo1.soc_id
-    LEFT JOIN "outlook_brightFutures" on "outlook_brightFutures".soc_id = foo1.soc_id
-    LEFT JOIN outlook_future_of_work on outlook_future_of_work.soc_id = foo1.soc_id
-    LEFT JOIN outlook_near_future on outlook_near_future.soc_id = foo1.soc_id
     LEFT JOIN foo10 on foo10.soc_id = foo1.soc_id
     LEFT JOIN foo11 on foo11.soc_id = foo1.soc_id
     LEFT JOIN foo12 on foo12.soc_id = foo1.soc_id
+    LEFT JOIN foo13 on foo13.soc_id = foo1.soc_id
   ) AS r;

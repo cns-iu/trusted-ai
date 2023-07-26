@@ -2,13 +2,14 @@
   "soc_id": "53-1041.00",
   "title": "Aircraft Cargo Handling Supervisors",
   "descr": "Supervise and coordinate the activities of ground crew in the loading, unloading, securing, and staging of aircraft cargo or baggage. May determine the quantity and orientation of cargo and compute aircraft center of gravity. May accompany aircraft as member of flight crew and monitor and handle cargo in flight, and assist and brief passengers on safety and emergency procedures. Includes loadmasters.",
-  "alt_titles": "Air Cargo Ground Crew Supervisor, Air Cargo Ground Operations Supervisor, Air Cargo Specialist Supervisor, Air Cargo Supervisor, Aircraft Loadmaster, Airfreight Loading Supervisor, Airport Operations Supervisor, Airport Ramp Supervisor, Baggage Handling Supervisor, Cargo Service Supervisor, Cargo Services Coordinator, Cargo Supervisor, Ground Crew Supervisor, Ground Operations Supervisor, Helicopter Loadmaster, Line Service Supervisor (LSS), Loadmaster, Ramp and Cargo Supervisor, Ramp Boss, Ramp Supervisor, Sort Operations Supervisor, Station Loadmaster",
+  "alt_titles": "Cargo Services Coordinator, Cargo Supervisor, Ground Crew Supervisor, Ground Operations Supervisor, Helicopter Loadmaster, Line Service Supervisor (LSS), Loadmaster, Ramp and Cargo Supervisor, Ramp Boss, Ramp Supervisor, Air Cargo Specialist Supervisor, Sort Operations Supervisor, Station Loadmaster, Air Cargo Supervisor, Airfreight Loading Supervisor, Airport Operations Supervisor, Airport Ramp Supervisor, Aircraft Loadmaster, Air Cargo Ground Operations Supervisor, Baggage Handling Supervisor, Air Cargo Ground Crew Supervisor, Cargo Service Supervisor",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "53-1041.00",

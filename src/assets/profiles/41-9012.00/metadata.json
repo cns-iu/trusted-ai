@@ -2,13 +2,14 @@
   "soc_id": "41-9012.00",
   "title": "Models",
   "descr": "Model garments or other apparel and accessories for prospective buyers at fashion shows, private showings, or retail establishments. May pose for photos to be used in magazines or advertisements. May pose as subject for paintings, sculptures, and other types of artistic expression.",
-  "alt_titles": "Model, Model Builder, Nude Model, Photographer's Model, Agent Model, Art Class Model, Art Model, Artist's Model, Character Impersonator, Clothes Model, Fashion Model, Figure Model, Fine Arts Model, Fit Model, Fitness Model, Floor Model, Freelance Model, Hand Model, Hat Model, Influencer, Life Drawing Model, Male Model, Professional Model, Runway Model, Sales Model, Spirits Model, Studio Model, Undraped Artist Model",
+  "alt_titles": "Fitness Model, Nude Model, Model, Agent Model, Art Class Model, Art Model, Artist's Model, Character Impersonator, Clothes Model, Fashion Model, Figure Model, Fine Arts Model, Fit Model, Photographer's Model, Floor Model, Freelance Model, Hand Model, Hat Model, Influencer, Life Drawing Model, Male Model, Professional Model, Runway Model, Model Builder, Sales Model, Spirits Model, Studio Model, Undraped Artist Model",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "41-9012.00",

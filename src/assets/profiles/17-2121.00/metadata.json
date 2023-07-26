@@ -2,13 +2,14 @@
   "soc_id": "17-2121.00",
   "title": "Marine Engineers and Naval Architects",
   "descr": "Design, develop, and evaluate the operation of marine vessels, ship machinery, and related equipment, such as power supply and propulsion systems.",
-  "alt_titles": "Architect Specialist, Automation Engineer, Boat Designer, Consulting Marine Engineer, Designer, Engineering Specialist, Engineering Technician, Marine Architect, Marine Civil Engineer, Marine Consultant, Marine Design Engineer, Marine Engineer, Marine Engineering Consultant, Marine Equipment Design Engineer, Marine Equipment Engineer, Marine Equipment Research Engineer, Marine Equipment Test Engineer, Marine Service Engineer, Marine Structural Designer, Marine Surveyor, Naval Architect, Naval Architect Specialist, Naval Engineer, Naval Marine Engineer, Piping Designer, Port Engineer, Project Engineer, Propulsion Machinery Service Engineer, Ship Surveyor, Ships Equipment Engineer, Structural Designer, Structural Engineer, Supplier Quality Engineer (SQE)",
+  "alt_titles": "Marine Surveyor, Architect Specialist, Automation Engineer, Boat Designer, Consulting Marine Engineer, Designer, Engineering Specialist, Engineering Technician, Marine Architect, Marine Civil Engineer, Marine Consultant, Marine Design Engineer, Marine Engineer, Marine Engineering Consultant, Marine Equipment Design Engineer, Marine Equipment Engineer, Marine Equipment Research Engineer, Marine Equipment Test Engineer, Marine Service Engineer, Marine Structural Designer, Naval Architect, Naval Architect Specialist, Naval Engineer, Naval Marine Engineer, Piping Designer, Port Engineer, Project Engineer, Propulsion Machinery Service Engineer, Ship Surveyor, Ships Equipment Engineer, Structural Designer, Structural Engineer, Supplier Quality Engineer (SQE)",
   "job_zone": 4,
   "experience": "A considerable amount of work-related skill, knowledge, or experience is needed for these occupations. For example, an accountant must complete four years of college and work for several years in accounting to be considered qualified.",
   "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
   "job_training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training.",
   "example": "Many of these occupations involve coordinating, supervising, managing, or training others. Examples include real estate brokers, sales managers, database administrators, graphic designers, conservation scientists, art directors, and cost estimators.",
   "svp_range": "7 to 8",
+  "svp_desc": "Individuals workers typically need anywhere from between 2 and 4 years- up to 10 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "17-2121.00",

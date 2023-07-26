@@ -2,13 +2,14 @@
   "soc_id": "47-5071.00",
   "title": "Roustabouts, Oil and Gas",
   "descr": "Assemble or repair oil field equipment using hand and power tools. Perform other tasks as needed.",
-  "alt_titles": "Casing Crew Pusher, Cathead Operator, Connection Worker, Derrick Hand, Drill Rig Operator, Dumper-Bailer Operator, Field Service Technician, Field Specialist, Field Technician (Field Tech), Floor Hand, Fuel Farm Operator, Galley Hand, Gang Worker, Gas Floorhand, Generator Field Service Technician (Generator Field Service Tech), Gun Perforator Loader, Internal Corrosion Specialist, Oil Field Laborer, Oil Field Roustabout, Oil Floorhand, Oil Rig Floorhand, Oil Rig Roughneck, Oil Rigger, Production Roustabout, Rig Hand, Roustabout, Roustabout Crew Pusher, Roustabout Hand, Roustabout Pusher, Terminal Operator, Well Service Floor Worker, Well Service Floorperson",
+  "alt_titles": "Fuel Farm Operator, Galley Hand, Gang Worker, Roustabout Crew Pusher, Gas Floorhand, Generator Field Service Technician (Generator Field Service Tech), Gun Perforator Loader, Internal Corrosion Specialist, Oil Field Laborer, Oil Field Roustabout, Oil Floorhand, Oil Rig Floorhand, Oil Rig Roughneck, Roustabout Hand, Oil Rigger, Production Roustabout, Rig Hand, Well Service Floor Worker, Roustabout, Terminal Operator, Casing Crew Pusher, Cathead Operator, Connection Worker, Derrick Hand, Drill Rig Operator, Dumper-Bailer Operator, Field Service Technician, Field Specialist, Well Service Floorperson, Roustabout Pusher, Field Technician (Field Tech), Floor Hand",
   "job_zone": 1,
   "experience": "Little or no previous work-related skill, knowledge, or experience is needed for these occupations. For example, a person can become a waiter or waitress even if he/she has never worked before.",
   "education": "Some of these occupations may require a high school diploma or GED certificate.",
   "job_training": "Employees in these occupations need anywhere from a few days to a few months of training. Usually, an experienced worker could show you how to do the job.",
   "example": "These occupations involve following instructions and helping others. Examples include food preparation workers, dishwashers, floor sanders and finishers, landscaping and groundskeeping workers, logging equipment operators, and baristas.",
   "svp_range": "Below 4",
+  "svp_desc": "Individuals workers typically need anywhere from a short demonstration to between 1 and 3 months to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "47-5071.00",

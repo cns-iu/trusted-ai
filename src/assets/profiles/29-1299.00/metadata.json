@@ -2,13 +2,14 @@
   "soc_id": "29-1299.00",
   "title": "Healthcare Diagnosing or Treating Practitioners, All Other",
   "descr": "All healthcare diagnosing or treating practitioners not listed separately.",
-  "alt_titles": "Acupressurist, Acupuncturist, Aurist, Cardiologist, Cardiovascular Disease Specialist, Clinical Fellow, Colon Therapist, Corrective and Manual Arts Therapist, Corrective Therapist, County Health Officer, Diagnostician, Doctor, Doctor of Medicine, Doctor of Naprapathic Medicine, Doctor of Naprapathy, Doctor of Osteopathy, Drugless Doctor, Drugless Physician, Electrotherapist, Emergency Medicine Specialist, Flight Surgeon, Gastroenterologist, Health Officer, Health Therapist, Heart Specialist, Heliotherapist, Hematologist, Herb Counselor, Herb Doctor, Herbalist, Herbologist, Holistic Health Practitioner, Homeopathic Doctor, Hospice Fellow, Hospital Fellow, Hypnotherapist, Immunologist, Intern, Kinesiologist, Lactation Consultant, Laryngologist, Magnetic Doctor, Magnetic Healer, Manual Arts Therapist, Medical Doctor (MD), Medical Examiner, Medical Resident, Medical Specialist, Medicine Man, Medicine Worker, Naprapath, Naturopath, Naturopathic Doctor, Naturopathic Physician, Neonatologist, Nephrologist, Occupational Medicine Specialist, Oculist, Orthopedist, Osteopath, Osteopathic Resident, Otolaryngologist, Otorhinolaryngologist, Physiatrist, Proctologist, Public Health Doctor, Pulmonary Disease Specialist, Reflexologist, Rehabilitation Program Coordinator, Resident, Resident Intern, Sanipractic Physician, Tuberculosis Specialist",
+  "alt_titles": "Corrective Therapist, Acupressurist, Acupuncturist, Aurist, Cardiologist, Cardiovascular Disease Specialist, Clinical Fellow, Colon Therapist, Corrective and Manual Arts Therapist, County Health Officer, Diagnostician, Doctor, Doctor of Medicine, Doctor of Naprapathic Medicine, Doctor of Naprapathy, Doctor of Osteopathy, Drugless Doctor, Drugless Physician, Electrotherapist, Emergency Medicine Specialist, Flight Surgeon, Gastroenterologist, Health Officer, Health Therapist, Heart Specialist, Heliotherapist, Hematologist, Herb Counselor, Herb Doctor, Herbalist, Herbologist, Holistic Health Practitioner, Homeopathic Doctor, Hospice Fellow, Hospital Fellow, Hypnotherapist, Immunologist, Intern, Kinesiologist, Lactation Consultant, Laryngologist, Magnetic Doctor, Magnetic Healer, Manual Arts Therapist, Medical Doctor (MD), Medical Examiner, Medical Resident, Medical Specialist, Medicine Man, Medicine Worker, Naprapath, Naturopath, Naturopathic Doctor, Naturopathic Physician, Neonatologist, Nephrologist, Occupational Medicine Specialist, Oculist, Orthopedist, Osteopath, Osteopathic Resident, Otolaryngologist, Otorhinolaryngologist, Physiatrist, Proctologist, Public Health Doctor, Pulmonary Disease Specialist, Reflexologist, Rehabilitation Program Coordinator, Resident, Resident Intern, Sanipractic Physician, Tuberculosis Specialist",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {

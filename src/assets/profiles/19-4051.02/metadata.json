@@ -2,13 +2,14 @@
   "soc_id": "19-4051.02",
   "title": "Nuclear Monitoring Technicians",
   "descr": "Collect and test samples to monitor results of nuclear experiments and contamination of humans, facilities, and environment.",
-  "alt_titles": "Cathodic Protection Technician, Chemical Radiation Technician, Decontaminator, Health Physics Technician (HP Tech), Instrumentation Control Specialist, Laboratory Control Specialist, Metallographic Technician, Nuclear Chemistry Technician, Nuclear Control Technician, Nuclear Technician, Nuclear Worker Technician, Radiation Control Specialist, Radiation Control Technician (Radcon Technician), Radiation Monitor, Radiation Protection Monitor, Radiation Protection Specialist (RP Specialist), Radiation Protection Technician (RPT), Radiation Technician, Radiochemical Technician, Systems Protection Technician",
+  "alt_titles": "Radiation Protection Specialist (RP Specialist), Radiation Protection Monitor, Systems Protection Technician, Radiation Control Specialist, Radiation Control Technician (Radcon Technician), Radiation Technician, Radiation Monitor, Cathodic Protection Technician, Chemical Radiation Technician, Radiochemical Technician, Decontaminator, Health Physics Technician (HP Tech), Instrumentation Control Specialist, Laboratory Control Specialist, Metallographic Technician, Nuclear Chemistry Technician, Nuclear Control Technician, Radiation Protection Technician (RPT), Nuclear Technician, Nuclear Worker Technician",
   "job_zone": 3,
   "experience": "Previous work-related skill, knowledge, or experience is required for these occupations. For example, an electrician must have completed three or four years of apprenticeship or several years of vocational training, and often must have passed a licensing exam, in order to perform the job.",
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
   "svp_range": "6 to 7",
+  "svp_desc": "Individuals workers typically need anywhere from between 1 and 2 years- up to 4 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "19-4051.02",

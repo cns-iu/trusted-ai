@@ -2,13 +2,14 @@
   "soc_id": "51-8011.00",
   "title": "Nuclear Power Reactor Operators",
   "descr": "Operate or control nuclear reactors. Move control rods, start and stop equipment, monitor and adjust controls, and record data in logs. Implement emergency procedures when needed. May respond to abnormalities, determine cause, and recommend corrective action.",
-  "alt_titles": "Control Operator, Control Room Agent, Control Room Officer, Control Room Operator, Licensed Nuclear Control Room Operator, Licensed Reactor Operator, Nuclear Control Operator, Nuclear Control Room Non-Licensed Operator, Nuclear Control Room Operator, Nuclear Operator, Nuclear Plant Operator (NPO), Nuclear Power Plant Process Control Worker, Nuclear Power Reactor Operator, Nuclear Reactor Operator, Nuclear Station Operator (NSO), Nuclear Supervising Operator (NSO), Nuclear Unit Operator, Power Reactor Operator, Reactor Operator (RO), Unit Reactor Operator",
+  "alt_titles": "Nuclear Plant Operator (NPO), Control Operator, Control Room Agent, Control Room Officer, Control Room Operator, Licensed Nuclear Control Room Operator, Licensed Reactor Operator, Nuclear Control Operator, Nuclear Control Room Non-Licensed Operator, Nuclear Control Room Operator, Nuclear Operator, Nuclear Power Plant Process Control Worker, Nuclear Power Reactor Operator, Nuclear Reactor Operator, Nuclear Station Operator (NSO), Nuclear Supervising Operator (NSO), Nuclear Unit Operator, Power Reactor Operator, Reactor Operator (RO), Unit Reactor Operator",
   "job_zone": 3,
   "experience": "Previous work-related skill, knowledge, or experience is required for these occupations. For example, an electrician must have completed three or four years of apprenticeship or several years of vocational training, and often must have passed a licensing exam, in order to perform the job.",
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
   "svp_range": "6 to 7",
+  "svp_desc": "Individuals workers typically need anywhere from between 1 and 2 years- up to 4 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "51-8011.00",

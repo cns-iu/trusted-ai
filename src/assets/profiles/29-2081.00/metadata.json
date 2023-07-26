@@ -2,13 +2,14 @@
   "soc_id": "29-2081.00",
   "title": "Opticians, Dispensing",
   "descr": "Design, measure, fit, and adapt lenses and frames for client according to written optical prescription or specification. Assist client with inserting, removing, and caring for contact lenses. Assist client with selecting frames. Measure customer for size of eyeglasses and coordinate frames with facial and eye measurements and optical prescription. Prepare work order for optical laboratory containing instructions for grinding and mounting lenses in frames. Verify exactness of finished lens spectacles. Adjust frame and lens position to fit client. May shape or reshape frames. Includes contact lens opticians.",
-  "alt_titles": "Certified Optician, Contact Lens Fitter, Contact Lens Technician, Dispensing and Measuring Optician, Dispensing Optician, Eyeglass Fitter, Licensed Dispensing Optician (LDO), Licensed Optical Dispenser, Licensed Optician, Ophthalmic Dispenser, Optical Dispenser, Optical Technician, Optician, Optometric Technician, Registered Optician",
+  "alt_titles": "Licensed Dispensing Optician (LDO), Licensed Optical Dispenser, Licensed Optician, Ophthalmic Dispenser, Optical Dispenser, Optical Technician, Optician, Certified Optician, Contact Lens Fitter, Optometric Technician, Registered Optician, Contact Lens Technician, Dispensing and Measuring Optician, Dispensing Optician, Eyeglass Fitter",
   "job_zone": 3,
   "experience": "Previous work-related skill, knowledge, or experience is required for these occupations. For example, an electrician must have completed three or four years of apprenticeship or several years of vocational training, and often must have passed a licensing exam, in order to perform the job.",
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
   "svp_range": "6 to 7",
+  "svp_desc": "Individuals workers typically need anywhere from between 1 and 2 years- up to 4 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "29-2081.00",

@@ -2,13 +2,14 @@
   "soc_id": "53-2031.00",
   "title": "Flight Attendants",
   "descr": "Monitor safety of the aircraft cabin. Provide services to airline passengers, explain safety information, serve food and beverages, and respond to emergency incidents.",
-  "alt_titles": "Door and Arrival Attendant, Airline Attendant, Airline Flight Attendant, Airline Hostess, Airline Stewardess, Airplane Flight Attendant, Cabin Attendant, Flight Attendant, Flight Crew, Flight Crew Member, Flight Hostess, Flight Steward, In-Flight Crew Member, Inflight Services Flight Attendant, International Flight Attendant, Meal Attendant, Purser, Ramp Flight Attendant",
+  "alt_titles": "Inflight Services Flight Attendant, Airline Attendant, Airline Flight Attendant, Airline Hostess, Airline Stewardess, Airplane Flight Attendant, Cabin Attendant, Flight Attendant, Flight Crew, Flight Crew Member, Flight Hostess, Flight Steward, In-Flight Crew Member, International Flight Attendant, Meal Attendant, Purser, Ramp Flight Attendant, Door and Arrival Attendant",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "53-2031.00",

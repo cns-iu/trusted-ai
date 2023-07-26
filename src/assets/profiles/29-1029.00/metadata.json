@@ -2,13 +2,14 @@
   "soc_id": "29-1029.00",
   "title": "Dentists, All Other Specialists",
   "descr": "All dentists not listed separately.",
-  "alt_titles": "Cosmetic Dentist, Endodontist, Maxillofacial Pathology, Oral Pathologist, Pediatric Dentist, Pedodontist, Periodontist, Public Health Dentist",
+  "alt_titles": "Pedodontist, Cosmetic Dentist, Endodontist, Maxillofacial Pathology, Public Health Dentist, Oral Pathologist, Pediatric Dentist, Periodontist",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {

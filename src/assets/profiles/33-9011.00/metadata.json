@@ -2,13 +2,14 @@
   "soc_id": "33-9011.00",
   "title": "Animal Control Workers",
   "descr": "Handle animals for the purpose of investigations of mistreatment, or control of abandoned, dangerous, or unattended animals.",
-  "alt_titles": "Animal Attendant, Animal Control Officer, Animal Control Specialist, Animal Cop, Animal Cruelty Investigator, Animal Enforcement Officer, Animal Officer, Animal Ordinance Enforcement Officer, Animal Park Code Enforcement Officer, Animal Rescuer, Animal Safety Officer, Animal Services Officer, Animal Treatment Investigator, Code Enforcement Inspector, Code Enforcement Officer, Code Enforcement Specialist, Community Safety Officer, Community Service Officer, Control Officer, Dog Catcher, Dog Control Officer, Dog Pound Attendant, Dog Warden, Humane Agent, Humane Officer",
+  "alt_titles": "Animal Control Specialist, Animal Attendant, Animal Control Officer, Animal Cop, Animal Cruelty Investigator, Animal Enforcement Officer, Animal Officer, Animal Ordinance Enforcement Officer, Animal Park Code Enforcement Officer, Animal Rescuer, Animal Safety Officer, Animal Services Officer, Animal Treatment Investigator, Code Enforcement Inspector, Code Enforcement Officer, Code Enforcement Specialist, Community Safety Officer, Community Service Officer, Control Officer, Dog Catcher, Dog Control Officer, Dog Pound Attendant, Dog Warden, Humane Agent, Humane Officer",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "33-9011.00",

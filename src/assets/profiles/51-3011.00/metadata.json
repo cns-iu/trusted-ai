@@ -2,13 +2,14 @@
   "soc_id": "51-3011.00",
   "title": "Bakers",
   "descr": "Mix and bake ingredients to produce breads, rolls, cookies, cakes, pies, pastries, or other baked goods.",
-  "alt_titles": "Pastry Finisher, Pie Baker, Pie Maker, Roll Machine Operator, Bagel Maker, Baker, Bakery Associate, Bakery Team Member, Bread Baker, Cake Decorator, Dough Maker, Dough Mixer, French Pastry Cook, Industrial Cook, Manufacturing Baker, Mixer, Night Baker, Oven Dumper, Pan Dumper, Pan Puller, Panner, Pastry Baker, Pastry Chef, Pastry Cook, Pastry Decorator, Roll Panner, Scaler, Sponge Maker, Sponge Setter, Sponger, Store Baker",
+  "alt_titles": "Roll Machine Operator, Pastry Finisher, Store Baker, Sponger, Sponge Setter, Sponge Maker, Scaler, Roll Panner, Pastry Decorator, Pastry Cook, Pastry Chef, Pastry Baker, Panner, Pan Puller, Pan Dumper, Bagel Maker, Baker, Bakery Associate, Bakery Team Member, Bread Baker, Cake Decorator, Dough Maker, Dough Mixer, French Pastry Cook, Industrial Cook, Manufacturing Baker, Mixer, Night Baker, Oven Dumper, Pie Maker, Pie Baker",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "51-3011.00",

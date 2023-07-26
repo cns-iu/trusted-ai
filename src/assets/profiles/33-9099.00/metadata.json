@@ -2,13 +2,14 @@
   "soc_id": "33-9099.00",
   "title": "Protective Service Workers, All Other",
   "descr": "All protective service workers not listed separately.",
-  "alt_titles": "Bus Escort, Bus Matron, Bus Monitor, Cafeteria Monitor, Community Service Patrol Officer, Deputy United States Marshal, Federal Agent, Gamewell Operator, Hall Monitor, Park Ranger, Playground Monitor, Polygraph Examiner, Ranger, School Bus Monitor, Shopper, Ski Patrol, Surveillance System Monitor, Tipstaff, Victims Advocate Clerk/Specialist, Warrant Server",
+  "alt_titles": "Federal Agent, Bus Escort, Bus Matron, Bus Monitor, Cafeteria Monitor, Community Service Patrol Officer, Deputy United States Marshal, Gamewell Operator, Hall Monitor, Park Ranger, Playground Monitor, Polygraph Examiner, Ranger, School Bus Monitor, Shopper, Ski Patrol, Surveillance System Monitor, Tipstaff, Victims Advocate Clerk/Specialist, Warrant Server",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {
