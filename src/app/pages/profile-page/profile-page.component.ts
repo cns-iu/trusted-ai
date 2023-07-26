@@ -271,7 +271,7 @@ export class ProfilePageComponent implements OnInit {
   get outlookDescription(): string {
     return this.currentJobInfo['near_future']
       ? this.currentJobInfo['near_future']
-      : outlookDescriptions[this.currentJobInfo['bright_futures'] ? this.currentJobInfo['bright_futures'] : 'No data'];
+      : outlookDescriptions[this.currentJobInfo['bright_futures'] || ''] || 'No data';
   }
 
   salaryNatSelection: SalaryDataType = 'annual';

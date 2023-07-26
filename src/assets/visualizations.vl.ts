@@ -267,6 +267,7 @@ export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annu
  * @returns visualization spec
  */
 export function createStatePlot(values: SalaryInfo[], section: string, type?: 'hourly' | 'annual' | 'emp'): VisualizationSpec {
+  console.log(type)
   const value = section === 'salary' ? 'mean' : 'tot_emp';
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',

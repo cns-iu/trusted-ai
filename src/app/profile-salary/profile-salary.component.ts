@@ -56,9 +56,6 @@ export class ProfileSalaryComponent implements OnChanges {
       case 'hourly':
         parameter = 'h_mean';
         break;
-      case 'emp':
-        parameter = 'tot_emp';
-        break;
     }
     return dataset.filter((value) => value['year'] === 2022).filter((entry) => entry[parameter]).length === 0;
   }
