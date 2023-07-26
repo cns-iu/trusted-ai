@@ -2,13 +2,14 @@
   "soc_id": "43-3071.00",
   "title": "Tellers",
   "descr": "Receive and pay out money. Keep records of money and negotiable instruments involved in a financial institution's various transactions.",
-  "alt_titles": "Account Representative, Bank Representative, Bank Teller, Banker, Bilingual Spanish Teller, Bilingual Teller, Branch Operations Specialist, Branch Teller, Cashier, Collection Teller, Commercial Teller, Coupon Clerk, Customer Relationship Specialist, Customer Service Associate (CSA), Drive-in Teller, Exchange Clerk, Exchange Teller, Financial Services Representative (FSR), Foreign Banknote Teller, Foreign Banknote Teller Trader, Foreign Exchange Clerk, Loan Teller, Mail Teller, Member Services Representative, Money Counter, Money Order Clerk, Note Teller, On-call Teller, Operations Specialist, Operations Teller, Paying Teller, Personal Banking Representative, Receiving Teller, Retail Banker, Roving Teller, Savings Teller, Securities Teller, Teller, Universal Banker, Utility Teller, Vault Teller",
+  "alt_titles": "Drive-in Teller, Account Representative, Bank Representative, Bank Teller, Banker, Bilingual Spanish Teller, Bilingual Teller, Branch Operations Specialist, Branch Teller, Cashier, Collection Teller, Commercial Teller, Coupon Clerk, Customer Relationship Specialist, Customer Service Associate (CSA), Exchange Clerk, Exchange Teller, Financial Services Representative (FSR), Foreign Banknote Teller, Foreign Banknote Teller Trader, Foreign Exchange Clerk, Loan Teller, Mail Teller, Member Services Representative, Money Counter, Money Order Clerk, Note Teller, On-call Teller, Operations Specialist, Operations Teller, Paying Teller, Personal Banking Representative, Receiving Teller, Retail Banker, Roving Teller, Savings Teller, Securities Teller, Teller, Universal Banker, Utility Teller, Vault Teller",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "43-3071.00",

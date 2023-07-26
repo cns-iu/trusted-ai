@@ -66,28 +66,28 @@ const stateIds: Record<string, string> = {
  * @param values Salary data
  * @returns parsed data
  */
-function parseNatData(values: SalaryInfo[]): unknown[] {
-  const mostRecentData = values[values.length - 1] || {}
+export function parseNatData(values: SalaryInfo[], type: 'hourly' | 'annual' | 'emp'): unknown[] {
+  const mostRecentData = values.find(value => value['year'] === 2022) || {}
   return [
     {
-      percentile: 10,
-      salary: mostRecentData['a_pct10']
+      percentile: .10,
+      salary: mostRecentData[type === 'annual' ? 'a_pct10' : 'h_pct10']
     },
     {
-      percentile: 25,
-      salary: mostRecentData['a_pct25']
+      percentile: .25,
+      salary: mostRecentData[type === 'annual' ? 'a_pct25' : 'h_pct25']
     },
     {
-      percentile: 50,
-      salary: mostRecentData['a_median']
+      percentile: .50,
+      salary: mostRecentData[type === 'annual' ? 'a_median' : 'h_median']
     },
     {
-      percentile: 75,
-      salary: mostRecentData['a_pct75']
+      percentile: .75,
+      salary: mostRecentData[type === 'annual' ? 'a_pct75' : 'h_pct75']
     },
     {
-      percentile: 90,
-      salary: mostRecentData['a_pct90']
+      percentile: .90,
+      salary: mostRecentData[type === 'annual' ? 'a_pct90' : 'h_pct90']
     }
   ]
 }
@@ -97,7 +97,7 @@ function parseNatData(values: SalaryInfo[]): unknown[] {
  * @param values Salary data
  * @returns parsed data
  */
-function parseStateData(values: SalaryInfo[]): SalaryInfo[] {
+export function parseStateData(values: SalaryInfo[], type?: 'hourly' | 'annual' | 'emp'): SalaryInfo[] {
   const mostRecentData = values.filter(value => value['year'] === 2022);
   const allStates = Object.keys(stateIds);
   const statesWithData = mostRecentData.map(value => value['place_name']);
@@ -106,7 +106,8 @@ function parseStateData(values: SalaryInfo[]): SalaryInfo[] {
       mostRecentData.push(
         {
           place_name: state,
-          a_mean: undefined
+          a_mean: undefined,
+          h_mean: undefined
         }
       )
     }
@@ -115,7 +116,7 @@ function parseStateData(values: SalaryInfo[]): SalaryInfo[] {
     return {
       state: value['place_name'],
       id: stateIds[value['place_name'] as string],
-      a_mean: value['a_mean'],
+      mean: value[type === 'annual' ? 'a_mean' : 'h_mean'],
       tot_emp: value['tot_emp']
     }
   })
@@ -126,17 +127,18 @@ function parseStateData(values: SalaryInfo[]): SalaryInfo[] {
  * @param values Salary data
  * @returns parsed data
  */
-function parseIndData(values: SalaryInfo[]): unknown[] {
+export function parseIndData(values: SalaryInfo[], type: 'hourly' | 'annual' | 'emp'): unknown[] {
+  const sortBy = type === 'annual' ? 'a_mean' : 'h_mean';
   return values.filter(value => value['year'] === 2022)
-    .sort((a, b) => (b.a_mean || 0) - (a.a_mean || 0))
+    .sort((a, b) => (b[sortBy] || 0) - (a[sortBy] || 0))
     .map(value => {
       return {
         industry_name: value['industry_name'],
-        lower_box_salary: value['a_pct25'],
-        upper_box_salary: value['a_pct75'],
-        mid_box_salary: value['a_median'],
-        lower_whisker_salary: value['a_pct10'],
-        upper_whisker_salary: value['a_pct90']
+        lower_whisker_salary: value[type === 'annual' ? 'a_pct10' : 'h_pct10'],
+        lower_box_salary: value[type === 'annual' ? 'a_pct25' : 'h_pct25'],
+        mid_box_salary: value[type === 'annual' ? 'a_median' : 'h_median'],
+        upper_box_salary: value[type === 'annual' ? 'a_pct75' : 'h_pct75'],
+        upper_whisker_salary: value[type === 'annual' ? 'a_pct90' : 'h_pct90']
       }
     }).slice(0, 5)
 }
@@ -195,13 +197,13 @@ function parseProjectionData(values: ProjectionInfo[]): unknown[] {
  * @param values salary data
  * @returns visualization spec
  */
-export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
+export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annual' | 'emp'): VisualizationSpec {
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     width: 'container',
     height: 'container',
     data: {
-      values: parseNatData(values)
+      values: parseNatData(values, type)
     },
     params: [
       {
@@ -224,30 +226,35 @@ export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
         type: 'quantitative',
         title: 'Percentile',
         axis: {
-          values: [10, 25, 50, 75, 90],
-          labelExpr: "datum.value == 50 ? 'Median' : datum.value",
+          values: [.10, .25, .50, .75, .90],
+          labelExpr: "datum.value == .50 ? 'Median' : toString(datum.value * 100) + '%'",
           labelFontSize: 15,
-          titleFontSize: { expr: 'axisTitleSize' }
-        }
+          titleFontSize: { expr: 'axisTitleSize' },
+          format: ".1~%"
+        },
+        scale: { domain: [0, 1] }
       },
       y: {
         field: 'salary',
         type: 'quantitative',
         stack: 'zero',
-        title: 'Salary (annual)',
+        title: type === 'annual' ? 'Salary (annual)' : 'Salary (hourly)',
         axis: {
           labelFontSize: 15,
-          titleFontSize: { expr: 'axisTitleSize' }
+          titleFontSize: { expr: 'axisTitleSize' },
+          format: '$f'
         }
       },
       tooltip: [
         {
           field: 'percentile',
-          title: 'Percentile'
+          title: 'Percentile',
+          format: ".1~%"
         },
         {
           field: 'salary',
-          title: 'Salary'
+          title: 'Salary',
+          format: '$d'
         }
       ]
     }
@@ -259,12 +266,13 @@ export function createSalaryNatPlot(values: SalaryInfo[]): VisualizationSpec {
  * @param values salary data
  * @returns visualization spec
  */
-export function createStatePlot(values: SalaryInfo[], section: string): VisualizationSpec {
-  const value = section === 'salary' ? 'a_mean' : 'tot_emp';
+export function createStatePlot(values: SalaryInfo[], section: string, type?: 'hourly' | 'annual' | 'emp'): VisualizationSpec {
+  console.log(type)
+  const value = section === 'salary' ? 'mean' : 'tot_emp';
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     data: {
-      values: parseStateData(values)
+      values: parseStateData(values, type)
     },
     params: [
       {
@@ -282,7 +290,7 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
       {
         name: 'axisTitleSize',
         expr: `if (${window.innerWidth} <= 600, 12, 18)`
-      },
+      }
     ],
     width: 'container',
     height: 'container',
@@ -301,7 +309,18 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
         },
         as: 'geo'
       },
-
+      {
+        calculate: `if(isValid(datum['${value}']) === false, true, false)`,
+        as: 'isInvalid',
+      },
+      {
+        calculate: `if(datum.isInvalid, 'No data', toString('$' + datum['${value}']))`,
+        as: 'salaryValue'
+      },
+      {
+        calculate: `if(datum.isInvalid, 'No data', toString(datum['${value}']))`,
+        as: 'populationValue'
+      },
     ],
     projection: { type: 'albersUsa' },
     mark: {
@@ -315,7 +334,7 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
       },
       color: {
         field: value,
-        title: value === 'a_mean' ? 'Salary' : 'Occupations',
+        title: value === 'mean' ? 'Salary' : 'Occupations',
         type: 'quantitative',
         condition: {
           test: `isValid(datum['${value}']) === false`,
@@ -334,7 +353,8 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
           titleFontSize: { expr: 'gradientTitleSize' },
           gradientLength: { expr: 'gradientHeight' },
           gradientThickness: 10,
-          labelFontSize: { expr: 'gradientLabelSize' }
+          labelFontSize: { expr: 'gradientLabelSize' },
+          format: value === 'mean' ? '$f' : 'd'
         }
       },
       tooltip: [
@@ -343,8 +363,9 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
           title: 'State'
         },
         {
-          field: value,
-          title: value === 'a_mean' ? 'Salary (annual)' : 'Occupations'
+          field: value === 'mean' ? 'salaryValue' : 'populationValue',
+          title: value === 'mean' ? (type === 'annual' ? 'Salary (annual)' : 'Salary (hourly)') : 'Occupations',
+          type: 'nominal'
         }
       ]
     },
@@ -361,13 +382,13 @@ export function createStatePlot(values: SalaryInfo[], section: string): Visualiz
  * @param values salary data
  * @returns visualization spec
  */
-export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
+export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annual' | 'emp'): VisualizationSpec {
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     width: 'container',
     height: 'container',
     data: {
-      values: parseIndData(values)
+      values: parseIndData(values, type)
     },
     params: [
       {
@@ -376,15 +397,15 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
       },
     ],
     encoding: {
-      x: {
+      y: {
         field: 'industry_name',
         type: 'nominal',
         title: 'Industry',
         axis: {
           labelFontSize: 15,
           titleFontSize: { expr: 'axisTitleSize' },
-          labelAngle: -45,
-          labelLimit: window.innerWidth <= 600 ? 150 : 300,
+          labelLimit: window.innerWidth <= 600 ? 100 : 300,
+          maxExtent: window.innerWidth <= 600 ? 150 : 350,
         },
         sort: {
           field: 'mid_box_salary'
@@ -395,17 +416,18 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
       {
         mark: { type: 'errorbar', ticks: true },
         encoding: {
-          y: {
+          x: {
             field: 'lower_whisker_salary',
             type: 'quantitative',
             scale: { zero: false },
-            title: 'Salary (annual)',
+            title: type === 'annual' ? 'Salary (annual)' : 'Salary (hourly)',
             axis: {
               labelFontSize: 15,
-              titleFontSize: { expr: 'axisTitleSize' }
+              titleFontSize: { expr: 'axisTitleSize' },
+              format: '$f'
             }
           },
-          y2: { field: 'upper_whisker_salary' },
+          x2: { field: 'upper_whisker_salary' },
           tooltip: [
             {
               field: 'industry_name',
@@ -413,23 +435,28 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
             },
             {
               field: 'lower_whisker_salary',
-              title: '10th percentile'
+              title: '10th percentile',
+              format: '$.0f'
             },
             {
               field: 'lower_box_salary',
-              title: '25th percentile'
+              title: '25th percentile',
+              format: '$.0f'
             },
             {
               field: 'mid_box_salary',
-              title: '50th percentile'
+              title: '50th percentile',
+              format: '$.0f'
             },
             {
               field: 'upper_box_salary',
-              title: '75th percentile'
+              title: '75th percentile',
+              format: '$.0f'
             },
             {
               field: 'upper_whisker_salary',
-              title: '90th percentile'
+              title: '90th percentile',
+              format: '$.0f'
             },
           ]
         }
@@ -437,8 +464,8 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
       {
         mark: { type: 'bar', size: 28 },
         encoding: {
-          y: { field: 'lower_box_salary', type: 'quantitative' },
-          y2: { field: 'upper_box_salary' },
+          x: { field: 'lower_box_salary', type: 'quantitative' },
+          x2: { field: 'upper_box_salary' },
           tooltip: [
             {
               field: 'industry_name',
@@ -446,23 +473,28 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
             },
             {
               field: 'lower_whisker_salary',
-              title: '10th percentile'
+              title: '10th percentile',
+              format: '$.0f'
             },
             {
               field: 'lower_box_salary',
-              title: '25th percentile'
+              title: '25th percentile',
+              format: '$.0f'
             },
             {
               field: 'mid_box_salary',
-              title: '50th percentile'
+              title: '50th percentile',
+              format: '$.0f'
             },
             {
               field: 'upper_box_salary',
-              title: '75th percentile'
+              title: '75th percentile',
+              format: '$.0f'
             },
             {
               field: 'upper_whisker_salary',
-              title: '90th percentile'
+              title: '90th percentile',
+              format: '$.0f'
             },
           ],
           color: { field: 'industry_name', type: 'nominal', legend: null },
@@ -471,7 +503,7 @@ export function createSalaryIndPlot(values: SalaryInfo[]): VisualizationSpec {
       {
         mark: { type: 'tick', color: 'white', size: 14 },
         encoding: {
-          y: { field: 'mid_box_salary', type: 'quantitative' },
+          x: { field: 'mid_box_salary', type: 'quantitative' },
           tooltip: [
             {
               field: 'industry_name',

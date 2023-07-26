@@ -2,13 +2,14 @@
   "soc_id": "11-9131.00",
   "title": "Postmasters and Mail Superintendents",
   "descr": "Plan, direct, or coordinate operational, administrative, management, and support services of a U.S. post office; or coordinate activities of workers engaged in postal and related work in assigned post office.",
-  "alt_titles": "Delivery Supervisor, Distribution Operation Supervisor (SDO), Distribution Operations Manager, Distribution Operations Supervisor, Mail Delivery Supervisor, Mail Superintendent, Order to Delivery Supervisor, Postal Service Sectional Center Manager, Postal Superintendent, Postal Supervisor, Postmaster, Postmaster Relief (PMR), Remote Encoding Center Manager, Remote Encoding Operations Supervisor, Service Delivery Supervisor",
+  "alt_titles": "Mail Delivery Supervisor, Delivery Supervisor, Distribution Operation Supervisor (SDO), Distribution Operations Manager, Distribution Operations Supervisor, Mail Superintendent, Order to Delivery Supervisor, Postal Service Sectional Center Manager, Postal Superintendent, Postal Supervisor, Postmaster, Postmaster Relief (PMR), Remote Encoding Center Manager, Remote Encoding Operations Supervisor, Service Delivery Supervisor",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "11-9131.00",

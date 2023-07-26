@@ -9,12 +9,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-trust-ai-root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .vg-tooltip td {
   max-width: 30vw !important;
 }

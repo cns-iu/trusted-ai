@@ -2,13 +2,14 @@
   "soc_id": "51-8091.00",
   "title": "Chemical Plant and System Operators",
   "descr": "Control or operate entire chemical processes or system of machines.",
-  "alt_titles": "Ammonia Still Operator, Ammonia Technician, Badger Distiller Operator, Bucket Wash Operator, Chemical Operator, Chemical Plant Operator, Chemical Treatment Plant Technician, Denitrator, Front Wash Operator, Furnace Process Plant Operator, Furnace Utility Operator, Hydrogenation Operator, Loader Technician, Naphtha Washing System Operator, Nitric Acid Plant Operator, Nitrogen Operator, Pharmaceutical Development Technician, Pharmaceutical Manufacturing Machine Operator, Pharmaceutical Operator, Plant Associate, Pressure Controller, Process Control Operator, Process Development Associate, Process Operator, Process Technician, Production Operator, Production Technician, Tower Operator, Utilities Operator, Utility Operator, Wash Operator",
+  "alt_titles": "Badger Distiller Operator, Ammonia Still Operator, Plant Associate, Pressure Controller, Process Control Operator, Process Development Associate, Process Operator, Process Technician, Production Operator, Production Technician, Tower Operator, Utilities Operator, Utility Operator, Wash Operator, Chemical Treatment Plant Technician, Denitrator, Ammonia Technician, Front Wash Operator, Furnace Process Plant Operator, Furnace Utility Operator, Hydrogenation Operator, Chemical Plant Operator, Loader Technician, Bucket Wash Operator, Naphtha Washing System Operator, Nitric Acid Plant Operator, Nitrogen Operator, Pharmaceutical Development Technician, Pharmaceutical Manufacturing Machine Operator, Pharmaceutical Operator, Chemical Operator",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "51-8091.00",

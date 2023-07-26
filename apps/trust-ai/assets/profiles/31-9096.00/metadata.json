@@ -2,13 +2,14 @@
   "soc_id": "31-9096.00",
   "title": "Veterinary Assistants and Laboratory Animal Caretakers",
   "descr": "Feed, water, and examine pets and other nonfarm animals for signs of illness, disease, or injury in laboratories and animal hospitals and clinics. Clean and disinfect cages and work areas, and sterilize laboratory and surgical equipment. May provide routine postoperative care, administer medication orally or topically, or prepare samples for laboratory examination under the supervision of veterinary or laboratory animal technologists or technicians, veterinarians, or scientists.",
-  "alt_titles": "Animal Care Provider, Animal Care Service Worker, Animal Caregiver, Animal Caretaker, Animal Health Technician, Avian Keeper, Certified Veterinary Assistant, Emergency Veterinary Assistant, Inpatient Technician Assistant, Kennel Vet Assistant (Kennel Veterinary Assistant), Laboratory Animal Caretaker, Research Animal Attendant, Small Animal Caretaker, Veterinarian Assistant (Vet Assistant), Veterinarian Helper (Vet Helper), Veterinary Attendant, Veterinary Kennel Assistant (Vet Kennel Assistant), Veterinary Receptionist (Vet Receptionist)",
+  "alt_titles": "Avian Keeper, Animal Care Provider, Animal Care Service Worker, Animal Caregiver, Animal Caretaker, Animal Health Technician, Certified Veterinary Assistant, Emergency Veterinary Assistant, Inpatient Technician Assistant, Kennel Vet Assistant (Kennel Veterinary Assistant), Laboratory Animal Caretaker, Research Animal Attendant, Small Animal Caretaker, Veterinarian Assistant (Vet Assistant), Veterinarian Helper (Vet Helper), Veterinary Attendant, Veterinary Kennel Assistant (Vet Kennel Assistant), Veterinary Receptionist (Vet Receptionist)",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "31-9096.00",

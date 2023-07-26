@@ -2,13 +2,14 @@
   "soc_id": "39-3019.00",
   "title": "Gambling Service Workers, All Other",
   "descr": "All gambling service workers not listed separately.",
-  "alt_titles": "Bingo Attendant, Bingo Caller, Bingo Checker, Bingo Clerk, Bingo Usher, Bingo Worker, Card Player, Card Seller, Card Table Attendant, Cardroom Attendant, Cardroom Plastic Card Grader, Chip Mucker, Chip Person, Dice Person, Dice Table Person, Floor Attendant, Gambler, Game Attendant, Game Room Attendant, Identifier, Keno Clerk, Lottery Clerk, Pit Clerk, Poker Prop Player, Proposition Player, Shill, Tattoo Identifier, Tattoo Technician, Ticket Dispenser Changer",
+  "alt_titles": "Ticket Dispenser Changer, Bingo Attendant, Bingo Caller, Bingo Checker, Bingo Clerk, Bingo Usher, Bingo Worker, Card Player, Card Seller, Card Table Attendant, Cardroom Attendant, Cardroom Plastic Card Grader, Chip Mucker, Chip Person, Dice Person, Dice Table Person, Floor Attendant, Gambler, Game Attendant, Game Room Attendant, Identifier, Keno Clerk, Lottery Clerk, Pit Clerk, Poker Prop Player, Proposition Player, Shill, Tattoo Identifier, Tattoo Technician",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {

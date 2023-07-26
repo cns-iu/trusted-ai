@@ -244,7 +244,10 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
 import { HttpClient, HttpClientModule } from &#x27;@angular/common/http&#x27;;
 import { Component, inject, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { MatBadgeModule } from &#x27;@angular/material/badge&#x27;;
 import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { MatButtonToggleModule } from &#x27;@angular/material/button-toggle&#x27;;
 import { MatTabsModule } from &#x27;@angular/material/tabs&#x27;;
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { Observable, tap } from &#x27;rxjs&#x27;;
@@ -319,6 +322,12 @@ export interface WorkTasks {
 
 /** Info on salary */
 export interface SalaryInfo {
+  /** Job data value */
+  [key: string]: unknown;
+  /** Industry name */
+  industry_name?: string;
+  /** State name */
+  place_name?: string;
   /** Avg annual salary at 10th percentile */
   a_pct10?: number;
   /** Avg annual salary at 25th percentile */
@@ -329,14 +338,22 @@ export interface SalaryInfo {
   a_pct75?: number;
   /** Avg annual salary at 90th percentile */
   a_pct90?: number;
-  /** State name */
-  place_name?: string;
-  /** Year of data */
-  year?: number;
   /** Annual mean salary */
   a_mean?: number | null;
-  /** Industry name */
-  industry_name?: string;
+  /** Avg hourly salary at 10th percentile */
+  h_pct10?: number;
+  /** Avg hourly salary at 25th percentile */
+  h_pct25?: number;
+  /** Avg hourly salary at 50th percentile */
+  h_median?: number;
+  /** Avg hourly salary at 75th percentile */
+  h_pct75?: number;
+  /** Avg hourly salary at 90th percentile */
+  h_pct90?: number;
+  /** Hourly mean salary */
+  h_mean?: number | null;
+  /** Year of data */
+  year?: number;
   /** Total employment */
   tot_emp?: number;
 }
@@ -364,7 +381,7 @@ export interface TreemapData {
 /** Occupation projection info */
 export interface ProjectionInfo {
   /** Industry title */
-  industry_title?: string;
+  industry_title: string;
   /** Number employed in industry */
   employed?: number;
   /** Projected number employed in 10 years */
@@ -379,6 +396,9 @@ const outlookDescriptions: Record&lt;string, string&gt; &#x3D; {
   Average: &#x27;Average outlook&#x27;,
   &#x27;Below Average&#x27;: &#x27;Below average outlook&#x27;,
 };
+
+/** Type of entries from salary data that are used for visualizations */
+export type SalaryDataType &#x3D; &#x27;annual&#x27; | &#x27;hourly&#x27; | &#x27;emp&#x27;;
 
 /**
  * Profile page component
@@ -398,6 +418,9 @@ const outlookDescriptions: Record&lt;string, string&gt; &#x3D; {
     TreemapComponent,
     MatTabsModule,
     ProfileOccupationProjectionComponent,
+    MatBadgeModule,
+    MatButtonToggleModule,
+    FormsModule,
   ],
   templateUrl: &#x27;./profile-page.component.html&#x27;,
   styleUrls: [&#x27;./profile-page.component.scss&#x27;],
@@ -410,16 +433,16 @@ export class ProfilePageComponent implements OnInit {
   private readonly http &#x3D; inject(HttpClient);
 
   /** Treemap1 element */
-  @ViewChild(&#x27;treemap1&#x27;) private treemap1: TreemapComponent &#x3D; new TreemapComponent();
+  @ViewChild(&#x27;treemap1&#x27;) treemap1: TreemapComponent &#x3D; new TreemapComponent();
 
   /** Treemap2 element */
-  @ViewChild(&#x27;treemap2&#x27;) private treemap2: TreemapComponent &#x3D; new TreemapComponent();
+  @ViewChild(&#x27;treemap2&#x27;) treemap2: TreemapComponent &#x3D; new TreemapComponent();
 
   /** Treemap3 element */
-  @ViewChild(&#x27;treemap3&#x27;) private treemap3: TreemapComponent &#x3D; new TreemapComponent();
+  @ViewChild(&#x27;treemap3&#x27;) treemap3: TreemapComponent &#x3D; new TreemapComponent();
 
   /** Treemap4 element */
-  @ViewChild(&#x27;treemap4&#x27;) private treemap4: TreemapComponent &#x3D; new TreemapComponent();
+  @ViewChild(&#x27;treemap4&#x27;) treemap4: TreemapComponent &#x3D; new TreemapComponent();
 
   /** Current job info */
   currentJobInfo: AllJobInfo &#x3D; {
@@ -475,6 +498,15 @@ export class ProfilePageComponent implements OnInit {
   /** Occupation projection data */
   projectionInfo: ProjectionInfo[] &#x3D; [];
 
+  /** Type of national salary data chosen */
+  salaryNatSelection: SalaryDataType &#x3D; &#x27;annual&#x27;;
+
+  /** Type of state salary data chosen */
+  salaryStatesSelection: SalaryDataType &#x3D; &#x27;annual&#x27;;
+
+  /** Type of industry salary data chosen */
+  salaryIndSelection: SalaryDataType &#x3D; &#x27;annual&#x27;;
+
   /**
    * Gets automation description
    */
@@ -492,7 +524,7 @@ export class ProfilePageComponent implements OnInit {
   get outlookDescription(): string {
     return this.currentJobInfo[&#x27;near_future&#x27;]
       ? this.currentJobInfo[&#x27;near_future&#x27;]
-      : outlookDescriptions[this.currentJobInfo[&#x27;bright_futures&#x27;] ? this.currentJobInfo[&#x27;bright_futures&#x27;] : &#x27;No data&#x27;];
+      : outlookDescriptions[this.currentJobInfo[&#x27;bright_futures&#x27;] || &#x27;&#x27;] || &#x27;No data&#x27;;
   }
 
   /**
@@ -503,6 +535,28 @@ export class ProfilePageComponent implements OnInit {
       this.getData(params[&#x27;code&#x27;]).subscribe();
       this.showAllSkills &#x3D; false;
     });
+  }
+
+  /**
+   * Determines whether the dataset has any relevant data from 2022
+   * @param dataset Data
+   * @param type Type of data
+   * @returns true if empty
+   */
+  isEmpty(dataset: SalaryInfo[], type: SalaryDataType): boolean {
+    let parameter: string;
+    switch (type) {
+      case &#x27;annual&#x27;:
+        parameter &#x3D; &#x27;a_mean&#x27;;
+        break;
+      case &#x27;hourly&#x27;:
+        parameter &#x3D; &#x27;h_mean&#x27;;
+        break;
+      case &#x27;emp&#x27;:
+        parameter &#x3D; &#x27;tot_emp&#x27;;
+        break;
+    }
+    return dataset.filter((value) &#x3D;&gt; value[&#x27;year&#x27;] &#x3D;&#x3D;&#x3D; 2022).filter((entry) &#x3D;&gt; entry[parameter]).length &#x3D;&#x3D;&#x3D; 0;
   }
 
   /**

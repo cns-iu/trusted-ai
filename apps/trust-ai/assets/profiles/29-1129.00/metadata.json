@@ -2,13 +2,14 @@
   "soc_id": "29-1129.00",
   "title": "Therapists, All Other",
   "descr": "All therapists not listed separately.",
-  "alt_titles": "Animal Assisted Therapist, Animal Therapist, Aromatherapist, Auriculotherapist, Aviation Medicine Specialist, Chemical Dependency Therapist, Child Life Therapist, Clinical Fellow, Colon Therapist, Corrective and Manual Arts Therapist, Corrective Therapist, Doctor, Doctor of Osteopathy, Ear Specialist, Ecotherapist, Educational Therapist, Electrotherapist, Exercise Scientist, Health Therapist, Heliotherapist, Herb Counselor, Herb Doctor, Herbalist, Homeopathic Doctor, Hydrotherapist, Hypnotherapist, Industrial Therapist, Kinesiologist, Kinesiotherapist, Magnetic Doctor, Manipulative Therapy Specialist, Manual Arts Therapist, Medical Doctor (MD), Medical Specialist, Medicine Worker, Movement Therapist, Nephrologist, Osteopath, Peripatologist, Physical Integration Practitioner, Play Therapist, Rehabilitation Program Coordinator, Reiki Practitioner, Rolfer, Sanipractic Physician, Sex Therapist, Sexologist",
+  "alt_titles": "Electrotherapist, Animal Assisted Therapist, Animal Therapist, Aromatherapist, Auriculotherapist, Aviation Medicine Specialist, Chemical Dependency Therapist, Child Life Therapist, Clinical Fellow, Colon Therapist, Corrective and Manual Arts Therapist, Corrective Therapist, Doctor, Doctor of Osteopathy, Ear Specialist, Ecotherapist, Educational Therapist, Exercise Scientist, Health Therapist, Heliotherapist, Herb Counselor, Herb Doctor, Herbalist, Homeopathic Doctor, Hydrotherapist, Hypnotherapist, Industrial Therapist, Kinesiologist, Kinesiotherapist, Magnetic Doctor, Manipulative Therapy Specialist, Manual Arts Therapist, Medical Doctor (MD), Medical Specialist, Medicine Worker, Movement Therapist, Nephrologist, Osteopath, Peripatologist, Physical Integration Practitioner, Play Therapist, Rehabilitation Program Coordinator, Reiki Practitioner, Rolfer, Sanipractic Physician, Sex Therapist, Sexologist",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {

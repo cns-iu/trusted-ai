@@ -2,13 +2,14 @@
   "soc_id": "43-5041.00",
   "title": "Meter Readers, Utilities",
   "descr": "Read meter and record consumption of electricity, gas, water, or steam.",
-  "alt_titles": "Customer Field Representative, Electric Meter Reader, Facilities Technician (Facilities Tech), Field Service Engineer, Field Technician, Fieldman, Gas Meter Reader, Meter Reader, Meter Reader Inspector, Meter Reading Clerk, Meter Record Clerk, Meter Technician, Meterman, Steam Meter Reader, Utilities Technician, Utility Meter Technician, Utility Service Worker, Utility Technician, Water Inspector, Water Meter Reader, Water Use Inspector",
+  "alt_titles": "Meter Record Clerk, Meter Technician, Meterman, Steam Meter Reader, Utilities Technician, Utility Meter Technician, Utility Service Worker, Utility Technician, Water Inspector, Water Meter Reader, Water Use Inspector, Customer Field Representative, Electric Meter Reader, Facilities Technician (Facilities Tech), Field Service Engineer, Field Technician, Fieldman, Gas Meter Reader, Meter Reader, Meter Reader Inspector, Meter Reading Clerk",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "43-5041.00",

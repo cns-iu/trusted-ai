@@ -2,13 +2,14 @@
   "soc_id": "39-4021.00",
   "title": "Funeral Attendants",
   "descr": "Perform a variety of tasks during funeral, such as placing casket in parlor or chapel prior to service, arranging floral offerings or lights around casket, directing or escorting mourners, closing casket, and issuing and storing funeral equipment.",
-  "alt_titles": "Attendant, Crematory Operator, Donations Attendant, Funeral Assistant, Funeral Attendant, Funeral Greeter, Funeral Home Assistant, Funeral Home Associate, Funeral Home Attendant, Funeral Service Attendant, Funeral Services Assistant (FSA), Greeter, Mortician Helper, Pallbearer, Property Man, Property Worker, Undertaker Assistant, Undertaker Helper",
+  "alt_titles": "Property Worker, Undertaker Helper, Attendant, Crematory Operator, Donations Attendant, Funeral Assistant, Funeral Attendant, Funeral Greeter, Funeral Home Assistant, Funeral Home Associate, Funeral Home Attendant, Funeral Service Attendant, Funeral Services Assistant (FSA), Greeter, Mortician Helper, Pallbearer, Property Man, Undertaker Assistant",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "39-4021.00",

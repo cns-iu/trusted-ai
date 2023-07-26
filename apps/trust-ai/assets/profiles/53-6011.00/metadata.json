@@ -2,13 +2,14 @@
   "soc_id": "53-6011.00",
   "title": "Bridge and Lock Tenders",
   "descr": "Operate and tend bridges, canal locks, and lighthouses to permit marine passage on inland waterways, near shores, and at danger points in waterway passages. May supervise such operations. Includes drawbridge operators, lock operators, and slip bridge operators.",
-  "alt_titles": "Draw Operator, Bridge Crew Member, Bridge Leverman, Bridge Opener, Bridge Operator, Bridge Saw Operator, Bridge Tender, Bridgeman, Crossing Tender, Crossing Watchman, Dam Attendant, Dam Operator, Dam Repairer, Dam Tender, Drawbridge Operator, Drawbridge Tender, Gate Attendant, Leverman, Lighthouse Keeper, Lock and Dam Operator, Lock and Dam Repairer, Lock Keeper, Lock Master, Lock Operator, Lock Repairer, Lock Tender, Lock Tender Operator, Lockman, Locks Tender, Marine Tower Operator, Slip Bridge Operator, Station Gateman",
+  "alt_titles": "Dam Repairer, Bridge Crew Member, Bridge Leverman, Bridge Opener, Bridge Operator, Bridge Saw Operator, Bridge Tender, Bridgeman, Crossing Tender, Crossing Watchman, Dam Attendant, Dam Operator, Dam Tender, Drawbridge Operator, Drawbridge Tender, Gate Attendant, Leverman, Lighthouse Keeper, Lock and Dam Operator, Lock and Dam Repairer, Lock Keeper, Lock Master, Lock Operator, Lock Repairer, Lock Tender, Lock Tender Operator, Lockman, Locks Tender, Marine Tower Operator, Slip Bridge Operator, Station Gateman, Draw Operator",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "53-6011.00",

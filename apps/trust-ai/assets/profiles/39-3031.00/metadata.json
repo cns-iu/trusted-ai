@@ -2,13 +2,14 @@
   "soc_id": "39-3031.00",
   "title": "Ushers, Lobby Attendants, and Ticket Takers",
   "descr": "Assist patrons at entertainment events by performing duties, such as collecting admission tickets and passes from patrons, assisting in finding seats, searching for lost articles, and helping patrons locate such facilities as restrooms and telephones.",
-  "alt_titles": "Admittance Attendant, Attractions Associate, Concessionist, Docent, Door Attendant, Door Captain, Door Tender, Doorman, Doorperson, Drive-in Theater Attendant, Event Attendant, Gate Attendant, Gate Clerk, Gate Tender, Greeter, Hospitality Agent, Lobby Attendant, Lodge Attendant, Museum Host, Museum Hostess, Official Greeter, Program Attendant, Special Event Attendant, Special Events Attendant, Spot Man, Spot Worker, Theater Attendant, Theater Usher, Ticket Attendant, Ticket Collector, Ticket Taker, Usher, Visitor Service Assistant, Visitor Services Assistant, Visitor Services Associate, Visitor Services Representative, Visitor Services Specialist, Visitor Services Technician, Volunteer Services Specialist",
+  "alt_titles": "Museum Host, Museum Hostess, Official Greeter, Program Attendant, Volunteer Services Specialist, Visitor Services Specialist, Special Event Attendant, Special Events Attendant, Spot Man, Spot Worker, Theater Attendant, Theater Usher, Ticket Attendant, Ticket Collector, Ticket Taker, Visitor Service Assistant, Usher, Visitor Services Assistant, Visitor Services Associate, Admittance Attendant, Attractions Associate, Concessionist, Docent, Door Attendant, Door Captain, Door Tender, Doorman, Doorperson, Drive-in Theater Attendant, Event Attendant, Gate Attendant, Gate Clerk, Gate Tender, Greeter, Visitor Services Representative, Visitor Services Technician, Hospitality Agent, Lobby Attendant, Lodge Attendant",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "39-3031.00",

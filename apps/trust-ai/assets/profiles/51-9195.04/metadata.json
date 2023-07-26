@@ -2,13 +2,14 @@
   "soc_id": "51-9195.04",
   "title": "Glass Blowers, Molders, Benders, and Finishers",
   "descr": "Shape molten glass according to patterns.",
-  "alt_titles": "Artificial Glass Eye Maker, Bender, Blow Molder, Blower, Bottle Blower, Fiber Glass Worker, Gaffer, Glass Bender, Glass Block Bender, Glass Block Installer, Glass Blower, Glass Blower Technician, Glass Blowing Instructor, Glass Blowing Lathe Operator, Glass Finisher, Glass Forming Engineer, Glass Lathe Operator, Glass Molder, Glass Tube Bender, Glass Worker, Glassblower, Glassware Finisher, Laboratory Apparatus Glass Blower, Lathe Blower, Lathe Operator, Molder, Neon Glass Bender, Neon Glass Blower, Neon Pumper, Neon Tube Bender, Scientific Blower, Scientific Glass Blower, Technical Blower, Tube Bender, Tubing Bender, Ware Finisher",
+  "alt_titles": "Glassblower, Glass Blowing Lathe Operator, Glass Finisher, Bender, Artificial Glass Eye Maker, Blow Molder, Blower, Glass Forming Engineer, Glass Lathe Operator, Glass Molder, Glass Tube Bender, Glass Worker, Glass Blowing Instructor, Glassware Finisher, Bottle Blower, Laboratory Apparatus Glass Blower, Lathe Blower, Lathe Operator, Molder, Neon Glass Bender, Neon Glass Blower, Neon Pumper, Neon Tube Bender, Scientific Blower, Scientific Glass Blower, Technical Blower, Tube Bender, Tubing Bender, Ware Finisher, Fiber Glass Worker, Gaffer, Glass Bender, Glass Block Bender, Glass Block Installer, Glass Blower, Glass Blower Technician",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "51-9195.04",

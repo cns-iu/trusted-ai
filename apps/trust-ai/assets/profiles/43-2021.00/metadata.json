@@ -2,13 +2,14 @@
   "soc_id": "43-2021.00",
   "title": "Telephone Operators",
   "descr": "Provide information by accessing alphabetical, geographical, or other directories. Assist customers with special billing requests, such as charges to a third party and credits or refunds for incorrectly dialed numbers or bad connections. May handle emergency calls and assist children or people with physical disabilities to make telephone calls.",
-  "alt_titles": "Live Source Operator, 411 Directory Assistance Operator, Central Office Operator, Change Number Operator, Charge Operator, Communications Operator, Directory Assistance Operator, Directory Operator, Emergency Operator, Information Operator, Information Specialist, Inward Toll Operator, Local Operator, Local Telephone Operator, Long Distance Operator (LD Operator), Long Lines Operator, PBX Operator (Post Box Exchange Operator), Phone Operator, Quoting Specialist, Rate Quoting Operator, Relief Operator, Switchboard Operator, Telecommunications Operator, Telephone Exchange Operator, Telephone Operator, Toll Operator, Toll Relief Operator, Toll Service Observer, Trouble Operator",
+  "alt_titles": "Long Lines Operator, PBX Operator (Post Box Exchange Operator), Phone Operator, Quoting Specialist, Rate Quoting Operator, Relief Operator, Switchboard Operator, Telecommunications Operator, Telephone Exchange Operator, Telephone Operator, Toll Operator, Toll Relief Operator, Toll Service Observer, Trouble Operator, Live Source Operator, 411 Directory Assistance Operator, Central Office Operator, Change Number Operator, Charge Operator, Communications Operator, Directory Assistance Operator, Directory Operator, Emergency Operator, Information Operator, Information Specialist, Inward Toll Operator, Local Operator, Local Telephone Operator, Long Distance Operator (LD Operator)",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "43-2021.00",

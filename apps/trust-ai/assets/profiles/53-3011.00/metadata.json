@@ -2,13 +2,14 @@
   "soc_id": "53-3011.00",
   "title": "Ambulance Drivers and Attendants, Except Emergency Medical Technicians",
   "descr": "Drive ambulance or assist ambulance driver in transporting sick, injured, or convalescent persons. Assist in lifting patients.",
-  "alt_titles": "Ambulance Attendant, Ambulance Driver, Care Attendant, Certified Emergency Vehicle Technician (CEV Technician), Chair Car Driver, Class B Driver, CPR Ambulance Driver (Cardio Pulmonary Resuscitation Ambulance Driver), Driver, Driver Medic, Emergency Care Attendant (ECA), Emergency Medical Vehicle Operator, Emergency Vehicle Operations Instructor, Emergency Vehicle Operator, Emergency Vehicle Technician, EMS Driver (Emergency Medical Services Driver), EMS First Responder (Emergency Medical Services First Responder), EMS Medic (Emergency Medical Services Medic), First Responder, Hospital Carrier, Medic Technician, Medical Transport Driver, Medical Van Driver (Medi-Van Driver), Mobile Health Vehicle Operator, Mobile Medical Van Advanced Practitioner, Patient Carrier, Transport Medic, Vehicle Operator Technician, Wheelchair Van Operator First Responder",
+  "alt_titles": "Mobile Medical Van Advanced Practitioner, Patient Carrier, Transport Medic, Vehicle Operator Technician, Wheelchair Van Operator First Responder, Class B Driver, Ambulance Attendant, Ambulance Driver, Care Attendant, Certified Emergency Vehicle Technician (CEV Technician), Chair Car Driver, CPR Ambulance Driver (Cardio Pulmonary Resuscitation Ambulance Driver), Driver, Driver Medic, Emergency Care Attendant (ECA), Emergency Medical Vehicle Operator, Emergency Vehicle Operations Instructor, Emergency Vehicle Operator, Emergency Vehicle Technician, EMS Driver (Emergency Medical Services Driver), EMS First Responder (Emergency Medical Services First Responder), EMS Medic (Emergency Medical Services Medic), First Responder, Hospital Carrier, Medic Technician, Medical Transport Driver, Medical Van Driver (Medi-Van Driver), Mobile Health Vehicle Operator",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "53-3011.00",

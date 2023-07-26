@@ -2,13 +2,14 @@
   "soc_id": "53-4013.00",
   "title": "Rail Yard Engineers, Dinkey Operators, and Hostlers",
   "descr": "Drive switching or other locomotive or dinkey engines within railroad yard, industrial plant, quarry, construction project, or similar location.",
-  "alt_titles": "Car Barn Laborer, Car Mover, Carman, Coal Tram Driver, Coal Trammer, Diesel Dinkey Engineer, Diesel Dinkey Operator, Dinkey Driver, Dinkey Engine Operator, Dinkey Engineer, Dinkey Locomotive Engineer, Dinkey Locomotive Operator, Dinkey Motor Operator, Dinkey Operator, Dinkey Skinner, Dump Motor Operator, Dump Motorman, Duty Engineer, Engine Hostler, Engineer, Haulage Engine Operator, Hostler, Ingot Buggy Operator, Ingot Car Operator, Larriman, Larry Car Operator, Mine Motor Engineer, Mine Motor Operator, Rail Equipment Operator, Rail Switcher, Rail Switchman, Rail Yard Engineer, Railcar Switcher, Railcar Switchman, Railroad Engineer, Shunt Operator, Slag Motor Operator, Switch Engineer, Switcher, Switcher Operator, Switchman, Train Operator, Work Car Operator, Yard Engineer, Yard Hostler, Yard Motor Operator, Yard Switcher",
+  "alt_titles": "Ingot Car Operator, Car Barn Laborer, Car Mover, Carman, Coal Tram Driver, Coal Trammer, Diesel Dinkey Engineer, Diesel Dinkey Operator, Dinkey Driver, Dinkey Engine Operator, Dinkey Engineer, Dinkey Locomotive Engineer, Dinkey Locomotive Operator, Dinkey Motor Operator, Dinkey Operator, Dinkey Skinner, Dump Motor Operator, Dump Motorman, Duty Engineer, Engine Hostler, Engineer, Haulage Engine Operator, Hostler, Ingot Buggy Operator, Larriman, Larry Car Operator, Mine Motor Engineer, Mine Motor Operator, Rail Equipment Operator, Rail Switcher, Rail Switchman, Rail Yard Engineer, Railcar Switcher, Railcar Switchman, Railroad Engineer, Shunt Operator, Slag Motor Operator, Switch Engineer, Switcher, Switcher Operator, Switchman, Train Operator, Work Car Operator, Yard Engineer, Yard Hostler, Yard Motor Operator, Yard Switcher",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "53-4013.00",
