@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, tap } from 'rxjs';
@@ -77,6 +79,12 @@ export interface WorkTasks {
 
 /** Info on salary */
 export interface SalaryInfo {
+  /** Job data value */
+  [key: string]: unknown;
+  /** Industry name */
+  industry_name?: string;
+  /** State name */
+  place_name?: string;
   /** Avg annual salary at 10th percentile */
   a_pct10?: number;
   /** Avg annual salary at 25th percentile */
@@ -87,14 +95,22 @@ export interface SalaryInfo {
   a_pct75?: number;
   /** Avg annual salary at 90th percentile */
   a_pct90?: number;
-  /** State name */
-  place_name?: string;
-  /** Year of data */
-  year?: number;
   /** Annual mean salary */
   a_mean?: number | null;
-  /** Industry name */
-  industry_name?: string;
+  /** Avg hourly salary at 10th percentile */
+  h_pct10?: number;
+  /** Avg hourly salary at 25th percentile */
+  h_pct25?: number;
+  /** Avg hourly salary at 50th percentile */
+  h_median?: number;
+  /** Avg hourly salary at 75th percentile */
+  h_pct75?: number;
+  /** Avg hourly salary at 90th percentile */
+  h_pct90?: number;
+  /** Hourly mean salary */
+  h_mean?: number | null;
+  /** Year of data */
+  year?: number;
   /** Total employment */
   tot_emp?: number;
 }
@@ -122,7 +138,7 @@ export interface TreemapData {
 /** Occupation projection info */
 export interface ProjectionInfo {
   /** Industry title */
-  industry_title?: string;
+  industry_title: string;
   /** Number employed in industry */
   employed?: number;
   /** Projected number employed in 10 years */
@@ -137,6 +153,8 @@ const outlookDescriptions: Record<string, string> = {
   Average: 'Average outlook',
   'Below Average': 'Below average outlook',
 };
+
+export type SalaryDataType = 'annual' | 'hourly' | 'emp';
 
 /**
  * Profile page component
@@ -157,6 +175,8 @@ const outlookDescriptions: Record<string, string> = {
     MatTabsModule,
     ProfileOccupationProjectionComponent,
     MatBadgeModule,
+    MatButtonToggleModule,
+    FormsModule,
   ],
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
@@ -254,6 +274,10 @@ export class ProfilePageComponent implements OnInit {
       : outlookDescriptions[this.currentJobInfo['bright_futures'] ? this.currentJobInfo['bright_futures'] : 'No data'];
   }
 
+  salaryNatSelection: SalaryDataType = 'annual';
+  salaryStatesSelection: SalaryDataType = 'annual';
+  salaryIndSelection: SalaryDataType = 'annual';
+
   /**
    * Scrolls to top of page and fetches profile data on init
    */
@@ -262,6 +286,22 @@ export class ProfilePageComponent implements OnInit {
       this.getData(params['code']).subscribe();
       this.showAllSkills = false;
     });
+  }
+
+  isEmpty(dataset: SalaryInfo[], type: SalaryDataType): boolean {
+    let parameter: string;
+    switch (type) {
+      case 'annual':
+        parameter = 'a_mean';
+        break;
+      case 'hourly':
+        parameter = 'h_mean';
+        break;
+      case 'emp':
+        parameter = 'tot_emp';
+        break;
+    }
+    return dataset.filter((value) => value['year'] === 2022).filter((entry) => entry[parameter]).length === 0;
   }
 
   /**
