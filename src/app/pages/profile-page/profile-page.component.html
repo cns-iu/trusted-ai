@@ -33,7 +33,7 @@
     </div>
     <div class="treemaps">
       <mat-tab-group (selectedTabChange)="refreshTreemaps()" fitInkBarToContent disablePagination>
-        <mat-tab label="Activities">
+        <mat-tab *ngIf="treemapWorkActivitiesData.length > 0" label="Activities">
           <div class="treemaps-title">Activities by Importance</div>
           <div class="missing-text" [class.hidden]="treemapWorkActivitiesData.length > 0">No data</div>
           <trust-ai-treemap
@@ -43,13 +43,13 @@
           >
           </trust-ai-treemap>
         </mat-tab>
-        <mat-tab label="Skills">
+        <mat-tab *ngIf="treemapSkillsData.length > 0" label="Skills">
           <div class="treemaps-title">Skills by Importance</div>
           <div class="missing-text" [class.hidden]="treemapSkillsData.length > 0">No data</div>
           <trust-ai-treemap [class.hidden]="treemapSkillsData.length === 0" #treemap2 [skillsData]="treemapSkillsData">
           </trust-ai-treemap>
         </mat-tab>
-        <mat-tab label="Knowledge">
+        <mat-tab *ngIf="treemapKnowledgeData.length > 0" label="Knowledge">
           <div class="treemaps-title">Knowledge by Importance</div>
           <div class="missing-text" [class.hidden]="treemapKnowledgeData.length > 0">No data</div>
           <trust-ai-treemap
@@ -59,7 +59,7 @@
           >
           </trust-ai-treemap>
         </mat-tab>
-        <mat-tab label="Abilities">
+        <mat-tab *ngIf="treemapAbilitiesData.length > 0" label="Abilities">
           <div class="treemaps-title">Abilities by Importance</div>
           <div class="missing-text" [class.hidden]="treemapAbilitiesData.length > 0">No data</div>
           <trust-ai-treemap

@@ -416,6 +416,10 @@ export class ProfilePageComponent implements OnInit {
    * Refreshs all treemaps
    */
   refreshTreemaps(): void {
-    [this.treemap1, this.treemap2, this.treemap3, this.treemap4].forEach((treemap) => treemap.reload());
+    [this.treemap1, this.treemap2, this.treemap3, this.treemap4].forEach((treemap) => {
+      if (treemap) {
+        treemap.reload();
+      }
+    });
   }
 }
