@@ -29,7 +29,7 @@ GROUP BY
 
 CREATE TEMP VIEW foo2 AS
 SELECT r.soc_id, array_to_json(array_agg(r)) as work_tasks
-FROM profile_sec_four_worktasks as r
+FROM profile_sec_four_worktasks_alts as r
 WHERE r."rec_suppress" = 'N' OR r."rec_suppress" IS NULL
 GROUP BY r.soc_id;
 
