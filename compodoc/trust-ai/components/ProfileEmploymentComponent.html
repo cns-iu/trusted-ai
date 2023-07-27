@@ -336,7 +336,7 @@ export class ProfileEmploymentComponent implements OnChanges {
       this.spec &#x3D; createStatePlot(this.dataStates, &#x27;employment&#x27;);
     }
     if (this.vis) {
-      await embed(this.vis.nativeElement, this.spec, { actions: false });
+      await embed(this.vis.nativeElement, this.spec, { actions: false, renderer: &#x27;svg&#x27; });
     }
   }
 }

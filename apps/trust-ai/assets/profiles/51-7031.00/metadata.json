@@ -2,13 +2,14 @@
   "soc_id": "51-7031.00",
   "title": "Model Makers, Wood",
   "descr": "Construct full-size and scale wooden precision models of products. Includes wood jig builders and loft workers.",
-  "alt_titles": "Architectural Wood Model Maker, Building Craftsman, Craftsman, Jig Builder, Last Model Maker, Loft Worker, Lofter, Model Builder, Model Maker, Product Craftsman, Product Development Carpenter, Production Craftsman, Production Wood Craftsman, Sample Builder, Sample Maker, Sample Worker, Special Craftsman, Technical Craftsman, Wood Craftsman, Wood Last Maker, Wood Model Builder, Wood Window and Door Craftsman, Woodworking Craftsman",
+  "alt_titles": "Building Craftsman, Sample Maker, Sample Builder, Production Wood Craftsman, Production Craftsman, Product Development Carpenter, Product Craftsman, Model Maker, Model Builder, Architectural Wood Model Maker, Lofter, Loft Worker, Last Model Maker, Jig Builder, Craftsman, Woodworking Craftsman, Wood Window and Door Craftsman, Wood Model Builder, Wood Last Maker, Wood Craftsman, Technical Craftsman, Special Craftsman, Sample Worker",
   "job_zone": 3,
   "experience": "Previous work-related skill, knowledge, or experience is required for these occupations. For example, an electrician must have completed three or four years of apprenticeship or several years of vocational training, and often must have passed a licensing exam, in order to perform the job.",
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
   "svp_range": "6 to 7",
+  "svp_desc": "Individuals workers typically need anywhere from between 1 and 2 years- up to 4 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "51-7031.00",

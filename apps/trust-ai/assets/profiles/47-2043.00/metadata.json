@@ -9,6 +9,7 @@
   "job_training": "Employees in these occupations need anywhere from a few days to a few months of training. Usually, an experienced worker could show you how to do the job.",
   "example": "These occupations involve following instructions and helping others. Examples include food preparation workers, dishwashers, floor sanders and finishers, landscaping and groundskeeping workers, logging equipment operators, and baristas.",
   "svp_range": "Below 4",
+  "svp_desc": "Individuals workers typically need anywhere from a short demonstration to between 1 and 3 months to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "47-2043.00",

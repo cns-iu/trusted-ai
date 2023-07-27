@@ -2,13 +2,14 @@
   "soc_id": "29-1292.00",
   "title": "Dental Hygienists",
   "descr": "Administer oral hygiene care to patients. Assess patient oral hygiene problems or needs and maintain health records. Advise patients on oral health maintenance and disease prevention. May provide advanced care such as providing fluoride treatment or administering topical anesthesia.",
-  "alt_titles": "Dental Hygienist, Dental Nurse, Hygienist, Licensed Dental Hygienist, Oral Hygienist, Pediatric Dental Hygienist, Registered Dental Hygienist (RDH)",
+  "alt_titles": "Pediatric Dental Hygienist, Dental Hygienist, Dental Nurse, Hygienist, Licensed Dental Hygienist, Oral Hygienist, Registered Dental Hygienist (RDH)",
   "job_zone": 3,
   "experience": "Previous work-related skill, knowledge, or experience is required for these occupations. For example, an electrician must have completed three or four years of apprenticeship or several years of vocational training, and often must have passed a licensing exam, in order to perform the job.",
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
   "svp_range": "6 to 7",
+  "svp_desc": "Individuals workers typically need anywhere from between 1 and 2 years- up to 4 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "29-1292.00",

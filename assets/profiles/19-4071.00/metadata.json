@@ -2,13 +2,14 @@
   "soc_id": "19-4071.00",
   "title": "Forest and Conservation Technicians",
   "descr": "Provide technical assistance regarding the conservation of soil, water, forests, or related natural resources. May compile data pertaining to size, content, condition, and other characteristics of forest tracts under the direction of foresters, or train and lead forest workers in forest propagation and fire prevention and suppression. May assist conservation scientists in managing, improving, and protecting rangelands and wildlife habitats.",
-  "alt_titles": "Biological Science Aide, Conservation Agent, Conservation Officer, Conservation Technician, Forest Technician, Forester Aide, Forestry Aid Technician, Forestry Aide, Forestry Aide Technician, Forestry Technician (Forestry Tech), Grazing Aide, Grazing Examiner, Natural Resources Technician, Park Technician (Park Tech), Range Technician, Resource Technician, Timber Appraiser, Timber Management Technician, Timber Sale Preparation Forestry Technician (Timber Sale Preparation Forestry Tech)",
+  "alt_titles": "Grazing Aide, Grazing Examiner, Natural Resources Technician, Park Technician (Park Tech), Range Technician, Resource Technician, Timber Appraiser, Timber Management Technician, Timber Sale Preparation Forestry Technician (Timber Sale Preparation Forestry Tech), Conservation Agent, Conservation Officer, Biological Science Aide, Conservation Technician, Forest Technician, Forester Aide, Forestry Aid Technician, Forestry Aide, Forestry Aide Technician, Forestry Technician (Forestry Tech)",
   "job_zone": 3,
   "experience": "Previous work-related skill, knowledge, or experience is required for these occupations. For example, an electrician must have completed three or four years of apprenticeship or several years of vocational training, and often must have passed a licensing exam, in order to perform the job.",
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
   "svp_range": "6 to 7",
+  "svp_desc": "Individuals workers typically need anywhere from between 1 and 2 years- up to 4 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "19-4071.00",

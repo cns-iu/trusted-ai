@@ -2,13 +2,14 @@
   "soc_id": "49-9097.00",
   "title": "Signal and Track Switch Repairers",
   "descr": "Install, inspect, test, maintain, or repair electric gate crossings, signals, signal equipment, track switches, section lines, or intercommunications systems within a railroad system.",
-  "alt_titles": "Communications Maintainer, Electric Track Switch Maintainer, Gate Technician, Light Rail Signal Technician, Rail Signal Designer, Rail Signal Inspector, Rail Signal Mechanic, Rail Track Maintainer, Railroad Signal Maintainer, Railway Signal Technician, Register Repairer, Signal and Communications Maintainer, Signal Expert, Signal Inspector, Signal Maintainer, Signal Maintenance Technician, Signal Mechanic, Signal System Testing Maintainer, Signal Systems Expert, Signal Technician, Signal Worker, Signalman, Test Signal Technician, Traffic Signal Inspector, Train Control Electronic Technician, Train Control Technician",
+  "alt_titles": "Railway Signal Technician, Communications Maintainer, Electric Track Switch Maintainer, Gate Technician, Light Rail Signal Technician, Rail Signal Designer, Rail Signal Inspector, Rail Signal Mechanic, Rail Track Maintainer, Railroad Signal Maintainer, Register Repairer, Signal and Communications Maintainer, Signal Expert, Signal Inspector, Signal Maintainer, Signal Maintenance Technician, Signal Mechanic, Signal System Testing Maintainer, Signal Systems Expert, Signal Technician, Signal Worker, Signalman, Test Signal Technician, Traffic Signal Inspector, Train Control Electronic Technician, Train Control Technician",
   "job_zone": 3,
   "experience": "Previous work-related skill, knowledge, or experience is required for these occupations. For example, an electrician must have completed three or four years of apprenticeship or several years of vocational training, and often must have passed a licensing exam, in order to perform the job.",
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
   "svp_range": "6 to 7",
+  "svp_desc": "Individuals workers typically need anywhere from between 1 and 2 years- up to 4 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "49-9097.00",

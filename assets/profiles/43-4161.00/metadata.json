@@ -2,13 +2,14 @@
   "soc_id": "43-4161.00",
   "title": "Human Resources Assistants, Except Payroll and Timekeeping",
   "descr": "Compile and keep personnel records. Record data for each employee, such as address, weekly earnings, absences, amount of sales or production, supervisory reports, and date of and reason for termination. May prepare reports for employment records, file employment records, or search employee files and furnish information to authorized persons.",
-  "alt_titles": "Assignment Clerk, Benefits Clerk, Benefits Coordinator, Benefits Technician, Civil Service Clerk, Civil Service Worker, Contract Clerk, Employment Assistant, Employment Clerk, Enrollment Specialist, Human Resources Administrative Assistant (HR Administrative Assistant), Human Resources Assistant (HR Assistant), Human Resources Associate (HR Associate), Human Resources Clerk (HR Clerk), Human Resources Team Member, Identification Clerk, Personnel Associate, Personnel Clerk, Personnel Officer, Resource Coordinator, Staffing Assistant, Temporary Help Agency Referral Clerk, Time Study Clerk",
+  "alt_titles": "Time Study Clerk, Assignment Clerk, Benefits Clerk, Benefits Coordinator, Benefits Technician, Civil Service Clerk, Civil Service Worker, Contract Clerk, Employment Assistant, Employment Clerk, Enrollment Specialist, Human Resources Administrative Assistant (HR Administrative Assistant), Human Resources Assistant (HR Assistant), Human Resources Associate (HR Associate), Human Resources Clerk (HR Clerk), Human Resources Team Member, Identification Clerk, Personnel Associate, Personnel Clerk, Personnel Officer, Resource Coordinator, Staffing Assistant, Temporary Help Agency Referral Clerk",
   "job_zone": 3,
   "experience": "Previous work-related skill, knowledge, or experience is required for these occupations. For example, an electrician must have completed three or four years of apprenticeship or several years of vocational training, and often must have passed a licensing exam, in order to perform the job.",
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
   "svp_range": "6 to 7",
+  "svp_desc": "Individuals workers typically need anywhere from between 1 and 2 years- up to 4 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "43-4161.00",

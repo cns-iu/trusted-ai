@@ -2,13 +2,14 @@
   "soc_id": "19-2012.00",
   "title": "Physicists",
   "descr": "Conduct research into physical phenomena, develop theories on the basis of observation and experiments, and devise methods to apply physical laws and theories.",
-  "alt_titles": "Aerodynamicist, Aerophysicist, Astrophysicist, Atmospheric Physicist, Atomic Spectroscopist, Biophysics Scientist, Cloud Physicist, Computational Physicist, Condensed Matter Physicist, Diagnostic Medical Physicist, Electrodynamicist, Experimental Physicist, Fluid Dynamicist, Health Physicist, Mass Spectroscopist, Mathematical Physicist, Medical Physicist, Molecular Physicist, Molecular Spectroscopist, Nuclear Physicist, Nuclear Scientist, Nuclear Spectroscopist, Optical Scientist, Physical Aerodynamicist, Physicist, Plasma Physicist, Radiation Control Health Physicist, Radiation Physicist, Research Consultant, Research Physicist, Research Scientist, Rheologist, Rocket Scientist, Scientist, Space Physicist, Theoretical Physicist, Thermodynamic Physicist, Thermodynamicist",
+  "alt_titles": "Aerophysicist, Astrophysicist, Atmospheric Physicist, Atomic Spectroscopist, Biophysics Scientist, Cloud Physicist, Computational Physicist, Condensed Matter Physicist, Diagnostic Medical Physicist, Electrodynamicist, Experimental Physicist, Fluid Dynamicist, Health Physicist, Mass Spectroscopist, Mathematical Physicist, Medical Physicist, Molecular Physicist, Molecular Spectroscopist, Nuclear Physicist, Aerodynamicist, Nuclear Scientist, Nuclear Spectroscopist, Optical Scientist, Physical Aerodynamicist, Physicist, Plasma Physicist, Radiation Control Health Physicist, Radiation Physicist, Research Consultant, Research Physicist, Research Scientist, Rheologist, Rocket Scientist, Scientist, Space Physicist, Theoretical Physicist, Thermodynamic Physicist, Thermodynamicist",
   "job_zone": 5,
   "experience": "Extensive skill, knowledge, and experience are needed for these occupations. Many require more than five years of experience. For example, surgeons must complete four years of college and an additional five to seven years of specialized medical training to be able to do their job.",
   "education": "Most of these occupations require graduate school. For example, they may require a master's degree, and some require a Ph.D., M.D., or J.D. (law degree).",
   "job_training": "Employees may need some on-the-job training, but most of these occupations assume that the person will already have the required skills, knowledge, work-related experience, and/or training.",
   "example": "These occupations often involve coordinating, training, supervising, or managing the activities of others to accomplish goals. Very advanced communication and organizational skills are required. Examples include pharmacists, lawyers, astronomers, biologists, clergy, physician assistants, and veterinarians.",
   "svp_range": "8 to 9",
+  "svp_desc": "Individuals workers typically need anywhere from between 4 and 10 years or longer, to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "19-2012.00",

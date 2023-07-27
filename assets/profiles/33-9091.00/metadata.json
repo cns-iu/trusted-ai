@@ -2,13 +2,14 @@
   "soc_id": "33-9091.00",
   "title": "Crossing Guards and Flaggers",
   "descr": "Guide or control vehicular or pedestrian traffic at such places as streets, schools, railroad crossings, or construction sites.",
-  "alt_titles": "Adult Crossing Guard, Community Service Officer, Construction Site Crossing Guard, Crossing Flagman, Crossing Gateman, Crossing Guard, Crossing Tender, Crossing Watchman, Draw Tender, Flagger, Flagman, Freight Flagman, Gate Operator, Guard, Passenger Flagman, Patrol Lady, Patrol Mother, Rail Signal Worker, Road Crossing Guard, School Aide, School Crossing Guard, School Traffic Guard, Substitute Crossing Guard, Subway Guard, Traffic Attendant, Train Gate Attendant, Train Gateman",
+  "alt_titles": "Crossing Guard, Crossing Tender, Crossing Watchman, Draw Tender, Construction Site Crossing Guard, Flagger, Flagman, Freight Flagman, Gate Operator, Guard, Passenger Flagman, Patrol Lady, Patrol Mother, Rail Signal Worker, Road Crossing Guard, School Aide, School Crossing Guard, School Traffic Guard, Substitute Crossing Guard, Subway Guard, Traffic Attendant, Crossing Flagman, Train Gate Attendant, Adult Crossing Guard, Community Service Officer, Train Gateman, Crossing Gateman",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "33-9091.00",

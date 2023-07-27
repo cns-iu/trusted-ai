@@ -2,13 +2,14 @@
   "soc_id": "29-2055.00",
   "title": "Surgical Technologists",
   "descr": "Assist in operations, under the supervision of surgeons, registered nurses, or other surgical personnel. May help set up operating room, prepare and transport patients for surgery, adjust lights and equipment, pass instruments and other supplies to surgeons and surgeons' assistants, hold retractors, cut sutures, and help count sponges, needles, supplies, and instruments.",
-  "alt_titles": "Certified Surgical Technician, Certified Surgical Technologist (CST), Operating Room Surgical Technician (OR St), Operating Room Surgical Technologist, Operating Room Technician (OR Tech), Operating Room Technologist (OR Tech), Scrub Technician, Surgery Technician (Surgery Tech), Surgical Orderly, Surgical Scrub Technician, Surgical Scrub Technologist (Surgical Scrub Tech), Surgical Technician, Surgical Technologist (Surgical Tech), Travel OR Tech (Travel Operating Room Technician), Travel Surgical Tech (Travel Surgical Technician), Travel Surgical Technologist",
+  "alt_titles": "Travel Surgical Technologist, Travel OR Tech (Travel Operating Room Technician), Travel Surgical Tech (Travel Surgical Technician), Scrub Technician, Surgery Technician (Surgery Tech), Surgical Orderly, Surgical Scrub Technician, Surgical Scrub Technologist (Surgical Scrub Tech), Surgical Technician, Surgical Technologist (Surgical Tech), Certified Surgical Technician, Certified Surgical Technologist (CST), Operating Room Surgical Technician (OR St), Operating Room Surgical Technologist, Operating Room Technician (OR Tech), Operating Room Technologist (OR Tech)",
   "job_zone": 3,
   "experience": "Previous work-related skill, knowledge, or experience is required for these occupations. For example, an electrician must have completed three or four years of apprenticeship or several years of vocational training, and often must have passed a licensing exam, in order to perform the job.",
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
   "svp_range": "6 to 7",
+  "svp_desc": "Individuals workers typically need anywhere from between 1 and 2 years- up to 4 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "29-2055.00",

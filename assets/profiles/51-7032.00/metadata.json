@@ -2,13 +2,14 @@
   "soc_id": "51-7032.00",
   "title": "Patternmakers, Wood",
   "descr": "Plan, lay out, and construct wooden unit or sectional patterns used in forming sand molds for castings.",
-  "alt_titles": "Forms Builder, Mold Forms Builder, Mold Maker, Pattern Engineer, Pattern Maker, Pattern Worker, Patternmaker, Production Patternmaker, Wood Die Maker, Wood Experimental Mechanic, Wood Pattern Maker, Wood Patternmaker, Wood Shop Moldmaker, Woodshop Worker",
+  "alt_titles": "Wood Die Maker, Production Patternmaker, Patternmaker, Pattern Worker, Pattern Maker, Pattern Engineer, Mold Maker, Mold Forms Builder, Forms Builder, Wood Pattern Maker, Wood Experimental Mechanic, Woodshop Worker, Wood Shop Moldmaker, Wood Patternmaker",
   "job_zone": 3,
   "experience": "Previous work-related skill, knowledge, or experience is required for these occupations. For example, an electrician must have completed three or four years of apprenticeship or several years of vocational training, and often must have passed a licensing exam, in order to perform the job.",
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
   "svp_range": "6 to 7",
+  "svp_desc": "Individuals workers typically need anywhere from between 1 and 2 years- up to 4 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "51-7032.00",

@@ -2,13 +2,14 @@
   "soc_id": "25-1112.00",
   "title": "Law Teachers, Postsecondary",
   "descr": "Teach courses in law. Includes both teachers primarily engaged in teaching and those who do a combination of teaching and research.",
-  "alt_titles": "Adjunct Instructor, Adjunct Professor, Assistant Professor, Associate Professor, Business Law Instructor, Business Law Professor, Clinical Law Professor, College Faculty Member, College Professor, Constitutional Law Professor, Contracts Law Professor, Criminal Law Professor, Environmental Law Professor, Faculty Member, Instructor, Labor Law Professor, Law Instructor, Law Professor, Legal Writing Professor, Media Law Faculty Member, Paralegal Instructor, Professor, Teacher, Torts Law Professor, U.S. Law Instructor (United States Law Instructor), University Faculty Member",
+  "alt_titles": "Law Professor, Associate Professor, Business Law Instructor, Business Law Professor, Clinical Law Professor, College Faculty Member, College Professor, Constitutional Law Professor, Contracts Law Professor, Criminal Law Professor, Environmental Law Professor, Faculty Member, Instructor, Labor Law Professor, Law Instructor, Legal Writing Professor, Media Law Faculty Member, Paralegal Instructor, Professor, Teacher, Torts Law Professor, U.S. Law Instructor (United States Law Instructor), University Faculty Member, Adjunct Instructor, Adjunct Professor, Assistant Professor",
   "job_zone": 5,
   "experience": "Extensive skill, knowledge, and experience are needed for these occupations. Many require more than five years of experience. For example, surgeons must complete four years of college and an additional five to seven years of specialized medical training to be able to do their job.",
   "education": "Most of these occupations require graduate school. For example, they may require a master's degree, and some require a Ph.D., M.D., or J.D. (law degree).",
   "job_training": "Employees may need some on-the-job training, but most of these occupations assume that the person will already have the required skills, knowledge, work-related experience, and/or training.",
   "example": "These occupations often involve coordinating, training, supervising, or managing the activities of others to accomplish goals. Very advanced communication and organizational skills are required. Examples include pharmacists, lawyers, astronomers, biologists, clergy, physician assistants, and veterinarians.",
   "svp_range": "8 to 9",
+  "svp_desc": "Individuals workers typically need anywhere from between 4 and 10 years or longer, to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "25-1112.00",

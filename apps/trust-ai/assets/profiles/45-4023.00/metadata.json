@@ -2,13 +2,14 @@
   "soc_id": "45-4023.00",
   "title": "Log Graders and Scalers",
   "descr": "Grade logs or estimate the marketable content or value of logs or pulpwood in sorting yards, millpond, log deck, or similar locations. Inspect logs for defects or measure logs to determine volume.",
-  "alt_titles": "Check Scaler, Compounding Scaler, Deck Scaler, Deck Specialist, Decker, Deckman, Landing Scaler, Log Buyer, Log Check Scaler, Log Grader, Log Marker, Log Scaler, Log Sorter, Lumber Grader, Materials Inspector, Pond Scaler, Pondman, Raw Materials Inspector, Scale Technician, Scaler, Timber Buyer, Timber Estimator, Veneer Grader, Weighing Inspection Inspector",
+  "alt_titles": "Scaler, Timber Buyer, Timber Estimator, Veneer Grader, Weighing Inspection Inspector, Raw Materials Inspector, Pondman, Pond Scaler, Materials Inspector, Lumber Grader, Log Sorter, Log Scaler, Log Marker, Log Grader, Log Check Scaler, Log Buyer, Landing Scaler, Deckman, Decker, Deck Specialist, Deck Scaler, Compounding Scaler, Check Scaler, Scale Technician",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "45-4023.00",

@@ -2,13 +2,14 @@
   "soc_id": "25-9099.00",
   "title": "Educational Instruction and Library Workers, All Other",
   "descr": "All educational instruction and library workers not listed separately.",
-  "alt_titles": "Aptitude Test Grader, Craft Demonstrator, Education Technician, Encyclopedia Research Worker, GED Examiner (General Educational Development Examiner), General Educational Development (GED) Examiner, Individualized Education Plan (IEP) Aide, Satellite Instruction Facilitator, Scholastic Aptitude Test (SAT) Grader, Teacher Aide",
+  "alt_titles": "Aptitude Test Grader, Individualized Education Plan (IEP) Aide, Education Technician, Encyclopedia Research Worker, GED Examiner (General Educational Development Examiner), General Educational Development (GED) Examiner, Craft Demonstrator, Satellite Instruction Facilitator, Scholastic Aptitude Test (SAT) Grader, Teacher Aide",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {

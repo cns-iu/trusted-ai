@@ -2,13 +2,14 @@
   "soc_id": "25-4011.00",
   "title": "Archivists",
   "descr": "Appraise, edit, and direct safekeeping of permanent records and historically valuable documents. Participate in research activities based on archival materials.",
-  "alt_titles": "Archival Records Clerk, Archives Specialist, Archives Technician (Archives Tech), Archivist, Digital Archivist, Digital Asset Archivist, Film Archivist, Image Archivist, Museum Archivist, Museum Registrar, Processing Archivist, Project Archivist, Records Manager, Reference Archivist, State Archivist, University Archivist",
+  "alt_titles": "Archives Technician (Archives Tech), Archival Records Clerk, Archives Specialist, Archivist, Digital Archivist, Digital Asset Archivist, Film Archivist, Image Archivist, Museum Archivist, Museum Registrar, Processing Archivist, Project Archivist, Records Manager, Reference Archivist, State Archivist, University Archivist",
   "job_zone": 5,
   "experience": "Extensive skill, knowledge, and experience are needed for these occupations. Many require more than five years of experience. For example, surgeons must complete four years of college and an additional five to seven years of specialized medical training to be able to do their job.",
   "education": "Most of these occupations require graduate school. For example, they may require a master's degree, and some require a Ph.D., M.D., or J.D. (law degree).",
   "job_training": "Employees may need some on-the-job training, but most of these occupations assume that the person will already have the required skills, knowledge, work-related experience, and/or training.",
   "example": "These occupations often involve coordinating, training, supervising, or managing the activities of others to accomplish goals. Very advanced communication and organizational skills are required. Examples include pharmacists, lawyers, astronomers, biologists, clergy, physician assistants, and veterinarians.",
   "svp_range": "8 to 9",
+  "svp_desc": "Individuals workers typically need anywhere from between 4 and 10 years or longer, to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "25-4011.00",

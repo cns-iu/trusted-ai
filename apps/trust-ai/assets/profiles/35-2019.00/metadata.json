@@ -2,13 +2,14 @@
   "soc_id": "35-2019.00",
   "title": "Cooks, All Other",
   "descr": "All cooks not listed separately.",
-  "alt_titles": "Assistant Cook, Falafel Cart Cook, Fraternity House Cook",
+  "alt_titles": "Fraternity House Cook, Assistant Cook, Falafel Cart Cook",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {

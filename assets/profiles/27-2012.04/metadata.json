@@ -9,6 +9,7 @@
   "job_training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training.",
   "example": "Many of these occupations involve coordinating, supervising, managing, or training others. Examples include real estate brokers, sales managers, database administrators, graphic designers, conservation scientists, art directors, and cost estimators.",
   "svp_range": "7 to 8",
+  "svp_desc": "Individuals workers typically need anywhere from between 2 and 4 years- up to 10 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "27-2012.04",

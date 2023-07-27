@@ -2,13 +2,14 @@
   "soc_id": "29-9091.00",
   "title": "Athletic Trainers",
   "descr": "Evaluate and treat musculoskeletal injuries or illnesses. Provide preventive, therapeutic, emergency, and rehabilitative care.",
-  "alt_titles": "Sports Athletic Trainer, Sports Medicine Trainer, Resident Athletic Trainer, Athletic Instructor, Athletic Lecturer, Athletic Trainer, Certified Athletic Trainer, Clinical Athletic Instructor, Clinical Athletic Trainer, Fitness Specialist, Licensed Athletic Trainer, On-Site Industrial Athletic Trainer, Outreach Athletic Trainer, Personal Trainer, Physical Trainer, Sports Trainer, Women's Athletic Trainer",
+  "alt_titles": "On-Site Industrial Athletic Trainer, Outreach Athletic Trainer, Personal Trainer, Physical Trainer, Sports Trainer, Women's Athletic Trainer, Sports Medicine Trainer, Clinical Athletic Instructor, Clinical Athletic Trainer, Fitness Specialist, Athletic Instructor, Athletic Lecturer, Resident Athletic Trainer, Athletic Trainer, Certified Athletic Trainer, Sports Athletic Trainer, Licensed Athletic Trainer",
   "job_zone": 5,
   "experience": "Extensive skill, knowledge, and experience are needed for these occupations. Many require more than five years of experience. For example, surgeons must complete four years of college and an additional five to seven years of specialized medical training to be able to do their job.",
   "education": "Most of these occupations require graduate school. For example, they may require a master's degree, and some require a Ph.D., M.D., or J.D. (law degree).",
   "job_training": "Employees may need some on-the-job training, but most of these occupations assume that the person will already have the required skills, knowledge, work-related experience, and/or training.",
   "example": "These occupations often involve coordinating, training, supervising, or managing the activities of others to accomplish goals. Very advanced communication and organizational skills are required. Examples include pharmacists, lawyers, astronomers, biologists, clergy, physician assistants, and veterinarians.",
   "svp_range": "8 to 9",
+  "svp_desc": "Individuals workers typically need anywhere from between 4 and 10 years or longer, to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "29-9091.00",

@@ -2,13 +2,14 @@
   "soc_id": "51-4071.00",
   "title": "Foundry Mold and Coremakers",
   "descr": "Make or form wax or sand cores or molds used in the production of metal castings in foundries.",
-  "alt_titles": "Airset Caster, Airset Molder, Bond Runner, Core Baker, Core Drier, Core Maker, Core Microarchitect, Core Oven Tender, Core Paster, Core Piler, Core Rescuer, Core Setter, Core Stacker, Core Sticker, Core Stripper, Coremaker, Dipper, Dry Molder, Dry Sand Molder, Foundry Finisher, Foundry Mold Assembly and Shake-Out Worker, Foundry Molder, Foundry Professional, Foundry Tender, Foundry Worker, Golf Club Head Former, Green Sand Molder, Hand Coremaker, Hand Former, Hand Spring Former, Mold Capper, Mold Closer, Mold Finisher, Mold Maker, Mold Operator, Mold Tooling Technician, Molder, No Bake Molder, Pattern Molder, Roll Hand, Sand Cutter, Sand Cutter Operator, Sand Molder, Sweep Molder, Wax Pattern Coater",
+  "alt_titles": "Mold Finisher, Mold Maker, Mold Operator, Mold Tooling Technician, Molder, No Bake Molder, Pattern Molder, Roll Hand, Sand Cutter, Sand Cutter Operator, Sand Molder, Sweep Molder, Wax Pattern Coater, Airset Molder, Bond Runner, Core Baker, Core Drier, Core Maker, Core Microarchitect, Core Oven Tender, Core Paster, Core Piler, Core Rescuer, Core Setter, Core Stacker, Core Sticker, Core Stripper, Coremaker, Dipper, Dry Molder, Dry Sand Molder, Foundry Finisher, Foundry Mold Assembly and Shake-Out Worker, Foundry Molder, Foundry Professional, Foundry Tender, Foundry Worker, Golf Club Head Former, Green Sand Molder, Hand Coremaker, Airset Caster, Hand Former, Hand Spring Former, Mold Capper, Mold Closer",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "51-4071.00",

@@ -2,13 +2,14 @@
   "soc_id": "45-4021.00",
   "title": "Fallers",
   "descr": "Use axes or chainsaws to fell trees using knowledge of tree characteristics and cutting techniques to control direction of fall and minimize tree damage.",
-  "alt_titles": "All-Round Logger, Arborist, Arborist Assistant, Arborist Climber, Arborist Representative, Axman, Certified Arborist, Chain Saw Operator, Climbing Arborist, Cross Cut Sawyer, Cutter Operator, Hewer, High Climber, Logger, Lumberjack, Lumberman, Paper Wood Cutter, Pulpwood Cutter, Sales Arborist, Sawyer, Timber Cutter, Timber Faller, Timber Feller, Tree Cutter, Tree Faller, Tree Feller, Tree Topper, Utility Arborist",
+  "alt_titles": "Sawyer, All-Round Logger, Arborist, Arborist Assistant, Arborist Climber, Arborist Representative, Axman, Certified Arborist, Chain Saw Operator, Climbing Arborist, Cross Cut Sawyer, Cutter Operator, Hewer, High Climber, Logger, Lumberjack, Lumberman, Paper Wood Cutter, Pulpwood Cutter, Sales Arborist, Timber Cutter, Timber Faller, Timber Feller, Tree Cutter, Tree Faller, Tree Feller, Tree Topper, Utility Arborist",
   "job_zone": 1,
   "experience": "Little or no previous work-related skill, knowledge, or experience is needed for these occupations. For example, a person can become a waiter or waitress even if he/she has never worked before.",
   "education": "Some of these occupations may require a high school diploma or GED certificate.",
   "job_training": "Employees in these occupations need anywhere from a few days to a few months of training. Usually, an experienced worker could show you how to do the job.",
   "example": "These occupations involve following instructions and helping others. Examples include food preparation workers, dishwashers, floor sanders and finishers, landscaping and groundskeeping workers, logging equipment operators, and baristas.",
   "svp_range": "Below 4",
+  "svp_desc": "Individuals workers typically need anywhere from a short demonstration to between 1 and 3 months to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "45-4021.00",

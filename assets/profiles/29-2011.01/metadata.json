@@ -2,13 +2,14 @@
   "soc_id": "29-2011.01",
   "title": "Cytogenetic Technologists",
   "descr": "Analyze chromosomes or chromosome segments found in biological specimens, such as amniotic fluids, bone marrow, solid tumors, and blood to aid in the study, diagnosis, classification, or treatment of inherited or acquired genetic diseases. Conduct analyses through classical cytogenetic, fluorescent in situ hybridization (FISH) or array comparative genome hybridization (aCGH) techniques.",
-  "alt_titles": "Certified Cytogenetic Technologist, Clinical Cytogeneticist Scientist (CCS), Cytogenetic Technician, Cytogenetic Technologist, Cytogenetics Clinical Laboratory Specialist (CG CLSp), Cytogenetics Technical Specialist, Cytogenetics Technologist, Cytologist, Genetic Technologist, Laboratory Specialist (Lab Specialist), Laboratory Technologist (Lab Technologist), Molecular Genetics Technologist, Research Laboratory Specialist (Research Lab Specialist)",
+  "alt_titles": "Laboratory Specialist (Lab Specialist), Laboratory Technologist (Lab Technologist), Molecular Genetics Technologist, Research Laboratory Specialist (Research Lab Specialist), Certified Cytogenetic Technologist, Clinical Cytogeneticist Scientist (CCS), Cytogenetic Technician, Cytogenetic Technologist, Cytogenetics Clinical Laboratory Specialist (CG CLSp), Cytogenetics Technical Specialist, Cytogenetics Technologist, Cytologist, Genetic Technologist",
   "job_zone": 4,
   "experience": "A considerable amount of work-related skill, knowledge, or experience is needed for these occupations. For example, an accountant must complete four years of college and work for several years in accounting to be considered qualified.",
   "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
   "job_training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training.",
   "example": "Many of these occupations involve coordinating, supervising, managing, or training others. Examples include real estate brokers, sales managers, database administrators, graphic designers, conservation scientists, art directors, and cost estimators.",
   "svp_range": "7 to 8",
+  "svp_desc": "Individuals workers typically need anywhere from between 2 and 4 years- up to 10 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "29-2011.01",

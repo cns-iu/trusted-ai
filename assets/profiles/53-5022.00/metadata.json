@@ -2,13 +2,14 @@
   "soc_id": "53-5022.00",
   "title": "Motorboat Operators",
   "descr": "Operate small motor-driven boats. May assist in navigational activities.",
-  "alt_titles": "Boat Driver, Boat Launch Operator, Boat Operator, Boat Person, Boatman, Charter Boat Operator, Crew Boat Operator, Deputy Harbormaster, Dock Hand, Launch Operator, Launch Steward, Launchman, Mooring Master, Motorboat Operator, Outboard Motorboat Operator, Pilot Boat Operator, River and Lakes Boatman, Rivers and Lakes Boatman, Rivers and Lakes Leverman, Seating Captain, Speedboat Driver, Speedboat Operator, Taxi Captain, Towboat Operator, Water Taxi Boat Mate, Water Taxi Captain, Water Taxi Ferry Operator, Water Taxi Operator",
+  "alt_titles": "Charter Boat Operator, Boat Driver, Boat Launch Operator, Boat Operator, Boat Person, Boatman, Crew Boat Operator, Deputy Harbormaster, Dock Hand, Launch Operator, Launch Steward, Launchman, Mooring Master, Motorboat Operator, Outboard Motorboat Operator, Pilot Boat Operator, River and Lakes Boatman, Rivers and Lakes Boatman, Rivers and Lakes Leverman, Seating Captain, Speedboat Driver, Speedboat Operator, Taxi Captain, Towboat Operator, Water Taxi Boat Mate, Water Taxi Captain, Water Taxi Ferry Operator, Water Taxi Operator",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "53-5022.00",
@@ -11110,6 +11111,6 @@
   "employed_nat": 3.1,
   "employed_10_nat": 3.1,
   "bright_futures": "Below Average",
-  "automation_risk": "Low",
+  "automation_risk": "Medium",
   "near_future": null
 }

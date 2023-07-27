@@ -2,13 +2,14 @@
   "soc_id": "51-2021.00",
   "title": "Coil Winders, Tapers, and Finishers",
   "descr": "Wind wire coils used in electrical components, such as resistors and transformers, and in electrical equipment and instruments, such as field cores, bobbins, armature cores, electrical motors, generators, and control equipment.",
-  "alt_titles": "Armature Bander, Armature Connector, Armature Winder, Auto-Winder, Coil Builder, Coil Connector, Coil Finisher, Coil Former, Coil Maker, Coil Taper, Coil Winder, Condenser Winder, Connector, Core Winder, Electric Motor Winders Assembler, Element Winding Machine Tender, Hand Winder, Machine Coil Assembler, Manufacturing Winder, Motor Rewinder, Motor Winder, Multiple Coil Winder, Rotor Coil Taper, Stator Connector, Stator Winder, Taper, Winder, Winder Operator, Wire Coiler, Wire Coiler Machine Operator, Wire Winder, Wire Winding Machine Tender, Wire Wrapping Machine Operator",
+  "alt_titles": "Wire Wrapping Machine Operator, Wire Winding Machine Tender, Wire Winder, Wire Coiler Machine Operator, Wire Coiler, Winder Operator, Winder, Taper, Stator Winder, Stator Connector, Rotor Coil Taper, Multiple Coil Winder, Motor Winder, Motor Rewinder, Manufacturing Winder, Machine Coil Assembler, Hand Winder, Element Winding Machine Tender, Electric Motor Winders Assembler, Core Winder, Connector, Condenser Winder, Coil Winder, Coil Taper, Coil Maker, Coil Former, Coil Finisher, Coil Connector, Coil Builder, Auto-Winder, Armature Winder, Armature Connector, Armature Bander",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "51-2021.00",

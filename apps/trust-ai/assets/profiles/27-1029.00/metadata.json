@@ -2,13 +2,14 @@
   "soc_id": "27-1029.00",
   "title": "Designers, All Other",
   "descr": "All designers not listed separately.",
-  "alt_titles": "Production Designer, Advertising Designer, China Painter, Colorer, Colorist, Copyist, Creative Designer, Designer, Digital Designer, Flag Decorator, Food Stylist, Frame Stylist, Furniture Reproducer, Game Designer, Home Stager, Inker and Opaquer, Ivory Carver, Memorial Designer, Memorial Marker Designer, Music Autographer, Music Grapher, Ornamental Metalwork Designer, Picture Copyist, Plumbing Designer, Space Planner, Tattoo Designer, Taxidermist, Visualizer, Wedding Cake Designer",
+  "alt_titles": "Music Grapher, Ornamental Metalwork Designer, Picture Copyist, Plumbing Designer, Space Planner, Tattoo Designer, Taxidermist, Visualizer, Wedding Cake Designer, Colorer, Colorist, Production Designer, Copyist, Creative Designer, Designer, Digital Designer, Flag Decorator, Food Stylist, Frame Stylist, Advertising Designer, Furniture Reproducer, Game Designer, Home Stager, Inker and Opaquer, Ivory Carver, Memorial Designer, Memorial Marker Designer, Music Autographer, China Painter",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {

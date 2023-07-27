@@ -2,13 +2,14 @@
   "soc_id": "41-9099.00",
   "title": "Sales and Related Workers, All Other",
   "descr": "All sales and related workers not listed separately.",
-  "alt_titles": "Advertisement Distributor, Apparel Stock Checker, Appraiser, Auctioneer, Automobile Locator, Bid Analyst, Blood Donor Recruiter, Bridal Consultant, Cemetery Counselor, Circulation Man, Coin Collector, Collector, Commercial Representative, Comparison Shopper, Competitive Shopper, Contact Person, Counselor, Customer Service Clerk, Department Store Door Greeter, Donor Relations Officer, Drapery and Upholstery Estimator, Drapery and Upholstery Measurer, Field Representative, Freight Solicitor, Fund Raiser, Gift Wrapper, Greeter, Group Sales Representative, Investigative Shopper, Leaflet Distributor, Linen Controller, Liquidator, Livestock Auctioneer, Measurer, Membership Solicitor, Memorial Adviser, Memorial Counselor, Merchandise Shopper, Moving Consultant, Mystery Shopper, Pawn Broker, Pawn Shop Clerk, Pawnbroker, People Greeter, Personal Shopper, Professional Shopper, Rug Measurer, Sales Assistant, Sales Coordinator, Sales Specialist, Service Representative, Shopper, Shorer, Soliciting Freight Agent, Song Plugger, Sponsor, Stamp Analyst, Stamp Classifier, Store Gift Wrap Associate, Store Shopper, Territory Manager, Ticket Broker, Ticket Speculator, Trousseau Consultant, Vending Machine Operator, Wedding Consultant, Wedding Coordinator, Wedding Planner",
+  "alt_titles": "Counselor, Advertisement Distributor, Apparel Stock Checker, Appraiser, Auctioneer, Automobile Locator, Bid Analyst, Blood Donor Recruiter, Bridal Consultant, Cemetery Counselor, Circulation Man, Coin Collector, Collector, Commercial Representative, Comparison Shopper, Competitive Shopper, Contact Person, Customer Service Clerk, Department Store Door Greeter, Donor Relations Officer, Drapery and Upholstery Estimator, Drapery and Upholstery Measurer, Field Representative, Freight Solicitor, Fund Raiser, Gift Wrapper, Greeter, Group Sales Representative, Investigative Shopper, Leaflet Distributor, Linen Controller, Liquidator, Livestock Auctioneer, Measurer, Membership Solicitor, Memorial Adviser, Memorial Counselor, Merchandise Shopper, Moving Consultant, Mystery Shopper, Pawn Broker, Pawn Shop Clerk, Pawnbroker, People Greeter, Personal Shopper, Professional Shopper, Rug Measurer, Sales Assistant, Sales Coordinator, Sales Specialist, Service Representative, Shopper, Shorer, Soliciting Freight Agent, Song Plugger, Sponsor, Stamp Analyst, Stamp Classifier, Store Gift Wrap Associate, Store Shopper, Territory Manager, Ticket Broker, Ticket Speculator, Trousseau Consultant, Vending Machine Operator, Wedding Consultant, Wedding Coordinator, Wedding Planner",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {

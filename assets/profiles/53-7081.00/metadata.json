@@ -2,13 +2,14 @@
   "soc_id": "53-7081.00",
   "title": "Refuse and Recyclable Material Collectors",
   "descr": "Collect and dump refuse or recyclable materials from containers into truck. May drive truck.",
-  "alt_titles": "Collector, Disposal Man, Disposal Worker, Dumpman, Front Load Trash Truck Driver, Garbage Collector, Garbage Man, Garbage or Trash Collection Sanitation Engineer, Garbage Person, Garbage Pick Up Man, Garbage Pick Up Worker, Garbage Worker, Junkman, Limb Driver, Recyclable Materials Collector, Recycle Driver, Recycle Worker, Recycler, Recycling Attendant, Recycling Collections Driver, Refuse Collector, Residential Recycle Driver, Rolloff Truck Driver, Rubbish Collector, Sanitation Laborer, Sanitation Truck Driver, Sanitation Worker, Scrap Metal Collector, Solid Waste Collection Worker, Solid Waste Collector, Solid Waste Driver, Solid Waste Laborer, Swamper, Thrower, Trash Collector, Trash Man, Trashman, Truck Driver, Waste Collector, Wasteman",
+  "alt_titles": "Swamper, Garbage or Trash Collection Sanitation Engineer, Garbage Person, Garbage Pick Up Man, Garbage Pick Up Worker, Garbage Worker, Junkman, Limb Driver, Recyclable Materials Collector, Recycle Driver, Recycle Worker, Recycler, Recycling Attendant, Recycling Collections Driver, Refuse Collector, Residential Recycle Driver, Rolloff Truck Driver, Rubbish Collector, Sanitation Laborer, Sanitation Truck Driver, Sanitation Worker, Scrap Metal Collector, Solid Waste Collection Worker, Solid Waste Collector, Solid Waste Driver, Solid Waste Laborer, Thrower, Trash Collector, Trash Man, Trashman, Truck Driver, Waste Collector, Wasteman, Collector, Disposal Man, Disposal Worker, Dumpman, Front Load Trash Truck Driver, Garbage Collector, Garbage Man",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "53-7081.00",

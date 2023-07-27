@@ -2,13 +2,14 @@
   "soc_id": "51-6093.00",
   "title": "Upholsterers",
   "descr": "Make, repair, or replace upholstery for household furniture or transportation vehicles.",
-  "alt_titles": "Inside Upholsterer, Limousine and Hearse Upholsterer, Aircraft Seat Upholsterer, Arm Maker, Arm Rest Builder, Automobile Upholsterer (Auto Upholsterer), Automotive Upholsterer, Body Trimmer Upholsterer, Box Spring Upholsterer, Car Seat Coverer, Car Seat Maker, Car Seat Upholsterer, Casket Coverer, Casket Trimmer, Chair Pad Maker, Chair Upholsterer, Convertible Top Installer, Dining Chair Seat Cushion Trimmer, Furniture Upholsterer, Furniture Upholsterer Apprentice, Furniture Upholstery Mechanic, Gimp Tacker, Seat Cover Cutter, Seat Cover Installer, Seat Coverer, Seat Covers Trimmer, Seating Upholsterer, Slip Cover Cutter, Slipcover Cutter, Sofa Back Upholsterer, Stapler, Top and Trim Worker, Top Installer, Trimmer, Upholstered Goods Crafter, Upholsterer, Upholstery Auto Trimmer, Upholstery Cutter, Upholstery Mechanic, Upholstery Repairer, Upholstery Sewer, Upholstery Technician, Upholstery Trimmer, Vinyl Top Installer",
+  "alt_titles": "Furniture Upholsterer, Dining Chair Seat Cushion Trimmer, Convertible Top Installer, Chair Upholsterer, Chair Pad Maker, Casket Trimmer, Casket Coverer, Car Seat Upholsterer, Car Seat Maker, Car Seat Coverer, Box Spring Upholsterer, Body Trimmer Upholsterer, Automotive Upholsterer, Automobile Upholsterer (Auto Upholsterer), Arm Rest Builder, Arm Maker, Aircraft Seat Upholsterer, Inside Upholsterer, Top and Trim Worker, Top Installer, Trimmer, Upholstered Goods Crafter, Upholsterer, Upholstery Auto Trimmer, Upholstery Cutter, Upholstery Mechanic, Upholstery Repairer, Upholstery Sewer, Upholstery Technician, Upholstery Trimmer, Vinyl Top Installer, Stapler, Sofa Back Upholsterer, Slipcover Cutter, Slip Cover Cutter, Seating Upholsterer, Seat Covers Trimmer, Seat Coverer, Limousine and Hearse Upholsterer, Seat Cover Installer, Seat Cover Cutter, Gimp Tacker, Furniture Upholstery Mechanic, Furniture Upholsterer Apprentice",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "51-6093.00",

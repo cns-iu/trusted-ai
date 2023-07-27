@@ -2,13 +2,14 @@
   "soc_id": "19-2099.00",
   "title": "Physical Scientists, All Other",
   "descr": "All physical scientists not listed separately.",
-  "alt_titles": "Inventor, Physical Scientist, Research Scientist, Wood Technologist",
+  "alt_titles": "Research Scientist, Inventor, Physical Scientist, Wood Technologist",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {

@@ -2,13 +2,14 @@
   "soc_id": "51-2051.00",
   "title": "Fiberglass Laminators and Fabricators",
   "descr": "Laminate layers of fiberglass on molds to form boat decks and hulls, bodies for golf carts, automobiles, or other products.",
-  "alt_titles": "Boat Assembler, Boat Builder, Boat Carpenter, Chopper Gun Operator, Composite Bond Technician, Composite Laminator, Composite Mechanic, Composite Technician, Fabricator, Fiber Placement Technician, Fiber Winding Operator, Fiberglass Boat Builder, Fiberglass Boat Finisher, Fiberglass Boat Maker, Fiberglass Container Winding Operator, Fiberglass Fabricator, Fiberglass Finisher, Fiberglass Grinder, Fiberglass Laminator, Fiberglass Luggage Molder, Fiberglass Machine Operator, Fiberglass Roller, Fiberglass Ski Maker, Fiberglass Technician, Fiberglasser, Gel-Coater, Golf Cart Assembler, Golf Cart Maker, Lamination Builder, Lamination Operator, Lamination Technician, Laminator, Molder, Roller, Ski Maker",
+  "alt_titles": "Fiberglass Roller, Boat Assembler, Boat Builder, Boat Carpenter, Chopper Gun Operator, Composite Bond Technician, Composite Laminator, Composite Mechanic, Composite Technician, Fabricator, Fiber Placement Technician, Fiber Winding Operator, Fiberglass Boat Builder, Fiberglass Boat Finisher, Fiberglass Boat Maker, Fiberglass Container Winding Operator, Fiberglass Fabricator, Fiberglass Finisher, Fiberglass Grinder, Fiberglass Laminator, Fiberglass Luggage Molder, Fiberglass Machine Operator, Fiberglass Ski Maker, Fiberglass Technician, Fiberglasser, Gel-Coater, Golf Cart Assembler, Golf Cart Maker, Lamination Builder, Lamination Operator, Lamination Technician, Laminator, Molder, Roller, Ski Maker",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "51-2051.00",

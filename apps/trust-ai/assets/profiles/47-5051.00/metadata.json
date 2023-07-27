@@ -2,13 +2,14 @@
   "soc_id": "47-5051.00",
   "title": "Rock Splitters, Quarry",
   "descr": "Separate blocks of rough dimension stone from quarry mass using jackhammers, wedges, or chop saws.",
-  "alt_titles": "Blaster, Driller, Quarry Chop Saw Operator, Quarry Driller, Quarry Plug and Feather Driller, Quarry Worker, Quarrying Specialist, Rock Breaker, Rock Picker, Rock Splitter, Rockman, Sandstone Splitter, Splitter Operator, Stone Breaker, Stone Splitter",
+  "alt_titles": "Stone Splitter, Driller, Quarry Chop Saw Operator, Quarry Driller, Quarry Plug and Feather Driller, Quarry Worker, Quarrying Specialist, Rock Breaker, Rock Picker, Rock Splitter, Rockman, Sandstone Splitter, Blaster, Splitter Operator, Stone Breaker",
   "job_zone": 1,
   "experience": "Little or no previous work-related skill, knowledge, or experience is needed for these occupations. For example, a person can become a waiter or waitress even if he/she has never worked before.",
   "education": "Some of these occupations may require a high school diploma or GED certificate.",
   "job_training": "Employees in these occupations need anywhere from a few days to a few months of training. Usually, an experienced worker could show you how to do the job.",
   "example": "These occupations involve following instructions and helping others. Examples include food preparation workers, dishwashers, floor sanders and finishers, landscaping and groundskeeping workers, logging equipment operators, and baristas.",
   "svp_range": "Below 4",
+  "svp_desc": "Individuals workers typically need anywhere from a short demonstration to between 1 and 3 months to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "47-5051.00",
