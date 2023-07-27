@@ -249,13 +249,6 @@ export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annu
       tooltip: [
         {
           field: 'percentile',
-          title: 'Percentile',
-          format: ".1~%"
-        },
-        {
-          field: 'salary',
-          title: 'Salary',
-          format: '$d'
         }
       ]
     }
@@ -265,6 +258,8 @@ export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annu
 /**
  * Creates state salary visualization
  * @param values salary data
+ * @param section salary or employment section
+ * @param type data type
  * @returns visualization spec
  */
 export function createStatePlot(values: SalaryInfo[], section: string, type?: 'hourly' | 'annual' | 'emp'): VisualizationSpec {
