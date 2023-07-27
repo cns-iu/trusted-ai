@@ -2,13 +2,14 @@
   "soc_id": "51-9197.00",
   "title": "Tire Builders",
   "descr": "Operate machines to build tires.",
-  "alt_titles": "Automobile Tire Builder (Auto Tire Builder), Automobile Tire Recapper (Auto Tire Recapper), Bead Builder, Belt Builder, Belt Machine Operator, Buffer, Cord Tire Builder, Injection Mold Technician, Injection Molding Assembler, Injection Molding Operator, Injection Molding Process Technician, Injection Molding Technician, Lap Machine Tender, Mold Technician, Molding Process Technician, Molding Technician, Recapper, Retread Associate, Retread Technician, Retreader, Tire Assembler, Tire Builder, Tire Curer, Tire Fabricator, Tire Finisher, Tire Layer, Tire Maker, Tire Molder, Tire Mounter, Tire Recapper, Tire Recapping Machine Operator, Tire Retreader, Tire Technician, Tire Vulcanizer, Tread Booker, Tread Builder, Tread Builder Operator, Tube Builder, Tube Building Machine Operator, Vulcanizing Operator",
+  "alt_titles": "Vulcanizing Operator, Tube Building Machine Operator, Tube Builder, Tread Builder Operator, Tread Builder, Tread Booker, Tire Vulcanizer, Tire Technician, Tire Retreader, Tire Recapping Machine Operator, Tire Recapper, Tire Mounter, Tire Molder, Tire Maker, Tire Layer, Tire Finisher, Tire Fabricator, Tire Curer, Tire Builder, Tire Assembler, Retreader, Retread Technician, Retread Associate, Recapper, Molding Technician, Molding Process Technician, Mold Technician, Lap Machine Tender, Injection Molding Technician, Injection Molding Process Technician, Injection Molding Operator, Injection Molding Assembler, Injection Mold Technician, Cord Tire Builder, Buffer, Belt Machine Operator, Belt Builder, Bead Builder, Automobile Tire Recapper (Auto Tire Recapper), Automobile Tire Builder (Auto Tire Builder)",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "51-9197.00",

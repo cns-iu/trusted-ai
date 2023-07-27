@@ -2,13 +2,14 @@
   "soc_id": "37-3019.00",
   "title": "Grounds Maintenance Workers, All Other",
   "descr": "All grounds maintenance workers not listed separately.",
-  "alt_titles": "Campground Attendant, Cemetery Worker, Chimney Sweeper, Disease Control Inspector, Garden Worker, Insect Control Inspector, Special Effects and Instruction Models Gardener, Trail Construction Worker, Trail Maintenance Worker, Trailhead Construction Worker, Trailhead Maintenance Worker, Tree Trimmer Helper, Weed Control Inspector",
+  "alt_titles": "Trail Construction Worker, Trailhead Construction Worker, Tree Trimmer Helper, Weed Control Inspector, Trailhead Maintenance Worker, Campground Attendant, Cemetery Worker, Chimney Sweeper, Disease Control Inspector, Garden Worker, Insect Control Inspector, Special Effects and Instruction Models Gardener, Trail Maintenance Worker",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {

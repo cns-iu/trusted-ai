@@ -1,7 +1,9 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
+import { mock } from 'jest-mock-extended';
 import { BehaviorSubject } from 'rxjs';
+import { TreemapComponent } from 'src/app/treemap/treemap.component';
 
 import { ProfilePageComponent } from './profile-page.component';
 
@@ -9,6 +11,7 @@ describe('ProfilePageComponent', () => {
   let component: ProfilePageComponent;
   let controller: HttpTestingController;
   const paramsSubject = new BehaviorSubject({ code: '11111' });
+  const treemap = mock<TreemapComponent>();
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
@@ -99,6 +102,10 @@ describe('ProfilePageComponent', () => {
       automation_risk: 'low',
     };
     expect(component.automationDescription).toEqual('This job has a low risk of automation.');
+    component.currentJobInfo = {
+      automation_risk: undefined,
+    };
+    expect(component.automationDescription).toEqual('No data');
   });
 
   it('gets the outlook description if near future is available', () => {
@@ -114,10 +121,51 @@ describe('ProfilePageComponent', () => {
       bright_futures: 'Bright',
     };
     expect(component.outlookDescription).toEqual('Many job openings predicted in the near future');
+    component.currentJobInfo = {
+      near_future: undefined,
+      bright_futures: undefined,
+    };
+    expect(component.outlookDescription).toEqual('No data');
+  });
+
+  it('returns no data for outlook description', () => {
+    component.currentJobInfo = {
+      near_future: undefined,
+      bright_futures: undefined,
+    };
+    expect(component.outlookDescription).toEqual('No data');
   });
 
   it('scrolls to top', () => {
     component.scrollToTop();
     expect(window.scrollY).toEqual(0);
+  });
+
+  it('refreshes the treemaps', () => {
+    component.treemap1 = treemap;
+    component.treemap2 = treemap;
+    component.treemap3 = treemap;
+    component.treemap4 = treemap;
+    component.refreshTreemaps();
+  });
+
+  it('detects when there are no valid entries', () => {
+    const test = [
+      {
+        a_mean: 1,
+        h_mean: 3,
+        tot_emp: 5,
+        year: 2021,
+      },
+      {
+        a_mean: 2,
+        h_mean: 4,
+        tot_emp: undefined,
+        year: 2022,
+      },
+    ];
+    expect(component.isEmpty(test, 'annual')).toBeFalsy();
+    expect(component.isEmpty(test, 'hourly')).toBeFalsy();
+    expect(component.isEmpty(test, 'emp')).toBeTruthy();
   });
 });

@@ -2,13 +2,14 @@
   "soc_id": "25-2011.00",
   "title": "Preschool Teachers, Except Special Education",
   "descr": "Instruct preschool-aged students, following curricula or lesson plans, in activities designed to promote social, physical, and intellectual growth.",
-  "alt_titles": "After School Teacher, Child Care Assistant Teacher, Child Development Teacher, Childcare Teacher, Childhood Development Teacher, Day Care Teacher, Daycare Teacher, Early Childhood Teacher, Group Teacher, Home-Based Preschool Teacher, Infant Teacher, Montessori Paraprofessional, Montessori Preschool Teacher, Montessori Teacher, Nursery School Teacher, Nursery Teacher, Pre-Kindergarten Teacher (Pre-K Teacher), Pre-School Teacher, Prekindergarten Teacher, Start Teacher, Teacher, Toddler Teacher",
+  "alt_titles": "Teacher, Toddler Teacher, After School Teacher, Child Care Assistant Teacher, Child Development Teacher, Childcare Teacher, Childhood Development Teacher, Day Care Teacher, Daycare Teacher, Early Childhood Teacher, Group Teacher, Home-Based Preschool Teacher, Infant Teacher, Montessori Paraprofessional, Montessori Preschool Teacher, Montessori Teacher, Nursery School Teacher, Nursery Teacher, Pre-Kindergarten Teacher (Pre-K Teacher), Pre-School Teacher, Prekindergarten Teacher, Start Teacher",
   "job_zone": 3,
   "experience": "Previous work-related skill, knowledge, or experience is required for these occupations. For example, an electrician must have completed three or four years of apprenticeship or several years of vocational training, and often must have passed a licensing exam, in order to perform the job.",
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
   "svp_range": "6 to 7",
+  "svp_desc": "Individuals workers typically need anywhere from between 1 and 2 years- up to 4 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "25-2011.00",

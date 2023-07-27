@@ -2,13 +2,14 @@
   "soc_id": "53-7121.00",
   "title": "Tank Car, Truck, and Ship Loaders",
   "descr": "Load and unload chemicals and bulk solids, such as coal, sand, and grain, into or from tank cars, trucks, or ships, using material moving equipment. May perform a variety of other tasks relating to shipment of products. May gauge or sample shipping tanks and test them for leaks.",
-  "alt_titles": "Barge Loader, Barges Loader, Bulk Tank Car Unloader, Car Loader, Car Unloader, Caustics Loader, Coal Dumping Equipment Operator, Dock Loader, Load Out Person, Loader, Loader Operator, Loading Operator, Oil Movements Operator, PVC Loader (Polyvinyl Chloride Loader), PVC Monitor (Polyvinyl Chloride Monitor), Rail Car Loader, Rail Loader, Receiving Operator, Ship Unloader, Shipping and Receiving Operator, Shipping Loader, Ships Loader, Spout Tender, Tank Car Loader, Tank Truck Loader, Tankerman, Truck Loader, Truck Unloader, Unloader, Warehouse Loader, Warehouse Truck Loader, Warehouse Unloader",
+  "alt_titles": "Warehouse Unloader, Warehouse Truck Loader, Warehouse Loader, Truck Unloader, Rail Loader, Receiving Operator, Ship Unloader, Truck Loader, Shipping and Receiving Operator, Shipping Loader, Ships Loader, Spout Tender, Tank Car Loader, Tank Truck Loader, Tankerman, Barge Loader, Barges Loader, Bulk Tank Car Unloader, Car Loader, Car Unloader, Caustics Loader, Coal Dumping Equipment Operator, Dock Loader, Load Out Person, Loader, Unloader, Loader Operator, Loading Operator, Oil Movements Operator, PVC Loader (Polyvinyl Chloride Loader), PVC Monitor (Polyvinyl Chloride Monitor), Rail Car Loader",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "53-7121.00",

@@ -53,7 +53,7 @@ export class TreemapComponent implements OnChanges {
       this.spec = createTreemap(this.abilitiesData, 3);
     }
     if (this.vis) {
-      await embed(this.vis.nativeElement, this.spec, { actions: false });
+      await embed(this.vis.nativeElement, this.spec, { actions: false, renderer: 'svg' });
     }
   }
 

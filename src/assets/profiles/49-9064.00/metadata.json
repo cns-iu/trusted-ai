@@ -2,13 +2,14 @@
   "soc_id": "49-9064.00",
   "title": "Watch and Clock Repairers",
   "descr": "Repair, clean, and adjust mechanisms of timing instruments, such as watches and clocks. Includes watchmakers, watch technicians, and mechanical timepiece repairers.",
-  "alt_titles": "Watch Mechanic, Antique Clock Repairer, Antique Clocks Repairer, Auto Clocks Repairer, Caser, Chronometer Repairer, Clock Mechanic, Clock Repair Technician, Clock Repairer, Clocksmith, Crowner, Dial Printer, Electric Clock Mechanic, Horologist, Pallet Inspector, Pallet Repairer, Pallet Stone Inserter, Pallet Stone Positioner, Repair Technician, Screwhead Polisher, Time Clock Inspector, Time Clock Mechanic, Time Piece Repairer, Watch and Clock Repairer, Watch Caser, Watch Estimator, Watch Repair Person, Watch Repair Technician, Watch Repairer, Watch Technician (Watch Tech), Watchmaker",
+  "alt_titles": "Antique Clock Repairer, Dial Printer, Electric Clock Mechanic, Watch Mechanic, Horologist, Pallet Inspector, Pallet Repairer, Pallet Stone Inserter, Pallet Stone Positioner, Repair Technician, Screwhead Polisher, Time Clock Inspector, Antique Clocks Repairer, Time Clock Mechanic, Time Piece Repairer, Watch and Clock Repairer, Watch Caser, Caser, Watch Estimator, Watch Repair Person, Watch Repair Technician, Watch Repairer, Clock Mechanic, Watch Technician (Watch Tech), Watchmaker, Auto Clocks Repairer, Clock Repair Technician, Clock Repairer, Clocksmith, Chronometer Repairer, Crowner",
   "job_zone": 3,
   "experience": "Previous work-related skill, knowledge, or experience is required for these occupations. For example, an electrician must have completed three or four years of apprenticeship or several years of vocational training, and often must have passed a licensing exam, in order to perform the job.",
   "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
   "job_training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include hydroelectric production managers, desktop publishers, electricians, agricultural technicians, barbers, court reporters and simultaneous captioners, and medical assistants.",
   "svp_range": "6 to 7",
+  "svp_desc": "Individuals workers typically need anywhere from between 1 and 2 years- up to 4 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "49-9064.00",

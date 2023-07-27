@@ -2,13 +2,14 @@
   "soc_id": "43-4199.00",
   "title": "Information and Record Clerks, All Other",
   "descr": "All information and record clerks not listed separately.",
-  "alt_titles": "Admissions Evaluator, Attendance Clerk, Auction Assistant, Clerical Investigator, Code Clerk, Codifier, Coding Clerk, Creel Clerk, Crew Clerk, Dealer Accounts Investigator, Dictaphone Operator, Dictaphone Transcriber, Dictating Machine Transcriber, Diet Clerk, Dietary Clerk, Election Clerk, Elementary School Registrar, Flight Crew Scheduler, Flight Operations Specialist, Hand Clerical Verifier, Import Export Clerk, Mercantile Reporter, Pedigree Tracer, Probate Clerk, Property Technician, Racing Board Marker, Record Keeper, Recorder, Recorder of Deeds, Register of Deeds, Register of Wills, Registrar, Reporter, Representative, Safe Deposit Attendant, Safe Deposit Clerk, Safety Deposit Boxes Custodian, Safety Deposit Clerk, Secondary School Registrar, Student Admissions Clerk, Suggestion Clerk, Tariff Inspector, Telephone Recorder, Train Clerk, Trust Vault Clerk, Trust Vault Custodian, Vault Attendant, Vault Clerk, Vault Custodian, Vault Keeper, Vault Person, Vault Teller, Weather Clerk",
+  "alt_titles": "Codifier, Admissions Evaluator, Attendance Clerk, Auction Assistant, Clerical Investigator, Code Clerk, Coding Clerk, Creel Clerk, Crew Clerk, Dealer Accounts Investigator, Dictaphone Operator, Dictaphone Transcriber, Dictating Machine Transcriber, Diet Clerk, Dietary Clerk, Election Clerk, Elementary School Registrar, Flight Crew Scheduler, Flight Operations Specialist, Hand Clerical Verifier, Import Export Clerk, Mercantile Reporter, Pedigree Tracer, Probate Clerk, Property Technician, Racing Board Marker, Record Keeper, Recorder, Recorder of Deeds, Register of Deeds, Register of Wills, Registrar, Reporter, Representative, Safe Deposit Attendant, Safe Deposit Clerk, Safety Deposit Boxes Custodian, Safety Deposit Clerk, Secondary School Registrar, Student Admissions Clerk, Suggestion Clerk, Tariff Inspector, Telephone Recorder, Train Clerk, Trust Vault Clerk, Trust Vault Custodian, Vault Attendant, Vault Clerk, Vault Custodian, Vault Keeper, Vault Person, Vault Teller, Weather Clerk",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {

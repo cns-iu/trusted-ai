@@ -2,13 +2,14 @@
   "soc_id": "11-9081.00",
   "title": "Lodging Managers",
   "descr": "Plan, direct, or coordinate activities of an organization or department that provides lodging and other accommodations.",
-  "alt_titles": "Accommodations General Manager, Accommodations Manager, Agricultural Labor Camp Manager, Apartment Coordinator, Bed and Breakfast Innkeeper, Boardinghouse Keeper, Camp Director, Campground Manager, Dude Ranch Manager, Front Desk Manager, Front Office Director, Front Office Manager, Guest Experience Manager, Guest Relations Manager, Guest Services Manager, Hospitality Manager, Hotel Director, Hotel General Manager, Hotel Manager, Hotel Operations Manager, Hotel Superintendent, Hotels General Manager, Housing Director, Innkeeper, Landlady, Lodging Facilities Manager, Motel Keeper, Motel Manager, Motel Operator, Motor Hotel Manager, Night Manager, Recreational Resort Manager, Resident Manager, Resort Keeper, Resort Manager, Revenue Manager, Rooming House Operator, Rooms Director, RV Resort Manager (Recreational Vehicle Resort Manager), Tourist Cabin Keeper, Tourist Home Keeper",
+  "alt_titles": "Tourist Cabin Keeper, Accommodations General Manager, Accommodations Manager, Agricultural Labor Camp Manager, Apartment Coordinator, Bed and Breakfast Innkeeper, Boardinghouse Keeper, Camp Director, Campground Manager, Dude Ranch Manager, Front Desk Manager, Front Office Director, Front Office Manager, Guest Experience Manager, Guest Relations Manager, Guest Services Manager, Hospitality Manager, Hotel Director, Hotel General Manager, Hotel Manager, Hotel Operations Manager, Hotel Superintendent, Hotels General Manager, Housing Director, Innkeeper, Landlady, Lodging Facilities Manager, Motel Keeper, Motel Manager, Motel Operator, Motor Hotel Manager, Night Manager, Recreational Resort Manager, Resident Manager, Resort Keeper, Tourist Home Keeper, Resort Manager, Revenue Manager, Rooming House Operator, Rooms Director, RV Resort Manager (Recreational Vehicle Resort Manager)",
   "job_zone": 4,
   "experience": "A considerable amount of work-related skill, knowledge, or experience is needed for these occupations. For example, an accountant must complete four years of college and work for several years in accounting to be considered qualified.",
   "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
   "job_training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training.",
   "example": "Many of these occupations involve coordinating, supervising, managing, or training others. Examples include real estate brokers, sales managers, database administrators, graphic designers, conservation scientists, art directors, and cost estimators.",
   "svp_range": "7 to 8",
+  "svp_desc": "Individuals workers typically need anywhere from between 2 and 4 years- up to 10 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "11-9081.00",

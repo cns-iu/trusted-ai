@@ -2,13 +2,14 @@
   "soc_id": "41-2012.00",
   "title": "Gambling Change Persons and Booth Cashiers",
   "descr": "Exchange coins, tokens, and chips for patrons' money. May issue payoffs and obtain customer's signature on receipt. May operate a booth in the slot machine area and furnish change persons with money bank at the start of the shift, or count and audit money in drawers.",
-  "alt_titles": "Bingo Cashier, Booth Cashier, Booth Monitor, Cage Cashier, Carousel Attendant, Cashier, Casino Banker, Casino Cashier, Casino Gaming Worker, Change Attendant, Change Person, Floor Cashier, Lottery Sales Clerk, Mutuel Teller, Slot Attendant, Slot Floor Attendant, Slot Floor Person, Slot Technician, Vault Cashier",
+  "alt_titles": "Vault Cashier, Bingo Cashier, Booth Cashier, Booth Monitor, Cage Cashier, Carousel Attendant, Cashier, Casino Banker, Casino Cashier, Casino Gaming Worker, Change Attendant, Change Person, Floor Cashier, Lottery Sales Clerk, Mutuel Teller, Slot Attendant, Slot Floor Attendant, Slot Floor Person, Slot Technician",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "41-2012.00",

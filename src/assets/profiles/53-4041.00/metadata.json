@@ -2,13 +2,14 @@
   "soc_id": "53-4041.00",
   "title": "Subway and Streetcar Operators",
   "descr": "Operate subway or elevated suburban trains with no separate locomotive, or electric-powered streetcar, to transport passengers. May handle fares.",
-  "alt_titles": "Combined Rail Operator, Electric Motorman, Elevated Motorman, Light Rail Operator, Light Rail Train Operator, Light Rail Transit Operator, Light Rail Vehicle Operator (LRV Operator), Monorail Operator, Motor Operator, Rail Operator, Rail Transit Operator, Rapid Transit Operator (RTO), Service Vehicle Operator, Shuttle Route Vehicle Operator, Streetcar Motorman, Streetcar Operator, Subway Conductor, Subway Train Driver, Subway Train Operator, Track Car Operator, Trackmobile Operator, Train Operator, Tram Operator, Trammer, Transfer Car Operator, Transit Operator, Trolley Car Operator, Trolley Operator, Vehicle Operator",
+  "alt_titles": "Rapid Transit Operator (RTO), Service Vehicle Operator, Shuttle Route Vehicle Operator, Streetcar Motorman, Streetcar Operator, Subway Conductor, Subway Train Driver, Subway Train Operator, Track Car Operator, Trackmobile Operator, Train Operator, Tram Operator, Trammer, Transfer Car Operator, Transit Operator, Trolley Car Operator, Trolley Operator, Vehicle Operator, Combined Rail Operator, Electric Motorman, Elevated Motorman, Light Rail Operator, Light Rail Train Operator, Light Rail Transit Operator, Light Rail Vehicle Operator (LRV Operator), Monorail Operator, Motor Operator, Rail Operator, Rail Transit Operator",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "53-4041.00",

@@ -2,13 +2,14 @@
   "soc_id": "13-1011.00",
   "title": "Agents and Business Managers of Artists, Performers, and Athletes",
   "descr": "Represent and promote artists, performers, and athletes in dealings with current or prospective employers. May handle contract negotiation and other business matters for clients.",
-  "alt_titles": "Advance Agent, Agent, Artist Manager, Artist Representative, Artist's Manager, Artist's Representative, Athlete Manager, Athlete Marketing Agent, Athletic Agent, Author's Agent, Band Manager, Booker, Booking Agent, Booking Manager, Boxing Promoter, Business Agent, Business Manager, Circus Agent, Concert Promoter, Copyright Manager, Dramatic Agent, Entertainment Agent, Entertainment Specialist, Fight Manager, Film Booker, Jockey's Agent, Literary Agent, Media Promoter, Modeling Agent, Music Agent, Music Promoter, Picture Booker, Print Agent, Promoter, Promotional Agent, Promotional Marketing Agent, Promotional Representative, Repertoire Manager, Sports Agent, Talent Agent, Talent Booker, Talent Manager, Talent Representative, Talent Solutions Manager, Theatrical Agent, Touring Agent, Touring Production Manager",
+  "alt_titles": "Circus Agent, Advance Agent, Agent, Artist Manager, Artist Representative, Artist's Manager, Artist's Representative, Athlete Manager, Athlete Marketing Agent, Athletic Agent, Author's Agent, Band Manager, Booker, Booking Agent, Booking Manager, Boxing Promoter, Business Agent, Business Manager, Concert Promoter, Copyright Manager, Dramatic Agent, Entertainment Agent, Entertainment Specialist, Fight Manager, Film Booker, Jockey's Agent, Literary Agent, Media Promoter, Modeling Agent, Music Agent, Music Promoter, Picture Booker, Print Agent, Promoter, Promotional Agent, Promotional Marketing Agent, Promotional Representative, Repertoire Manager, Sports Agent, Talent Agent, Talent Booker, Talent Manager, Talent Representative, Talent Solutions Manager, Theatrical Agent, Touring Agent, Touring Production Manager",
   "job_zone": 4,
   "experience": "A considerable amount of work-related skill, knowledge, or experience is needed for these occupations. For example, an accountant must complete four years of college and work for several years in accounting to be considered qualified.",
   "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
   "job_training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training.",
   "example": "Many of these occupations involve coordinating, supervising, managing, or training others. Examples include real estate brokers, sales managers, database administrators, graphic designers, conservation scientists, art directors, and cost estimators.",
   "svp_range": "7 to 8",
+  "svp_desc": "Individuals workers typically need anywhere from between 2 and 4 years- up to 10 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "13-1011.00",

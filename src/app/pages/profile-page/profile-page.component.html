@@ -35,19 +35,39 @@
       <mat-tab-group (selectedTabChange)="refreshTreemaps()" fitInkBarToContent disablePagination>
         <mat-tab label="Activities">
           <div class="treemaps-title">Activities by Importance</div>
-          <trust-ai-treemap #treemap1 [activitiesData]="treemapWorkActivitiesData"></trust-ai-treemap>
+          <div class="missing-text" [class.hidden]="treemapWorkActivitiesData.length > 0">No data</div>
+          <trust-ai-treemap
+            [class.hidden]="treemapWorkActivitiesData.length === 0"
+            #treemap1
+            [activitiesData]="treemapWorkActivitiesData"
+          >
+          </trust-ai-treemap>
         </mat-tab>
         <mat-tab label="Skills">
           <div class="treemaps-title">Skills by Importance</div>
-          <trust-ai-treemap #treemap2 [skillsData]="treemapSkillsData"></trust-ai-treemap>
+          <div class="missing-text" [class.hidden]="treemapSkillsData.length > 0">No data</div>
+          <trust-ai-treemap [class.hidden]="treemapSkillsData.length === 0" #treemap2 [skillsData]="treemapSkillsData">
+          </trust-ai-treemap>
         </mat-tab>
         <mat-tab label="Knowledge">
           <div class="treemaps-title">Knowledge by Importance</div>
-          <trust-ai-treemap #treemap3 [knowledgeData]="treemapKnowledgeData"></trust-ai-treemap>
+          <div class="missing-text" [class.hidden]="treemapKnowledgeData.length > 0">No data</div>
+          <trust-ai-treemap
+            [class.hidden]="treemapKnowledgeData.length === 0"
+            #treemap3
+            [knowledgeData]="treemapKnowledgeData"
+          >
+          </trust-ai-treemap>
         </mat-tab>
         <mat-tab label="Abilities">
           <div class="treemaps-title">Abilities by Importance</div>
-          <trust-ai-treemap #treemap4 [abilitiesData]="treemapAbilitiesData"></trust-ai-treemap>
+          <div class="missing-text" [class.hidden]="treemapAbilitiesData.length > 0">No data</div>
+          <trust-ai-treemap
+            [class.hidden]="treemapAbilitiesData.length === 0"
+            #treemap4
+            [abilitiesData]="treemapAbilitiesData"
+          >
+          </trust-ai-treemap>
         </mat-tab>
       </mat-tab-group>
     </div>
@@ -91,7 +111,7 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Specific Vocational Preparation (SVP) Range</div>
-      <div class="sub-section-content">{{ currentJobInfo['svp_range'] }}</div>
+      <div class="sub-section-content">{{ currentJobInfo['svp_desc'] }} ({{ currentJobInfo['svp_range'] }})</div>
     </div>
   </div>
 </div>
@@ -124,7 +144,8 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Technology Skills by Importance</div>
-      <div class="sub-section-content">
+      <div class="sub-section-content" [class.no-data]="techSkills.length === 0">
+        <div class="missing-text" [class.hidden]="techSkills.length > 0">No data</div>
         <trust-ai-profile-technology-skills
           [allSkills]="techSkills"
           [showAll]="showAllSkills"
@@ -145,21 +166,58 @@
       <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
     <div class="sub-section">
-      <div class="sub-section-title">Average Salary</div>
-      <div class="sub-section-content salary-nat">
-        <trust-ai-profile-salary [dataNat]="salaryNatInfo"></trust-ai-profile-salary>
+      <div class="sub-section-title">
+        <div class="title-text">Average Salary (2022)</div>
+        <mat-button-toggle-group [(ngModel)]="salaryNatSelection">
+          <mat-button-toggle value="annual">Annual</mat-button-toggle>
+          <mat-button-toggle value="hourly">Hourly</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div class="sub-section-content salary-nat" [class.no-data]="isEmpty(salaryNatInfo, salaryNatSelection)">
+        <div class="missing-text" [class.hidden]="!isEmpty(salaryNatInfo, salaryNatSelection)">No data</div>
+        <trust-ai-profile-salary
+          [class.hidden]="isEmpty(salaryNatInfo, salaryNatSelection)"
+          [dataNat]="salaryNatInfo"
+          [dataType]="salaryNatSelection"
+          visualizationType="national"
+        ></trust-ai-profile-salary>
       </div>
     </div>
     <div class="sub-section">
-      <div class="sub-section-title">Average Wage By State</div>
-      <div class="sub-section-content salary-states">
-        <trust-ai-profile-salary [dataStates]="salaryStatesInfo"></trust-ai-profile-salary>
+      <div class="sub-section-title">
+        <div class="title-text">Average Wage By State (2022)</div>
+        <mat-button-toggle-group [(ngModel)]="salaryStatesSelection">
+          <mat-button-toggle value="annual">Annual</mat-button-toggle>
+          <mat-button-toggle value="hourly">Hourly</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div class="sub-section-content salary-states" [class.no-data]="isEmpty(salaryStatesInfo, salaryStatesSelection)">
+        <div class="missing-text" [class.hidden]="!isEmpty(salaryStatesInfo, salaryStatesSelection)">No data</div>
+        <trust-ai-profile-salary
+          [class.hidden]="isEmpty(salaryStatesInfo, salaryStatesSelection)"
+          [dataStates]="salaryStatesInfo"
+          [dataType]="salaryStatesSelection"
+          visualizationType="state"
+        ></trust-ai-profile-salary>
       </div>
     </div>
     <div class="sub-section">
-      <div class="sub-section-title">Top Five Highest Earning Industries</div>
-      <div class="sub-section-content salary-ind">
-        <trust-ai-profile-salary [dataInd]="salaryIndInfo"></trust-ai-profile-salary>
+      <div class="sub-section-title">
+        <div class="title-text">Top Five Highest Earning Industries (2022)</div>
+        <mat-button-toggle-group [(ngModel)]="salaryIndSelection">
+          <mat-button-toggle value="annual">Annual</mat-button-toggle>
+          <mat-button-toggle value="hourly">Hourly</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div class="sub-section-content salary-ind" [class.no-data]="isEmpty(salaryIndInfo, salaryIndSelection)">
+        <div class="missing-text" [class.hidden]="!isEmpty(salaryIndInfo, salaryIndSelection)">No data</div>
+        <trust-ai-profile-salary
+          [class.hidden]="isEmpty(salaryIndInfo, salaryIndSelection)"
+          [dataInd]="salaryIndInfo"
+          [dataType]="salaryIndSelection"
+          visualizationType="industry"
+        ></trust-ai-profile-salary>
+        <img [class.hidden]="isEmpty(salaryIndInfo, salaryIndSelection)" src="assets/legend.png" />
       </div>
     </div>
   </div>
@@ -175,9 +233,13 @@
       <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
     <div class="sub-section">
-      <div class="sub-section-title">Number of Occupations by State</div>
-      <div class="sub-section-content">
-        <trust-ai-profile-employment [dataStates]="salaryStatesInfo"></trust-ai-profile-employment>
+      <div class="sub-section-title">Number of Occupations by State (2022)</div>
+      <div class="sub-section-content" [class.no-data]="isEmpty(salaryStatesInfo, 'emp')">
+        <div class="missing-text" [class.hidden]="!isEmpty(salaryStatesInfo, 'emp')">No data</div>
+        <trust-ai-profile-employment
+          [class.hidden]="isEmpty(salaryStatesInfo, 'emp')"
+          [dataStates]="salaryStatesInfo"
+        ></trust-ai-profile-employment>
       </div>
     </div>
   </div>
@@ -194,61 +256,68 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Occupation Projection</div>
-      <div class="sub-section-content projection">
+      <div class="sub-section-content projection" [class.no-data]="projectionInfo.length === 0">
+        <div class="missing-text" [class.hidden]="projectionInfo.length > 0">No data</div>
         <trust-ai-profile-occupation-projection
           [dataProjections]="projectionInfo"
         ></trust-ai-profile-occupation-projection>
       </div>
     </div>
     <div class="sub-section">
-      <div class="sub-section-title">Near Term Outlook</div>
+      <div class="sub-section-title">Bright Outlook Projection</div>
       <div class="sub-section-content">
         {{ outlookDescription }}
       </div>
+      <div class="button-group">
+        <button
+          class="resource-link"
+          onClick="window.open('https://www.onetonline.org/find/bright?b=0')"
+          mat-stroked-button
+          color="primary"
+        >
+          Bright Outlook Projections
+        </button>
+      </div>
     </div>
     <div class="sub-section">
-      <div class="sub-section-title">
-        Automation Risk
-        <div class="risk-tag">
-          {{ currentJobInfo['automation_risk'] }}
-        </div>
+      <div
+        class="sub-section-title"
+        matBadge="{{ currentJobInfo['automation_risk'] }}"
+        matBadgeOverlap="false"
+        matBadgePosition="after"
+      >
+        Future of Work Projection
       </div>
       <div class="sub-section-content">
         {{ automationDescription }}
       </div>
-    </div>
-    <div class="sub-section">
-      <div class="sub-section-title">Future of Work Resources</div>
-      <div class="sub-section-content">
-        <div class="button-group">
-          <button
-            class="resource-link"
-            onClick="window.open('https://www.onetonline.org/find/bright?b=0')"
-            mat-stroked-button
-            color="primary"
-          >
-            Bright Outlook Projections
-          </button>
-          <button
-            class="resource-link"
-            onClick="window.open('https://www.oxfordmartin.ox.ac.uk/downloads/academic/future-of-employment.pdf')"
-            mat-stroked-button
-            color="primary"
-          >
-            Future of Employment Report
-          </button>
-          <button
-            class="resource-link"
-            onClick="window.open('https://www.onetcenter.org/future_of_work')"
-            mat-stroked-button
-            color="primary"
-          >
-            Future of Work: Bibliography of Papers
-          </button>
+
+      <div class="resources">
+        <div class="resources-title">Future of Work Resources</div>
+        <div class="resources-content">
+          <div class="button-group">
+            <button
+              class="resource-link"
+              onClick="window.open('https://www.oxfordmartin.ox.ac.uk/downloads/academic/future-of-employment.pdf')"
+              mat-stroked-button
+              color="primary"
+            >
+              Future of Employment Report
+            </button>
+            <button
+              class="resource-link"
+              onClick="window.open('https://www.onetcenter.org/future_of_work')"
+              mat-stroked-button
+              color="primary"
+            >
+              Future of Work: Bibliography of Papers
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="sub-section"></div>
 </div>
 
 <div class="profile-bottom">

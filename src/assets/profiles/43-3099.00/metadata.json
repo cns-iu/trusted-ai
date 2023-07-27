@@ -2,13 +2,14 @@
   "soc_id": "43-3099.00",
   "title": "Financial Clerks, All Other",
   "descr": "All financial clerks not listed separately.",
-  "alt_titles": "Bank Vault Attendant, Bank Vault Clerk, Bank Vault Custodian, Financial Operations Clerk, Financial Reserve Clerk, Safe Deposit Clerk, Safety Deposit Clerk, Vault Teller",
+  "alt_titles": "Financial Operations Clerk, Safe Deposit Clerk, Safety Deposit Clerk, Bank Vault Attendant, Vault Teller, Bank Vault Clerk, Financial Reserve Clerk, Bank Vault Custodian",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {

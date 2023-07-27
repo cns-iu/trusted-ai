@@ -2,13 +2,14 @@
   "soc_id": "25-2059.00",
   "title": "Special Education Teachers, All Other",
   "descr": "All special education teachers not listed separately.",
-  "alt_titles": "Autism Tutor, Special Education Preschool Teacher, Special Education Teacher, Special Education Teacher for Adults with Disabilities, Teacher of the Visually Impaired",
+  "alt_titles": "Teacher of the Visually Impaired, Autism Tutor, Special Education Preschool Teacher, Special Education Teacher, Special Education Teacher for Adults with Disabilities",
   "job_zone": null,
   "experience": null,
   "education": null,
   "job_training": null,
   "example": null,
   "svp_range": null,
+  "svp_desc": null,
   "work_tasks": null,
   "salary_states": [
     {

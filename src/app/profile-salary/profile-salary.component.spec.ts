@@ -13,16 +13,6 @@ describe('ProfileSalaryComponent', () => {
 
     fixture = TestBed.createComponent(ProfileSalaryComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create specs with data', async () => {
-    const mockChange = {
-      currentValue: [],
-      previousValue: [],
-      firstChange: false,
-      isFirstChange: () => false,
-    };
     component.dataStates = [
       {
         year: 2022,
@@ -40,6 +30,12 @@ describe('ProfileSalaryComponent', () => {
         a_pct75: 3,
         a_pct90: 4,
         a_mean: 100,
+        h_pct10: 0,
+        h_pct25: 1,
+        h_median: 2,
+        h_pct75: 3,
+        h_pct90: 4,
+        h_mean: 100,
       },
       {
         year: 2022,
@@ -50,12 +46,71 @@ describe('ProfileSalaryComponent', () => {
         a_pct75: 3,
         a_pct90: 4,
         a_mean: 200,
+        h_pct10: 0,
+        h_pct25: 1,
+        h_median: 2,
+        h_pct75: 3,
+        h_pct90: 4,
+        h_mean: 200,
       },
     ];
-    await component.ngOnChanges({
-      dataStates: mockChange,
-      dataNat: mockChange,
-      dataInd: mockChange,
-    });
+    component.dataNat = [
+      {
+        year: 2022,
+        industry_name: 'industry',
+        a_pct10: 0,
+        a_pct25: 1,
+        a_median: 2,
+        a_pct75: 3,
+        a_pct90: 4,
+        a_mean: 100,
+        h_pct10: 0,
+        h_pct25: 1,
+        h_median: 2,
+        h_pct75: 3,
+        h_pct90: 4,
+        h_mean: 100,
+      },
+      {
+        year: 2022,
+        industry_name: 'industry',
+        a_pct10: 0,
+        a_pct25: 1,
+        a_median: 2,
+        a_pct75: 3,
+        a_pct90: 4,
+        a_mean: 200,
+        h_pct10: 0,
+        h_pct25: 1,
+        h_median: 2,
+        h_pct75: 3,
+        h_pct90: 4,
+        h_mean: 200,
+      },
+    ];
+    fixture.detectChanges();
+  });
+
+  it('should create state visualization', async () => {
+    component.dataType = 'hourly';
+    await component.ngOnChanges();
+    component.dataType = 'annual';
+    await component.ngOnChanges();
+  });
+
+  it('should create national visualization', async () => {
+    component.visualizationType = 'national';
+    component.dataType = 'hourly';
+    await component.ngOnChanges();
+    component.dataType = 'annual';
+    await component.ngOnChanges();
+  });
+
+  it('should create industry visualization', async () => {
+    component.visualizationType = 'industry';
+    component.dataType = 'hourly';
+    await component.ngOnChanges();
+    component.dataType = 'annual';
+    await component.ngOnChanges();
   });
 });

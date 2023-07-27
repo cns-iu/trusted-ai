@@ -2,13 +2,14 @@
   "soc_id": "43-5052.00",
   "title": "Postal Service Mail Carriers",
   "descr": "Sort and deliver mail for the United States Postal Service (USPS). Deliver mail on established route by vehicle or on foot. Includes postal service mail carriers employed by USPS contractors.",
-  "alt_titles": "City Carrier, Carrier, Carrier Associate, Carrier Driver, City Carrier Assistant (CCA), City Letter Carrier, City Mail Carrier, Clerk Carrier, Collector, Delivery and Mail Sorter, Delivery Route Carrier, Letter Carrier, Mail Carrier, Mail Carrier Technician, Mail Clerk, Mail Deliverer, Mail Delivery Driver, Mail Messenger, Mail Rider, Mailman, Parcel Post Carrier, Postal Carrier, Postal Mail Carrier, Postman, Registered Route Associate, Route Carrier, Rural Carrier, Rural Carrier Associate (RCA), Rural Carrier Associate Professional (RCA Professional), Rural Letter Carrier, Rural Mail Carrier, Rural Route Carrier, Rural Route Mail Carrier, Special Delivery Mail Carrier, Special Delivery Messenger, USPS Letter Carrier (United States Postal Service Letter Carrier), USPS Mail Carrier (United States Postal Service Mail Carrier)",
+  "alt_titles": "Rural Letter Carrier, Carrier, Carrier Associate, Carrier Driver, City Carrier Assistant (CCA), City Letter Carrier, City Mail Carrier, Clerk Carrier, Collector, Delivery and Mail Sorter, Delivery Route Carrier, Letter Carrier, Mail Carrier, Mail Carrier Technician, Mail Clerk, Mail Deliverer, Mail Delivery Driver, Mail Messenger, Mail Rider, Mailman, Parcel Post Carrier, Postal Carrier, Postal Mail Carrier, Postman, Registered Route Associate, Route Carrier, Rural Carrier, Rural Carrier Associate (RCA), Rural Carrier Associate Professional (RCA Professional), Rural Mail Carrier, Rural Route Carrier, Rural Route Mail Carrier, Special Delivery Mail Carrier, Special Delivery Messenger, USPS Letter Carrier (United States Postal Service Letter Carrier), USPS Mail Carrier (United States Postal Service Mail Carrier), City Carrier",
   "job_zone": 2,
   "experience": "Some previous work-related skill, knowledge, or experience is usually needed. For example, a teller would benefit from experience working directly with the public.",
   "education": "These occupations usually require a high school diploma.",
   "job_training": "Employees in these occupations need anywhere from a few months to one year of working with experienced employees. A recognized apprenticeship program may be associated with these occupations.",
   "example": "These occupations often involve using your knowledge and skills to help others. Examples include orderlies, counter and rental clerks, customer service representatives, security guards, upholsterers, tellers, and dental laboratory technicians.",
   "svp_range": "4 to 6",
+  "svp_desc": "Individuals workers typically need anywhere from minimum of 3 and 6 months- up to 2 years- to learn the techniques, acquire the information, and develop the facility needed for average performance in specific situations.",
   "work_tasks": [
     {
       "soc_id": "43-5052.00",
