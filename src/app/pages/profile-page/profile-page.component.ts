@@ -75,6 +75,8 @@ export interface WorkTasks {
   importance: number;
   /** Relevance of task */
   relevance: number;
+  soc_id_alt?: string;
+  title_id_alt?: string;
 }
 
 /** Info on salary */

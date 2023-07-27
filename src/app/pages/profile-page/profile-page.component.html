@@ -125,6 +125,11 @@
       <div class="code">{{ currentJobInfo['soc_id'] }}</div>
       <div class="section-title">{{ currentJobInfo['title'] }}</div>
     </div>
+    <div class="job-header" *ngIf="workTasks[0] && workTasks[0]['title_id_alt']">
+      <div class="code">
+        {{ '(' + 'Showing ' + workTasks[0]['title_id_alt'] + ', ' + workTasks[0]['soc_id_alt'] + ')' }}
+      </div>
+    </div>
     <trust-ai-work-tasks-list
       [tasks]="workTasks"
       [showAll]="showAllTasks"
