@@ -31,6 +31,16 @@
       <div class="code">{{ currentJobInfo.soc_id }}</div>
       <div class="section-title">{{ currentJobInfo.title }}</div>
     </div>
+    <div class="visualization-description">
+      Each treemap visualization represents the set of knowledge, skills, abilities, and work activities that are
+      important for someone employed in this occupation. The size (area) of each element corresponds to the overall
+      importance rating an element has for an occupation. Importance ratings range between 1 and 5; larger value
+      indicates an element is more important for an occupation. Elements are also rated for the level of proficiency
+      need by someone employed in this occupation. Proficiency is ratings range between 0 to 7; larger values indicate
+      an element is requires high levels of proficiency for people employed in this occupation.. Some occupations have
+      not been evaluated for knowledge or activity elements. Importance and level of proficiency ratings are taken from
+      the O*NET database (v. 27.2).
+    </div>
     <div [class.no-data]="noTreemap" class="treemaps">
       <mat-tab-group (selectedTabChange)="refreshTreemaps()" fitInkBarToContent disablePagination>
         <mat-tab *ngIf="treemapWorkActivitiesData.length > 0" label="Activities">
