@@ -54,7 +54,15 @@
     }
 
     .salary-ind {
-      height: 100vw !important;
+      ::ng-deep svg {
+        height: 70vw !important;
+      }
+    }
+
+    .projection {
+      ::ng-deep svg {
+        height: 80vw !important;
+      }
     }
 
     .resource-link {
@@ -137,10 +145,6 @@
           font-size: 1rem;
           line-height: 1.5rem;
           width: 100%;
-
-          &.no-data {
-            height: fit-content !important;
-          }
         }
       }
 
@@ -195,7 +199,6 @@
           width: 100%;
         }
 
-        .missing-text,
         trust-ai-treemap {
           height: 50vw !important;
         }
@@ -227,22 +230,28 @@
       .salary-nat {
         height: 40vw;
       }
+
       .salary-states {
         height: 50vw;
       }
+
       .salary-ind {
         display: flex;
         flex-direction: column;
-        height: 50vw;
-        gap: 5%;
+        height: auto;
+        gap: 1rem;
 
         trust-ai-profile-salary {
-          height: 80%;
           width: 100%;
+
+          ::ng-deep svg {
+            height: 50vw;
+          }
         }
 
         img {
-          height: 15%;
+          max-height: 5rem;
+          max-width: 75%;
           align-self: center;
         }
       }
@@ -250,8 +259,8 @@
 
     &.projection {
       .sub-section {
-        .projection {
-          height: 65vw;
+        ::ng-deep svg {
+          height: 50vw;
         }
 
         .button-group {
@@ -322,10 +331,6 @@
     }
   }
 
-  .hidden {
-    display: none;
-  }
-
   mat-button-toggle-group {
     border: none;
     width: 10rem;
@@ -372,5 +377,21 @@
     .mat-button-toggle-checked {
       background: #e8def8;
     }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .no-data {
+    height: fit-content !important;
+
+    mat-tab-group {
+      visibility: hidden;
+    }
+  }
+
+  svg {
+    overflow: visible;
   }
 }

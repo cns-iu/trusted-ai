@@ -33,6 +33,13 @@ describe('TreemapComponent', () => {
         y0: 2,
         x1: 3,
         y1: 4,
+        importance_size: 0,
+        level_col: 0,
+        min_anchor_val: 0,
+        min_anchor_descr: '',
+        max_anchor_val: 0,
+        max_anchor_descr: '',
+        soc_id: '0',
       },
     ];
     component.skillsData = [
@@ -45,6 +52,13 @@ describe('TreemapComponent', () => {
         y0: 2,
         x1: 3,
         y1: 4,
+        importance_size: 0,
+        level_col: 0,
+        min_anchor_val: 0,
+        min_anchor_descr: '',
+        max_anchor_val: 0,
+        max_anchor_descr: '',
+        soc_id: '0',
       },
     ];
     component.knowledgeData = [
@@ -57,6 +71,13 @@ describe('TreemapComponent', () => {
         y0: 2,
         x1: 3,
         y1: 4,
+        importance_size: 0,
+        level_col: 0,
+        min_anchor_val: 0,
+        min_anchor_descr: '',
+        max_anchor_val: 0,
+        max_anchor_descr: '',
+        soc_id: '0',
       },
     ];
     component.abilitiesData = [
@@ -69,6 +90,13 @@ describe('TreemapComponent', () => {
         y0: 2,
         x1: 3,
         y1: 4,
+        importance_size: 0,
+        level_col: 0,
+        min_anchor_val: 0,
+        min_anchor_descr: '',
+        max_anchor_val: 0,
+        max_anchor_descr: '',
+        soc_id: '0',
       },
     ];
     await component.ngOnChanges({
