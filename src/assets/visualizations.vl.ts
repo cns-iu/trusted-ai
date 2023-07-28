@@ -710,7 +710,8 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
         axis: {
           labelFontSize: { expr: 'labelFontSize' },
           titleFontSize: { expr: 'axisTitleSize' },
-          labelExpr: "toString(datum.value) + '%'"
+          labelExpr: "toString(datum.value) + '%'",
+          labelFlush: false
         }
       },
       y: {
