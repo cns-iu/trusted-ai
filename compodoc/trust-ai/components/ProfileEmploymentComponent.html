@@ -333,7 +333,7 @@ export class ProfileEmploymentComponent implements OnChanges {
    */
   async ngOnChanges(changes: SimpleChanges): Promise&lt;void&gt; {
     if (&#x27;dataStates&#x27; in changes) {
-      this.spec &#x3D; createStatePlot(this.dataStates, &#x27;employment&#x27;);
+      this.spec &#x3D; createStatePlot(this.dataStates, &#x27;emp&#x27;);
     }
     if (this.vis) {
       await embed(this.vis.nativeElement, this.spec, { actions: false, renderer: &#x27;svg&#x27; });
