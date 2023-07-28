@@ -246,7 +246,7 @@ export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annu
           labelExpr: "datum.value == .50 ? 'Median' : toString(datum.value * 100) + '%'",
           labelFontSize: { expr: 'labelFontSize' },
           titleFontSize: { expr: 'axisTitleSize' },
-          format: ".1~%",
+          format: '.1~%',
           grid: false
         },
         scale: { domain: [0, 1] }
@@ -259,13 +259,19 @@ export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annu
         axis: {
           labelFontSize: { expr: 'labelFontSize' },
           titleFontSize: { expr: 'axisTitleSize' },
-          format: '$,f'
+          format: '$,.0f'
         }
       },
       tooltip: [
         {
           field: 'percentile',
-          title: 'Percentile'
+          title: 'Percentile',
+          format: '.1~%'
+        },
+        {
+          field: 'salary',
+          title: type === 'annual' ? 'Salary ($/yr)' : 'Salary ($/hr)',
+          format: '$,.0f'
         }
       ]
     }
@@ -525,6 +531,7 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
   const averageProficiency = values.filter(value => !value.element_name).reduce((a, b) => a + b.level_col, 0) / values.length; //use to set text color
   return {
     $schema: 'https://vega.github.io/schema/vega/v5.json',
+    autosize: { type: 'none', 'contains': 'content' },
     signals: [
       {
         name: 'width',
@@ -548,11 +555,11 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
       },
       {
         name: 'treemapTextSize',
-        update: "if(width < 600, [22, 12, 10], [32, 20, 14])",
+        update: 'if(width < 600, [22, 12, 10], [32, 20, 14])',
         on: [
           {
             events: { source: 'window', type: 'resize' },
-            update: "if(width < 600, [22, 12, 10], [32, 20, 14])"
+            update: 'if(width < 600, [22, 12, 10], [32, 20, 14])'
           }
         ]
       }
