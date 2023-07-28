@@ -103,9 +103,23 @@
                                         </a>
                                 </li>
                                 <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#soc_id_alt" 
+>
+                                            soc_id_alt
+                                        </a>
+                                </li>
+                                <li>
                                         <a href="#task" 
 >
                                             task
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#title_id_alt" 
+>
+                                            title_id_alt
                                         </a>
                                 </li>
                             </ul>
@@ -201,6 +215,50 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
+                                        <a name="soc_id_alt"></a>
+                                        <span class="name "><b>soc_id_alt</b>
+                                            <a href="#soc_id_alt">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>soc_id_alt:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Alternate job id</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
                                         <a name="task"></a>
                                         <span class="name "><b>task</b>
                                             <a href="#task">
@@ -236,6 +294,50 @@
                             </tr>
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="title_id_alt"></a>
+                                        <span class="name "><b>title_id_alt</b>
+                                            <a href="#title_id_alt">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>title_id_alt:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Alternate job title</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
             </section>
     </div>
 
@@ -262,22 +364,14 @@ import { WorkTasksListComponent } from &#x27;src/app/work-tasks-list/work-tasks-
 
 /** Queried job data format */
 export interface AllJobInfo {
-  /** Job data value */
-  [key: string]: unknown;
+  /** Job id */
+  soc_id?: string;
+  /** Job title */
+  title?: string;
+  /** Job description */
+  descr?: string;
   /** List of alternative job titles */
   alt_titles?: string[];
-  /** Job zone (preparedness level) */
-  job_zone?: number;
-  /** List of technology skills */
-  tech_skills?: TechSkill[];
-  /** List of work tasks */
-  work_tasks?: WorkTasks[];
-  /** List of state salary info */
-  salary_states?: SalaryInfo[];
-  /** List of national salary info */
-  salary_nat?: SalaryInfo[];
-  /** List of industry salary info */
-  salary_ind?: SalaryInfo[];
   /** Abilities treemap data */
   behaviors_abilities?: TreemapData[];
   /** Work activities treemap data */
@@ -286,6 +380,30 @@ export interface AllJobInfo {
   behaviors_skills?: TreemapData[];
   /** Knowledge treemap data */
   behaviors_knowledge?: TreemapData[];
+  /** Job zone (preparedness level) */
+  job_zone?: number;
+  /** Preparedness education */
+  education?: string;
+  /** Preparedness related experience */
+  experience?: string;
+  /** Prepardness job training */
+  job_training?: string;
+  /** Preparedness examples */
+  example?: string;
+  /** Preparedness SVP description */
+  svp_desc?: string;
+  /** Preparedness SVP range */
+  svp_range?: string;
+  /** List of work tasks */
+  work_tasks?: WorkTasks[];
+  /** List of technology skills */
+  tech_skills?: TechSkill[];
+  /** List of state salary info */
+  salary_states?: SalaryInfo[];
+  /** List of national salary info */
+  salary_nat?: SalaryInfo[];
+  /** List of industry salary info */
+  salary_ind?: SalaryInfo[];
   /** List of industry projection data */
   projections?: ProjectionInfo[];
   /** National employed total */
@@ -318,6 +436,10 @@ export interface WorkTasks {
   importance: number;
   /** Relevance of task */
   relevance: number;
+  /** Alternate job id */
+  soc_id_alt?: string;
+  /** Alternate job title */
+  title_id_alt?: string;
 }
 
 /** Info on salary */
@@ -360,6 +482,8 @@ export interface SalaryInfo {
 
 /** Treemap data entry */
 export interface TreemapData {
+  /** Job id */
+  soc_id: string;
   /** Element name */
   element_name: string;
   /** Parent group */
@@ -376,6 +500,18 @@ export interface TreemapData {
   x1: number;
   /** y1 coordinate */
   y1: number;
+  /** Importance rating */
+  importance_size: number;
+  /** Proficiency level */
+  level_col: number;
+  /** Min value */
+  min_anchor_val: number;
+  /** Someone who is capable of the min */
+  min_anchor_descr: string;
+  /** Max value */
+  max_anchor_val: number;
+  /** Someone who is capable of the max */
+  max_anchor_descr: string;
 }
 
 /** Occupation projection info */
@@ -445,22 +581,7 @@ export class ProfilePageComponent implements OnInit {
   @ViewChild(&#x27;treemap4&#x27;) treemap4: TreemapComponent &#x3D; new TreemapComponent();
 
   /** Current job info */
-  currentJobInfo: AllJobInfo &#x3D; {
-    alt_titles: [],
-    job_zone: 1,
-    tech_skills: [],
-    work_tasks: [],
-    salary_states: [],
-    salary_nat: [],
-    salary_ind: [],
-    projections: [],
-    employed_nat: 0,
-    employed_10_nat: 0,
-    per_change_10_nat: 0,
-    bright_futures: &#x27;&#x27;,
-    automation_risk: &#x27;&#x27;,
-    near_future: &#x27;&#x27;,
-  };
+  currentJobInfo: AllJobInfo &#x3D; {};
 
   /** Tech skills for the job (each pair &#x3D; type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] &#x3D; [];
@@ -495,6 +616,9 @@ export class ProfilePageComponent implements OnInit {
   /** Abilities data */
   treemapAbilitiesData: TreemapData[] &#x3D; [];
 
+  /** Whether all treemap data is missing */
+  noTreemap &#x3D; false;
+
   /** Occupation projection data */
   projectionInfo: ProjectionInfo[] &#x3D; [];
 
@@ -511,8 +635,8 @@ export class ProfilePageComponent implements OnInit {
    * Gets automation description
    */
   get automationDescription(): string {
-    if (this.currentJobInfo[&#x27;automation_risk&#x27;]) {
-      return &#x60;This job has a ${this.currentJobInfo[&#x27;automation_risk&#x27;].toLowerCase()} risk of automation.&#x60;;
+    if (this.currentJobInfo.automation_risk) {
+      return &#x60;This job has a ${this.currentJobInfo.automation_risk.toLowerCase()} risk of automation.&#x60;;
     } else {
       return &#x27;No data&#x27;;
     }
@@ -522,9 +646,9 @@ export class ProfilePageComponent implements OnInit {
    * Gets outlook description
    */
   get outlookDescription(): string {
-    return this.currentJobInfo[&#x27;near_future&#x27;]
-      ? this.currentJobInfo[&#x27;near_future&#x27;]
-      : outlookDescriptions[this.currentJobInfo[&#x27;bright_futures&#x27;] || &#x27;&#x27;] || &#x27;No data&#x27;;
+    return this.currentJobInfo.near_future
+      ? this.currentJobInfo.near_future
+      : outlookDescriptions[this.currentJobInfo.bright_futures || &#x27;&#x27;] || &#x27;No data&#x27;;
   }
 
   /**
@@ -556,7 +680,7 @@ export class ProfilePageComponent implements OnInit {
         parameter &#x3D; &#x27;tot_emp&#x27;;
         break;
     }
-    return dataset.filter((value) &#x3D;&gt; value[&#x27;year&#x27;] &#x3D;&#x3D;&#x3D; 2022).filter((entry) &#x3D;&gt; entry[parameter]).length &#x3D;&#x3D;&#x3D; 0;
+    return dataset.filter((value) &#x3D;&gt; value.year &#x3D;&#x3D;&#x3D; 2022).filter((entry) &#x3D;&gt; entry[parameter]).length &#x3D;&#x3D;&#x3D; 0;
   }
 
   /**
@@ -568,40 +692,59 @@ export class ProfilePageComponent implements OnInit {
     return this.http.get(&#x60;assets/profiles/${code}/metadata.json&#x60;, { responseType: &#x27;text&#x27; }).pipe(
       tap((result) &#x3D;&gt; {
         this.currentJobInfo &#x3D; JSON.parse(result);
-        if (this.currentJobInfo[&#x27;tech_skills&#x27;]) {
-          this.setSkillsGrouping(this.currentJobInfo[&#x27;tech_skills&#x27;]);
+        const {
+          tech_skills,
+          salary_states,
+          salary_nat,
+          salary_ind,
+          work_tasks,
+          behaviors_work_activities,
+          behaviors_skills,
+          behaviors_knowledge,
+          behaviors_abilities,
+          projections,
+          employed_nat,
+          employed_10_nat,
+          per_change_10_nat,
+        } &#x3D; this.currentJobInfo;
+
+        if (tech_skills) {
+          this.setSkillsGrouping(tech_skills);
         }
-        if (this.currentJobInfo[&#x27;salary_states&#x27;]) {
-          this.salaryStatesInfo &#x3D; this.currentJobInfo[&#x27;salary_states&#x27;];
+        if (salary_states) {
+          this.salaryStatesInfo &#x3D; salary_states;
         }
-        if (this.currentJobInfo[&#x27;salary_nat&#x27;]) {
-          this.salaryNatInfo &#x3D; this.currentJobInfo[&#x27;salary_nat&#x27;];
+        if (salary_nat) {
+          this.salaryNatInfo &#x3D; salary_nat;
         }
-        if (this.currentJobInfo[&#x27;salary_ind&#x27;]) {
-          this.salaryIndInfo &#x3D; this.currentJobInfo[&#x27;salary_ind&#x27;];
+        if (salary_ind) {
+          this.salaryIndInfo &#x3D; salary_ind;
         }
-        if (this.currentJobInfo[&#x27;work_tasks&#x27;]) {
-          this.workTasks &#x3D; this.currentJobInfo[&#x27;work_tasks&#x27;];
+        if (work_tasks) {
+          this.workTasks &#x3D; work_tasks;
         }
-        if (this.currentJobInfo[&#x27;behaviors_work_activities&#x27;]) {
-          this.treemapWorkActivitiesData &#x3D; this.currentJobInfo[&#x27;behaviors_work_activities&#x27;];
+        if (behaviors_work_activities) {
+          this.treemapWorkActivitiesData &#x3D; behaviors_work_activities;
         }
-        if (this.currentJobInfo[&#x27;behaviors_skills&#x27;]) {
-          this.treemapSkillsData &#x3D; this.currentJobInfo[&#x27;behaviors_skills&#x27;];
+        if (behaviors_skills) {
+          this.treemapSkillsData &#x3D; behaviors_skills;
         }
-        if (this.currentJobInfo[&#x27;behaviors_knowledge&#x27;]) {
-          this.treemapKnowledgeData &#x3D; this.currentJobInfo[&#x27;behaviors_knowledge&#x27;];
+        if (behaviors_knowledge) {
+          this.treemapKnowledgeData &#x3D; behaviors_knowledge;
         }
-        if (this.currentJobInfo[&#x27;behaviors_abilities&#x27;]) {
-          this.treemapAbilitiesData &#x3D; this.currentJobInfo[&#x27;behaviors_abilities&#x27;];
+        if (behaviors_abilities) {
+          this.treemapAbilitiesData &#x3D; behaviors_abilities;
         }
-        if (this.currentJobInfo[&#x27;projections&#x27;]) {
-          this.projectionInfo &#x3D; this.currentJobInfo[&#x27;projections&#x27;];
+        if (!behaviors_abilities &amp;&amp; !behaviors_knowledge &amp;&amp; !behaviors_skills &amp;&amp; !behaviors_work_activities) {
+          this.noTreemap &#x3D; true;
+        }
+        if (projections) {
+          this.projectionInfo &#x3D; projections;
           this.projectionInfo.push({
             industry_title: &#x27;National average&#x27;,
-            employed: this.currentJobInfo[&#x27;employed_nat&#x27;],
-            employed_10: this.currentJobInfo[&#x27;employed_10_nat&#x27;],
-            per_change_10: this.currentJobInfo[&#x27;per_change_10_nat&#x27;],
+            employed: employed_nat,
+            employed_10: employed_10_nat,
+            per_change_10: per_change_10_nat,
           });
         }
       })
@@ -659,7 +802,11 @@ export class ProfilePageComponent implements OnInit {
    * Refreshs all treemaps
    */
   refreshTreemaps(): void {
-    [this.treemap1, this.treemap2, this.treemap3, this.treemap4].forEach((treemap) &#x3D;&gt; treemap.reload());
+    [this.treemap1, this.treemap2, this.treemap3, this.treemap4].forEach((treemap) &#x3D;&gt; {
+      if (treemap) {
+        treemap.reload();
+      }
+    });
   }
 }
 </code></pre>
