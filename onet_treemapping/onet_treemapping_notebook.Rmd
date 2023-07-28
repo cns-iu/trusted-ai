@@ -1,0 +1,421 @@
+---
+title: "ONET KSAWA Treemapping - R Notebook"
+output: html_notebook
+---
+
+## Introduction
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook documents work to convert ONET 
+measurements of occupational 'skills' into treemap visualizations. The mapping process will be 
+completed on four (4) data sets that represent skills, abilities, knowledge and work activities frequency and importance for O*Net occupations.
+
+ONET organizes each KSAWA element into a hierarchical tree. Skill and knoweldge elements are organized into two level trees, while abilities and work activities have 3 levels in their trees.
+
+It is important to note that not all ONET occupations are rated against each element. For instance, the skills and abilities element sets have ratings for 873 of 1,002 occupations. Similarly, the knowledge and work actvities element sets have ratings for 681 of 1,002 occupations. 
+
+We will use the Tidyverse and Treemap packages to complete this data processing task and demonstrate the resulting KSAWA treemaps visualization for the Electrical Engineering occupation. Results have been integrated into the CNS ONET Trusted AI postgres sql database.
+
+The treemap processing results will be visualized using Vega-Lite framework. The final variables required by Vega-Lite are the target for selecting the *treemap* package, and final form of the processing results.
+
+## Set Up
+
+### R Packages
+
+```{r env}
+# library(tidyverse)
+# library(magrittr)
+library(plyr)
+library(treemap)
+```
+
+### Importing Data
+
+```{r data}
+#Input data
+sk_in <- read.csv("./input/onet27_skills_07132023.csv", header = T)
+kn_in <- read.csv("./input/onet27_knowledge_07132023.csv", header = T)
+wa_in <- read.csv("./input/onet27_work_activities_07132023.csv", header = T)
+ab_in <- read.csv("./input/onet27_abilities_07132023.csv", header = T)
+
+# ONET level scale anchor min and max value descriptions
+scale_min <- read.csv("./input/onet27_level_scale_anchor_min.csv", header = T)
+scale_max <- read.csv("./input/onet27_level_scale_anchor_max.csv", header = T)
+
+# Count of unieuq Occupations associated with each element set.
+nskab <- length(unique(sk_in$soc_id))
+nknwa <- length(unique(kn_in$soc_id))
+
+# Lists of occupations for each loop
+s_occ <- unique(sk_in$soc_id)
+k_occ <- unique(kn_in$soc_id)
+a_occ <- unique(ab_in$soc_id)
+w_occ <- unique(wa_in$soc_id)
+
+# Empty Data frames for results
+sk_out <- ab_out <- kn_out <- wa_out <- data.frame()
+
+# Color palettes
+orange <- c("#FFD49F","#FFC275","#FFAD46","#F48C0A","#703E00")
+green <- c("#AEF588","#95EE66","#78E43E","#57D415","#2F710C")
+blue_grey <- c("#F1F7F8","#C8DEE4","#9FC5D0","#76ADBC","#35626E")
+yeller2 <- c("#FFED8D","#FFE86D","#FFE246","#F4D218","#AA941C")
+reds <- c("#FA889E","#FA889E","#F44C6D","#EC1640","#740D21")
+```
+
+This segment of the script loads four data sets. From these data sets we generate lists of ONET occupation identifiers (*soc_id* variable) associated with each data set. It is interesting to note that Work Activities and Knowledge are associated with 681 occupations during the O*NET surveys, while Skills and Abilities are associated with 923. We also generate the empty dataframes that will be used to collect the data processing results of each loop.
+
+## Data Processing
+
+Each of these loops use the same basic element: 
+* Select a temporary copy of data for an occupation
+* Process as a treemap with basic settings:
+  * vSize = importance of a skill element
+  * vColor = frequency (level) of skill element 
+* Update treemap processing results with 
+  * occupation title and ONET soc_id
+  * element skill set, element_id and element description for each skill
+  * count (n) of surveyed for analysis
+* Add processing results to the output data file.
+
+THe major difference comes in the structure of the hiearchies used to group ONET skill set elements. *Skills* and *knowledge* elements use only two tree levels for their treemaps, while *abilities* and *work activities* use three tree levels, which is shown in the "index" parameters for **treemap()** function. 
+
+Additionally, the **treemap()** results use the *squarified* algorithm to determine coordinates, and we set the aspect ratio (width x height) to 1.75. Additional parameters may be set or changed, as the processes are simple to update and re-run without much effort. Note: Code chunks are run manually. They will not be evaluated by running this notebook automatically. 
+
+### Versions
+
+* **v0.1** - completed for all data 7-13-2023 by M. Ginda. 
+  * Implement basic loop designed in the *onet_treemapping_testOccMap_Abilities.R* script;
+    * Loop was modified for Skills and Knowledge element sets.
+* **v0.2** - completed for all data 7-14-2023 by M. Ginda. 
+  * Loop modified to add color palettes for each element set; 
+  * Calculate *x1* and *y1* variables based on width (*w*) and height (*h*) features;
+  * Removed 'NULL' values from *n* varaible;
+  * Revised variable order.
+* **v0.3** - swap vColor and vSize variables
+  * swapped importance and level in the size and color variables. Level is a measure of the relative capability required of an individual to be proficient in a KSA-WA; while importance indicates the significant of the KSA-WA for an occupation in day to day work.
+  * updated the vColorValue with the appropriate variable name.
+  * add min and max level scale anchor values and descriptions to for tool tips.
+
+### Skills Treemap Extraction Loop
+
+```{r loop-skill, eval=FALSE, include=TRUE}
+# Reset
+#sk_out <- data.frame()
+
+## Loop works for Skill ONET elements
+for(i in 1:length(s_occ)){
+  ## Note to identify issues
+  print(paste0("Processing ",i," of ",length(s_occ)," occupations (",
+               round(i/length(s_occ)*100,2),"%)."))
+  
+  # Creates fresh data
+  tmp <- tmp2 <- NA
+  
+  ## select from input data set, by occupation identifier
+  tmp <- sk_in[sk_in$soc_id == s_occ[i],]
+  
+  # Treemap settings, extracts coordinates
+  tmp2 <- treemap(dtf=tmp,
+                  index=c("lvl_1_label","element_name"),
+                  type="value",
+                  algorithm="squarified",
+                  vSize="imp_value",
+                  vColor="lvl_value",
+                  palette=blue_grey,
+                  aspRatio=1.75)$tm
+  
+  # Adds Occupation identifier
+  tmp2$soc_id <- tmp[1,]$soc_id
+  tmp2$title <- tmp[1,]$title
+  
+  # Adds group
+  tmp2$set <- tmp[1,]$groups
+  
+  # Adds element id, element description, n for survey sample size
+  tmp2 <- plyr::join(tmp2,tmp[,c(6,7,8,9)], by="element_name", type="left")
+
+  ## Adds rows to dataframe
+  if(nrow(sk_out)<1){
+    sk_out <- tmp2
+  }
+  else {
+    sk_out <- rbind(sk_out, tmp2)
+  }
+}
+
+#Converts NULL to NA
+sk_out[sk_out$n=='NULL' & !is.na(sk_out$n),]$n <- NA
+
+# Calculates x1 and y1 coordinates for upper corner boundary
+sk_out$x1 <- sk_out$x0 + sk_out$w
+sk_out$y1 <- sk_out$y0 + sk_out$h
+
+## Reorder columns for clarity
+# names(sk_out)
+# names(sk_out[,c(13:15,1,16,2,17:18,3:9,19:20,10:12)])
+sk_out <- sk_out[,c(13:15,1,16,2,17:18,3:9,19:20,10:12)]
+
+#Clean up
+rm(tmp,tmp2,i)
+```
+
+### Knowledge Treemap Extraction Loop
+
+```{r loop-know, eval=FALSE, include=TRUE}
+# Reset
+#kn_out <- data.frame()
+
+## Loop works for Skill ONET elements
+for(i in 1:length(k_occ)){
+  ## Note to identify issues
+  print(paste0("Processing ",i," of ",length(k_occ)," occupations (",
+               round(i/length(k_occ)*100,2),"%)."))
+  
+  # Creates fresh data
+  tmp <- tmp2 <- NA
+  
+  ## select from input data set, by occupation identifier
+  tmp <- kn_in[kn_in$soc_id == k_occ[i],]
+  
+  # Treemap settings, extracts coordinates
+  tmp2 <- treemap(dtf=tmp,
+                  index=c("lvl_1_label","element_name"),
+                  type="value",
+                  algorithm="squarified",
+                  vSize="imp_value",
+                  vColor="lvl_value",
+                  palette=green,
+                  aspRatio=1.75)$tm
+  
+  # Adds Occupation identifier
+  tmp2$soc_id <- tmp[1,]$soc_id
+  tmp2$title <- tmp[1,]$title
+  
+  # Adds group
+  tmp2$set <- tmp[1,]$groups
+  
+  # Adds element id, element description, n for survey sample size
+  tmp2 <- plyr::join(tmp2,tmp[,c(6,7,8,9)], by="element_name", type="left")
+
+  ## Adds rows to dataframe
+  if(nrow(kn_out)<1){
+    kn_out <- tmp2
+  }
+  else {
+    kn_out <- rbind(kn_out, tmp2)
+  }
+}
+
+#Clear NULLS
+kn_out[kn_out$n=='NULL' & !is.na(kn_out$n),]$n <- NA
+
+# Calculates x1 and y1 coordinates for upper corner boundary
+kn_out$x1 <- kn_out$x0 + kn_out$w
+kn_out$y1 <- kn_out$y0 + kn_out$h
+
+## Reorder columns for clarity
+# names(sk_out)
+# names(sk_out[,c(13:15,1,16,2,17:18,3:9,19:20,10:12)])
+kn_out <- kn_out[,c(13:15,1,16,2,17:18,3:9,19:20,10:12)]
+
+#Clean up
+rm(tmp,tmp2,i)
+```
+
+### Work Activities Treemap Extraction Loop
+
+```{r loop-work, eval=FALSE, include=TRUE}
+# Reset
+#wa_out <- data.frame()
+
+# Loop works for Work Activities ONET elements
+for(i in 1:length(w_occ)){
+  ## Note to identify issues
+  print(paste0("Processing ",i," of ",length(w_occ)," occupations (",
+               round(i/length(w_occ)*100,2),"%)."))
+  
+  # Creates fresh data
+  tmp <- tmp2 <- NA
+  
+  ## select from input data set, by occupation identifier
+  tmp <- wa_in[wa_in$soc_id == w_occ[i],]
+  
+  # Treemap settings, extracts coordinates
+  tmp2 <- treemap(dtf=tmp,
+                  index=c("lvl_1_label","lvl_2_label","element_name"),
+                  type="value",
+                  algorithm="squarified",
+                  vSize="imp_value",
+                  vColor="lvl_value",
+                  palette=reds,
+                  aspRatio=1.75)$tm
+  
+  # Adds Occupation identifier
+  tmp2$soc_id <- tmp[1,]$soc_id
+  tmp2$title <- tmp[1,]$title
+  
+  # Adds group
+  tmp2$set <- tmp[1,]$groups
+  
+  # Adds element id, element description, n for survey sample size
+  tmp2 <- plyr::join(tmp2,tmp[,c(8,9,10,11)], by="element_name", type="left")
+
+  ## Adds rows to dataframe
+  if(nrow(wa_out)<1){
+    wa_out <- tmp2
+  }
+  else {
+    wa_out <- rbind(wa_out, tmp2)
+  }
+}
+
+#Clear NULLS
+wa_out[wa_out$n=='NULL' & !is.na(wa_out$n),]$n <- NA
+
+# Creates x1 and y1 calculations
+wa_out$x1 <- wa_out$x0 + wa_out$w
+wa_out$y1 <- wa_out$y0 + wa_out$h
+
+## Reorder columns for clarity
+#names(wa_out)
+#names(wa_out[,c(14:16,1:2,17,3,18:19,4:10,20,21,11:13)])
+wa_out <- wa_out[,c(14:16,1:2,17,3,18:19,4:10,20,21,11:13)]
+
+#Clean up
+rm(tmp,tmp2,i)
+```
+
+### Abilities Treemap Extraction Loop
+
+```{r loop-abil, eval=FALSE, include=TRUE}
+# Loop works for Abilities and Work Activities ONET elements
+for(i in 1:length(a_occ)){
+  #Note to identify issues
+  print(paste0("Processing ",i," of ",length(a_occ)," occupations."))
+  
+  # Creates fresh data
+  tmp <- tmp2 <- NA
+  
+  # select from input data set, by occupation identifier
+  tmp <- ab_in[ab_in$soc_id == a_occ[i],]
+  
+  # Treemap settings, extracts coordinates
+  tmp2 <- treemap(dtf=tmp,
+                  index=c("lvl_1_label","lvl_2_label","element_name"),
+                  type="value",
+                  algorithm="squarified",
+                  vSize="imp_value",
+                  vColor="lvl_value",
+                  palette=orange,
+                  aspRatio=1.75)$tm
+  
+  # Adds Occupation identifier
+  tmp2$soc_id <- tmp[1,]$soc_id
+  tmp2$title <- tmp[1,]$title
+  
+  # Adds group
+  tmp2$set <- tmp[1,]$groups
+  
+  # Adds element id, element description, n for survey sample size
+  tmp2 <- plyr::join(tmp2,tmp[,c(8,9,10,11)], by="element_name", type="left")
+
+  # Adds rows to dataframe
+  if(nrow(ab_out)<1){
+    ab_out <- tmp2
+  }
+  else {
+    ab_out <- rbind(ab_out, tmp2)
+  }
+}
+
+# Clear NULLS
+ab_out[ab_out$n=='NULL' & !is.na(ab_out$n),]$n <- NA
+
+# Creates x1 and y1 calculations
+ab_out$x1 <- ab_out$x0 + ab_out$w
+ab_out$y1 <- ab_out$y0 + ab_out$h
+
+## Reorder columns for clarity
+#names(ab_out)
+#names(ab_out[,c(14:16,1:2,17,3,18:19,4:10,20,21,11:13)])
+ab_out <- ab_out[,c(14:16,1:2,17,3,18:19,4:10,20,21,11:13)]
+
+#Clean up
+rm(tmp,tmp2,i)
+```
+
+## Adding scale anchor descriptions to each element.
+
+```{r scale_labs, eval=FALSE, include=TRUE}
+
+#Abilities
+ab_out <- join(ab_out,scale_max[,c(1,4,5)], by='element_id')
+names(ab_out)[22:23] <- c("max_anchor_val","max_anchor_descr")
+ab_out <- join(ab_out,scale_min[,c(1,4,5)], by='element_id')
+names(ab_out)[24:25] <- c("min_anchor_val","min_anchor_descr")
+
+#Activities
+wa_out <- join(wa_out,scale_max[,c(1,4,5)], by='element_id')
+names(wa_out)[22:23] <- c("max_anchor_val","max_anchor_descr")
+wa_out <- join(wa_out,scale_min[,c(1,4,5)], by='element_id')
+names(wa_out)[24:25] <- c("min_anchor_val","min_anchor_descr")
+
+#Knowledge
+kn_out <- join(kn_out,scale_max[,c(1,4,5)], by='element_id')
+names(kn_out)[21:22] <- c("max_anchor_val","max_anchor_descr")
+kn_out <- join(kn_out,scale_min[,c(1,4,5)], by='element_id')
+names(kn_out)[23:24] <- c("min_anchor_val","min_anchor_descr")
+
+#Skills
+sk_out <- join(sk_out,scale_max[,c(1,4,5)], by='element_id')
+names(sk_out)[21:22] <- c("max_anchor_val","max_anchor_descr")
+sk_out <- join(sk_out,scale_min[,c(1,4,5)], by='element_id')
+names(sk_out)[23:24] <- c("min_anchor_val","min_anchor_descr")
+```
+
+## Exporting Results
+
+This chunk saves results in the output data file, and appends the system data for when processing was completed by the analyst. All files are saved individually.
+
+```{r save_results, eval=FALSE, include=TRUE}
+# Renaming vars
+names(sk_out)[4] <- names(kn_out)[4] <- "group"
+names(ab_out)[4:5] <- names(wa_out)[4:5] <-
+  c("group","subgroup")
+
+# Setting imp and lvl value labels
+#Skills
+sk_out <- cbind(sk_out,sk_out$vSize )
+names(sk_out)[25] <- 'importance_size'
+names(sk_out)[12] <- 'level_col'
+sk_out <- sk_out[,c(1:12,25,13:24)]
+
+#Knowledge
+kn_out <- cbind(kn_out,kn_out$vSize )
+names(kn_out)[25] <- 'importance_size'
+names(kn_out)[12] <- 'level_col'
+kn_out <- kn_out[,c(1:12,25,13:24)]
+
+#Abilities
+ab_out <- cbind(ab_out,ab_out$vSize )
+names(ab_out)[26] <- 'importance_size'
+names(ab_out)[13] <- 'level_col'
+ab_out <- ab_out[,c(1:13,26,14:25)]
+
+#Activities
+wa_out <- cbind(wa_out,wa_out$vSize )
+names(wa_out)[26] <- 'importance_size'
+names(wa_out)[13] <- 'level_col'
+wa_out <- wa_out[,c(1:13,26,14:25)]
+names(wa_out)
+
+# Save results to data files
+write.csv(ab_out, file=paste0("./output/onet27_occ_abilities_treemap_",
+                              Sys.Date(),".csv"), row.names = F)
+write.csv(wa_out, file=paste0("./output/onet27_occ_workactivities_treemap_",
+                              Sys.Date(),".csv"), row.names = F)
+write.csv(sk_out, file=paste0("./output/onet27_occ_skills_treemap_",
+                              Sys.Date(),".csv"), row.names = F)
+write.csv(kn_out, file=paste0("./output/onet27_occ_knowledge_treemap_",
+                              Sys.Date(),".csv"), row.names = F)
+```
