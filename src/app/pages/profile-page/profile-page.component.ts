@@ -19,22 +19,14 @@ import { WorkTasksListComponent } from 'src/app/work-tasks-list/work-tasks-list.
 
 /** Queried job data format */
 export interface AllJobInfo {
-  /** Job data value */
-  [key: string]: unknown;
+  /** Job id */
+  soc_id?: string;
+  /** Job title */
+  title?: string;
+  /** Job description */
+  descr?: string;
   /** List of alternative job titles */
   alt_titles?: string[];
-  /** Job zone (preparedness level) */
-  job_zone?: number;
-  /** List of technology skills */
-  tech_skills?: TechSkill[];
-  /** List of work tasks */
-  work_tasks?: WorkTasks[];
-  /** List of state salary info */
-  salary_states?: SalaryInfo[];
-  /** List of national salary info */
-  salary_nat?: SalaryInfo[];
-  /** List of industry salary info */
-  salary_ind?: SalaryInfo[];
   /** Abilities treemap data */
   behaviors_abilities?: TreemapData[];
   /** Work activities treemap data */
@@ -43,6 +35,30 @@ export interface AllJobInfo {
   behaviors_skills?: TreemapData[];
   /** Knowledge treemap data */
   behaviors_knowledge?: TreemapData[];
+  /** Job zone (preparedness level) */
+  job_zone?: number;
+  /** Preparedness education */
+  education?: string;
+  /** Preparedness related experience */
+  experience?: string;
+  /** Prepardness job training */
+  job_training?: string;
+  /** Preparedness examples */
+  example?: string;
+  /** Preparedness SVP description */
+  svp_desc?: string;
+  /** Preparedness SVP range */
+  svp_range?: string;
+  /** List of work tasks */
+  work_tasks?: WorkTasks[];
+  /** List of technology skills */
+  tech_skills?: TechSkill[];
+  /** List of state salary info */
+  salary_states?: SalaryInfo[];
+  /** List of national salary info */
+  salary_nat?: SalaryInfo[];
+  /** List of industry salary info */
+  salary_ind?: SalaryInfo[];
   /** List of industry projection data */
   projections?: ProjectionInfo[];
   /** National employed total */
@@ -75,6 +91,10 @@ export interface WorkTasks {
   importance: number;
   /** Relevance of task */
   relevance: number;
+  /** Alternate job id */
+  soc_id_alt?: string;
+  /** Alternate job title */
+  title_id_alt?: string;
 }
 
 /** Info on salary */
@@ -117,6 +137,8 @@ export interface SalaryInfo {
 
 /** Treemap data entry */
 export interface TreemapData {
+  /** Job id */
+  soc_id: string;
   /** Element name */
   element_name: string;
   /** Parent group */
@@ -133,6 +155,18 @@ export interface TreemapData {
   x1: number;
   /** y1 coordinate */
   y1: number;
+  /** Importance rating */
+  importance_size: number;
+  /** Proficiency level */
+  level_col: number;
+  /** Min value */
+  min_anchor_val: number;
+  /** Someone who is capable of the min */
+  min_anchor_descr: string;
+  /** Max value */
+  max_anchor_val: number;
+  /** Someone who is capable of the max */
+  max_anchor_descr: string;
 }
 
 /** Occupation projection info */
@@ -202,22 +236,7 @@ export class ProfilePageComponent implements OnInit {
   @ViewChild('treemap4') treemap4: TreemapComponent = new TreemapComponent();
 
   /** Current job info */
-  currentJobInfo: AllJobInfo = {
-    alt_titles: [],
-    job_zone: 1,
-    tech_skills: [],
-    work_tasks: [],
-    salary_states: [],
-    salary_nat: [],
-    salary_ind: [],
-    projections: [],
-    employed_nat: 0,
-    employed_10_nat: 0,
-    per_change_10_nat: 0,
-    bright_futures: '',
-    automation_risk: '',
-    near_future: '',
-  };
+  currentJobInfo: AllJobInfo = {};
 
   /** Tech skills for the job (each pair = type of tech, list of examples for that tech)  */
   techSkills: [string, string[]][] = [];
@@ -252,6 +271,9 @@ export class ProfilePageComponent implements OnInit {
   /** Abilities data */
   treemapAbilitiesData: TreemapData[] = [];
 
+  /** Whether all treemap data is missing */
+  noTreemap = false;
+
   /** Occupation projection data */
   projectionInfo: ProjectionInfo[] = [];
 
@@ -268,8 +290,8 @@ export class ProfilePageComponent implements OnInit {
    * Gets automation description
    */
   get automationDescription(): string {
-    if (this.currentJobInfo['automation_risk']) {
-      return `This job has a ${this.currentJobInfo['automation_risk'].toLowerCase()} risk of automation.`;
+    if (this.currentJobInfo.automation_risk) {
+      return `This job has a ${this.currentJobInfo.automation_risk.toLowerCase()} risk of automation.`;
     } else {
       return 'No data';
     }
@@ -279,9 +301,9 @@ export class ProfilePageComponent implements OnInit {
    * Gets outlook description
    */
   get outlookDescription(): string {
-    return this.currentJobInfo['near_future']
-      ? this.currentJobInfo['near_future']
-      : outlookDescriptions[this.currentJobInfo['bright_futures'] || ''] || 'No data';
+    return this.currentJobInfo.near_future
+      ? this.currentJobInfo.near_future
+      : outlookDescriptions[this.currentJobInfo.bright_futures || ''] || 'No data';
   }
 
   /**
@@ -313,7 +335,7 @@ export class ProfilePageComponent implements OnInit {
         parameter = 'tot_emp';
         break;
     }
-    return dataset.filter((value) => value['year'] === 2022).filter((entry) => entry[parameter]).length === 0;
+    return dataset.filter((value) => value.year === 2022).filter((entry) => entry[parameter]).length === 0;
   }
 
   /**
@@ -325,40 +347,59 @@ export class ProfilePageComponent implements OnInit {
     return this.http.get(`assets/profiles/${code}/metadata.json`, { responseType: 'text' }).pipe(
       tap((result) => {
         this.currentJobInfo = JSON.parse(result);
-        if (this.currentJobInfo['tech_skills']) {
-          this.setSkillsGrouping(this.currentJobInfo['tech_skills']);
+        const {
+          tech_skills,
+          salary_states,
+          salary_nat,
+          salary_ind,
+          work_tasks,
+          behaviors_work_activities,
+          behaviors_skills,
+          behaviors_knowledge,
+          behaviors_abilities,
+          projections,
+          employed_nat,
+          employed_10_nat,
+          per_change_10_nat,
+        } = this.currentJobInfo;
+
+        if (tech_skills) {
+          this.setSkillsGrouping(tech_skills);
         }
-        if (this.currentJobInfo['salary_states']) {
-          this.salaryStatesInfo = this.currentJobInfo['salary_states'];
+        if (salary_states) {
+          this.salaryStatesInfo = salary_states;
         }
-        if (this.currentJobInfo['salary_nat']) {
-          this.salaryNatInfo = this.currentJobInfo['salary_nat'];
+        if (salary_nat) {
+          this.salaryNatInfo = salary_nat;
         }
-        if (this.currentJobInfo['salary_ind']) {
-          this.salaryIndInfo = this.currentJobInfo['salary_ind'];
+        if (salary_ind) {
+          this.salaryIndInfo = salary_ind;
         }
-        if (this.currentJobInfo['work_tasks']) {
-          this.workTasks = this.currentJobInfo['work_tasks'];
+        if (work_tasks) {
+          this.workTasks = work_tasks;
         }
-        if (this.currentJobInfo['behaviors_work_activities']) {
-          this.treemapWorkActivitiesData = this.currentJobInfo['behaviors_work_activities'];
+        if (behaviors_work_activities) {
+          this.treemapWorkActivitiesData = behaviors_work_activities;
         }
-        if (this.currentJobInfo['behaviors_skills']) {
-          this.treemapSkillsData = this.currentJobInfo['behaviors_skills'];
+        if (behaviors_skills) {
+          this.treemapSkillsData = behaviors_skills;
         }
-        if (this.currentJobInfo['behaviors_knowledge']) {
-          this.treemapKnowledgeData = this.currentJobInfo['behaviors_knowledge'];
+        if (behaviors_knowledge) {
+          this.treemapKnowledgeData = behaviors_knowledge;
         }
-        if (this.currentJobInfo['behaviors_abilities']) {
-          this.treemapAbilitiesData = this.currentJobInfo['behaviors_abilities'];
+        if (behaviors_abilities) {
+          this.treemapAbilitiesData = behaviors_abilities;
         }
-        if (this.currentJobInfo['projections']) {
-          this.projectionInfo = this.currentJobInfo['projections'];
+        if (!behaviors_abilities && !behaviors_knowledge && !behaviors_skills && !behaviors_work_activities) {
+          this.noTreemap = true;
+        }
+        if (projections) {
+          this.projectionInfo = projections;
           this.projectionInfo.push({
             industry_title: 'National average',
-            employed: this.currentJobInfo['employed_nat'],
-            employed_10: this.currentJobInfo['employed_10_nat'],
-            per_change_10: this.currentJobInfo['per_change_10_nat'],
+            employed: employed_nat,
+            employed_10: employed_10_nat,
+            per_change_10: per_change_10_nat,
           });
         }
       })
@@ -416,6 +457,10 @@ export class ProfilePageComponent implements OnInit {
    * Refreshs all treemaps
    */
   refreshTreemaps(): void {
-    [this.treemap1, this.treemap2, this.treemap3, this.treemap4].forEach((treemap) => treemap.reload());
+    [this.treemap1, this.treemap2, this.treemap3, this.treemap4].forEach((treemap) => {
+      if (treemap) {
+        treemap.reload();
+      }
+    });
   }
 }

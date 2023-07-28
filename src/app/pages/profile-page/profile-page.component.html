@@ -1,19 +1,19 @@
 <div class="search" style="background: url(assets/landing-background.png) 50% / cover no-repeat">
   <div class="search-content">
     <div class="search-title">Search Occupations</div>
-    <trust-ai-search-box class="search-box" placeholder="{{ currentJobInfo['title'] }}"></trust-ai-search-box>
+    <trust-ai-search-box class="search-box" placeholder="{{ currentJobInfo.title }}"></trust-ai-search-box>
   </div>
 </div>
 
 <div class="profile-section description">
   <div class="section-header">
-    <div class="section-title">{{ currentJobInfo['title'] }}</div>
-    <div class="code">{{ currentJobInfo['soc_id'] }}</div>
+    <div class="section-title">{{ currentJobInfo.title }}</div>
+    <div class="code">{{ currentJobInfo.soc_id }}</div>
   </div>
   <div class="content">
     <div class="sub-section">
       <div class="sub-section-title">Occupation Description</div>
-      <div class="sub-section-content">{{ currentJobInfo['descr'] }}</div>
+      <div class="sub-section-content">{{ currentJobInfo.descr }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Reported job title examples</div>
@@ -28,12 +28,22 @@
   </div>
   <div class="content">
     <div class="job-header">
-      <div class="code">{{ currentJobInfo['soc_id'] }}</div>
-      <div class="section-title">{{ currentJobInfo['title'] }}</div>
+      <div class="code">{{ currentJobInfo.soc_id }}</div>
+      <div class="section-title">{{ currentJobInfo.title }}</div>
     </div>
-    <div class="treemaps">
+    <div class="visualization-description">
+      Each treemap visualization represents the set of knowledge, skills, abilities, and work activities that are
+      important for someone employed in this occupation. The size (area) of each element corresponds to the overall
+      importance rating an element has for an occupation. Importance ratings range between 1 and 5; larger value
+      indicates an element is more important for an occupation. Elements are also rated for the level of proficiency
+      need by someone employed in this occupation. Proficiency is ratings range between 0 to 7; larger values indicate
+      an element is requires high levels of proficiency for people employed in this occupation.. Some occupations have
+      not been evaluated for knowledge or activity elements. Importance and level of proficiency ratings are taken from
+      the O*NET database (v. 27.2).
+    </div>
+    <div [class.no-data]="noTreemap" class="treemaps">
       <mat-tab-group (selectedTabChange)="refreshTreemaps()" fitInkBarToContent disablePagination>
-        <mat-tab label="Activities">
+        <mat-tab *ngIf="treemapWorkActivitiesData.length > 0" label="Activities">
           <div class="treemaps-title">Activities by Importance</div>
           <div class="missing-text" [class.hidden]="treemapWorkActivitiesData.length > 0">No data</div>
           <trust-ai-treemap
@@ -43,13 +53,13 @@
           >
           </trust-ai-treemap>
         </mat-tab>
-        <mat-tab label="Skills">
+        <mat-tab *ngIf="treemapSkillsData.length > 0" label="Skills">
           <div class="treemaps-title">Skills by Importance</div>
           <div class="missing-text" [class.hidden]="treemapSkillsData.length > 0">No data</div>
           <trust-ai-treemap [class.hidden]="treemapSkillsData.length === 0" #treemap2 [skillsData]="treemapSkillsData">
           </trust-ai-treemap>
         </mat-tab>
-        <mat-tab label="Knowledge">
+        <mat-tab *ngIf="treemapKnowledgeData.length > 0" label="Knowledge">
           <div class="treemaps-title">Knowledge by Importance</div>
           <div class="missing-text" [class.hidden]="treemapKnowledgeData.length > 0">No data</div>
           <trust-ai-treemap
@@ -59,7 +69,7 @@
           >
           </trust-ai-treemap>
         </mat-tab>
-        <mat-tab label="Abilities">
+        <mat-tab *ngIf="treemapAbilitiesData.length > 0" label="Abilities">
           <div class="treemaps-title">Abilities by Importance</div>
           <div class="missing-text" [class.hidden]="treemapAbilitiesData.length > 0">No data</div>
           <trust-ai-treemap
@@ -71,6 +81,7 @@
         </mat-tab>
       </mat-tab-group>
     </div>
+    <div class="missing-text" [class.hidden]="!noTreemap">No data</div>
   </div>
 </div>
 
@@ -82,11 +93,11 @@
     <div class="sub-section">
       <div class="sub-section-title">
         <img
-          *ngIf="currentJobInfo['job_zone']"
+          *ngIf="currentJobInfo.job_zone"
           class="preparation-level"
-          src="{{ 'assets/icons/counter_' + currentJobInfo['job_zone'] + '.svg' }}"
+          src="{{ 'assets/icons/counter_' + currentJobInfo.job_zone + '.svg' }}"
         />
-        {{ currentJobInfo['job_zone'] ? preparednessLevel(currentJobInfo['job_zone']) : '' }}
+        {{ currentJobInfo.job_zone ? preparednessLevel(currentJobInfo.job_zone) : '' }}
       </div>
       <div class="sub-section-content">
         Preparedness Levels group occupations into one of five categories based on levels of education, experience, and
@@ -95,23 +106,23 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Education</div>
-      <div class="sub-section-content">{{ currentJobInfo['education'] }}</div>
+      <div class="sub-section-content">{{ currentJobInfo.education }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Related Experience</div>
-      <div class="sub-section-content">{{ currentJobInfo['experience'] }}</div>
+      <div class="sub-section-content">{{ currentJobInfo.experience }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Job Training</div>
-      <div class="sub-section-content">{{ currentJobInfo['job_training'] }}</div>
+      <div class="sub-section-content">{{ currentJobInfo.job_training }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Preparedness Examples</div>
-      <div class="sub-section-content">{{ currentJobInfo['example'] }}</div>
+      <div class="sub-section-content">{{ currentJobInfo.example }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Specific Vocational Preparation (SVP) Range</div>
-      <div class="sub-section-content">{{ currentJobInfo['svp_desc'] }} ({{ currentJobInfo['svp_range'] }})</div>
+      <div class="sub-section-content">{{ currentJobInfo.svp_desc }} ({{ currentJobInfo.svp_range }})</div>
     </div>
   </div>
 </div>
@@ -122,8 +133,13 @@
   </div>
   <div class="content">
     <div class="job-header">
-      <div class="code">{{ currentJobInfo['soc_id'] }}</div>
-      <div class="section-title">{{ currentJobInfo['title'] }}</div>
+      <div class="code">{{ currentJobInfo.soc_id }}</div>
+      <div class="section-title">{{ currentJobInfo.title }}</div>
+    </div>
+    <div class="job-header" *ngIf="workTasks[0] && workTasks[0].title_id_alt">
+      <div class="code">
+        {{ '(' + 'Showing ' + workTasks[0].title_id_alt + ', ' + workTasks[0].soc_id_alt + ')' }}
+      </div>
     </div>
     <trust-ai-work-tasks-list
       [tasks]="workTasks"
@@ -139,8 +155,8 @@
   </div>
   <div class="content">
     <div class="job-header">
-      <div class="code">{{ currentJobInfo['soc_id'] }}</div>
-      <div class="section-title">{{ currentJobInfo['title'] }}</div>
+      <div class="code">{{ currentJobInfo.soc_id }}</div>
+      <div class="section-title">{{ currentJobInfo.title }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">Technology Skills by Importance</div>
@@ -162,16 +178,21 @@
   </div>
   <div class="content">
     <div class="job-header">
-      <div class="code">{{ currentJobInfo['soc_id'] }}</div>
-      <div class="section-title">{{ currentJobInfo['title'] }}</div>
+      <div class="code">{{ currentJobInfo.soc_id }}</div>
+      <div class="section-title">{{ currentJobInfo.title }}</div>
     </div>
     <div class="sub-section">
       <div class="sub-section-title">
-        <div class="title-text">Average Salary (2022)</div>
+        <div class="title-text">Distribution of National Wage Estimates</div>
         <mat-button-toggle-group [(ngModel)]="salaryNatSelection">
           <mat-button-toggle value="annual">Annual</mat-button-toggle>
           <mat-button-toggle value="hourly">Hourly</mat-button-toggle>
         </mat-button-toggle-group>
+      </div>
+      <div class="visualization-description">
+        These line graphs show this occupation’s annual salary and hourly wage for the 10th, 25th, 50th, 75th and 90th
+        percentiles for persons employed in this occupation across the US. Wage data comes from the Occupation
+        Employment and Wage Statistics (May 2022), which are published annually by the US Bureau of Labor Statistics.
       </div>
       <div class="sub-section-content salary-nat" [class.no-data]="isEmpty(salaryNatInfo, salaryNatSelection)">
         <div class="missing-text" [class.hidden]="!isEmpty(salaryNatInfo, salaryNatSelection)">No data</div>
@@ -185,11 +206,17 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">
-        <div class="title-text">Average Wage By State (2022)</div>
+        <div class="title-text">Average Wage by State</div>
         <mat-button-toggle-group [(ngModel)]="salaryStatesSelection">
           <mat-button-toggle value="annual">Annual</mat-button-toggle>
           <mat-button-toggle value="hourly">Hourly</mat-button-toggle>
         </mat-button-toggle-group>
+      </div>
+      <div class="visualization-description">
+        These maps show the annual salary and hourly wage for persons employed in this occupation at the state level.
+        The maps use a divergent color scale to highlight the states with the highest and lowest average wage. Wage data
+        comes from the Occupation Employment and Wage Statistics (May 2022), which are published annually by the US
+        Bureau of Labor Statistics.
       </div>
       <div class="sub-section-content salary-states" [class.no-data]="isEmpty(salaryStatesInfo, salaryStatesSelection)">
         <div class="missing-text" [class.hidden]="!isEmpty(salaryStatesInfo, salaryStatesSelection)">No data</div>
@@ -203,11 +230,16 @@
     </div>
     <div class="sub-section">
       <div class="sub-section-title">
-        <div class="title-text">Top Five Highest Earning Industries (2022)</div>
+        <div class="title-text">Distribution of Wages by Industry</div>
         <mat-button-toggle-group [(ngModel)]="salaryIndSelection">
           <mat-button-toggle value="annual">Annual</mat-button-toggle>
           <mat-button-toggle value="hourly">Hourly</mat-button-toggle>
         </mat-button-toggle-group>
+      </div>
+      <div class="visualization-description">
+        The boxplots in this graph show the distribution of annual salary and hourly wage for the five industries paying
+        the highest average wage for those employed in this occupation. Wage data comes from the Occupation Employment
+        and Wage Statistics (May 2022), which are published annually by the US Bureau of Labor Statistics.
       </div>
       <div class="sub-section-content salary-ind" [class.no-data]="isEmpty(salaryIndInfo, salaryIndSelection)">
         <div class="missing-text" [class.hidden]="!isEmpty(salaryIndInfo, salaryIndSelection)">No data</div>
@@ -229,11 +261,17 @@
   </div>
   <div class="content">
     <div class="job-header">
-      <div class="code">{{ currentJobInfo['soc_id'] }}</div>
-      <div class="section-title">{{ currentJobInfo['title'] }}</div>
+      <div class="code">{{ currentJobInfo.soc_id }}</div>
+      <div class="section-title">{{ currentJobInfo.title }}</div>
     </div>
     <div class="sub-section">
-      <div class="sub-section-title">Number of Occupations by State (2022)</div>
+      <div class="sub-section-title">Employment by State</div>
+      <div class="visualization-description">
+        This map shows the estimated number of people employed in this occupation at the state level. The maps use a
+        divergent color scale to highlight the states with the highest and lowest average wage. Employment estimates
+        comes from the Occupation Employment and Wage Statistics (May 2022)), which are published annually by the US
+        Bureau of Labor Statistics.
+      </div>
       <div class="sub-section-content" [class.no-data]="isEmpty(salaryStatesInfo, 'emp')">
         <div class="missing-text" [class.hidden]="!isEmpty(salaryStatesInfo, 'emp')">No data</div>
         <trust-ai-profile-employment
@@ -251,12 +289,19 @@
   </div>
   <div class="content">
     <div class="job-header">
-      <div class="code">{{ currentJobInfo['soc_id'] }}</div>
-      <div class="section-title">{{ currentJobInfo['title'] }}</div>
+      <div class="code">{{ currentJobInfo.soc_id }}</div>
+      <div class="section-title">{{ currentJobInfo.title }}</div>
     </div>
     <div class="sub-section">
-      <div class="sub-section-title">Occupation Projection</div>
-      <div class="sub-section-content projection" [class.no-data]="projectionInfo.length === 0">
+      <div class="sub-section-title">Employment Projections (10 Years)</div>
+      <div class="visualization-description">
+        These horizontal line graphs show the estimated change employment (%) for this occupation between 2021 and 2031.
+        The first line shows the national percent change in employment; while preceding lines show industries that
+        employ the most people in this occupation in 2021. Line color is used to highlight positive and negative change
+        predicted in ten years. These projections come from the Occupational Employment Projections, which are published
+        annually by the US Bureau of Labor Statistics.
+      </div>
+      <div class="sub-section-content" [class.no-data]="projectionInfo.length === 0">
         <div class="missing-text" [class.hidden]="projectionInfo.length > 0">No data</div>
         <trust-ai-profile-occupation-projection
           [dataProjections]="projectionInfo"
@@ -282,7 +327,7 @@
     <div class="sub-section">
       <div
         class="sub-section-title"
-        matBadge="{{ currentJobInfo['automation_risk'] }}"
+        matBadge="{{ currentJobInfo.automation_risk }}"
         matBadgeOverlap="false"
         matBadgePosition="after"
       >
@@ -291,37 +336,35 @@
       <div class="sub-section-content">
         {{ automationDescription }}
       </div>
-
-      <div class="resources">
-        <div class="resources-title">Future of Work Resources</div>
-        <div class="resources-content">
-          <div class="button-group">
-            <button
-              class="resource-link"
-              onClick="window.open('https://www.oxfordmartin.ox.ac.uk/downloads/academic/future-of-employment.pdf')"
-              mat-stroked-button
-              color="primary"
-            >
-              Future of Employment Report
-            </button>
-            <button
-              class="resource-link"
-              onClick="window.open('https://www.onetcenter.org/future_of_work')"
-              mat-stroked-button
-              color="primary"
-            >
-              Future of Work: Bibliography of Papers
-            </button>
-          </div>
+    </div>
+    <div class="sub-section resources">
+      <div class="resources-title">Future of Work Resources</div>
+      <div class="resources-content">
+        <div class="button-group">
+          <button
+            class="resource-link"
+            onClick="window.open('https://www.oxfordmartin.ox.ac.uk/downloads/academic/future-of-employment.pdf')"
+            mat-stroked-button
+            color="primary"
+          >
+            Future of Employment Report
+          </button>
+          <button
+            class="resource-link"
+            onClick="window.open('https://www.onetcenter.org/future_of_work')"
+            mat-stroked-button
+            color="primary"
+          >
+            Future of Work: Bibliography of Papers
+          </button>
         </div>
       </div>
     </div>
   </div>
-  <div class="sub-section"></div>
 </div>
 
 <div class="profile-bottom">
-  <div>{{ currentJobInfo['soc_id'] }}</div>
-  <div>{{ currentJobInfo['title'] }}</div>
+  <div>{{ currentJobInfo.soc_id }}</div>
+  <div>{{ currentJobInfo.title }}</div>
   <button class="scroll-top-button" (click)="scrollToTop()" mat-stroked-button color="primary">Back to Top</button>
 </div>

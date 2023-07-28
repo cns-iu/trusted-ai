@@ -32,7 +32,7 @@ export class ProfileEmploymentComponent implements OnChanges {
    */
   async ngOnChanges(changes: SimpleChanges): Promise<void> {
     if ('dataStates' in changes) {
-      this.spec = createStatePlot(this.dataStates, 'employment');
+      this.spec = createStatePlot(this.dataStates, 'emp');
     }
     if (this.vis) {
       await embed(this.vis.nativeElement, this.spec, { actions: false, renderer: 'svg' });

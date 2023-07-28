@@ -64,10 +64,11 @@ const stateIds: Record<string, string> = {
 /**
  * Parses data for national salary visualization
  * @param values Salary data
+ * @param type type of data to graph
  * @returns parsed data
  */
 export function parseNatData(values: SalaryInfo[], type: 'hourly' | 'annual' | 'emp'): unknown[] {
-  const mostRecentData = values.find(value => value['year'] === 2022) || {}
+  const mostRecentData = values.find(value => value.year === 2022) || {}
   return [
     {
       percentile: .10,
@@ -95,12 +96,13 @@ export function parseNatData(values: SalaryInfo[], type: 'hourly' | 'annual' | '
 /**
  * Parses data for state salary visualization
  * @param values Salary data
+ * @param type type of data to graph
  * @returns parsed data
  */
 export function parseStateData(values: SalaryInfo[], type?: 'hourly' | 'annual' | 'emp'): SalaryInfo[] {
-  const mostRecentData = values.filter(value => value['year'] === 2022);
+  const mostRecentData = values.filter(value => value.year === 2022);
   const allStates = Object.keys(stateIds);
-  const statesWithData = mostRecentData.map(value => value['place_name']);
+  const statesWithData = mostRecentData.map(value => value.place_name);
   for (const state of allStates) {
     if (!statesWithData.includes(state)) {
       mostRecentData.push(
@@ -114,10 +116,10 @@ export function parseStateData(values: SalaryInfo[], type?: 'hourly' | 'annual' 
   }
   return mostRecentData.map(value => {
     return {
-      state: value['place_name'],
-      id: stateIds[value['place_name'] as string],
+      state: value.place_name,
+      id: stateIds[value.place_name as string],
       mean: value[type === 'annual' ? 'a_mean' : 'h_mean'],
-      tot_emp: value['tot_emp']
+      tot_emp: value.tot_emp
     }
   })
 }
@@ -125,15 +127,16 @@ export function parseStateData(values: SalaryInfo[], type?: 'hourly' | 'annual' 
 /**
  * Parses data for industry salary visualization
  * @param values Salary data
+ * @param type type of data to graph
  * @returns parsed data
  */
 export function parseIndData(values: SalaryInfo[], type: 'hourly' | 'annual' | 'emp'): unknown[] {
   const sortBy = type === 'annual' ? 'a_mean' : 'h_mean';
-  return values.filter(value => value['year'] === 2022)
+  return values.filter(value => value.year === 2022)
     .sort((a, b) => (b[sortBy] || 0) - (a[sortBy] || 0))
     .map(value => {
       return {
-        industry_name: value['industry_name'],
+        industry_name: value.industry_name,
         lower_whisker_salary: value[type === 'annual' ? 'a_pct10' : 'h_pct10'],
         lower_box_salary: value[type === 'annual' ? 'a_pct25' : 'h_pct25'],
         mid_box_salary: value[type === 'annual' ? 'a_median' : 'h_median'],
@@ -151,18 +154,25 @@ export function parseIndData(values: SalaryInfo[], type: 'hourly' | 'annual' | '
  */
 function parseTreemapData(values: TreemapData[], layers: number): unknown[] {
   return values.map(entry => {
-    const entryNames = [entry['element_name'], entry['sub_group'], entry['group']].filter(entry => entry)
+    const entryNames = [entry.element_name, entry.sub_group, entry.group].filter(entry => entry)
     return {
+      soc_id: entry.soc_id,
       name: entryNames[0],
       parent_group: entryNames[1],
       grandparent_group: entryNames.length === 3 ? entryNames[2] : null,
-      x0: entry['x0'],
-      y0: entry['y0'],
-      x1: entry['x1'],
-      y1: entry['y1'],
-      depth: entry['level'],
-      children: entry['element_name'] ? 0 : 1,
-      layers: layers
+      x0: entry.x0,
+      y0: entry.y0,
+      x1: entry.x1,
+      y1: entry.y1,
+      depth: entry.level,
+      children: entry.element_name ? 0 : 1,
+      layers: layers,
+      importance_rating: entry.importance_size,
+      proficiency_level: entry.level_col,
+      min_value: entry.min_anchor_val,
+      min_descr: entry.min_anchor_descr,
+      max_value: entry.max_anchor_val,
+      max_descr: entry.max_anchor_descr
     }
   })
 }
@@ -178,15 +188,15 @@ function parseProjectionData(values: ProjectionInfo[]): unknown[] {
     result.push({
       year: 2021,
       per_change_10: 0,
-      employed: occ['employed'],
-      industry: occ['industry_title'],
-      increase: occ['per_change_10'] ? occ['per_change_10'] > 0 : false
+      employed: occ.employed,
+      industry: occ.industry_title,
+      increase: occ.per_change_10 ? occ.per_change_10 > 0 : false
     })
     result.push({
       year: 2031,
-      per_change_10: occ['per_change_10'],
-      employed: occ['employed_10'],
-      industry: occ['industry_title']
+      per_change_10: occ.per_change_10,
+      employed: occ.employed_10,
+      industry: occ.industry_title
     })
   }
   return result;
@@ -195,6 +205,7 @@ function parseProjectionData(values: ProjectionInfo[]): unknown[] {
 /**
  * Creates national salary visualization
  * @param values salary data
+ * @param type type of data to graph
  * @returns visualization spec
  */
 export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annual' | 'emp'): VisualizationSpec {
@@ -209,6 +220,10 @@ export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annu
       {
         name: 'axisTitleSize',
         expr: `if (${window.innerWidth} <= 600, 14, 18)`
+      },
+      {
+        name: 'labelFontSize',
+        expr: `if (${window.innerWidth} <= 600, 10, 15)`
       },
     ],
     mark: {
@@ -229,9 +244,10 @@ export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annu
         axis: {
           values: [.10, .25, .50, .75, .90],
           labelExpr: "datum.value == .50 ? 'Median' : toString(datum.value * 100) + '%'",
-          labelFontSize: 15,
+          labelFontSize: { expr: 'labelFontSize' },
           titleFontSize: { expr: 'axisTitleSize' },
-          format: ".1~%"
+          format: ".1~%",
+          grid: false
         },
         scale: { domain: [0, 1] }
       },
@@ -239,16 +255,17 @@ export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annu
         field: 'salary',
         type: 'quantitative',
         stack: 'zero',
-        title: type === 'annual' ? 'Salary (annual)' : 'Salary (hourly)',
+        title: type === 'annual' ? 'Salary ($/yr)' : 'Salary ($/hr)',
         axis: {
-          labelFontSize: 15,
+          labelFontSize: { expr: 'labelFontSize' },
           titleFontSize: { expr: 'axisTitleSize' },
-          format: '$f'
+          format: '$,f'
         }
       },
       tooltip: [
         {
           field: 'percentile',
+          title: 'Percentile'
         }
       ]
     }
@@ -284,7 +301,7 @@ export function createStatePlot(values: SalaryInfo[], section: string, type?: 'h
       },
       {
         name: 'gradientWidth',
-        expr: `if (${window.innerWidth} <= 600, 15, 25)`
+        expr: `if (${window.innerWidth} <= 600, 10, 20)`
       }
     ],
     width: 'container',
@@ -339,11 +356,13 @@ export function createStatePlot(values: SalaryInfo[], section: string, type?: 'h
           scheme: 'purpleorange'
         },
         legend: {
+          title: section === 'emp' ? 'Employed' : (type === 'annual' ? 'Salary ($/yr)' : 'Salary ($/hr)'),
           titleFontSize: { expr: 'gradientTitleSize' },
           gradientLength: { expr: 'gradientHeight' },
           gradientThickness: { expr: 'gradientWidth' },
           labelFontSize: { expr: 'gradientLabelSize' },
-          format: value === 'mean' ? '$f' : 'd'
+          format: value === 'mean' ? '$,f' : ',d',
+          titlePadding: 10
         }
       },
       tooltip: [
@@ -353,8 +372,8 @@ export function createStatePlot(values: SalaryInfo[], section: string, type?: 'h
         },
         {
           field: value === 'mean' ? 'salaryValue' : 'populationValue',
-          title: value === 'mean' ? (type === 'annual' ? 'Salary (annual)' : 'Salary (hourly)') : 'Occupations',
-          type: 'nominal'
+          title: value === 'mean' ? (type === 'annual' ? 'Salary ($/yr)' : 'Salary ($/hr)') : 'Occupations',
+          type: 'nominal',
         }
       ]
     },
@@ -369,6 +388,7 @@ export function createStatePlot(values: SalaryInfo[], section: string, type?: 'h
 /**
  * Creates industry salary visualization
  * @param values salary data
+ * @param type type of data to graph
  * @returns visualization spec
  */
 export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annual' | 'emp'): VisualizationSpec {
@@ -384,6 +404,22 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
         name: 'axisTitleSize',
         expr: `if (${window.innerWidth} <= 600, 14, 18)`
       },
+      {
+        name: 'labelFontSize',
+        expr: `if (${window.innerWidth} <= 600, 10, 15)`
+      },
+      {
+        name: 'labelLimit',
+        expr: `if (${window.innerWidth} <= 600, 100, 300)`
+      },
+      {
+        name: 'maxExtent',
+        expr: `if (${window.innerWidth} <= 600, 150, 350)`
+      },
+      {
+        name: 'barSize',
+        expr: `if (${window.innerWidth} <= 600, 14, 28)`
+      },
     ],
     encoding: {
       y: {
@@ -391,10 +427,10 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
         type: 'nominal',
         title: 'Industry',
         axis: {
-          labelFontSize: 15,
+          labelFontSize: { expr: 'labelFontSize' },
           titleFontSize: { expr: 'axisTitleSize' },
-          labelLimit: window.innerWidth <= 600 ? 100 : 300,
-          maxExtent: window.innerWidth <= 600 ? 150 : 350,
+          labelLimit: { expr: 'labelLimit' },
+          maxExtent: { expr: 'maxExtent' },
         },
         sort: {
           field: 'mid_box_salary'
@@ -408,27 +444,27 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
         {
           field: 'lower_whisker_salary',
           title: '10th percentile',
-          format: '$.0f'
+          format: '$,.0f'
         },
         {
           field: 'lower_box_salary',
           title: '25th percentile',
-          format: '$.0f'
+          format: '$,.0f'
         },
         {
           field: 'mid_box_salary',
           title: '50th percentile',
-          format: '$.0f'
+          format: '$,.0f'
         },
         {
           field: 'upper_box_salary',
           title: '75th percentile',
-          format: '$.0f'
+          format: '$,.0f'
         },
         {
           field: 'upper_whisker_salary',
           title: '90th percentile',
-          format: '$.0f'
+          format: '$,.0f'
         },
       ],
     },
@@ -440,18 +476,21 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
             field: 'lower_whisker_salary',
             type: 'quantitative',
             scale: { zero: false },
-            title: type === 'annual' ? 'Salary (annual)' : 'Salary (hourly)',
+            title: type === 'annual' ? 'Salary ($/yr)' : 'Salary ($/hr)',
             axis: {
-              labelFontSize: 15,
+              labelFontSize: { expr: 'labelFontSize' },
               titleFontSize: { expr: 'axisTitleSize' },
-              format: '$f'
+              format: '$,f',
+              labelFlush: false,
+              labelLimit: 0,
+              grid: false
             }
           },
           x2: { field: 'upper_whisker_salary' },
         }
       },
       {
-        mark: { type: 'bar', size: 28 },
+        mark: { type: 'bar', size: { expr: 'barSize' } },
         encoding: {
           x: { field: 'lower_box_salary', type: 'quantitative', },
           x2: { field: 'mid_box_salary' },
@@ -459,7 +498,7 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
         }
       },
       {
-        mark: { type: 'bar', size: 28 },
+        mark: { type: 'bar', size: { expr: 'barSize' } },
         encoding: {
           x: { field: 'mid_box_salary', type: 'quantitative', },
           x2: { field: 'upper_box_salary' },
@@ -483,9 +522,9 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
  * @returns treemap spec
  */
 export function createTreemap(values: TreemapData[], layers: number): VisualizationSpec {
+  const averageProficiency = values.filter(value => !value.element_name).reduce((a, b) => a + b.level_col, 0) / values.length; //use to set text color
   return {
     $schema: 'https://vega.github.io/schema/vega/v5.json',
-    autosize: { type: "none", "contains": 'content' },
     signals: [
       {
         name: 'width',
@@ -509,11 +548,11 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
       },
       {
         name: 'treemapTextSize',
-        update: "if(width < 550, [18, 12, 10], [28, 20, 14])",
+        update: "if(width < 600, [22, 12, 10], [32, 20, 14])",
         on: [
           {
             events: { source: 'window', type: 'resize' },
-            update: "if(width < 550, [18, 12, 10], [28, 20, 14])"
+            update: "if(width < 600, [22, 12, 10], [32, 20, 14])"
           }
         ]
       }
@@ -543,9 +582,8 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
     scales: [
       {
         name: 'color',
-        type: 'ordinal',
-        domain: { data: 'nodes2', field: 'name' },
-        range: { scheme: 'purpleorange' }
+        domain: { data: 'leaves', field: 'proficiency_level' },
+        range: { scheme: 'purpleblue' }
       },
       {
         name: 'size',
@@ -557,7 +595,7 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
         name: 'opacity',
         type: 'ordinal',
         domain: [1, 2, 3],
-        range: [0.3, 0.8, 1.0]
+        range: [0.4, 1.0, 1.0]
       }
     ],
 
@@ -567,9 +605,6 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
         from: { data: 'nodes' },
         interactive: false,
         encode: {
-          enter: {
-            fill: { scale: 'color', field: 'name' }
-          },
           update: {
             x: { signal: "datum['x0'] * width" },
             y: { signal: "datum['y0'] * height" },
@@ -586,8 +621,8 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
             stroke: { value: '#fff' },
             tooltip: {
               signal: layers === 3 ?
-                "{'Behavior': datum.name, 'Parent Group': datum.parent_group, 'Main Group': datum.grandparent_group}"
-                : "{'Behavior': datum.name, 'Parent Group': datum.parent_group}"
+                "{'Behavior': datum.name, 'Parent Group': datum.parent_group, 'Main Group': datum.grandparent_group, 'Importance Rating': datum.importance_rating, 'Proficiency Level': datum.proficiency_level, 'Min values': datum.min_value, 'Someone who is capable of (min)': datum.min_descr, 'Max value': datum.max_value, 'Someone who is capable of (max)': datum.max_descr}"
+                : "{'Behavior': datum.name, 'Parent Group': datum.parent_group, 'Importance Rating': datum.importance_rating, 'Proficiency Level': datum.proficiency_level, 'Min values': datum.min_value, 'Someone who is capable of (min)': datum.min_descr, 'Max value': datum.max_value, 'Someone who is capable of (max)': datum.max_descr}"
             }
           },
           update: {
@@ -595,7 +630,7 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
             y: { signal: "datum['y0'] * height" },
             x2: { signal: "datum['x1'] * width" },
             y2: { signal: "datum['y1'] * height" },
-            fill: { value: 'transparent' }
+            fill: { scale: 'color', field: 'proficiency_level' },
           },
           hover: {
             fill: { value: 'red' }
@@ -611,7 +646,7 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
             font: { value: 'Helvetica Neue, Arial' },
             align: { value: 'center' },
             baseline: { value: 'middle' },
-            fill: { value: '#000' },
+            fill: { value: averageProficiency > 5 ? 'white' : 'black' },
             text: { field: 'name' },
             fontSize: { scale: 'size', field: 'depth' },
             fillOpacity: { scale: 'opacity', field: 'depth' }
@@ -644,9 +679,6 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
     description: "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
     width: 'container',
     height: 'container',
-    autosize: {
-      resize: true
-    },
     data: { values: parseProjectionData(values) },
     params: [
       {
@@ -659,17 +691,27 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
       },
       {
         name: 'circleSize',
-        expr: `if (${window.innerWidth} <= 600, 100, 150)`
+        expr: `if (${window.innerWidth} <= 600, 100, 200)`
       },
+      {
+        name: 'lineWidth',
+        expr: `if (${window.innerWidth} <= 600, 4, 8)`
+      },
+      {
+        name: 'labelFontSize',
+        expr: `if (${window.innerWidth} <= 600, 10, 15)`
+      }
     ],
     encoding: {
       x: {
         field: 'per_change_10',
         type: 'quantitative',
-        title: 'Employment % change',
+        title: 'Employment change',
         axis: {
-          labelFontSize: 15,
-          titleFontSize: { expr: 'axisTitleSize' }
+          labelFontSize: { expr: 'labelFontSize' },
+          titleFontSize: { expr: 'axisTitleSize' },
+          labelExpr: "toString(datum.value) + '%'",
+          labelFlush: false
         }
       },
       y: {
@@ -680,7 +722,7 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
           offset: 5,
           ticks: false,
           domain: false,
-          labelFontSize: 15,
+          labelFontSize: { expr: 'labelFontSize' },
           titleFontSize: { expr: 'axisTitleSize' },
           labelLimit: { expr: 'labelLength' },
         },
@@ -691,7 +733,7 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
       {
         mark: {
           type: 'line',
-          strokeWidth: 5,
+          strokeWidth: { expr: 'lineWidth' },
         },
         encoding: {
           detail: {
@@ -720,7 +762,8 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
             legend: {
               titleFontSize: { expr: 'axisTitleSize' },
               labelFontSize: { expr: 'axisTitleSize' },
-              "symbolSize": { expr: 'circleSize' }
+              symbolSize: { expr: 'circleSize' },
+              orient: window.innerWidth <= 600 ? 'bottom' : 'right'
             }
           },
           size: { value: { expr: 'circleSize' } },
@@ -732,11 +775,11 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
             },
             {
               field: 'employed',
-              title: 'Employment (thousands)'
+              title: 'Total employed (thousands)'
             },
             {
               field: 'per_change_10',
-              title: 'Employment % Change'
+              title: 'Employment Change (%)',
             },
           ],
         }
