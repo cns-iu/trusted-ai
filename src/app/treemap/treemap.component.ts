@@ -61,6 +61,6 @@ export class TreemapComponent implements OnChanges {
    * Reloads treemap visualization
    */
   reload() {
-    embed(this.vis?.nativeElement, this.spec, { actions: false });
+    embed(this.vis?.nativeElement, this.spec, { actions: false, renderer: 'svg' });
   }
 }
