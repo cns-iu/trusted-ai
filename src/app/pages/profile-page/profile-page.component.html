@@ -36,16 +36,15 @@
       important for someone employed in this occupation. The size (area) of each element corresponds to the overall
       importance rating an element has for an occupation. Importance ratings range between 1 and 5; larger value
       indicates an element is more important for an occupation. Elements are also rated for the level of proficiency
-      need by someone employed in this occupation. Proficiency is ratings range between 0 to 7; larger values indicate
-      an element is requires high levels of proficiency for people employed in this occupation.. Some occupations have
-      not been evaluated for knowledge or activity elements. Importance and level of proficiency ratings are taken from
-      the O*NET database (v. 27.2).
+      needed by someone employed in this occupation. Proficiency ratings range between 0 to 7; larger values indicate an
+      element that requires high levels of proficiency for people employed in this occupation.. Some occupations have
+      not been evaluated for knowledge or activity elements. Importance and level of proficiency ratings come from the
+      O*NET database (v. 27.2).
     </div>
     <div [class.no-data]="noTreemap" class="treemaps">
       <mat-tab-group (selectedTabChange)="refreshTreemaps()" fitInkBarToContent disablePagination>
         <mat-tab *ngIf="treemapWorkActivitiesData.length > 0" label="Activities">
           <div class="treemaps-title">Activities by Importance</div>
-          <div class="missing-text" [class.hidden]="treemapWorkActivitiesData.length > 0">No data</div>
           <trust-ai-treemap
             [class.hidden]="treemapWorkActivitiesData.length === 0"
             #treemap1
@@ -55,13 +54,11 @@
         </mat-tab>
         <mat-tab *ngIf="treemapSkillsData.length > 0" label="Skills">
           <div class="treemaps-title">Skills by Importance</div>
-          <div class="missing-text" [class.hidden]="treemapSkillsData.length > 0">No data</div>
           <trust-ai-treemap [class.hidden]="treemapSkillsData.length === 0" #treemap2 [skillsData]="treemapSkillsData">
           </trust-ai-treemap>
         </mat-tab>
         <mat-tab *ngIf="treemapKnowledgeData.length > 0" label="Knowledge">
           <div class="treemaps-title">Knowledge by Importance</div>
-          <div class="missing-text" [class.hidden]="treemapKnowledgeData.length > 0">No data</div>
           <trust-ai-treemap
             [class.hidden]="treemapKnowledgeData.length === 0"
             #treemap3
@@ -71,7 +68,6 @@
         </mat-tab>
         <mat-tab *ngIf="treemapAbilitiesData.length > 0" label="Abilities">
           <div class="treemaps-title">Abilities by Importance</div>
-          <div class="missing-text" [class.hidden]="treemapAbilitiesData.length > 0">No data</div>
           <trust-ai-treemap
             [class.hidden]="treemapAbilitiesData.length === 0"
             #treemap4
@@ -81,7 +77,9 @@
         </mat-tab>
       </mat-tab-group>
     </div>
-    <div class="missing-text" [class.hidden]="!noTreemap">No data</div>
+    <div class="missing-text" [class.hidden]="!noTreemap">
+      There are no work behaviors associated with this occupation at this time.
+    </div>
   </div>
 </div>
 
@@ -161,7 +159,9 @@
     <div class="sub-section">
       <div class="sub-section-title">Technology Skills by Importance</div>
       <div class="sub-section-content" [class.no-data]="techSkills.length === 0">
-        <div class="missing-text" [class.hidden]="techSkills.length > 0">No data</div>
+        <div class="missing-text" [class.hidden]="techSkills.length > 0">
+          There are no technology skills associated with this occupation at this time.
+        </div>
         <trust-ai-profile-technology-skills
           [allSkills]="techSkills"
           [showAll]="showAllSkills"
@@ -195,7 +195,9 @@
         Employment and Wage Statistics (May 2022), which are published annually by the US Bureau of Labor Statistics.
       </div>
       <div class="sub-section-content salary-nat" [class.no-data]="isEmpty(salaryNatInfo, salaryNatSelection)">
-        <div class="missing-text" [class.hidden]="!isEmpty(salaryNatInfo, salaryNatSelection)">No data</div>
+        <div class="missing-text" [class.hidden]="!isEmpty(salaryNatInfo, salaryNatSelection)">
+          There is no data for this occupation/salary selection at this time.
+        </div>
         <trust-ai-profile-salary
           [class.hidden]="isEmpty(salaryNatInfo, salaryNatSelection)"
           [dataNat]="salaryNatInfo"
@@ -219,7 +221,9 @@
         Bureau of Labor Statistics.
       </div>
       <div class="sub-section-content salary-states" [class.no-data]="isEmpty(salaryStatesInfo, salaryStatesSelection)">
-        <div class="missing-text" [class.hidden]="!isEmpty(salaryStatesInfo, salaryStatesSelection)">No data</div>
+        <div class="missing-text" [class.hidden]="!isEmpty(salaryStatesInfo, salaryStatesSelection)">
+          There is no data for this occupation/salary selection at this time.
+        </div>
         <trust-ai-profile-salary
           [class.hidden]="isEmpty(salaryStatesInfo, salaryStatesSelection)"
           [dataStates]="salaryStatesInfo"
@@ -242,7 +246,9 @@
         and Wage Statistics (May 2022), which are published annually by the US Bureau of Labor Statistics.
       </div>
       <div class="sub-section-content salary-ind" [class.no-data]="isEmpty(salaryIndInfo, salaryIndSelection)">
-        <div class="missing-text" [class.hidden]="!isEmpty(salaryIndInfo, salaryIndSelection)">No data</div>
+        <div class="missing-text" [class.hidden]="!isEmpty(salaryIndInfo, salaryIndSelection)">
+          There is no data for this occupation/salary selection at this time.
+        </div>
         <trust-ai-profile-salary
           [class.hidden]="isEmpty(salaryIndInfo, salaryIndSelection)"
           [dataInd]="salaryIndInfo"
@@ -273,7 +279,9 @@
         Bureau of Labor Statistics.
       </div>
       <div class="sub-section-content" [class.no-data]="isEmpty(salaryStatesInfo, 'emp')">
-        <div class="missing-text" [class.hidden]="!isEmpty(salaryStatesInfo, 'emp')">No data</div>
+        <div class="missing-text" [class.hidden]="!isEmpty(salaryStatesInfo, 'emp')">
+          There is no employment data at this time.
+        </div>
         <trust-ai-profile-employment
           [class.hidden]="isEmpty(salaryStatesInfo, 'emp')"
           [dataStates]="salaryStatesInfo"
@@ -295,14 +303,16 @@
     <div class="sub-section">
       <div class="sub-section-title">Employment Projections (10 Years)</div>
       <div class="visualization-description">
-        These horizontal line graphs show the estimated change employment (%) for this occupation between 2021 and 2031.
-        The first line shows the national percent change in employment; while preceding lines show industries that
+        These horizontal line graphs show the estimated change in employment (%) for this occupation between 2021 and
+        2031. The first line shows the national percent change in employment; while preceding lines show industries that
         employ the most people in this occupation in 2021. Line color is used to highlight positive and negative change
         predicted in ten years. These projections come from the Occupational Employment Projections, which are published
         annually by the US Bureau of Labor Statistics.
       </div>
       <div class="sub-section-content" [class.no-data]="projectionInfo.length === 0">
-        <div class="missing-text" [class.hidden]="projectionInfo.length > 0">No data</div>
+        <div class="missing-text" [class.hidden]="projectionInfo.length > 0">
+          There is no employment projection data at this time.
+        </div>
         <trust-ai-profile-occupation-projection
           [dataProjections]="projectionInfo"
         ></trust-ai-profile-occupation-projection>

@@ -105,7 +105,7 @@ describe('ProfilePageComponent', () => {
     component.currentJobInfo = {
       automation_risk: undefined,
     };
-    expect(component.automationDescription).toEqual('No data');
+    expect(component.automationDescription).toEqual('There is no automation risk data at this time.');
   });
 
   it('gets the outlook description if near future is available', () => {
@@ -121,19 +121,14 @@ describe('ProfilePageComponent', () => {
       bright_futures: 'Bright',
     };
     expect(component.outlookDescription).toEqual('Many job openings predicted in the near future');
-    component.currentJobInfo = {
-      near_future: undefined,
-      bright_futures: undefined,
-    };
-    expect(component.outlookDescription).toEqual('No data');
   });
 
-  it('returns no data for outlook description', () => {
+  it('notifies if no data for outlook description', () => {
     component.currentJobInfo = {
       near_future: undefined,
       bright_futures: undefined,
     };
-    expect(component.outlookDescription).toEqual('No data');
+    expect(component.outlookDescription).toEqual('There is no outlook projection at this time.');
   });
 
   it('scrolls to top', () => {

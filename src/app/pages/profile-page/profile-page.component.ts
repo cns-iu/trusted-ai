@@ -293,7 +293,7 @@ export class ProfilePageComponent implements OnInit {
     if (this.currentJobInfo.automation_risk) {
       return `This job has a ${this.currentJobInfo.automation_risk.toLowerCase()} risk of automation.`;
     } else {
-      return 'No data';
+      return 'There is no automation risk data at this time.';
     }
   }
 
@@ -303,7 +303,7 @@ export class ProfilePageComponent implements OnInit {
   get outlookDescription(): string {
     return this.currentJobInfo.near_future
       ? this.currentJobInfo.near_future
-      : outlookDescriptions[this.currentJobInfo.bright_futures || ''] || 'No data';
+      : outlookDescriptions[this.currentJobInfo.bright_futures || ''] || 'There is no outlook projection at this time.';
   }
 
   /**

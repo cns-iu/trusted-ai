@@ -5,15 +5,11 @@
     .navbar-content {
       width: calc(100% - 2rem) !important;
     }
-
-    .logo {
-      display: none;
-    }
   }
 
   @media (width > 600px) {
     .home-icon {
-      display: none;
+      display: none !important;
     }
   }
 
@@ -40,12 +36,15 @@
     align-items: center;
 
     .logo {
+      display: flex;
       font-size: 1.5rem;
       color: #22005d;
       cursor: pointer;
     }
 
+    .home-icon,
     .faq-link {
+      display: flex;
       color: #22005d;
     }
   }

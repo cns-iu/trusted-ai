@@ -8,33 +8,3 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
-
-.vg-tooltip {
-  td {
-    max-width: 30vw !important;
-  }
-  tr {
-    font-size: 1rem;
-  }
-  .value {
-    max-height: unset !important;
-    height: fit-content;
-  }
-}
-
-@media (width <= 600px) {
-  .vg-tooltip {
-    left: calc(50% - 100px) !important;
-  }
-}
-
-.vega-embed {
-  width: 100%;
-  height: 100%;
-
-  .chart-wrapper {
-    canvas {
-      max-width: 100%;
-    }
-  }
-}
