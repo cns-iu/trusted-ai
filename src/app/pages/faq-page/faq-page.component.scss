@@ -11,7 +11,7 @@
     }
 
     .content {
-      padding: 1.5rem !important;
+      padding: 1.5rem 1.5rem 0 1.5rem !important;
     }
   }
 
@@ -48,28 +48,29 @@
 
     .content {
       display: flex;
-      padding: 1.5rem 17.25rem;
+      padding: 1.5rem 17.25rem 0 17.25rem;
       flex-direction: column;
       align-items: flex-start;
       gap: 1.5rem;
       align-self: stretch;
 
-      .sub-section {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-        align-self: stretch;
+      ::ng-deep markdown {
+        font-family: Roboto;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.25rem;
 
-        .sub-section-title {
+        ::ng-deep h2 {
+          margin: 0;
           font-size: 1rem;
-          font-weight: 500;
           line-height: 1.5rem;
+          font-weight: 500;
         }
 
-        .sub-section-content {
-          font-size: 0.875rem;
-          line-height: 1.25rem;
+        p {
+          margin: 0;
+          margin-bottom: 1.5rem;
+          margin-top: 0.5rem;
         }
       }
     }
