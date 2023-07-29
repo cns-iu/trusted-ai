@@ -92,6 +92,13 @@
 
 
 
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>MarkdownService</code>
+                            <code>{ provide: SECURITY_CONTEXT, useValue:  }</code>
+                </td>
+            </tr>
 
 
             <tr>
@@ -134,8 +141,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import { HttpClientModule } from &#x27;@angular/common/http&#x27;;
+import { Component } from &#x27;@angular/core&#x27;;
+import { MarkdownModule, MarkdownService, SECURITY_CONTEXT } from &#x27;ngx-markdown&#x27;;
 
 /**
  * Faq page component
@@ -143,7 +152,8 @@ import { CommonModule } from &#x27;@angular/common&#x27;;
 @Component({
   selector: &#x27;trust-ai-faq-page&#x27;,
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule, MarkdownModule],
+  providers: [MarkdownService, { provide: SECURITY_CONTEXT, useValue: 0 }],
   templateUrl: &#x27;./faq-page.component.html&#x27;,
   styleUrls: [&#x27;./faq-page.component.scss&#x27;],
 })
@@ -161,26 +171,7 @@ export class FaqPageComponent {}
     &lt;div class&#x3D;&quot;section-title&quot;&gt;Lorem ipsum&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class&#x3D;&quot;content&quot;&gt;
-    &lt;div class&#x3D;&quot;sub-section&quot;&gt;
-      &lt;div class&#x3D;&quot;sub-section-title&quot;&gt;Headline&lt;/div&gt;
-      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class&#x3D;&quot;sub-section&quot;&gt;
-      &lt;div class&#x3D;&quot;sub-section-title&quot;&gt;Headline&lt;/div&gt;
-      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.
-      &lt;/div&gt;
-    &lt;/div&gt;
+    &lt;markdown [src]&#x3D;&quot;&#x27;assets/faq1.md&#x27;&quot;&gt;&lt;/markdown&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
@@ -189,26 +180,7 @@ export class FaqPageComponent {}
     &lt;div class&#x3D;&quot;section-title&quot;&gt;Lorem ipsum&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class&#x3D;&quot;content&quot;&gt;
-    &lt;div class&#x3D;&quot;sub-section&quot;&gt;
-      &lt;div class&#x3D;&quot;sub-section-title&quot;&gt;Headline&lt;/div&gt;
-      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class&#x3D;&quot;sub-section&quot;&gt;
-      &lt;div class&#x3D;&quot;sub-section-title&quot;&gt;Headline&lt;/div&gt;
-      &lt;div class&#x3D;&quot;sub-section-content&quot;&gt;
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.
-      &lt;/div&gt;
-    &lt;/div&gt;
+    &lt;markdown [src]&#x3D;&quot;&#x27;assets/faq2.md&#x27;&quot;&gt;&lt;/markdown&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -231,7 +203,7 @@ export class FaqPageComponent {}
     }
 
     .content {
-      padding: 1.5rem !important;
+      padding: 1.5rem 1.5rem 0 1.5rem !important;
     }
   }
 
@@ -268,28 +240,29 @@ export class FaqPageComponent {}
 
     .content {
       display: flex;
-      padding: 1.5rem 17.25rem;
+      padding: 1.5rem 17.25rem 0 17.25rem;
       flex-direction: column;
       align-items: flex-start;
       gap: 1.5rem;
       align-self: stretch;
 
-      .sub-section {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-        align-self: stretch;
+      ::ng-deep markdown {
+        font-family: Roboto;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.25rem;
 
-        .sub-section-title {
+        ::ng-deep h2 {
+          margin: 0;
           font-size: 1rem;
-          font-weight: 500;
           line-height: 1.5rem;
+          font-weight: 500;
         }
 
-        .sub-section-content {
-          font-size: 0.875rem;
-          line-height: 1.25rem;
+        p {
+          margin: 0;
+          margin-bottom: 1.5rem;
+          margin-top: 0.5rem;
         }
       }
     }
@@ -323,7 +296,7 @@ export class FaqPageComponent {}
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="page-header" style="background: url(assets/landing-background.png) 50% / cover no-repeat">  <div class="page-title">Frequently Asked Questions (FAQs)</div></div><div class="faq-section">  <div class="section-header">    <div class="section-title">Lorem ipsum</div>  </div>  <div class="content">    <div class="sub-section">      <div class="sub-section-title">Headline</div>      <div class="sub-section-content">        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est        laborum.      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Headline</div>      <div class="sub-section-content">        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est        laborum.      </div>    </div>  </div></div><div class="faq-section">  <div class="section-header">    <div class="section-title">Lorem ipsum</div>  </div>  <div class="content">    <div class="sub-section">      <div class="sub-section-title">Headline</div>      <div class="sub-section-content">        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est        laborum.      </div>    </div>    <div class="sub-section">      <div class="sub-section-title">Headline</div>      <div class="sub-section-content">        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est        laborum.      </div>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="page-header" style="background: url(assets/landing-background.png) 50% / cover no-repeat">  <div class="page-title">Frequently Asked Questions (FAQs)</div></div><div class="faq-section">  <div class="section-header">    <div class="section-title">Lorem ipsum</div>  </div>  <div class="content">    <markdown [src]="\'assets/faq1.md\'"></markdown>  </div></div><div class="faq-section">  <div class="section-header">    <div class="section-title">Lorem ipsum</div>  </div>  <div class="content">    <markdown [src]="\'assets/faq2.md\'"></markdown>  </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'trust-ai-root'},{'name': 'CareerCardComponent', 'selector': 'trust-ai-career-card'},{'name': 'FaqPageComponent', 'selector': 'trust-ai-faq-page'},{'name': 'FiltersMobileDialogComponent', 'selector': 'trust-ai-filters-mobile-dialog'},{'name': 'LandingPageComponent', 'selector': 'trust-ai-landing-page'},{'name': 'NavbarComponent', 'selector': 'trust-ai-navbar'},{'name': 'OccupationsListingsComponent', 'selector': 'trust-ai-occupations-listings'},{'name': 'OccupationsPageComponent', 'selector': 'trust-ai-occupations-page'},{'name': 'OccupationsSearchAreaComponent', 'selector': 'trust-ai-occupations-search-area'},{'name': 'PageFooterComponent', 'selector': 'trust-ai-page-footer'},{'name': 'PreparednessDialogComponent', 'selector': 'trust-ai-preparedness-dialog'},{'name': 'ProfileEmploymentComponent', 'selector': 'trust-ai-profile-employment'},{'name': 'ProfileOccupationProjectionComponent', 'selector': 'trust-ai-profile-occupation-projection'},{'name': 'ProfilePageComponent', 'selector': 'trust-ai-profile-page'},{'name': 'ProfileSalaryComponent', 'selector': 'trust-ai-profile-salary'},{'name': 'ProfileTechnologySkillsComponent', 'selector': 'trust-ai-profile-technology-skills'},{'name': 'SearchBoxComponent', 'selector': 'trust-ai-search-box'},{'name': 'TreemapComponent', 'selector': 'trust-ai-treemap'},{'name': 'WorkTasksListComponent', 'selector': 'trust-ai-work-tasks-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FaqPageComponent'};

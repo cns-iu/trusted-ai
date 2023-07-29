@@ -187,13 +187,14 @@ function parseProjectionData(values: ProjectionInfo[]): unknown[] {
   for (const occ of values) {
     result.push({
       year: 2021,
-      per_change_10: 0,
+      emp_point: 0,
+      per_change_10: occ.per_change_10,
       employed: occ.employed,
       industry: occ.industry_title,
-      increase: occ.per_change_10 ? occ.per_change_10 > 0 : false
     })
     result.push({
       year: 2031,
+      emp_point: occ.per_change_10,
       per_change_10: occ.per_change_10,
       employed: occ.employed_10,
       industry: occ.industry_title
@@ -711,7 +712,7 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
     ],
     encoding: {
       x: {
-        field: 'per_change_10',
+        field: 'emp_point',
         type: 'quantitative',
         title: 'Employment change',
         axis: {
@@ -734,13 +735,27 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
           labelLimit: { expr: 'labelLength' },
         },
         sort: ['National average']
-      }
+      },
+      tooltip: [
+        {
+          field: 'industry',
+          title: 'Industry'
+        },
+        {
+          field: 'employed',
+          title: 'Total employed (thousands)'
+        },
+        {
+          field: 'per_change_10',
+          title: 'Employment Change (%)',
+        },
+      ],
     },
     layer: [
       {
         mark: {
-          type: 'line',
-          strokeWidth: { expr: 'lineWidth' },
+          type: 'bar',
+          height: { expr: 'lineWidth' }
         },
         encoding: {
           detail: {
@@ -749,11 +764,22 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
           },
           color: {
             value: {
-              expr: "datum.increase ? 'purple' : 'orange'"
+              expr: "datum.per_change_10 > 0 ? 'purple' : 'orange'"
             }
           },
-          opacity: { value: 0.5 }
-        }
+          opacity: { value: 0.5 },
+          x: { field: 'emp_point' },
+        },
+        params: [{
+          name: 'hover',
+          select: {
+            type: 'point',
+            fields: ['employed'],
+            nearest: true,
+            on: 'mouseover',
+            clear: 'mouseout'
+          }
+        }]
       },
       {
         mark: {
@@ -774,21 +800,7 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
             }
           },
           size: { value: { expr: 'circleSize' } },
-          opacity: { value: 1 },
-          tooltip: [
-            {
-              field: 'industry',
-              title: 'Industry'
-            },
-            {
-              field: 'employed',
-              title: 'Total employed (thousands)'
-            },
-            {
-              field: 'per_change_10',
-              title: 'Employment Change (%)',
-            },
-          ],
+          opacity: { value: 1 }
         }
       }
     ]

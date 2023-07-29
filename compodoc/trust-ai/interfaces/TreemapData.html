@@ -1076,7 +1076,7 @@ export class ProfilePageComponent implements OnInit {
     if (this.currentJobInfo.automation_risk) {
       return &#x60;This job has a ${this.currentJobInfo.automation_risk.toLowerCase()} risk of automation.&#x60;;
     } else {
-      return &#x27;No data&#x27;;
+      return &#x27;There is no automation risk data at this time.&#x27;;
     }
   }
 
@@ -1086,7 +1086,7 @@ export class ProfilePageComponent implements OnInit {
   get outlookDescription(): string {
     return this.currentJobInfo.near_future
       ? this.currentJobInfo.near_future
-      : outlookDescriptions[this.currentJobInfo.bright_futures || &#x27;&#x27;] || &#x27;No data&#x27;;
+      : outlookDescriptions[this.currentJobInfo.bright_futures || &#x27;&#x27;] || &#x27;There is no outlook projection at this time.&#x27;;
   }
 
   /**

@@ -203,8 +203,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">src/app/app.component.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/app.component.ts:70</a></div>
                 </td>
             </tr>
 
@@ -335,6 +335,7 @@ export class AppComponent implements OnInit {
       this.longPage &#x3D; event.url.includes(&#x27;occupations&#x27;) || event.url.includes(&#x27;profile&#x27;);
       this.scrollToTop();
     });
+    this.correctTooltipPosition();
     this.handleScroll();
   }
 
@@ -346,6 +347,18 @@ export class AppComponent implements OnInit {
         tooltip.className &#x3D; &#x27;vg-tooltip&#x27;;
       }
       this.showBackToTop &#x3D; this.longPage ? window.scrollY &gt; 1000 : false;
+    });
+  }
+
+  /** Fixes tooltip position if off screen */
+  private correctTooltipPosition(): void {
+    fromEvent(document, &#x27;click&#x27;).subscribe(() &#x3D;&gt; {
+      const tooltip &#x3D; document.getElementById(&#x27;vg-tooltip-element&#x27;);
+      if (tooltip) {
+        if (parseInt(tooltip.style.left.replace(&#x27;px&#x27;, &#x27;&#x27;)) &lt; 0) {
+          tooltip.style.left &#x3D; &#x27;0px&#x27;;
+        }
+      }
     });
   }
 
