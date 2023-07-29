@@ -1,9 +1,9 @@
 <div class="navbar-content">
-  <div routerLink="/" class="logo">Career Explorer</div>
-  <div *ngIf="(notHome$ | async) === false" class="filler"></div>
-  <a *ngIf="notHome$ | async" routerLink="/">
-    <mat-icon fontSet="material-icons-outlined" class="home-icon">home</mat-icon>
+  <!-- <div *ngIf="(notHome$ | async) === false" class="filler"></div> -->
+  <a class="home-icon" *ngIf="notHome$ | async" routerLink="/">
+    <mat-icon fontSet="material-icons-outlined">home</mat-icon>
   </a>
+  <div routerLink="/" class="logo">Career Explorer</div>
   <a class="faq-link" routerLink="/faq">
     <mat-icon fontSet="material-icons-outlined" class="info-icon">info</mat-icon>
   </a>
