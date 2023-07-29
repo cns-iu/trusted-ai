@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
       this.longPage = event.url.includes('occupations') || event.url.includes('profile');
       this.scrollToTop();
     });
+    this.correctTooltipPosition();
     this.handleScroll();
   }
 
@@ -48,6 +49,18 @@ export class AppComponent implements OnInit {
         tooltip.className = 'vg-tooltip';
       }
       this.showBackToTop = this.longPage ? window.scrollY > 1000 : false;
+    });
+  }
+
+  /** Fixes tooltip position if off screen */
+  private correctTooltipPosition(): void {
+    fromEvent(document, 'click').subscribe(() => {
+      const tooltip = document.getElementById('vg-tooltip-element');
+      if (tooltip) {
+        if (parseInt(tooltip.style.left.replace('px', '')) < 0) {
+          tooltip.style.left = '0px';
+        }
+      }
     });
   }
 
