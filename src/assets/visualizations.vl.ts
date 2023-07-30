@@ -213,7 +213,7 @@ export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annu
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     width: 'container',
-    height: 'container',
+    height: window.innerWidth * .4,
     data: {
       values: parseNatData(values, type)
     },
@@ -227,55 +227,82 @@ export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annu
         expr: `if (${window.innerWidth} <= 600, 10, 15)`
       },
     ],
-    mark: {
-      type: 'line',
-      strokeWidth: 8,
-      color: '#6750A4',
-      point: {
-        filled: false,
-        fill: 'white',
-        size: 100
-      }
-    },
-    encoding: {
-      x: {
-        field: 'percentile',
-        type: 'quantitative',
-        title: 'Percentile',
-        axis: {
-          values: [.10, .25, .50, .75, .90],
-          labelExpr: "datum.value == .50 ? 'Median' : toString(datum.value * 100) + '%'",
-          labelFontSize: { expr: 'labelFontSize' },
-          titleFontSize: { expr: 'axisTitleSize' },
-          format: '.1~%',
-          grid: false
+    layer: [
+      {
+        mark: {
+          type: 'line',
+          strokeWidth: 8,
+          color: '#6750A4',
         },
-        scale: { domain: [0, 1] }
-      },
-      y: {
-        field: 'salary',
-        type: 'quantitative',
-        stack: 'zero',
-        title: type === 'annual' ? 'Salary ($/yr)' : 'Salary ($/hr)',
-        axis: {
-          labelFontSize: { expr: 'labelFontSize' },
-          titleFontSize: { expr: 'axisTitleSize' },
-          format: '$,.0f'
+        encoding: {
+          x: {
+            field: 'percentile',
+            type: 'quantitative'
+          },
+          y: {
+            field: 'salary',
+            type: 'quantitative',
+          }
         }
       },
-      tooltip: [
-        {
-          field: 'percentile',
-          title: 'Percentile',
-          format: '.1~%'
+      {
+        mark: {
+          type: 'point',
+          size: 100,
+          opacity: 1,
+          fill: 'white'
         },
-        {
-          field: 'salary',
-          title: type === 'annual' ? 'Salary ($/yr)' : 'Salary ($/hr)',
-          format: '$,.0f'
+        params: [{
+          name: 'hover',
+          select: {
+            type: 'point',
+            fields: ['salary'],
+            nearest: true,
+            on: 'mouseover',
+            clear: 'mouseout'
+          }
+        }],
+        encoding: {
+          x: {
+            field: 'percentile',
+            type: 'quantitative',
+            title: 'Percentile',
+            axis: {
+              values: [.10, .25, .50, .75, .90],
+              labelExpr: "datum.value == .50 ? 'Median' : toString(datum.value * 100) + '%'",
+              labelFontSize: { expr: 'labelFontSize' },
+              titleFontSize: { expr: 'axisTitleSize' },
+              format: '.1~%',
+              grid: false
+            },
+            scale: { domain: [0, 1] },
+          },
+          y: {
+            field: 'salary',
+            type: 'quantitative',
+            stack: 'zero',
+            title: type === 'annual' ? 'Salary ($/yr)' : 'Salary ($/hr)',
+            axis: {
+              labelFontSize: { expr: 'labelFontSize' },
+              titleFontSize: { expr: 'axisTitleSize' },
+              format: '$,.0f'
+            }
+          },
+          tooltip: [
+            {
+              field: 'percentile',
+              title: 'Percentile',
+              format: '.1~%'
+            },
+            {
+              field: 'salary',
+              title: type === 'annual' ? 'Salary ($/yr)' : 'Salary ($/hr)',
+              format: '$,.0f'
+            }
+          ]
         }
-      ]
-    }
+      },
+    ]
   };
 }
 
@@ -293,6 +320,7 @@ export function createStatePlot(values: SalaryInfo[], section: string, type?: 'h
     data: {
       values: parseStateData(values, type)
     },
+    height: window.innerWidth * .4,
     params: [
       {
         name: 'gradientHeight',
@@ -312,7 +340,6 @@ export function createStatePlot(values: SalaryInfo[], section: string, type?: 'h
       }
     ],
     width: 'container',
-    height: 'container',
     transform: [
       {
         lookup: 'id',
@@ -399,12 +426,13 @@ export function createStatePlot(values: SalaryInfo[], section: string, type?: 'h
  * @returns visualization spec
  */
 export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annual' | 'emp'): VisualizationSpec {
+  const data = parseIndData(values, type);
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     width: 'container',
-    height: 'container',
+    height: 100 + data.length * 30,
     data: {
-      values: parseIndData(values, type)
+      values: data
     },
     params: [
       {
@@ -417,7 +445,7 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
       },
       {
         name: 'labelLimit',
-        expr: `if (${window.innerWidth} <= 600, 100, 300)`
+        expr: `if (${window.innerWidth} <= 600, 100, 200)`
       },
       {
         name: 'maxExtent',
@@ -682,12 +710,13 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
  * @returns projections plot
  */
 export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSpec {
+  const data = parseProjectionData(values);
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     description: "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
     width: 'container',
-    height: 'container',
-    data: { values: parseProjectionData(values) },
+    height: 100 + data.length * 10,
+    data: { values: data },
     params: [
       {
         name: 'axisTitleSize',

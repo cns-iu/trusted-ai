@@ -366,14 +366,17 @@ export class ProfilePageComponent implements OnInit {
         if (tech_skills) {
           this.setSkillsGrouping(tech_skills);
         }
-        if (salary_states) {
-          this.salaryStatesInfo = salary_states;
-        }
         if (salary_nat) {
           this.salaryNatInfo = salary_nat;
+          this.salaryNatSelection = this.isEmpty(this.salaryNatInfo, 'annual') ? 'hourly' : 'annual';
+        }
+        if (salary_states) {
+          this.salaryStatesInfo = salary_states;
+          this.salaryStatesSelection = this.isEmpty(this.salaryStatesInfo, 'annual') ? 'hourly' : 'annual';
         }
         if (salary_ind) {
           this.salaryIndInfo = salary_ind;
+          this.salaryIndSelection = this.isEmpty(this.salaryIndInfo, 'annual') ? 'hourly' : 'annual';
         }
         if (work_tasks) {
           this.workTasks = work_tasks;
