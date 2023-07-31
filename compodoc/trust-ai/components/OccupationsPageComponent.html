@@ -918,6 +918,12 @@ export class OccupationsPageComponent implements OnInit {
   position: relative;
   width: 100%;
 
+  .banner &gt; .title,
+  .content {
+    width: 80%;
+    max-width: 80rem;
+  }
+
   .banner {
     display: flex;
     flex-direction: column;
@@ -929,16 +935,11 @@ export class OccupationsPageComponent implements OnInit {
 
     .title {
       padding: 2rem 0;
-      width: 80%;
     }
   }
 
   .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding-bottom: 2rem;
-    width: 80%;
 
     trust-ai-occupations-search-area {
       width: 100%;
