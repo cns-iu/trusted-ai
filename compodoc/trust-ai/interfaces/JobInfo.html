@@ -402,8 +402,11 @@ export class OccupationsPageComponent implements OnInit {
   /** Angular router */
   private readonly router &#x3D; inject(Router);
 
-  /** List of all jobs */
-  allJobs: JobInfo[] &#x3D; [];
+  /** Main job list */
+  jobsResults: JobInfo[] &#x3D; [];
+
+  /** Alternate job title list  */
+  altJobsResults: JobInfo[] &#x3D; [];
 
   /** List of filtered jobs */
   filteredJobs: JobInfo[] &#x3D; [];
@@ -430,24 +433,32 @@ export class OccupationsPageComponent implements OnInit {
 
   /** Subscribes to setJobs on init */
   ngOnInit(): void {
-    this.setJobs().subscribe();
+    this.setJobs().forEach((obs) &#x3D;&gt; obs.subscribe());
   }
 
-  /** Converts csv to job entries and updates the shown list when filter is changed */
-  setJobs(): Observable&lt;unknown&gt; {
-    return this.http.get(&#x27;assets/data/index.json&#x27;, { responseType: &#x27;text&#x27; }).pipe(
+  /**
+   * Converts csv to job entries and updates the shown list when filter is changed, also fetches alternate job title data
+   * @returns Observables
+   */
+  setJobs(): Observable&lt;string&gt;[] {
+    const jobsObs &#x3D; this.http.get(&#x27;assets/data/index.json&#x27;, { responseType: &#x27;text&#x27; }).pipe(
       tap((result) &#x3D;&gt; {
-        const parsedResult &#x3D; JSON.parse(result);
-        this.allJobs &#x3D; parsedResult;
+        this.jobsResults &#x3D; JSON.parse(result);
         this.filterJobs(this.currentFilters);
       })
     );
+    const jobsAltObs &#x3D; this.http.get(&#x27;assets/data/alt_titles.json&#x27;, { responseType: &#x27;text&#x27; }).pipe(
+      tap((result) &#x3D;&gt; {
+        this.altJobsResults &#x3D; JSON.parse(result);
+      })
+    );
+    return [jobsObs, jobsAltObs];
   }
 
   /** Filters list of jobs based on search filters */
   filterJobs(filters: SearchFilters): void {
     this.currentFilters &#x3D; filters;
-    this.filteredJobs &#x3D; this.allJobs
+    this.filteredJobs &#x3D; this.jobsResults
       .filter((job) &#x3D;&gt;
         job[&#x27;Occupation&#x27;]
           ? job[&#x27;Occupation&#x27;].toLowerCase().includes(filters[&#x27;searchTerm&#x27;].toLowerCase()) ||
@@ -457,7 +468,6 @@ export class OccupationsPageComponent implements OnInit {
       .filter(
         (job) &#x3D;&gt; filters[&#x27;preparednessLevel&#x27;] &#x3D;&#x3D;&#x3D; &#x27;0&#x27; || job[&#x27;Job Zone&#x27;].toString() &#x3D;&#x3D;&#x3D; filters[&#x27;preparednessLevel&#x27;]
       );
-    // .filter((job) &#x3D;&gt; filters[&#x27;showOccupations&#x27;] &#x3D;&#x3D;&#x3D; &#x27;0&#x27; || job[&#x27;Data-level&#x27;] &#x3D;&#x3D;&#x3D; &#x27;Y&#x27;);
     this.sortJobs(this.sortBy);
   }
 
@@ -500,6 +510,22 @@ export class OccupationsPageComponent implements OnInit {
         return x &#x3D;&#x3D; y ? 0 : x &lt; y ? 1 : -1;
       }
     });
+    this.filteredJobs &#x3D; [
+      ...new Set([...this.filteredJobs, ...this.findMatchingJobs(this.currentFilters[&#x27;searchTerm&#x27;])]),
+    ];
+  }
+
+  /**
+   * Finds entries in the main jobs list that match an alternate job title search
+   * @param query Search query
+   * @returns matching jobs
+   */
+  private findMatchingJobs(query: string): JobInfo[] {
+    const matchingAlts &#x3D; this.altJobsResults.filter((result) &#x3D;&gt;
+      result[&#x27;Alt Title&#x27;].toLowerCase().includes(query.toLowerCase())
+    );
+    const matchingCodes &#x3D; new Set(matchingAlts.map((alt) &#x3D;&gt; alt.Code));
+    return this.jobsResults.filter((result) &#x3D;&gt; matchingCodes.has(result.Code));
   }
 
   /** Scrolls to top of page */
