@@ -56,9 +56,6 @@ export class SearchBoxComponent implements OnInit {
   /** Host binding */
   @HostBinding('class') readonly clsName = 'trust-ai-search-box';
 
-  /** Searchable jobs */
-  @Input() jobs: string[] = [];
-
   /** Disable autocomplete */
   @Input() autoCompleteDisabled = false;
 
@@ -73,6 +70,9 @@ export class SearchBoxComponent implements OnInit {
 
   /** Job results */
   jobsResults: JobInfo[] = [];
+
+  /** Alternate job title results */
+  altJobsResults: JobInfo[] = [];
 
   /** Text to highlight in search results */
   highlightText = '';
@@ -92,7 +92,7 @@ export class SearchBoxComponent implements OnInit {
    * Sets jobs on init
    */
   ngOnInit(): void {
-    this.setJobs().subscribe();
+    this.setJobs().forEach((obs) => obs.subscribe());
   }
 
   /**
@@ -112,21 +112,32 @@ export class SearchBoxComponent implements OnInit {
    * @returns Filtered jobs
    */
   filterJobs(search: string): string[] {
-    return this.jobs.filter((job) => job.toLowerCase().includes(search.toLowerCase()));
+    const jobs = this.jobsResults.map((result) => result['Occupation']);
+    const altJobs = this.altJobsResults.map((result) => result['Alt Title']);
+    const combinedJobs = jobs.concat(altJobs);
+    if (search.length > 2) {
+      return combinedJobs.filter((job) => job.toLowerCase().includes(search.toLowerCase()));
+    } else {
+      return [];
+    }
   }
 
   /**
-   * Gets list of all jobs
-   * @returns jobs
+   * Sets lists of jobs and alternate job titles
+   * @returns Observables
    */
-  setJobs(): Observable<unknown> {
-    return this.http.get('assets/data/index.json', { responseType: 'text' }).pipe(
+  setJobs(): Observable<string>[] {
+    const jobsObs = this.http.get('assets/data/index.json', { responseType: 'text' }).pipe(
       tap((result) => {
-        const parsedResult: JobInfo[] = JSON.parse(result);
-        this.jobsResults = parsedResult;
-        this.jobs = parsedResult.map((result) => result['Occupation']);
+        this.jobsResults = JSON.parse(result);
       })
     );
+    const jobsAltObs = this.http.get('assets/data/alt_titles.json', { responseType: 'text' }).pipe(
+      tap((result) => {
+        this.altJobsResults = JSON.parse(result);
+      })
+    );
+    return [jobsObs, jobsAltObs];
   }
 
   /**
@@ -134,7 +145,9 @@ export class SearchBoxComponent implements OnInit {
    * @param job
    */
   loadProfile(job: string): void {
-    const code = this.jobsResults.find((result) => result.Occupation === job)?.Code;
+    const code =
+      this.jobsResults.find((result) => result.Occupation === job)?.Code ||
+      this.altJobsResults.find((result) => result['Alt Title'] === job)?.Code;
     this.router.navigate(['/profile', { code: code }]);
   }
 }

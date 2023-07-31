@@ -39,8 +39,25 @@ describe('SearchBoxComponent', () => {
   });
 
   it('filters jobs', () => {
-    component.jobs = ['job1', 'job2', 'job3'];
-    expect(component.filterJobs('job1')).toEqual(['job1']);
+    component.jobsResults = [
+      {
+        Code: '11111',
+        'Data-level': '',
+        'Job Zone': '',
+        Occupation: 'test',
+        'Alt Title': '',
+      },
+    ];
+    component.altJobsResults = [
+      {
+        Code: '11111',
+        'Data-level': '',
+        'Job Zone': '',
+        Occupation: 'test',
+        'Alt Title': 'alt',
+      },
+    ];
+    expect(component.filterJobs('alt')).toEqual(['alt']);
   });
 
   it('loads profile', () => {
@@ -51,6 +68,7 @@ describe('SearchBoxComponent', () => {
         'Data-level': '',
         'Job Zone': '',
         Occupation: 'test',
+        'Alt Title': 'alt',
       },
     ];
     component.loadProfile('test');
@@ -65,6 +83,7 @@ describe('SearchBoxComponent', () => {
         'Data-level': '',
         'Job Zone': '',
         Occupation: 'test',
+        'Alt Title': 'alt',
       },
     ];
     component.loadProfile('aaa');

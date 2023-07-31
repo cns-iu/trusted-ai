@@ -24,6 +24,8 @@ export interface JobInfo {
   'Job Zone': string;
   /** Job title */
   Occupation: string;
+  /** Alternate job title */
+  'Alt Title': string;
 }
 
 /**

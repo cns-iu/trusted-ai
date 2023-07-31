@@ -57,6 +57,7 @@ describe('OccupationsPageComponent', () => {
         Code: '111',
         'Job Zone': '0',
         'Data-level': '0',
+        'Alt Title': 'alt',
       },
     ];
     component.filterJobs(testFilters);
@@ -75,6 +76,7 @@ describe('OccupationsPageComponent', () => {
         Code: '111',
         'Job Zone': '0',
         'Data-level': '0',
+        'Alt Title': 'alt',
       },
     ];
     component.filterJobs(testFilters);
@@ -93,6 +95,7 @@ describe('OccupationsPageComponent', () => {
         Code: '111',
         'Job Zone': '0',
         'Data-level': '0',
+        'Alt Title': 'alt',
       },
     ];
     component.filterJobs(testFilters);
@@ -111,6 +114,7 @@ describe('OccupationsPageComponent', () => {
         Code: '111',
         'Job Zone': '0',
         'Data-level': '0',
+        'Alt Title': 'alt',
       },
     ];
     component.filterJobs(testFilters);
@@ -129,6 +133,7 @@ describe('OccupationsPageComponent', () => {
         Code: '111',
         'Job Zone': '3',
         'Data-level': 'Y',
+        'Alt Title': 'alt',
       },
     ];
     component.filterJobs(testFilters);
@@ -148,6 +153,7 @@ describe('OccupationsPageComponent', () => {
       'Data-level': '',
       'Job Zone': '',
       Occupation: '',
+      'Alt Title': 'alt',
     });
     expect(spy).toHaveBeenCalledWith(['/profile', { code: '11111' }]);
   });
@@ -159,18 +165,21 @@ describe('OccupationsPageComponent', () => {
         Code: '1',
         'Job Zone': '1',
         'Data-level': '0',
+        'Alt Title': 'alt',
       },
       {
         Occupation: 'B',
         Code: '2',
         'Job Zone': '2',
         'Data-level': '0',
+        'Alt Title': 'alt',
       },
       {
         Occupation: 'C',
         Code: '3',
         'Job Zone': '3',
         'Data-level': '0',
+        'Alt Title': 'alt',
       },
     ];
 
