@@ -163,6 +163,7 @@
           There are no technology skills associated with this occupation at this time.
         </div>
         <trust-ai-profile-technology-skills
+          *ngIf="techSkills.length > 0"
           [allSkills]="techSkills"
           [showAll]="showAllSkills"
           (showAllButtonClick)="showAllTechnologyButtonClicked()"

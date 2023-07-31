@@ -32,7 +32,7 @@ describe('OccupationsPageComponent', () => {
   });
 
   it('sets jobs', () => {
-    component.setJobs().subscribe((jobs) => {
+    component.setJobs()[0].subscribe((jobs) => {
       expect(jobs).toEqual({ data: [] });
     });
     const request = controller.expectOne('assets/data/index.json');
@@ -51,7 +51,7 @@ describe('OccupationsPageComponent', () => {
       showOccupations: '0',
       searchTerm: 'test',
     };
-    component.allJobs = [
+    component.jobsResults = [
       {
         Occupation: 'test',
         Code: '111',
@@ -61,7 +61,7 @@ describe('OccupationsPageComponent', () => {
       },
     ];
     component.filterJobs(testFilters);
-    expect(component.filteredJobs).toEqual(component.allJobs);
+    expect(component.filteredJobs).toEqual(component.jobsResults);
   });
 
   it('filters jobs by code', () => {
@@ -70,7 +70,7 @@ describe('OccupationsPageComponent', () => {
       showOccupations: '0',
       searchTerm: '111',
     };
-    component.allJobs = [
+    component.jobsResults = [
       {
         Occupation: 'test',
         Code: '111',
@@ -80,7 +80,7 @@ describe('OccupationsPageComponent', () => {
       },
     ];
     component.filterJobs(testFilters);
-    expect(component.filteredJobs).toEqual(component.allJobs);
+    expect(component.filteredJobs).toEqual(component.jobsResults);
   });
 
   it("doesn't display job if Occupation is missing", () => {
@@ -89,7 +89,7 @@ describe('OccupationsPageComponent', () => {
       showOccupations: '0',
       searchTerm: 'test',
     };
-    component.allJobs = [
+    component.jobsResults = [
       {
         Occupation: '',
         Code: '111',
@@ -108,7 +108,7 @@ describe('OccupationsPageComponent', () => {
       showOccupations: '0',
       searchTerm: 'title',
     };
-    component.allJobs = [
+    component.jobsResults = [
       {
         Occupation: 'title',
         Code: '111',
@@ -118,7 +118,7 @@ describe('OccupationsPageComponent', () => {
       },
     ];
     component.filterJobs(testFilters);
-    expect(component.filteredJobs).toEqual(component.allJobs);
+    expect(component.filteredJobs).toEqual(component.jobsResults);
   });
 
   it('finds jobs with matching data-level', () => {
@@ -127,7 +127,7 @@ describe('OccupationsPageComponent', () => {
       showOccupations: '1',
       searchTerm: 'title',
     };
-    component.allJobs = [
+    component.jobsResults = [
       {
         Occupation: 'title',
         Code: '111',
@@ -137,7 +137,7 @@ describe('OccupationsPageComponent', () => {
       },
     ];
     component.filterJobs(testFilters);
-    expect(component.filteredJobs).toEqual(component.allJobs);
+    expect(component.filteredJobs).toEqual(component.jobsResults);
   });
 
   it('scrolls to top', () => {
