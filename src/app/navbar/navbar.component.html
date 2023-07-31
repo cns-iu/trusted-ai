@@ -1,5 +1,4 @@
 <div class="navbar-content">
-  <!-- <div *ngIf="(notHome$ | async) === false" class="filler"></div> -->
   <a class="home-icon" *ngIf="notHome$ | async" routerLink="/">
     <mat-icon fontSet="material-icons-outlined">home</mat-icon>
   </a>
