@@ -687,7 +687,7 @@ export function createTreemap(values: TreemapData[], layers: number): Visualizat
             font: { value: 'Helvetica Neue, Arial' },
             align: { value: 'center' },
             baseline: { value: 'middle' },
-            fill: { value: averageProficiency > 5 ? 'white' : 'black' },
+            fill: { value: averageProficiency > 4 ? 'white' : 'black' },
             text: { field: 'name' },
             fontSize: { scale: 'size', field: 'depth' },
             fillOpacity: { scale: 'opacity', field: 'depth' }

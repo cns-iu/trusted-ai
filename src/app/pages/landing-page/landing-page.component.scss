@@ -3,6 +3,10 @@
   width: 100%;
 
   @media (width <= 1240px) {
+    .search-title {
+      font-size: 1.5rem !important;
+    }
+
     .info-section {
       gap: 3rem !important;
       padding: 4rem 1rem !important;
@@ -70,16 +74,14 @@
         width: calc(100% - 3rem);
 
         .search-title {
-          font-style: normal;
-          font-size: 1.5rem;
-          line-height: 1.875rem;
+          font-size: 1.75rem;
           text-align: center;
         }
       }
     }
 
     .explore-title {
-      font-size: 2rem;
+      font-size: 1.9rem;
       text-align: center;
       margin: 0 auto;
       color: #22005d;

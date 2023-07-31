@@ -50,9 +50,8 @@
       display: flex;
       padding: 1.5rem 17.25rem 0 17.25rem;
       flex-direction: column;
-      align-items: flex-start;
       gap: 1.5rem;
-      align-self: stretch;
+      max-width: 80rem;
 
       ::ng-deep markdown {
         font-family: Roboto;

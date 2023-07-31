@@ -89,7 +89,8 @@
       flex-direction: column;
       gap: 1rem;
       padding: 6.5rem 0 2rem 0;
-      width: 50%;
+      width: 100%;
+      max-width: 40rem;
       font-weight: 500;
       font-size: 0.875rem;
       color: #22005d;
@@ -104,8 +105,8 @@
     .content,
     .section-title,
     .code {
-      width: 65%;
-      max-width: 60rem;
+      width: 80%;
+      max-width: 80rem;
     }
 
     .section-header {
@@ -238,11 +239,11 @@
       }
 
       .salary-nat {
-        height: 30vh;
+        height: 40vh;
       }
 
       .salary-states {
-        height: 40vh;
+        height: 50vh;
       }
 
       .salary-ind {
