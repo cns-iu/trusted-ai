@@ -28,6 +28,7 @@ export class CareerCardComponent {
     'Job Zone': '1',
     'Data-level': '',
     Code: '',
+    'Alt Title': '',
   };
 
   /** Emits job info when job is clicked */
