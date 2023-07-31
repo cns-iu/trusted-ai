@@ -5,18 +5,18 @@ import { VisualizationSpec } from 'vega-embed';
 const stateIds: Record<string, string> = {
   Alabama: '01',
   Alaska: '02',
-  'American Samoa': '60',
+  // 'American Samoa': '60',
   Arizona: '04',
   Arkansas: '05',
   California: '06',
-  'Commonwealth of the Northern Mariana Islands': '69',
+  // 'Commonwealth of the Northern Mariana Islands': '69',
   Colorado: '08',
   Connecticut: '09',
   Delaware: '10',
   'District of Columbia': '11',
   Florida: '12',
   Georgia: '13',
-  Guam: '66',
+  // Guam: '66',
   Hawaii: '15',
   Idaho: '16',
   Illinois: '17',
@@ -45,7 +45,7 @@ const stateIds: Record<string, string> = {
   Oklahoma: '40',
   Oregon: '41',
   Pennsylvania: '42',
-  'Puerto Rico': '72',
+  // 'Puerto Rico': '72',
   'Rhode Island': '44',
   'South Carolina': '45',
   'South Dakota': '46',
@@ -54,7 +54,7 @@ const stateIds: Record<string, string> = {
   Utah: '49',
   Vermont: '50',
   Virginia: '51',
-  'Virgin Islands': '78',
+  // 'Virgin Islands': '78',
   Washington: '53',
   'West Virginia': '54',
   Wisconsin: '55',
@@ -543,12 +543,6 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
           x: { field: 'mid_box_salary', type: 'quantitative' },
           x2: { field: 'upper_box_salary' },
           color: { value: '#CFBCFF' }
-        }
-      },
-      {
-        mark: { type: 'tick', color: 'transparent' },
-        encoding: {
-          x: { field: 'mid_box_salary', type: 'quantitative' }
         }
       }
     ]
