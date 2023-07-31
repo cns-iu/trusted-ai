@@ -51,8 +51,11 @@ export class OccupationsPageComponent implements OnInit {
   /** Angular router */
   private readonly router = inject(Router);
 
-  /** List of all jobs */
-  allJobs: JobInfo[] = [];
+  /** Main job list */
+  jobsResults: JobInfo[] = [];
+
+  /** Alternate job title list  */
+  altJobsResults: JobInfo[] = [];
 
   /** List of filtered jobs */
   filteredJobs: JobInfo[] = [];
@@ -79,24 +82,32 @@ export class OccupationsPageComponent implements OnInit {
 
   /** Subscribes to setJobs on init */
   ngOnInit(): void {
-    this.setJobs().subscribe();
+    this.setJobs().forEach((obs) => obs.subscribe());
   }
 
-  /** Converts csv to job entries and updates the shown list when filter is changed */
-  setJobs(): Observable<unknown> {
-    return this.http.get('assets/data/index.json', { responseType: 'text' }).pipe(
+  /**
+   * Converts csv to job entries and updates the shown list when filter is changed, also fetches alternate job title data
+   * @returns Observables
+   */
+  setJobs(): Observable<string>[] {
+    const jobsObs = this.http.get('assets/data/index.json', { responseType: 'text' }).pipe(
       tap((result) => {
-        const parsedResult = JSON.parse(result);
-        this.allJobs = parsedResult;
+        this.jobsResults = JSON.parse(result);
         this.filterJobs(this.currentFilters);
       })
     );
+    const jobsAltObs = this.http.get('assets/data/alt_titles.json', { responseType: 'text' }).pipe(
+      tap((result) => {
+        this.altJobsResults = JSON.parse(result);
+      })
+    );
+    return [jobsObs, jobsAltObs];
   }
 
   /** Filters list of jobs based on search filters */
   filterJobs(filters: SearchFilters): void {
     this.currentFilters = filters;
-    this.filteredJobs = this.allJobs
+    this.filteredJobs = this.jobsResults
       .filter((job) =>
         job['Occupation']
           ? job['Occupation'].toLowerCase().includes(filters['searchTerm'].toLowerCase()) ||
@@ -106,7 +117,6 @@ export class OccupationsPageComponent implements OnInit {
       .filter(
         (job) => filters['preparednessLevel'] === '0' || job['Job Zone'].toString() === filters['preparednessLevel']
       );
-    // .filter((job) => filters['showOccupations'] === '0' || job['Data-level'] === 'Y');
     this.sortJobs(this.sortBy);
   }
 
@@ -149,6 +159,22 @@ export class OccupationsPageComponent implements OnInit {
         return x == y ? 0 : x < y ? 1 : -1;
       }
     });
+    this.filteredJobs = [
+      ...new Set([...this.filteredJobs, ...this.findMatchingJobs(this.currentFilters['searchTerm'])]),
+    ];
+  }
+
+  /**
+   * Finds entries in the main jobs list that match an alternate job title search
+   * @param query Search query
+   * @returns matching jobs
+   */
+  private findMatchingJobs(query: string): JobInfo[] {
+    const matchingAlts = this.altJobsResults.filter((result) =>
+      result['Alt Title'].toLowerCase().includes(query.toLowerCase())
+    );
+    const matchingCodes = new Set(matchingAlts.map((alt) => alt.Code));
+    return this.jobsResults.filter((result) => matchingCodes.has(result.Code));
   }
 
   /** Scrolls to top of page */
