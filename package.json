@@ -23,6 +23,7 @@
     "@ngxs/store": "^3.8.0",
     "@nx/angular": "16.0.0",
     "css-element-queries": "^1.2.3",
+    "ngx-infinite-scroll": "^15.0.0",
     "ngx-markdown": "^15.1.2",
     "papaparse": "^5.4.1",
     "react": "^18.2.0",

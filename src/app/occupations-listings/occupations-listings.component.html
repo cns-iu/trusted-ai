@@ -9,9 +9,15 @@
   </div>
 </div>
 
-<div class="job-list">
+<div
+  class="job-list"
+  infinite-scroll
+  [infiniteScrollDistance]="1"
+  [infiniteScrollThrottle]="500"
+  (scrolled)="onScrollDown()"
+>
   <trust-ai-career-card
-    *ngFor="let job of allJobs"
+    *ngFor="let job of jobsToDisplay"
     [jobInfo]="job"
     (jobClicked)="jobClicked.emit($event)"
   ></trust-ai-career-card>
