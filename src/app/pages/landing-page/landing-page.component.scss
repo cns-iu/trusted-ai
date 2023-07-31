@@ -57,6 +57,7 @@
       flex-direction: column;
       align-items: center;
       gap: 2rem;
+      max-width: 50rem;
 
       .search-box {
         padding: 2rem 1.5rem;
@@ -98,18 +99,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
 
       .info-title {
         font-size: 2.5rem;
         text-align: center;
         color: #22005d;
-      }
-
-      .divider {
-        width: 2rem;
-        height: 0.5rem;
-        background: #1c1b1e;
       }
     }
 
@@ -117,6 +111,7 @@
       display: flex;
       justify-content: space-between;
       gap: 3.5rem;
+      max-width: 80rem;
 
       .info-item {
         display: flex;
@@ -124,6 +119,7 @@
         align-items: center;
         gap: 1rem;
         width: 33%;
+        min-width: 22rem;
 
         .info-item-name {
           font-size: 1.5rem;

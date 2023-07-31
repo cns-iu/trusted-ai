@@ -213,7 +213,7 @@ export function createSalaryNatPlot(values: SalaryInfo[], type: 'hourly' | 'annu
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     width: 'container',
-    height: window.innerWidth * .4,
+    height: 'container',
     data: {
       values: parseNatData(values, type)
     },
@@ -320,7 +320,8 @@ export function createStatePlot(values: SalaryInfo[], section: string, type?: 'h
     data: {
       values: parseStateData(values, type)
     },
-    height: window.innerWidth * .4,
+    width: 'container',
+    height: 'container',
     params: [
       {
         name: 'gradientHeight',
@@ -337,9 +338,12 @@ export function createStatePlot(values: SalaryInfo[], section: string, type?: 'h
       {
         name: 'gradientWidth',
         expr: `if (${window.innerWidth} <= 600, 10, 20)`
+      },
+      {
+        name: 'titlePadding',
+        expr: `if (${window.innerWidth} <= 600, 5, 15)`
       }
     ],
-    width: 'container',
     transform: [
       {
         lookup: 'id',
@@ -396,7 +400,7 @@ export function createStatePlot(values: SalaryInfo[], section: string, type?: 'h
           gradientThickness: { expr: 'gradientWidth' },
           labelFontSize: { expr: 'gradientLabelSize' },
           format: value === 'mean' ? '$,f' : ',d',
-          titlePadding: 10
+          titlePadding: { expr: 'titlePadding' },
         }
       },
       tooltip: [
@@ -430,7 +434,7 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
   return {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     width: 'container',
-    height: 100 + data.length * 30,
+    height: 150 + data.length * 30,
     data: {
       values: data
     },
@@ -500,8 +504,8 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
           field: 'upper_whisker_salary',
           title: '90th percentile',
           format: '$,.0f'
-        },
-      ],
+        }
+      ]
     },
     layer: [
       {
@@ -510,18 +514,19 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
           x: {
             field: 'lower_whisker_salary',
             type: 'quantitative',
-            scale: { zero: false },
             title: type === 'annual' ? 'Salary ($/yr)' : 'Salary ($/hr)',
+            scale: { zero: false },
             axis: {
               labelFontSize: { expr: 'labelFontSize' },
               titleFontSize: { expr: 'axisTitleSize' },
               format: '$,f',
               labelFlush: false,
-              labelLimit: 0,
+              labelSeparation: 10,
               grid: false
             }
-          },
-          x2: { field: 'upper_whisker_salary' },
+          }
+          ,
+          x2: { field: 'upper_whisker_salary' }
         }
       },
       {
@@ -529,21 +534,21 @@ export function createSalaryIndPlot(values: SalaryInfo[], type: 'hourly' | 'annu
         encoding: {
           x: { field: 'lower_box_salary', type: 'quantitative', },
           x2: { field: 'mid_box_salary' },
-          color: { value: '#6750A4' },
+          color: { value: '#6750A4' }
         }
       },
       {
         mark: { type: 'bar', size: { expr: 'barSize' } },
         encoding: {
-          x: { field: 'mid_box_salary', type: 'quantitative', },
+          x: { field: 'mid_box_salary', type: 'quantitative' },
           x2: { field: 'upper_box_salary' },
-          color: { value: '#CFBCFF' },
+          color: { value: '#CFBCFF' }
         }
       },
       {
         mark: { type: 'tick', color: 'transparent' },
         encoding: {
-          x: { field: 'mid_box_salary', type: 'quantitative' },
+          x: { field: 'mid_box_salary', type: 'quantitative' }
         }
       }
     ]
@@ -715,7 +720,7 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     description: "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
     width: 'container',
-    height: 100 + data.length * 10,
+    height: 150 + data.length * 10,
     data: { values: data },
     params: [
       {
@@ -737,6 +742,16 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
       {
         name: 'labelFontSize',
         expr: `if (${window.innerWidth} <= 600, 10, 15)`
+      }
+    ],
+    transform: [
+      {
+        calculate: 'datum.employed * 1000',
+        as: 'employmentThousands'
+      },
+      {
+        calculate: 'datum.per_change_10 / 100',
+        as: 'emp_change_per'
       }
     ],
     encoding: {
@@ -771,12 +786,14 @@ export function createProjectionsPlot(values: ProjectionInfo[]): VisualizationSp
           title: 'Industry'
         },
         {
-          field: 'employed',
-          title: 'Total employed (thousands)'
+          field: 'employmentThousands',
+          title: 'Total employed',
+          format: ',d'
         },
         {
-          field: 'per_change_10',
-          title: 'Employment Change (%)',
+          field: 'emp_change_per',
+          title: 'Employment Change',
+          format: '~%'
         },
       ],
     },
