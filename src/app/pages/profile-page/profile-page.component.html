@@ -278,7 +278,7 @@
         comes from the Occupation Employment and Wage Statistics (May 2022)), which are published annually by the US
         Bureau of Labor Statistics.
       </div>
-      <div class="sub-section-content" [class.no-data]="isEmpty(salaryStatesInfo, 'emp')">
+      <div class="sub-section-content employment-nat" [class.no-data]="isEmpty(salaryStatesInfo, 'emp')">
         <div class="missing-text" [class.hidden]="!isEmpty(salaryStatesInfo, 'emp')">
           There is no employment data at this time.
         </div>
@@ -307,7 +307,8 @@
         2031. The first line shows the national percent change in employment; while preceding lines show industries that
         employ the most people in this occupation in 2021. Line color is used to highlight positive and negative change
         predicted in ten years. These projections come from the Occupational Employment Projections, which are published
-        annually by the US Bureau of Labor Statistics.
+        annually by the US Bureau of Labor Statistics. Hovering over a point shows the number of people employed or
+        projected to be employed for each year.
       </div>
       <div class="sub-section-content" [class.no-data]="projectionInfo.length === 0">
         <div class="missing-text" [class.hidden]="projectionInfo.length > 0">

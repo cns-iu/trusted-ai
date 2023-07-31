@@ -26,6 +26,10 @@
         }
       }
     }
+
+    trust-ai-treemap {
+      height: 50vw !important;
+    }
   }
 
   @media (600px < width < 1240px) {
@@ -34,6 +38,12 @@
     .code,
     .search-content {
       width: calc(100% - 10rem) !important;
+    }
+
+    .salary-states,
+    .salary-nat,
+    .employment-nat {
+      height: 35vh !important;
     }
   }
 
@@ -62,8 +72,10 @@
       font-size: 0.875rem !important;
     }
 
-    trust-ai-treemap {
-      height: 50vw !important;
+    .salary-states,
+    .salary-nat,
+    .employment-nat {
+      height: 25vh !important;
     }
 
     .resource-link {
@@ -83,7 +95,8 @@
       flex-direction: column;
       gap: 1rem;
       padding: 6.5rem 0 2rem 0;
-      width: 50%;
+      width: 100%;
+      max-width: 40rem;
       font-weight: 500;
       font-size: 0.875rem;
       color: #22005d;
@@ -98,7 +111,8 @@
     .content,
     .section-title,
     .code {
-      width: 65%;
+      width: 80%;
+      max-width: 80rem;
     }
 
     .section-header {
@@ -130,7 +144,7 @@
       display: flex;
       flex-direction: column;
       padding: 1.5rem 0;
-      gap: 1rem;
+      gap: 1.5rem;
 
       .sub-section {
         display: flex;
@@ -149,7 +163,6 @@
         .sub-section-content {
           font-size: 1rem;
           line-height: 1.5rem;
-          width: 100%;
         }
       }
 
@@ -231,29 +244,30 @@
         width: 100% !important;
       }
 
+      .salary-nat {
+        height: 40vh;
+      }
+
       .salary-states {
-        height: fit-content;
+        height: 50vh;
       }
 
       .salary-ind {
         display: flex;
         flex-direction: column;
-        height: auto;
         gap: 1rem;
-
-        trust-ai-profile-salary {
-          width: 100%;
-
-          ::ng-deep svg {
-            height: fit-content;
-          }
-        }
 
         img {
           max-height: 5rem;
           max-width: 70%;
           align-self: center;
         }
+      }
+    }
+
+    &.employment {
+      .employment-nat {
+        height: 50vh;
       }
     }
 
@@ -401,15 +415,11 @@
 
 ::ng-deep .vg-tooltip {
   font-size: 1rem !important;
+  max-height: unset !important;
 }
 
 @media (width <= 600px) {
   ::ng-deep .vg-tooltip {
     font-size: 11px !important;
-
-    .value {
-      max-width: 30vw !important;
-      max-height: unset !important;
-    }
   }
 }
