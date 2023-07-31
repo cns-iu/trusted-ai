@@ -385,8 +385,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="438"
-                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:438</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="441"
+                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:441</a></div>
                 </td>
             </tr>
 
@@ -462,8 +462,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="459"
-                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:459</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="462"
+                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:462</a></div>
                 </td>
             </tr>
 
@@ -501,8 +501,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="429"
-                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:429</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="432"
+                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:432</a></div>
                 </td>
             </tr>
 
@@ -540,8 +540,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="445"
-                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:445</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="448"
+                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:448</a></div>
                 </td>
             </tr>
 
@@ -579,8 +579,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="452"
-                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:452</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="455"
+                            class="link-to-prism">src/app/pages/profile-page/profile-page.component.ts:455</a></div>
                 </td>
             </tr>
 
@@ -1844,14 +1844,17 @@ export class ProfilePageComponent implements OnInit {
         if (tech_skills) {
           this.setSkillsGrouping(tech_skills);
         }
-        if (salary_states) {
-          this.salaryStatesInfo &#x3D; salary_states;
-        }
         if (salary_nat) {
           this.salaryNatInfo &#x3D; salary_nat;
+          this.salaryNatSelection &#x3D; this.isEmpty(this.salaryNatInfo, &#x27;annual&#x27;) ? &#x27;hourly&#x27; : &#x27;annual&#x27;;
+        }
+        if (salary_states) {
+          this.salaryStatesInfo &#x3D; salary_states;
+          this.salaryStatesSelection &#x3D; this.isEmpty(this.salaryStatesInfo, &#x27;annual&#x27;) ? &#x27;hourly&#x27; : &#x27;annual&#x27;;
         }
         if (salary_ind) {
           this.salaryIndInfo &#x3D; salary_ind;
+          this.salaryIndSelection &#x3D; this.isEmpty(this.salaryIndInfo, &#x27;annual&#x27;) ? &#x27;hourly&#x27; : &#x27;annual&#x27;;
         }
         if (work_tasks) {
           this.workTasks &#x3D; work_tasks;
@@ -2397,16 +2400,8 @@ export class ProfilePageComponent implements OnInit {
       font-size: 0.875rem !important;
     }
 
-    .salary-ind {
-      ::ng-deep svg {
-        height: 70vw !important;
-      }
-    }
-
-    .projection {
-      ::ng-deep svg {
-        height: 100vw !important;
-      }
+    trust-ai-treemap {
+      height: 50vw !important;
     }
 
     .resource-link {
@@ -2548,12 +2543,11 @@ export class ProfilePageComponent implements OnInit {
         }
 
         trust-ai-treemap {
-          height: 50vw !important;
-        }
+          height: 30vw;
 
-        svg {
-          width: 100% !important;
-          height: 100% !important;
+          svg {
+            max-width: 100%;
+          }
         }
       }
     }
@@ -2575,12 +2569,8 @@ export class ProfilePageComponent implements OnInit {
         width: 100% !important;
       }
 
-      .salary-nat {
-        height: 40vw;
-      }
-
       .salary-states {
-        height: 50vw;
+        height: fit-content;
       }
 
       .salary-ind {
@@ -2593,7 +2583,7 @@ export class ProfilePageComponent implements OnInit {
           width: 100%;
 
           ::ng-deep svg {
-            height: 50vw;
+            height: fit-content;
           }
         }
 
@@ -2607,10 +2597,6 @@ export class ProfilePageComponent implements OnInit {
 
     &amp;.projection {
       .sub-section {
-        ::ng-deep svg {
-          height: 50vw;
-        }
-
         .button-group {
           display: flex;
           gap: 1rem;
@@ -2741,18 +2727,14 @@ export class ProfilePageComponent implements OnInit {
 
   svg {
     overflow: visible;
+    height: 100%;
+    width: 100%;
   }
 }
 
 ::ng-deep .vega-embed {
   width: 100%;
   height: 100%;
-
-  .chart-wrapper {
-    canvas {
-      max-width: 100%;
-    }
-  }
 }
 
 ::ng-deep .vg-tooltip {
@@ -2762,8 +2744,10 @@ export class ProfilePageComponent implements OnInit {
 @media (width &lt;&#x3D; 600px) {
   ::ng-deep .vg-tooltip {
     font-size: 11px !important;
+
     .value {
       max-width: 30vw !important;
+      max-height: unset !important;
     }
   }
 }
