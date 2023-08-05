@@ -27,7 +27,9 @@ jobs:
           generate-index: 'false'
 
       - name: Copy app to top directory
-        run: cp -r deploy/apps/trust-ai/* deploy
+        run: |
+          cp -r deploy/apps/trust-ai/* deploy
+          cp deploy/index.html deploy/404.html
 
       - name: Publish
         uses: peaceiris/actions-gh-pages@v3
