@@ -116,10 +116,23 @@ export class SearchBoxComponent implements OnInit {
     const altJobs = this.altJobsResults.map((result) => result['Alt Title']);
     const combinedJobs = jobs.concat(altJobs);
     if (search.length > 2) {
-      return combinedJobs.filter((job) => job.toLowerCase().includes(search.toLowerCase()));
+      const combinedFilteredJobs = combinedJobs.filter((job) => job.toLowerCase().includes(search.toLowerCase()));
+      return this.sortJobsByQuery(combinedFilteredJobs, search);
     } else {
       return [];
     }
+  }
+
+  /**
+   * Sorts job titles by position the query matches
+   * @param jobs Unsorted job title list
+   * @param query Current search query
+   * @returns sorted job list
+   */
+  private sortJobsByQuery(jobs: string[], query: string) {
+    return jobs.sort((a, b) => {
+      return a.toLowerCase().indexOf(query) > b.toLowerCase().indexOf(query) ? 1 : -1;
+    });
   }
 
   /**

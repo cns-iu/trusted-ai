@@ -53,11 +53,18 @@ describe('SearchBoxComponent', () => {
         Code: '11111',
         'Data-level': '',
         'Job Zone': '',
-        Occupation: 'test',
+        Occupation: 'test2',
         'Alt Title': 'alt',
       },
+      {
+        Code: '11111',
+        'Data-level': '',
+        'Job Zone': '',
+        Occupation: 'tes3',
+        'Alt Title': '123alt',
+      },
     ];
-    expect(component.filterJobs('alt')).toEqual(['alt']);
+    expect(component.filterJobs('alt')).toEqual(['alt', '123alt']);
   });
 
   it('loads profile', () => {
@@ -72,6 +79,21 @@ describe('SearchBoxComponent', () => {
       },
     ];
     component.loadProfile('test');
+    expect(spy).toHaveBeenCalledWith(['/profile', { code: '11111' }]);
+  });
+
+  it('loads profile of related job if alternate title found', () => {
+    const spy = jest.spyOn(router, 'navigate');
+    component.altJobsResults = [
+      {
+        Code: '11111',
+        'Data-level': '',
+        'Job Zone': '',
+        Occupation: 'test',
+        'Alt Title': 'alt',
+      },
+    ];
+    component.loadProfile('alt');
     expect(spy).toHaveBeenCalledWith(['/profile', { code: '11111' }]);
   });
 
