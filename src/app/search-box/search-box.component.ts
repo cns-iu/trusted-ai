@@ -123,6 +123,12 @@ export class SearchBoxComponent implements OnInit {
     }
   }
 
+  /**
+   * Sorts job titles by position the query matches
+   * @param jobs Unsorted job title list
+   * @param query Current search query
+   * @returns sorted job list
+   */
   private sortJobsByQuery(jobs: string[], query: string) {
     return jobs.sort((a, b) => {
       return a.toLowerCase().indexOf(query) > b.toLowerCase().indexOf(query) ? 1 : -1;
