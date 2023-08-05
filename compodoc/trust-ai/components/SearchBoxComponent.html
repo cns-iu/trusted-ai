@@ -594,8 +594,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="147"
-                            class="link-to-prism">src/app/search-box/search-box.component.ts:147</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="160"
+                            class="link-to-prism">src/app/search-box/search-box.component.ts:160</a></div>
                 </td>
             </tr>
 
@@ -665,8 +665,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">src/app/search-box/search-box.component.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">src/app/search-box/search-box.component.ts:142</a></div>
                 </td>
             </tr>
 
@@ -1047,10 +1047,23 @@ export class SearchBoxComponent implements OnInit {
     const altJobs &#x3D; this.altJobsResults.map((result) &#x3D;&gt; result[&#x27;Alt Title&#x27;]);
     const combinedJobs &#x3D; jobs.concat(altJobs);
     if (search.length &gt; 2) {
-      return combinedJobs.filter((job) &#x3D;&gt; job.toLowerCase().includes(search.toLowerCase()));
+      const combinedFilteredJobs &#x3D; combinedJobs.filter((job) &#x3D;&gt; job.toLowerCase().includes(search.toLowerCase()));
+      return this.sortJobsByQuery(combinedFilteredJobs, search);
     } else {
       return [];
     }
+  }
+
+  /**
+   * Sorts job titles by position the query matches
+   * @param jobs Unsorted job title list
+   * @param query Current search query
+   * @returns sorted job list
+   */
+  private sortJobsByQuery(jobs: string[], query: string) {
+    return jobs.sort((a, b) &#x3D;&gt; {
+      return a.toLowerCase().indexOf(query) &gt; b.toLowerCase().indexOf(query) ? 1 : -1;
+    });
   }
 
   /**
